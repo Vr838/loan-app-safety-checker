@@ -3933,6 +3933,8 @@ export const FALLBACK_LATEST_SCAN: ScanRun = {
   queries_attempted: ["instant personal loan india", "quick cash loan rupee", "salary advance loan india", "personal loan emi india", "payday loan instant approval india", "instant loan app rbi approved", "small loan app online", "instant cash loan in 5 minutes", "credit loan app", "fast loan approval", "digital lending platform india", "emergency cash loan app"],
   apps_discovered_count: 88,
   apps_collected_count: 88,
+  apps_new_count: 12,
+  apps_refreshed_count: 76,
   apps_failed_count: 0,
   collector_version: "v1.2.0-verified-200"
 };
