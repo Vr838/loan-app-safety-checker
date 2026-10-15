@@ -22,12 +22,24 @@ if "sqlite" in db_url:
 elif "asyncpg" in db_url:
     connect_args["statement_cache_size"] = 0
 
-async_engine = create_async_engine(
-    db_url,
-    echo=settings.DEBUG,
-    connect_args=connect_args,
-    future=True,
-)
+try:
+    async_engine = create_async_engine(
+        db_url,
+        echo=settings.DEBUG,
+        connect_args=connect_args,
+        future=True,
+    )
+except Exception as exc:
+    import logging
+    logging.getLogger("loan_safety_checker").error(
+        f"Database engine init failed for {db_url}: {exc}. Falling back to SQLite."
+    )
+    async_engine = create_async_engine(
+        "sqlite+aiosqlite:///./loan_safety.db",
+        echo=settings.DEBUG,
+        connect_args={"check_same_thread": False},
+        future=True,
+    )
 
 AsyncSessionLocal = async_sessionmaker(
     bind=async_engine,
