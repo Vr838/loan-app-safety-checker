@@ -15,18 +15,17 @@ import logging
 
 logger = logging.getLogger("loan_safety_checker")
 
+import re
+
 raw_db_url = settings.DATABASE_URL
 db_url = raw_db_url
 connect_args = {}
 
-if db_url.startswith("postgresql://"):
-    db_url = db_url.replace("postgresql://", "postgresql+asyncpg://", 1)
-elif db_url.startswith("postgres://"):
-    db_url = db_url.replace("postgres://", "postgresql+asyncpg://", 1)
-
 if "sqlite" in db_url:
     connect_args["check_same_thread"] = False
-elif "asyncpg" in db_url:
+else:
+    # Convert ANY postgresql variant to postgresql+asyncpg://
+    db_url = re.sub(r"^postgres(ql)?(\+[a-zA-Z0-9_]+)?://", "postgresql+asyncpg://", db_url)
     connect_args["statement_cache_size"] = 0
     try:
         parsed = urllib.parse.urlsplit(db_url)
