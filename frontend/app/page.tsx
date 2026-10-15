@@ -11,6 +11,7 @@ import { ScanHistory } from '../components/ScanHistory';
 import {
   fetchAppComparison,
   fetchApps,
+  fetchAllApps,
   fetchHealth,
   fetchLatestScan,
   fetchScanHistory,
@@ -20,6 +21,7 @@ import { ShieldCheck, RefreshCw, Sparkles, Database, FileSpreadsheet } from 'luc
 
 export default function DashboardPage() {
   const [apps, setApps] = useState<AppItem[]>([]);
+  const [allApps, setAllApps] = useState<AppItem[]>([]);
   const [latestScan, setLatestScan] = useState<ScanRun | null>(null);
   const [scanHistory, setScanHistory] = useState<ScanRun[]>([]);
   const [health, setHealth] = useState<HealthStatus | null>(null);
@@ -45,6 +47,9 @@ export default function DashboardPage() {
   const loadData = useCallback(async () => {
     setIsLoading(true);
     try {
+      const fullDataset = fetchAllApps();
+      setAllApps(fullDataset);
+
       const [healthRes, scanRes, scansRes, appsRes] = await Promise.all([
         fetchHealth(),
         fetchLatestScan(),
@@ -112,7 +117,7 @@ export default function DashboardPage() {
       <Navbar
         health={health}
         isLive={isLive}
-        totalApps={totalItems}
+        totalApps={allApps.length > 0 ? allApps.length : totalItems}
         onOpenScanModal={() => {
           setSelectedApp(null);
           setIsScanModalOpen(true);
@@ -153,7 +158,7 @@ export default function DashboardPage() {
 
         {/* Overview Metric Cards */}
         <OverviewMetrics
-          apps={apps}
+          apps={allApps.length > 0 ? allApps : apps}
           latestScan={latestScan}
           onFilterCategory={(cat) => {
             setSelectedCategory(cat);

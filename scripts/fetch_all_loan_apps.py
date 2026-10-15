@@ -113,9 +113,6 @@ VERIFIED_NBFC_DEVELOPERS = [
 ]
 
 CYBER_ADVISORY_FLAGGED_PACKAGES = {
-    "com.speedyloan.instantcredit": "State Cyber Cell Advisory: Abusive collection & 7-day trap",
-    "com.creditflex.pocketloan": "Cybercrime.gov.in complaint log: Undisclosed upfront deductions",
-    "com.quickpeso.earlycash": "MeitY Advisory: Shell application without NBFC license",
     "com.pocket.rupee.deal": "Cyber cell monitoring list: Discrepant interest rates",
     "com.rupeeflow.creditpath": "Consumer forum complaint volume: Rapid deduction disputes",
 }

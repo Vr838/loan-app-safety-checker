@@ -95,6 +95,16 @@ export async function fetchHealth(): Promise<HealthStatus> {
   }
 }
 
+/**
+ * Returns all active, verified live Google Play Store applications (84 apps).
+ * Strictly filtered to remove any delisted apps and enriched with RBI verification and NLP analysis.
+ */
+export function fetchAllApps(): AppItem[] {
+  return VERIFIED_PLAY_STORE_APPS.filter(
+    (a) => a.is_active && a.store_status !== 'delisted',
+  ).map(enrichApp);
+}
+
 export async function fetchApps(params?: {
   q?: string;
   risk_category?: string;
