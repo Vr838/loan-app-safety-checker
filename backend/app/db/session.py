@@ -19,6 +19,8 @@ elif db_url.startswith("postgres://"):
 connect_args = {}
 if "sqlite" in db_url:
     connect_args["check_same_thread"] = False
+elif "asyncpg" in db_url:
+    connect_args["statement_cache_size"] = 0
 
 async_engine = create_async_engine(
     db_url,
