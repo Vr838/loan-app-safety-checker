@@ -34,9 +34,13 @@ async def lifespan(app: FastAPI):
             try:
                 from sqlalchemy import text
                 await conn.execute(text("ALTER TABLE scan_runs ADD COLUMN IF NOT EXISTS apps_new_count INTEGER NOT NULL DEFAULT 0;"))
+            except Exception as col_err1:
+                logger.debug("Column verification apps_new_count: %s", col_err1)
+            try:
+                from sqlalchemy import text
                 await conn.execute(text("ALTER TABLE scan_runs ADD COLUMN IF NOT EXISTS apps_refreshed_count INTEGER NOT NULL DEFAULT 0;"))
-            except Exception as col_err:
-                logger.info("Column verification note: %s", col_err)
+            except Exception as col_err2:
+                logger.debug("Column verification apps_refreshed_count: %s", col_err2)
         logger.info("Database tables verified.")
     except Exception as e:
         logger.warning(f"Database initialization deferred (server will continue running): {e}")
