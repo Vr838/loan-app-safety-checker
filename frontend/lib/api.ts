@@ -15,6 +15,11 @@ import { fetchAppsFromSupabase, fetchLatestScanFromSupabase, isSupabaseConnected
 
 /** Resolve the backend base URL. Returns null when no live backend is configured. */
 function resolveApiBase(): string | null {
+  if (typeof window !== 'undefined') {
+    const custom = localStorage.getItem('loan_checker_api_url')?.trim().replace(/\/$/, '');
+    if (custom) return custom;
+  }
+
   const explicit = process.env.NEXT_PUBLIC_API_BASE_URL?.trim().replace(/\/$/, '');
   if (explicit) return explicit;
 
@@ -295,7 +300,11 @@ export async function triggerScan(
   adminToken: string,
   options?: { max_apps?: number; max_reviews?: number },
 ) {
-  const base = resolveApiBase() ?? 'http://localhost:8000';
+  const base = resolveApiBase();
+  if (!base) {
+    throw new Error('NO_LIVE_BACKEND: Backend API is not connected. Enter your Railway URL in Settings or run Instant Audit Sweep.');
+  }
+
   const res = await fetch(`${base}/api/v1/scans/admin/trigger`, {
     method: 'POST',
     headers: {
