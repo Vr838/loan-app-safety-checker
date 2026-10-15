@@ -182,23 +182,58 @@ export const AppTable: React.FC<AppTableProps> = ({
         </div>
       </div>
 
-      {/* Filter Category Pills */}
-      <div className="px-5 py-2.5 bg-slate-50/60 border-b border-slate-100 flex items-center gap-2 overflow-x-auto scrollbar-none">
-        <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 shrink-0 mr-1">
-          Filter:
-        </span>
-        {categories.map((cat) => {
-          const isSelected = selectedCategory === cat;
-          return (
+      {/* Filter Category Pills & Inline Compare Trigger */}
+      <div className="px-5 py-2.5 bg-slate-50/60 border-b border-slate-100 flex items-center justify-between gap-3 overflow-x-auto scrollbar-none">
+        <div className="flex items-center gap-2 shrink-0">
+          <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 shrink-0 mr-1">
+            Filter:
+          </span>
+          {categories.map((cat) => {
+            const isSelected = selectedCategory === cat;
+            return (
+              <button
+                key={cat}
+                onClick={() => onSelectCategory(cat)}
+                className={`px-3 py-1 rounded-full text-xs font-semibold shrink-0 transition-all ${
+                  isSelected
+                    ? 'bg-slate-900 text-white shadow-xs'
+                    : 'bg-white text-slate-600 border border-slate-200/80 hover:bg-slate-100'
+                }`}
+              >
+                {cat}
+              </button>
+            );
+          })}
+        </div>
+
+        {comparisonIds.length > 0 && (
+          <div className="flex items-center gap-2 shrink-0 animate-in fade-in duration-200">
+            <span className="text-xs text-blue-700 bg-blue-50 border border-blue-200 px-2.5 py-0.5 rounded-full font-semibold">
+              {comparisonIds.length} selected
+            </span>
             <button
-              key={cat}
-              onClick={() => onSelectCategory(cat)}
-              className={`px-3 py-1 rounded-full text-xs font-semibold shrink-0 transition-all ${isSelected ? 'bg-slate-900 text-white shadow-xs' : 'bg-white text-slate-600 border border-slate-200/80 hover:bg-slate-100'}`}
+              onClick={onCompare}
+              disabled={comparisonIds.length < 2}
+              className={`px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1.5 transition-all ${
+                comparisonIds.length >= 2
+                  ? 'bg-blue-600 hover:bg-blue-700 text-white shadow-2xs cursor-pointer'
+                  : 'bg-slate-200 text-slate-400 cursor-not-allowed'
+              }`}
             >
-              {cat}
+              <BarChart3 className="w-3.5 h-3.5" />
+              <span>Compare Now</span>
             </button>
-          );
-        })}
+            {onClearComparison && (
+              <button
+                onClick={onClearComparison}
+                className="text-xs text-slate-400 hover:text-slate-700 px-1.5 py-0.5"
+                title="Clear selection"
+              >
+                Clear
+              </button>
+            )}
+          </div>
+        )}
       </div>
 
       {/* Table */}
@@ -378,45 +413,6 @@ export const AppTable: React.FC<AppTableProps> = ({
           </tbody>
         </table>
       </div>
-
-      {/* Floating Comparison Dock (Apple Dynamic Island style) */}
-      {comparisonIds.length > 0 && (
-        <div className="sticky bottom-0 left-0 right-0 p-3.5 bg-slate-900/90 backdrop-blur-xl text-white border-t border-slate-700/60 flex items-center justify-between shadow-2xl z-30 transition-all">
-          <div className="flex items-center gap-3">
-            <span className="w-6 h-6 rounded-full bg-blue-500 text-white flex items-center justify-center text-xs font-bold shadow-xs">
-              {comparisonIds.length}
-            </span>
-            <span className="text-xs font-medium text-slate-200">
-              {comparisonIds.length === 1
-                ? '1 application selected — select at least 1 more to compare side-by-side'
-                : `${comparisonIds.length} apps selected for side-by-side audit`}
-            </span>
-          </div>
-
-          <div className="flex items-center gap-2.5">
-            {onClearComparison && (
-              <button
-                onClick={onClearComparison}
-                className="text-xs font-medium text-slate-400 hover:text-white px-2.5 py-1.5 rounded-lg hover:bg-slate-800 transition-colors"
-              >
-                Clear
-              </button>
-            )}
-            <button
-              onClick={onCompare}
-              disabled={comparisonIds.length < 2}
-              className={`button-primary text-xs py-2 px-4 shadow-md transition-all active:scale-95 ${
-                comparisonIds.length < 2
-                  ? 'opacity-40 cursor-not-allowed'
-                  : 'bg-blue-600 hover:bg-blue-500 shadow-blue-500/25 ring-2 ring-blue-400/40'
-              }`}
-            >
-              <BarChart3 className="w-3.5 h-3.5" />
-              <span>Compare ({comparisonIds.length}) Side-by-Side</span>
-            </button>
-          </div>
-        </div>
-      )}
 
       {/* Pagination Footer */}
       <footer className="p-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-500">

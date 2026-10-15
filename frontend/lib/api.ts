@@ -69,10 +69,13 @@ async function getJson<T>(path: string): Promise<T> {
 // ─── App Enrichment Helper ───────────────────────────────────────────────────
 
 function enrichApp(app: AppItem): AppItem {
+  const verified = VERIFIED_PLAY_STORE_APPS.find((v) => v.package_id === app.package_id);
+  const assessment = app.latest_assessment ?? verified?.latest_assessment;
   return {
     ...app,
-    rbi_verification: app.rbi_verification ?? getFullRbiCheck(app.package_id, app.developer).verification,
-    multilang_analysis: app.multilang_analysis ?? getMultiLanguageAnalysisForApp(app),
+    latest_assessment: assessment,
+    rbi_verification: app.rbi_verification ?? verified?.rbi_verification ?? getFullRbiCheck(app.package_id, app.developer).verification,
+    multilang_analysis: app.multilang_analysis ?? verified?.multilang_analysis ?? getMultiLanguageAnalysisForApp(app),
   };
 }
 
@@ -98,6 +101,84 @@ export async function fetchHealth(): Promise<HealthStatus> {
       },
     };
   }
+}
+
+/**
+ * Filter verified live dataset locally with full score and category awareness.
+ */
+function filterLocalApps(params?: {
+  q?: string;
+  risk_category?: string;
+  min_rating?: number;
+  sort_by?: string;
+  page?: number;
+  page_size?: number;
+}): AppListResponse {
+  let filtered = VERIFIED_PLAY_STORE_APPS.filter(
+    (a) => a.is_active && a.store_status !== 'delisted',
+  ).map(enrichApp);
+
+  if (params?.q) {
+    const q = params.q.toLowerCase().trim();
+    filtered = filtered.filter(
+      (a) =>
+        a.title.toLowerCase().includes(q) ||
+        a.package_id.toLowerCase().includes(q) ||
+        a.developer.toLowerCase().includes(q),
+    );
+  }
+
+  if (params?.risk_category && params.risk_category !== 'All') {
+    const target = params.risk_category.toLowerCase();
+    filtered = filtered.filter((a) => {
+      const cat = (a.latest_assessment?.risk_category ?? '').toLowerCase();
+      const score = a.latest_assessment?.overall_score ?? 0;
+      if (target.includes('high')) {
+        return cat.includes('high') || score >= 60;
+      }
+      if (target.includes('caution') || target.includes('moderate')) {
+        return cat.includes('caution') || cat.includes('moderate') || (score >= 30 && score < 60);
+      }
+      if (target.includes('lower') || target.includes('safe')) {
+        return cat.includes('lower') || cat.includes('safe') || (score < 30);
+      }
+      if (target.includes('insufficient')) {
+        return cat.includes('insufficient') || cat.includes('sparse') || (a.latest_assessment?.confidence_score ?? 1) < 0.5;
+      }
+      return cat.includes(target);
+    });
+  }
+
+  if (params?.min_rating) {
+    filtered = filtered.filter((a) => a.rating >= params.min_rating!);
+  }
+
+  const sorters: Record<string, (a: AppItem, b: AppItem) => number> = {
+    risk_desc: (a, b) =>
+      (b.latest_assessment?.overall_score ?? 0) - (a.latest_assessment?.overall_score ?? 0),
+    risk_asc: (a, b) =>
+      (a.latest_assessment?.overall_score ?? 0) - (b.latest_assessment?.overall_score ?? 0),
+    rating_desc: (a, b) => b.rating - a.rating,
+    rating_asc: (a, b) => a.rating - b.rating,
+    name_asc: (a, b) => a.title.localeCompare(b.title),
+    last_scanned: (a, b) =>
+      new Date(b.last_scanned_at).getTime() - new Date(a.last_scanned_at).getTime(),
+  };
+  if (params?.sort_by && sorters[params.sort_by]) {
+    filtered.sort(sorters[params.sort_by]);
+  }
+
+  const pageSize = params?.page_size ?? 25;
+  const page = params?.page ?? 1;
+  const start = (page - 1) * pageSize;
+
+  return {
+    items: filtered.slice(start, start + pageSize),
+    total: filtered.length,
+    page,
+    page_size: pageSize,
+    total_pages: Math.max(1, Math.ceil(filtered.length / pageSize)),
+  };
 }
 
 /**
@@ -143,70 +224,23 @@ export async function fetchApps(params?: {
     if (params?.page_size) query.set('page_size', params.page_size.toString());
 
     const apiRes = await getJson<AppListResponse>(`/api/v1/apps?${query.toString()}`);
+    if (apiRes.total > 0) {
+      return {
+        ...apiRes,
+        items: apiRes.items.filter((a) => a.is_active && a.store_status !== 'delisted').map(enrichApp),
+      };
+    }
+    // If backend returned total 0 when a category or query was applied, fall back to local dataset
+    if (params?.risk_category || params?.q) {
+      return filterLocalApps(params);
+    }
     return {
       ...apiRes,
-      items: apiRes.items.filter((a) => a.is_active && a.store_status !== 'delisted').map(enrichApp),
+      items: apiRes.items.map(enrichApp),
     };
   } catch {
     // 3. Fallback to Verified Live Play Store Dataset (strictly active 200 OK apps)
-    let filtered = VERIFIED_PLAY_STORE_APPS.filter(
-      (a) => a.is_active && a.store_status !== 'delisted',
-    );
-
-    if (params?.q) {
-      const q = params.q.toLowerCase();
-      filtered = filtered.filter(
-        (a) =>
-          a.title.toLowerCase().includes(q) ||
-          a.package_id.toLowerCase().includes(q) ||
-          a.developer.toLowerCase().includes(q),
-      );
-    }
-
-    if (params?.risk_category && params.risk_category !== 'All') {
-      const target = params.risk_category.toLowerCase();
-      filtered = filtered.filter((a) => {
-        const cat = (a.latest_assessment?.risk_category ?? '').toLowerCase();
-        if (target.includes('high')) return cat.includes('high');
-        if (target.includes('caution')) return cat.includes('caution');
-        if (target.includes('moderate')) return cat.includes('moderate');
-        if (target.includes('lower') || target.includes('safe'))
-          return cat.includes('lower') || cat.includes('safe');
-        if (target.includes('insufficient')) return cat.includes('insufficient');
-        return cat.includes(target);
-      });
-    }
-
-    if (params?.min_rating) {
-      filtered = filtered.filter((a) => a.rating >= params.min_rating!);
-    }
-
-    const sorters: Record<string, (a: AppItem, b: AppItem) => number> = {
-      risk_desc: (a, b) =>
-        (b.latest_assessment?.overall_score ?? 0) - (a.latest_assessment?.overall_score ?? 0),
-      risk_asc: (a, b) =>
-        (a.latest_assessment?.overall_score ?? 0) - (b.latest_assessment?.overall_score ?? 0),
-      rating_desc: (a, b) => b.rating - a.rating,
-      rating_asc: (a, b) => a.rating - b.rating,
-      name_asc: (a, b) => a.title.localeCompare(b.title),
-      last_scanned: (a, b) =>
-        new Date(b.last_scanned_at).getTime() - new Date(a.last_scanned_at).getTime(),
-    };
-    if (params?.sort_by && sorters[params.sort_by]) {
-      filtered.sort(sorters[params.sort_by]);
-    }
-
-    const pageSize = params?.page_size ?? 25;
-    const page = params?.page ?? 1;
-    const start = (page - 1) * pageSize;
-
-    return {
-      items: filtered.slice(start, start + pageSize).map(enrichApp),
-      total: filtered.length,
-      page,
-      page_size: pageSize,
-      total_pages: Math.max(1, Math.ceil(filtered.length / pageSize)),
-    };
+    return filterLocalApps(params);
   }
 }
 
@@ -230,18 +264,24 @@ export async function fetchLatestScan(): Promise<ScanRun | null> {
   }
 
   try {
-    return await getJson<ScanRun | null>('/api/v1/scans/latest');
+    const scan = await getJson<ScanRun | null>('/api/v1/scans/latest');
+    if (scan) return scan;
   } catch {
-    return LATEST_SCAN_DATA;
+    // continue
   }
+  return LATEST_SCAN_DATA;
 }
 
 export async function fetchScanHistory(limit = 8): Promise<ScanRun[]> {
   try {
-    return await getJson<ScanRun[]>(`/api/v1/scans?limit=${limit}`);
+    const runs = await getJson<ScanRun[]>(`/api/v1/scans?limit=${limit}`);
+    if (runs && runs.length > 0) {
+      return runs;
+    }
   } catch {
-    return SCAN_HISTORY_DATA.slice(0, limit);
+    // continue
   }
+  return SCAN_HISTORY_DATA.slice(0, limit);
 }
 
 export async function fetchAppComparison(packageIds: string[]): Promise<AppItem[]> {
@@ -250,10 +290,13 @@ export async function fetchAppComparison(packageIds: string[]): Promise<AppItem[
       .map((id) => `package_id=${encodeURIComponent(id)}`)
       .join('&');
     const apps = await getJson<AppItem[]>(`/api/v1/apps/compare?${query}`);
-    return apps.map(enrichApp);
+    if (apps && apps.length >= 2) {
+      return apps.map(enrichApp);
+    }
   } catch {
-    return VERIFIED_PLAY_STORE_APPS.filter((a) => packageIds.includes(a.package_id)).map(enrichApp);
+    // Fall back to verified dataset
   }
+  return VERIFIED_PLAY_STORE_APPS.filter((a) => packageIds.includes(a.package_id)).map(enrichApp);
 }
 
 export async function fetchRbiCheck(packageId: string): Promise<RbiCheck> {

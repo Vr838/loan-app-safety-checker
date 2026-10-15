@@ -9,6 +9,7 @@ import {
 import { AppItem } from '../lib/types';
 import { downloadAppCsv } from '../lib/reportGenerator';
 import { getFullRbiCheck } from '../lib/rbiDatabase';
+import { VERIFIED_PLAY_STORE_APPS } from '../lib/playStoreDataset';
 
 interface AppComparisonModalProps {
   apps: AppItem[];
@@ -16,7 +17,7 @@ interface AppComparisonModalProps {
   onRemoveApp?: (packageId: string) => void;
 }
 
-export function AppComparisonModal({ apps, onClose, onRemoveApp }: AppComparisonModalProps) {
+export function AppComparisonModal({ apps: rawApps, onClose, onRemoveApp }: AppComparisonModalProps) {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
@@ -25,26 +26,48 @@ export function AppComparisonModal({ apps, onClose, onRemoveApp }: AppComparison
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [onClose]);
 
+  // Ensure every app has 100% complete assessment and RBI data
+  const apps = React.useMemo(() => {
+    return rawApps.map((app) => {
+      const verified = VERIFIED_PLAY_STORE_APPS.find((v) => v.package_id === app.package_id);
+      return {
+        ...app,
+        latest_assessment: app.latest_assessment ?? verified?.latest_assessment,
+        rbi_verification: app.rbi_verification ?? verified?.rbi_verification ?? getFullRbiCheck(app.package_id, app.developer).verification,
+        multilang_analysis: app.multilang_analysis ?? verified?.multilang_analysis,
+      };
+    });
+  }, [rawApps]);
+
   if (apps.length < 2) return null;
 
   const scoreBadge = (score?: number, category?: string) => {
-    const cat = (category ?? 'Needs more data').toLowerCase();
-    const isHigh = cat.includes('high');
-    const isCaution = cat.includes('caution') || cat.includes('moderate');
-    const isLow = cat.includes('lower') || cat.includes('safe');
+    const isScoreValid = score !== undefined && score !== null && !isNaN(score);
+    const cat = (category ?? (isScoreValid && score < 30 ? 'Lower Concern' : 'Needs more data')).toLowerCase();
+    const isHigh = cat.includes('high') || (isScoreValid && score >= 60);
+    const isCaution = cat.includes('caution') || cat.includes('moderate') || (isScoreValid && score >= 30 && score < 60);
+    const isLow = cat.includes('lower') || cat.includes('safe') || (isScoreValid && score < 30);
 
-    const tone = isHigh ? 'bg-rose-50 text-rose-700 border-rose-200' : isCaution ? 'bg-amber-50 text-amber-700 border-amber-200' : isLow ? 'bg-emerald-50 text-emerald-700 border-emerald-200' : 'bg-slate-100 text-slate-700 border-slate-200';
+    const tone = isHigh
+      ? 'bg-rose-50 text-rose-700 border-rose-200 shadow-2xs'
+      : isCaution
+      ? 'bg-amber-50 text-amber-700 border-amber-200 shadow-2xs'
+      : isLow
+      ? 'bg-emerald-50 text-emerald-700 border-emerald-200 shadow-2xs'
+      : 'bg-slate-100 text-slate-700 border-slate-200';
     const Icon = isHigh ? ShieldAlert : isCaution ? AlertTriangle : isLow ? CheckCircle2 : HelpCircle;
 
+    const displayCategory = category || (isHigh ? 'High Concern' : isCaution ? 'Caution' : isLow ? 'Lower Concern' : 'Needs more data');
+
     return (
-      <div className="space-y-1">
+      <div className="space-y-1.5">
         <div className="text-2xl font-extrabold tracking-tight text-slate-900 flex items-baseline gap-1">
-          <span>{score !== undefined ? score.toFixed(1) : 'N/A'}</span>
+          <span>{isScoreValid ? score.toFixed(1) : 'N/A'}</span>
           <span className="text-xs text-slate-400 font-normal">/ 100</span>
         </div>
-        <span className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold border ${tone}`}>
-          <Icon className="w-3 h-3" />
-          <span>{category ?? 'Needs more data'}</span>
+        <span className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold border ${tone}`}>
+          <Icon className="w-3.5 h-3.5" />
+          <span>{displayCategory}</span>
         </span>
       </div>
     );

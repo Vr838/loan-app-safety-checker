@@ -127,12 +127,27 @@ export default function DashboardPage() {
 
   const openComparison = async () => {
     try {
-      const appsToCompare = await fetchAppComparison(comparisonIds);
+      // Immediate local render so there is ZERO delay or score flicker
+      const pool = allApps.length > 0 ? allApps : apps;
+      const localMatches = pool.filter((a) => comparisonIds.includes(a.package_id));
+      if (localMatches.length >= 2) {
+        setComparisonApps(localMatches);
+      }
       setSelectedApp(null);
       setIsScanModalOpen(false);
-      setComparisonApps(appsToCompare);
+
+      const appsToCompare = await fetchAppComparison(comparisonIds);
+      if (appsToCompare && appsToCompare.length >= 2) {
+        setComparisonApps(appsToCompare);
+      }
     } catch (error) {
-      setLoadError(error instanceof Error ? error.message : 'Unable to load comparison.');
+      const pool = allApps.length > 0 ? allApps : apps;
+      const localMatches = pool.filter((a) => comparisonIds.includes(a.package_id));
+      if (localMatches.length >= 2) {
+        setComparisonApps(localMatches);
+      } else {
+        setLoadError(error instanceof Error ? error.message : 'Unable to load comparison.');
+      }
     }
   };
 
@@ -287,32 +302,40 @@ export default function DashboardPage() {
         </div>
       </main>
 
-      {/* Floating Comparison Dock (Appears when 1-4 apps are checked) */}
-      {comparisonIds.length > 0 && (
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 bg-slate-900/95 text-white px-5 py-3 rounded-2xl shadow-2xl backdrop-blur-xl border border-slate-700/80 animate-in fade-in slide-in-from-bottom-4 duration-200">
-          <div className="flex items-center gap-2 text-xs font-medium pr-2 border-r border-slate-700">
-            <Scale className="w-4 h-4 text-blue-400" />
-            <span><strong>{comparisonIds.length}</strong> / 4 apps selected</span>
+      {/* Floating Comparison Dock (Appears when 1-4 apps are checked and all modals are closed) */}
+      {comparisonIds.length > 0 && !selectedApp && comparisonApps.length === 0 && !isScanModalOpen && (
+        <aside className="apple-floating-dock" aria-label="Comparison dock">
+          <div className="flex items-center gap-2.5 text-xs font-semibold pr-3 border-r border-slate-700/80">
+            <span className="w-5 h-5 rounded-full bg-blue-500 text-white flex items-center justify-center text-[11px] font-bold">
+              {comparisonIds.length}
+            </span>
+            <span className="text-slate-200">
+              {comparisonIds.length === 1 ? '1 app selected' : `${comparisonIds.length} of 4 apps selected`}
+            </span>
           </div>
+
           <button
             onClick={openComparison}
             disabled={comparisonIds.length < 2}
-            className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all ${
+            className={`px-3.5 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5 transition-all active:scale-95 ${
               comparisonIds.length >= 2
-                ? 'bg-blue-600 hover:bg-blue-500 text-white shadow-xs cursor-pointer'
-                : 'bg-slate-800 text-slate-400 cursor-not-allowed'
+                ? 'bg-blue-600 hover:bg-blue-500 text-white shadow-xs cursor-pointer ring-2 ring-blue-400/30'
+                : 'bg-slate-800 text-slate-500 cursor-not-allowed'
             }`}
           >
-            <span>Compare Now</span>
+            <Scale className="w-3.5 h-3.5" />
+            <span>{comparisonIds.length < 2 ? 'Select 1 more to compare' : 'Compare Now'}</span>
           </button>
+
           <button
             onClick={() => setComparisonIds([])}
-            className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+            className="p-1 rounded-full text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
             title="Clear comparison selection"
+            aria-label="Clear selected apps"
           >
-            <X className="w-4 h-4" />
+            <X className="w-3.5 h-3.5" />
           </button>
-        </div>
+        </aside>
       )}
 
       {/* Clean Footer */}

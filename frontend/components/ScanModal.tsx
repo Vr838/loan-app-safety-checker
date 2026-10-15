@@ -97,7 +97,7 @@ export const ScanModal: React.FC<ScanModalProps> = ({ isOpen, onClose, onScanSuc
           setMessage(`Auditing live sources: ${processed} of ${total} apps evaluated.`);
           setProgress(Math.min(90, Math.round((processed / (Number(total) || 1)) * 100)));
         } else if (
-          scan.status === 'completed' &&
+          (scan.status === 'completed' || scan.status === 'partial') &&
           (observedRunningScan || (initialScanId !== undefined && scan.id !== initialScanId))
         ) {
           return scan;

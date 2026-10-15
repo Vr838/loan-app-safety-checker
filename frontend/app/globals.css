@@ -569,14 +569,14 @@ button:focus-visible, a:focus-visible, input:focus-visible {
 .modal-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(15,23,42,.50);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(15,23,42,.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 16px;
-  z-index: 50;
+  z-index: 60;
 }
 .modal {
   background: white;
@@ -1196,7 +1196,41 @@ td {
   .lg\:text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
 }
 
+/* ─── Apple Dynamic Island Floating Comparison Dock ─────────────────── */
+.apple-floating-dock {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 45;
+  background: rgba(15, 23, 42, 0.94);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 9999px;
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.08);
+  padding: 8px 16px 8px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: white;
+  animation: appleDockSpring 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  max-width: 90vw;
+}
+
+@keyframes appleDockSpring {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 20px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+}
+
 @media print {
   body { background: white !important; }
-  .navbar, .modal-backdrop, .compare-dock, .compare-bar, .button-primary, .button-secondary { display: none !important; }
+  .navbar, .modal-backdrop, .compare-dock, .compare-bar, .apple-floating-dock, .button-primary, .button-secondary { display: none !important; }
 }
+
