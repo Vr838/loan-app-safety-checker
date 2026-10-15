@@ -111,9 +111,15 @@ loan-app-safety-checker/
 │   ├── package.json
 │   └── .env.example
 ├── scripts/
-│   ├── run_scan.py              # CLI utility to run a bounded scan
+│   ├── fetch_loan_apps.py       # Live Play Store loan discovery, NLP review analysis, and risk scoring
+│   ├── sync_demo_data.py        # Synchronizer between discovered Play Store data and Next.js UI cache
+│   ├── run_scan.py              # CLI utility to run a bounded database scan
 │   └── seed_demo_data.py        # CLI utility to seed labeled benchmark data
-├── docs/                        # Complete project documentation suite (14 files)
+├── docs/                        # Complete project documentation suite
+│   ├── PLAY_STORE_DISCOVERY_REPORT.md # Full report on Play Store scraping, 404 delisting reasons & live apps
+│   ├── IMPLEMENTATION_PLAN.md   # Phased delivery milestones & acceptance criteria
+│   ├── EXPLANATIONS.md          # Architectural decisions & methodology rationale
+│   └── ...
 ├── .gitignore                   # Excludes secrets, databases, caches, and node_modules
 └── README.md
 ```

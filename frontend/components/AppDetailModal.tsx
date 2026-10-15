@@ -106,6 +106,23 @@ export const AppDetailModal: React.FC<AppDetailModalProps> = ({ app, onClose }) 
 
         {/* Scrollable Body */}
         <div className="p-6 space-y-6 overflow-y-auto">
+          {/* Safety Reason / Status Highlight Banner */}
+          {app.safety_reason && (
+            <div className={`p-4 rounded-xl border text-xs leading-relaxed ${
+              app.store_status === 'delisted' || category.toLowerCase().includes('high')
+                ? 'bg-rose-950/40 border-rose-800 text-rose-200'
+                : category.toLowerCase().includes('caution') || category.toLowerCase().includes('moderate')
+                ? 'bg-amber-950/40 border-amber-800 text-amber-200'
+                : 'bg-emerald-950/40 border-emerald-800 text-emerald-200'
+            }`}>
+              <div className="font-semibold flex items-center space-x-1.5 mb-1 text-sm">
+                <Shield className="w-4 h-4 shrink-0" />
+                <span>Safety Assessment & Investigation Summary</span>
+              </div>
+              <p>{app.safety_reason}</p>
+            </div>
+          )}
+
           {/* Top Score & Sufficiency Bar */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Risk Gauge Card */}

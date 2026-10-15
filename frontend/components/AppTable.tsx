@@ -13,6 +13,7 @@ import {
   ChevronLeft,
   Star,
   Download,
+  ShieldCheck,
 } from 'lucide-react';
 import { AppItem } from '../lib/types';
 
@@ -47,7 +48,7 @@ export const AppTable: React.FC<AppTableProps> = ({
   onSelectApp,
   isLoading,
 }) => {
-  const categories = ['All', 'High concern', 'Caution', 'Lower concern', 'Insufficient evidence'];
+  const categories = ['All', 'High Concern', 'Caution', 'Moderate', 'Lower Concern', 'Insufficient Evidence'];
 
   const getRiskBadge = (assessment?: AppItem['latest_assessment']) => {
     if (!assessment) {
@@ -60,37 +61,43 @@ export const AppTable: React.FC<AppTableProps> = ({
     }
 
     const { risk_category, overall_score } = assessment;
+    const cat = (risk_category || '').toLowerCase();
 
-    switch (risk_category) {
-      case 'High concern':
-        return (
-          <span className="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-md bg-rose-950/80 border border-rose-800/80 text-rose-300 text-xs font-semibold shadow-sm shadow-rose-950/50">
-            <ShieldAlert className="w-3.5 h-3.5 text-rose-400" />
-            <span>High Concern ({overall_score})</span>
-          </span>
-        );
-      case 'Caution':
-        return (
-          <span className="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-md bg-amber-950/80 border border-amber-800/80 text-amber-300 text-xs font-semibold shadow-sm shadow-amber-950/50">
-            <AlertTriangle className="w-3.5 h-3.5 text-amber-400" />
-            <span>Caution ({overall_score})</span>
-          </span>
-        );
-      case 'Lower concern':
-        return (
-          <span className="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-md bg-emerald-950/80 border border-emerald-800/80 text-emerald-300 text-xs font-semibold shadow-sm shadow-emerald-950/50">
-            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-            <span>Lower Concern ({overall_score})</span>
-          </span>
-        );
-      case 'Insufficient evidence':
-      default:
-        return (
-          <span className="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-md bg-sky-950/80 border border-sky-800/80 text-sky-300 text-xs font-semibold shadow-sm shadow-sky-950/50">
-            <HelpCircle className="w-3.5 h-3.5 text-sky-400" />
-            <span>Insufficient Evidence</span>
-          </span>
-        );
+    if (cat.includes('high')) {
+      return (
+        <span className="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-md bg-rose-950/80 border border-rose-800/80 text-rose-300 text-xs font-semibold shadow-sm shadow-rose-950/50">
+          <ShieldAlert className="w-3.5 h-3.5 text-rose-400" />
+          <span>High Concern ({overall_score})</span>
+        </span>
+      );
+    } else if (cat.includes('caution')) {
+      return (
+        <span className="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-md bg-amber-950/80 border border-amber-800/80 text-amber-300 text-xs font-semibold shadow-sm shadow-amber-950/50">
+          <AlertTriangle className="w-3.5 h-3.5 text-amber-400" />
+          <span>Caution ({overall_score})</span>
+        </span>
+      );
+    } else if (cat.includes('moderate')) {
+      return (
+        <span className="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-md bg-orange-950/80 border border-orange-800/80 text-orange-300 text-xs font-semibold shadow-sm shadow-orange-950/50">
+          <AlertTriangle className="w-3.5 h-3.5 text-orange-400" />
+          <span>Moderate ({overall_score})</span>
+        </span>
+      );
+    } else if (cat.includes('lower') || cat.includes('safe')) {
+      return (
+        <span className="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-md bg-emerald-950/80 border border-emerald-800/80 text-emerald-300 text-xs font-semibold shadow-sm shadow-emerald-950/50">
+          <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+          <span>Lower Concern ({overall_score})</span>
+        </span>
+      );
+    } else {
+      return (
+        <span className="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-md bg-sky-950/80 border border-sky-800/80 text-sky-300 text-xs font-semibold shadow-sm shadow-sky-950/50">
+          <HelpCircle className="w-3.5 h-3.5 text-sky-400" />
+          <span>Insufficient Evidence</span>
+        </span>
+      );
     }
   };
 
@@ -172,6 +179,7 @@ export const AppTable: React.FC<AppTableProps> = ({
               <th className="py-3 px-4">Application & Developer</th>
               <th className="py-3 px-4">Store Metrics</th>
               <th className="py-3 px-4">Risk Classification</th>
+              <th className="py-3 px-4">Safety Summary</th>
               <th className="py-3 px-4 text-right">Evidence Sufficiency</th>
               <th className="py-3 px-4 text-center">Action</th>
             </tr>
@@ -220,7 +228,22 @@ export const AppTable: React.FC<AppTableProps> = ({
                           {app.title}
                         </div>
                         <div className="text-[11px] text-slate-400 truncate">{app.developer}</div>
-                        <div className="text-[10px] text-slate-400 font-mono mt-0.5">{app.package_id}</div>
+                        <div className="flex items-center gap-2 mt-0.5">
+                          <span className="text-[10px] text-slate-400 font-mono">{app.package_id}</span>
+                          {app.store_url && (
+                            <a
+                              href={app.store_url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={(e) => e.stopPropagation()}
+                              className="inline-flex items-center gap-0.5 text-[10px] text-indigo-400 hover:text-indigo-300 transition-colors font-medium"
+                              title="Open on Google Play Store"
+                            >
+                              <ExternalLink className="w-2.5 h-2.5" />
+                              Play Store
+                            </a>
+                          )}
+                        </div>
                       </div>
                     </div>
                   </td>
@@ -241,21 +264,46 @@ export const AppTable: React.FC<AppTableProps> = ({
                   {/* Risk Assessment */}
                   <td className="py-3 px-4">{getRiskBadge(app.latest_assessment)}</td>
 
+                  {/* Safety Reason */}
+                  <td className="py-3 px-4 max-w-[260px]">
+                    {(app as any).safety_reason ? (
+                      <p className="text-[11px] text-slate-300 leading-relaxed line-clamp-3">{(app as any).safety_reason}</p>
+                    ) : app.latest_assessment?.evidence_sufficiency_rationale ? (
+                      <p className="text-[11px] text-slate-400 leading-relaxed line-clamp-3">{app.latest_assessment.evidence_sufficiency_rationale}</p>
+                    ) : (
+                      <span className="text-[11px] text-slate-600">—</span>
+                    )}
+                  </td>
+
                   {/* Confidence / Sufficiency */}
                   <td className="py-3 px-4">{getConfidenceBadge(app.latest_assessment)}</td>
 
                   {/* Actions */}
                   <td className="py-3 px-4 text-center">
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        onSelectApp(app);
-                      }}
-                      className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-indigo-600 text-slate-300 hover:text-white text-xs font-medium transition-colors inline-flex items-center space-x-1 shadow-sm"
-                    >
-                      <span>Inspect</span>
-                      <ChevronRight className="w-3 h-3" />
-                    </button>
+                    <div className="flex flex-col gap-1.5 items-center">
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          onSelectApp(app);
+                        }}
+                        className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-indigo-600 text-slate-300 hover:text-white text-xs font-medium transition-colors inline-flex items-center space-x-1 shadow-sm w-full justify-center"
+                      >
+                        <span>Inspect</span>
+                        <ChevronRight className="w-3 h-3" />
+                      </button>
+                      {app.store_url && (
+                        <a
+                          href={app.store_url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="px-3 py-1 rounded-lg bg-slate-900 hover:bg-green-900/40 border border-slate-700 hover:border-green-700 text-slate-400 hover:text-green-400 text-[10px] font-medium transition-colors inline-flex items-center space-x-1 w-full justify-center"
+                        >
+                          <ExternalLink className="w-2.5 h-2.5" />
+                          <span>Google Play</span>
+                        </a>
+                      )}
+                    </div>
                   </td>
                 </tr>
               ))
