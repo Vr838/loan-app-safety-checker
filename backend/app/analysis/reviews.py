@@ -16,21 +16,26 @@ COMPLAINT_PATTERNS = {
         r"\bdefam(?:e|ation|ing)\b",
         r"\bshame|shaming\b",
         r"\bvulgar\b",
-        r"\bgaali|gali|dhamki|dara(?:ya|te)|badnaam|badnam\b",
+        r"\bgaali|gali|dhamki|dara(?:ya|te)|badnaam|badnam|beizzati\b",
         r"\bcall (?:kar|karke) (?:rahe|rha|rhi)\b",
-        r"धमकी|गाली|प्रताड़ना|ब्लैकमेल|बदनाम",
+        r"\brelatives ko (?:call|phone|message)\b",
+        r"\bmarne ki dhamki|police complaint\b",
+        r"\bbayapuduthuranga|kevalam\b",
+        r"धमकी|गाली|प्रताड़ना|ब्लैकमेल|बदनाम|आत्महत्या|गंदे फोटो",
     ],
     "privacy_contact_abuse": [
         r"\bcontact (?:list|book|access)\b",
         r"\bhack(?:ed|ing)? (?:my )?phone\b",
         r"\bgaller(?:y|ies)\b",
         r"\bphoto(?:s)? leak\b",
+        r"\bphoto (?:morph|morphed|viral)\b",
         r"\bstol(?:e|en) contacts\b",
         r"\bunauthorized access\b",
         r"\bpermission abuse\b",
         r"\bphoto|gallery|contact(?:s)? (?:leak|share|upload)\b",
         r"\bphish(?:ing)?|fake (?:app|link|website)|otp (?:fraud|scam|steal)\b",
         r"\bmalware|spyware|data (?:theft|steal)\b",
+        r"\bcontacts ko phone|gallery hack\b",
         r"कॉन्टैक्ट|कॉन्टैक्ट्स|फोटो लीक|गैलरी|डेटा चोरी|फर्जी लिंक|ओटीपी फ्रॉड",
     ],
     "short_cycle_extortion": [
@@ -42,8 +47,10 @@ COMPLAINT_PATTERNS = {
         r"\btenure is only 7\b",
         r"\bpromis(?:ed)? (?:90|60|30) days but (?:gave|give) 7\b",
         r"\bsirf (?:7|seven|5|five) din\b",
+        r"\b7 din|seven days|sirf 6 din\b",
         r"\bjaldi (?:bhar|repay)|turant (?:bhar|payment)\b",
-        r"सात दिन|7 दिन|पांच दिन|5 दिन|जल्दी भर",
+        r"\bdue date se pehle\b",
+        r"सात दिन|7 दिन|पांच दिन|5 दिन|जल्दी भर|समय से पहले",
     ],
     "hidden_fees_deductions": [
         r"\bprocessing fee\b",
@@ -53,9 +60,10 @@ COMPLAINT_PATTERNS = {
         r"\bhidden charge(?:s)?\b",
         r"\bupfront fee\b",
         r"\bdisbursed only\b",
-        r"\bpaise (?:kaat|kat)|amount (?:kaat|kat)\b",
+        r"\bpaise (?:kaat|kat|kaat liye)|amount (?:kaat|kat)\b",
         r"\bservice charge|convenience fee|gst charge\b",
-        r"कटौती|पैसे काट|प्रोसेसिंग फीस|छुपा शुल्क",
+        r"\bprocessing fee (?:bahut|zyada)\b",
+        r"कटौती|पैसे काट|प्रोसेसिंग फीस|छुपा शुल्क|कम पैसे दिए",
     ],
     "deceptive_rates": [
         r"\bhigh interest\b",
@@ -65,8 +73,10 @@ COMPLAINT_PATTERNS = {
         r"\bpenalt(?:y|ies)\b",
         r"\bloot|looting\b",
         r"\bscam|fraud|fake loan|dhokha|thag(?:i|a)\b",
+        r"\bchor app|lutera|farud|fas gaya\b",
+        r"\bthiruttu|mosam\b",
         r"\binterest (?:bahut|zyada)|zyada (?:interest|byaj)\b",
-        r"धोखा|फ्रॉड|फर्जी लोन|ज्यादा ब्याज|सूद",
+        r"धोखा|फ्रॉड|फर्जी लोन|ज्यादा ब्याज|सूद|चोर ऐप|लूट",
     ],
 }
 
@@ -79,6 +89,18 @@ class ReviewAnalyzer:
             theme: [re.compile(pat, re.IGNORECASE) for pat in patterns]
             for theme, patterns in COMPLAINT_PATTERNS.items()
         }
+
+    def detect_language(self, text: str) -> str:
+        """Identifies whether review is in Hindi (Devanagari), Hinglish (Romanized Hindi), Regional, or English."""
+        if not text:
+            return "English"
+        if re.search(r"[\u0900-\u097F]", text):
+            return "Hindi"
+        if re.search(r"\b(panranga|thiruttu|mosam|illa|romba|vatti|undi|cheppandi)\b", text, re.IGNORECASE):
+            return "Regional"
+        if re.search(r"\b(hai|aur|ko|me|bhi|nahi|kare|karte|kar|liye|karke|mera|meri|ye|wo|bahut|zyada|din|paise|dhamki|gali|chor)\b", text, re.IGNORECASE):
+            return "Hinglish"
+        return "English"
 
     def classify_review(self, text: str, rating: int) -> Tuple[str, List[str]]:
         """Determines review sentiment and flags detected financial risk themes."""
@@ -144,3 +166,4 @@ class ReviewAnalyzer:
             "duplicate_review_ratio": round(duplicate_ratio, 3),
             "notes": " ".join(notes) if notes else "No anomalous review patterns detected.",
         }
+

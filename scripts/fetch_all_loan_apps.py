@@ -7,7 +7,7 @@ Comprehensive Google Play Store Loan App Harvester
 4. Gathers store metrics, developer details, privacy policy, and 30+ recent reviews.
 5. Classifies complaint themes using NLP regex heuristics.
 6. Evaluates deterministic risk scores against verified RBI NBFC registries.
-7. Saves the verified dataset to scripts/loan_apps_report.json and frontend/lib/demoData.ts.
+7. Saves the verified dataset to scripts/loan_apps_report.json and frontend/lib/playStoreDataset.ts.
 """
 
 import json
@@ -29,7 +29,7 @@ logger = logging.getLogger("loan_harvester")
 
 ROOT = Path(__file__).parent.parent
 OUTPUT_REPORT = ROOT / "scripts" / "loan_apps_report.json"
-OUTPUT_TS = ROOT / "frontend" / "lib" / "demoData.ts"
+OUTPUT_TS = ROOT / "frontend" / "lib" / "playStoreDataset.ts"
 
 QUERIES = [
     "instant personal loan india",

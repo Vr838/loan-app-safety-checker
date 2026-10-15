@@ -49,6 +49,71 @@ export interface EvidenceItem {
   access_timestamp: string;
 }
 
+export interface ScanChangeAlert {
+  id: string;
+  type: 'delisted' | 'new_app' | 'risk_shift' | 'permission_change' | 'rbi_status';
+  severity: 'critical' | 'warning' | 'info';
+  title: string;
+  description: string;
+  timestamp: string;
+  package_id?: string;
+  app_name?: string;
+  old_value?: string;
+  new_value?: string;
+}
+
+export interface RbiVerification {
+  status: 'verified_regulated' | 'registered_dla' | 'unverified_lsp' | 'sachet_flagged' | 'manual_verification_required';
+  status_label: string;
+  regulated_entity_name: string;
+  cor_number?: string;
+  category?: string;
+  lending_partner_type?: string;
+  verification_date: string;
+  source_name: string;
+  source_url: string;
+  source_date: string;
+  official_citation: string;
+  excerpt: string;
+}
+
+export interface VernacularKeywordMatch {
+  keyword: string;
+  language: 'Hindi' | 'Hinglish' | 'Regional';
+  theme: string;
+  meaning: string;
+  count: number;
+}
+
+export interface VernacularReviewSample {
+  id: string;
+  text: string;
+  language: 'Hindi' | 'Hinglish' | 'Regional';
+  sentiment: 'negative' | 'neutral' | 'positive';
+  detected_themes: string[];
+  translated_context: string;
+  rating: number;
+  author: string;
+}
+
+export interface MultiLanguageReviewAnalysis {
+  primary_language: string;
+  vernacular_share_pct: number;
+  languages_detected: string[];
+  bimodal_anomaly_detected: boolean;
+  bimodal_notes?: string;
+  keyword_matches: VernacularKeywordMatch[];
+  sample_reviews: VernacularReviewSample[];
+}
+
+export interface SensitivePermission {
+  name: string;
+  dangerous: boolean;
+  category: string;
+  reason: string;
+  detected: boolean;
+}
+
 export interface AppItem {
   package_id: string;
   title: string;
@@ -75,6 +140,9 @@ export interface AppItem {
   latest_assessment?: RiskAssessment | null;
   evidence_items?: EvidenceItem[];
   recent_assessments?: RiskAssessment[];
+  rbi_verification?: RbiVerification;
+  multilang_analysis?: MultiLanguageReviewAnalysis;
+  sensitive_permissions?: SensitivePermission[];
 }
 
 export interface AppListResponse {
@@ -98,15 +166,27 @@ export interface ScanRun {
   apps_new_count: number;
   apps_refreshed_count: number;
   apps_failed_count: number;
+  delisted_count?: number;
+  risk_shifts_count?: number;
   error_summary?: Array<{ package_id?: string; error?: string }>;
   collector_version: string;
+  change_alerts?: ScanChangeAlert[];
+}
+
+export interface RbiSource {
+  title: string;
+  url: string;
+  source_date?: string;
+  citation?: string;
+  excerpt?: string;
 }
 
 export interface RbiCheck {
-  status: 'manual_verification_required';
+  status: 'verified_regulated' | 'registered_dla' | 'unverified_lsp' | 'sachet_flagged' | 'manual_verification_required' | string;
   developer_name: string;
   message: string;
-  sources: Array<{ title: string; url: string }>;
+  sources: RbiSource[];
+  verification?: RbiVerification;
 }
 
 export interface HealthStatus {
@@ -117,3 +197,4 @@ export interface HealthStatus {
   collector_ready: boolean;
   components: Record<string, string>;
 }
+
