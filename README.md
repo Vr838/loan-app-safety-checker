@@ -3,6 +3,8 @@
 > An evidence-driven research and risk-analysis platform for publicly listed digital lending apps. It combines app-store metadata, user review theme classification, developer transparency signals, and external regulatory records into explainable, deterministic heuristic assessments.
 
 **Project Status:** Implemented & Verified  
+**Public Repository:** [https://github.com/Vr838/loan-app-safety-checker](https://github.com/Vr838/loan-app-safety-checker)  
+**Live Production Demo (Vercel):** [https://frontend-three-iota-v02ppkagaq.vercel.app](https://frontend-three-iota-v02ppkagaq.vercel.app)  
 **Scoring Engine Version:** `v1.0.0`  
 **Test Suite:** 23/23 Passing (100% mocked external HTTP calls)  
 **Frontend Build:** Next.js 16 (Turbopack) Production Build Verified  
