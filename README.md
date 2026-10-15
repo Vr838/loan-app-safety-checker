@@ -287,7 +287,3 @@ npm run build
 4. **Bearer Token Authentication:** Administrative endpoints require constant-time verification against `ADMIN_API_TOKEN`.
 
 ---
-
-## ⚠️ Known Issues & Current Status
-
-> **Website Filter Notice:** Please note that the website visible filter is not working right now and is currently under maintenance. The development team is actively tracking and finalizing synchronization across all deployment environments.
