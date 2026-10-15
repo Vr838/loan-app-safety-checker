@@ -29,15 +29,15 @@ class ScanRunResponse(BaseModel):
     scan_uuid: str
     started_at: datetime
     completed_at: Optional[datetime] = None
-    status: str
-    trigger_type: str
-    queries_attempted: List[str]
-    apps_discovered_count: int
-    apps_collected_count: int
+    status: str = "completed"
+    trigger_type: str = "manual_cli"
+    queries_attempted: List[str] = Field(default_factory=list)
+    apps_discovered_count: int = 0
+    apps_collected_count: int = 0
     apps_new_count: int = 0
     apps_refreshed_count: int = 0
-    apps_failed_count: int
+    apps_failed_count: int = 0
     error_summary: Optional[List[Dict[str, Any]]] = None
-    collector_version: str
+    collector_version: str = "1.0.0"
 
     model_config = ConfigDict(from_attributes=True)

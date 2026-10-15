@@ -51,7 +51,7 @@ export default function DashboardPage() {
       const fullDataset = fetchAllApps();
       setAllApps(fullDataset);
 
-      const [healthRes, scanRes, scansRes, appsRes] = await Promise.all([
+      const [healthResult, scanResult, scansResult, appsResult] = await Promise.allSettled([
         fetchHealth(),
         fetchLatestScan(),
         fetchScanHistory(),
@@ -63,13 +63,39 @@ export default function DashboardPage() {
           page_size: pageSize,
         }),
       ]);
-      setHealth(healthRes);
-      setLatestScan(scanRes);
-      setScanHistory(scansRes);
-      setApps(appsRes.items);
-      setTotalPages(appsRes.total_pages);
-      setTotalItems(appsRes.total);
-      setIsLive(true);
+
+      if (healthResult.status === 'fulfilled') {
+        setHealth(healthResult.value);
+        setIsLive(true);
+      }
+      if (scanResult.status === 'fulfilled') {
+        setLatestScan(scanResult.value);
+      }
+      if (scansResult.status === 'fulfilled') {
+        setScanHistory(scansResult.value);
+      }
+      if (appsResult.status === 'fulfilled' && appsResult.value.items.length > 0) {
+        setApps(appsResult.value.items);
+        setTotalPages(appsResult.value.total_pages);
+        setTotalItems(appsResult.value.total);
+      } else {
+        // Fallback to local full verified dataset
+        const filtered = fullDataset.filter((a) => {
+          if (searchQuery.trim()) {
+            const q = searchQuery.toLowerCase();
+            const matches = a.title.toLowerCase().includes(q) || a.developer.toLowerCase().includes(q) || a.package_id.toLowerCase().includes(q);
+            if (!matches) return false;
+          }
+          if (selectedCategory && selectedCategory !== 'All') {
+            const cat = (a.latest_assessment?.risk_category ?? '').toLowerCase();
+            if (!cat.includes(selectedCategory.toLowerCase())) return false;
+          }
+          return true;
+        });
+        setApps(filtered.slice((page - 1) * pageSize, page * pageSize));
+        setTotalPages(Math.ceil(filtered.length / pageSize) || 1);
+        setTotalItems(filtered.length);
+      }
       setLoadError(null);
     } catch (error) {
       console.error('Error loading dashboard data:', error);

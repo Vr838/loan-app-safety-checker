@@ -30,6 +30,13 @@ async def lifespan(app: FastAPI):
     try:
         async with async_engine.begin() as conn:
             await conn.run_sync(Base.metadata.create_all)
+            # Auto-migrate scan_runs table if missing newly added columns
+            try:
+                from sqlalchemy import text
+                await conn.execute(text("ALTER TABLE scan_runs ADD COLUMN IF NOT EXISTS apps_new_count INTEGER NOT NULL DEFAULT 0;"))
+                await conn.execute(text("ALTER TABLE scan_runs ADD COLUMN IF NOT EXISTS apps_refreshed_count INTEGER NOT NULL DEFAULT 0;"))
+            except Exception as col_err:
+                logger.info("Column verification note: %s", col_err)
         logger.info("Database tables verified.")
     except Exception as e:
         logger.warning(f"Database initialization deferred (server will continue running): {e}")
@@ -70,7 +77,11 @@ app = FastAPI(
 # CORS Middleware configuration
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.cors_origin_list,
+    allow_origins=[
+        *settings.cors_origin_list,
+        "https://frontend-vansh19.vercel.app",
+        "https://*.vercel.app",
+    ],
     allow_origin_regex=r"https://.*\.vercel\.app|http://localhost(:\d+)?|http://127\.0\.0\.1(:\d+)?",
     allow_credentials=True,
     allow_methods=["*"],
@@ -82,12 +93,19 @@ app.add_middleware(
 async def global_exception_handler(request: Request, exc: Exception):
     """Global exception handler ensuring consistent error responses without leaking internal credentials."""
     logger.exception("Unhandled server exception processing request %s: %s", request.url.path, str(exc))
+    origin = request.headers.get("origin") or "*"
     return JSONResponse(
         status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
         content={
             "error": "InternalServerError",
             "message": "An unexpected error occurred while processing the request.",
             "path": request.url.path,
+        },
+        headers={
+            "Access-Control-Allow-Origin": origin,
+            "Access-Control-Allow-Credentials": "true",
+            "Access-Control-Allow-Methods": "*",
+            "Access-Control-Allow-Headers": "*",
         },
     )
 

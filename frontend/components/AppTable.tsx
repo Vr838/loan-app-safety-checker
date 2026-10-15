@@ -264,7 +264,9 @@ export const AppTable: React.FC<AppTableProps> = ({
                           <img
                             src={app.icon_url}
                             alt=""
-                            className="w-10 h-10 rounded-xl object-cover border border-slate-200 shrink-0 shadow-2xs"
+                            width={40}
+                            height={40}
+                            className="w-10 h-10 rounded-xl object-cover border border-slate-200 shrink-0 shadow-2xs app-icon-img"
                             onError={(e) => { e.currentTarget.style.display = 'none'; }}
                           />
                         ) : (

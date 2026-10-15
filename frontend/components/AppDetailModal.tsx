@@ -89,7 +89,9 @@ export const AppDetailModal: React.FC<AppDetailModalProps> = ({ app, onClose }) 
               <img
                 src={app.icon_url}
                 alt=""
-                className="w-12 h-12 rounded-xl object-cover border border-slate-200 shrink-0 shadow-xs"
+                width={48}
+                height={48}
+                className="w-12 h-12 rounded-xl object-cover border border-slate-200 shrink-0 shadow-xs app-icon-img"
                 onError={(e) => { e.currentTarget.style.display = 'none'; }}
               />
             ) : (

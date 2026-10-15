@@ -169,7 +169,9 @@ export function AppComparisonModal({ apps, onClose, onRemoveApp }: AppComparison
                     <img
                       src={app.icon_url}
                       alt=""
-                      className="w-10 h-10 rounded-xl object-cover border border-slate-200 shrink-0"
+                      width={40}
+                      height={40}
+                      className="w-10 h-10 rounded-xl object-cover border border-slate-200 shrink-0 app-icon-img"
                       onError={(e) => { e.currentTarget.style.display = 'none'; }}
                     />
                   ) : (
