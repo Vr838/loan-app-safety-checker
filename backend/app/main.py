@@ -26,27 +26,32 @@ logger = logging.getLogger("loan_safety_checker")
 async def lifespan(app: FastAPI):
     """Application lifespan context manager for startup and shutdown routines."""
     logger.info("Initializing Loan App Safety Checker Backend...")
-    # Initialize database tables
-    async with async_engine.begin() as conn:
-        await conn.run_sync(Base.metadata.create_all)
+    # Initialize database tables with graceful fallback
+    try:
+        async with async_engine.begin() as conn:
+            await conn.run_sync(Base.metadata.create_all)
+        logger.info("Database tables verified.")
+    except Exception as e:
+        logger.warning(f"Database initialization deferred (server will continue running): {e}")
 
-    # BackgroundTasks run only in this process. A process restart therefore
-    # cannot resume a previous task, so make that state visible and allow a
-    # new scan to start.
-    async with AsyncSessionLocal() as session:
-        interrupted_scans = list(
-            await session.scalars(select(ScanRun).where(ScanRun.status == "running"))
-        )
-        for scan in interrupted_scans:
-            scan.status = "failed"
-            scan.completed_at = datetime.now(timezone.utc)
-            scan.error_summary = [
-                *(scan.error_summary or []),
-                {"error": "Scan stopped because the analysis service restarted."},
-            ]
-        if interrupted_scans:
-            await session.commit()
-            logger.warning("Marked %d interrupted scan(s) as failed.", len(interrupted_scans))
+    # Reset any dangling scans
+    try:
+        async with AsyncSessionLocal() as session:
+            interrupted_scans = list(
+                await session.scalars(select(ScanRun).where(ScanRun.status == "running"))
+            )
+            for scan in interrupted_scans:
+                scan.status = "failed"
+                scan.completed_at = datetime.now(timezone.utc)
+                scan.error_summary = [
+                    *(scan.error_summary or []),
+                    {"error": "Scan stopped because the analysis service restarted."},
+                ]
+            if interrupted_scans:
+                await session.commit()
+                logger.warning("Marked %d interrupted scan(s) as failed.", len(interrupted_scans))
+    except Exception as e:
+        logger.warning(f"Could not clean up interrupted scans: {e}")
 
     yield
     logger.info("Shutting down Loan App Safety Checker Backend...")
