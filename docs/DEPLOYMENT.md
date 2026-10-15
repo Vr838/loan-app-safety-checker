@@ -8,7 +8,7 @@ This guide describes how to deploy the **Loan App Safety Checker** platform to m
 
 ```
 ┌─────────────────────────────────┐
-│     Next.js 14+ Frontend        │  ▶ Hosted on Vercel
+│     Next.js 16 Frontend          │  ▶ Hosted on Vercel
 │     (SSR, Edge CDN, React 19)   │  ▶ Environment: NEXT_PUBLIC_API_BASE_URL
 └────────────────┬────────────────┘
                  │ HTTPS REST API
@@ -65,7 +65,7 @@ This guide describes how to deploy the **Loan App Safety Checker** platform to m
    | `SYNC_DATABASE_URL` | `postgresql://...` | Sync Alembic connection |
    | `ADMIN_API_TOKEN` | `[RANDOM_64_CHAR_HEX]` | Secret token for admin scan triggers |
    | `CORS_ORIGINS` | `https://your-frontend.vercel.app` | Whitelist deployed Vercel domain |
-   | `EXTERNAL_SEARCH_PROVIDER`| `local_registry` (or `serpapi`)| Evidence provider |
+   | `EXTERNAL_SEARCH_PROVIDER`| `google_news` (or `serpapi`)| Live external evidence provider |
    | `SEARCH_API_KEY` | `[OPTIONAL_API_KEY]` | Search provider API key |
 
 ### 3.2 Smoke Testing the Backend
@@ -95,6 +95,8 @@ Ensure the response returns:
    | `NEXT_PUBLIC_API_BASE_URL` | `https://your-backend.onrender.com` | Base URL of deployed FastAPI backend |
 5. Click **Deploy**. Vercel will build the production bundle and assign a public `.vercel.app` domain.
 6. Return to Render and update `CORS_ORIGINS` to match your exact Vercel production domain.
+
+`NEXT_PUBLIC_API_BASE_URL` is required for a hosted dashboard. Without it, a browser would otherwise try its own `localhost`, where no public API exists. The application now displays a configuration error instead of an empty catalog in that case.
 
 ---
 

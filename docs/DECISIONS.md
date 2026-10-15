@@ -23,7 +23,7 @@ This log records the core architectural and technical decisions made during the 
 ## ADR-003: Deterministic Rule Engine vs. Black-Box LLM Judging
 **Status:** Accepted  
 **Context:** Generative Large Language Models (LLMs) can produce persuasive but non-deterministic, hallucinatory, or un-auditable outputs when evaluating safety risk.  
-**Decision:** Use a deterministic, versioned mathematical scoring engine (`v1.0.0`) based on explicit weights, positive mitigations, and regex financial complaint lexicons.  
+**Decision:** Use a deterministic, versioned mathematical scoring engine (`v1.1.0`) based on explicit weights and regex financial complaint lexicons.
 **Consequences:** Every score is 100% reproducible. The exact formula, weight breakdown, and evidence citations can be displayed directly in the dashboard and audited by reviewers.
 
 ---
@@ -32,7 +32,7 @@ This log records the core architectural and technical decisions made during the 
 **Status:** Accepted  
 **Context:** Requiring a running PostgreSQL instance for running basic unit tests or reviewing local code increases contributor friction.  
 **Decision:** Build the data layer using SQLAlchemy 2.0 with standard relational types and JSON columns that run seamlessly on both PostgreSQL (`asyncpg`) and SQLite (`aiosqlite`).  
-**Consequences:** Contributors can run `pytest` and seed the database instantly with zero external dependencies, while production maintains high-concurrency ACID guarantees on managed PostgreSQL.
+**Consequences:** Contributors can run `pytest` with isolated test fixtures, while production stores only records collected by live scans.
 
 ---
 

@@ -3,7 +3,14 @@
 import math
 from typing import Any, Dict, List
 
-ENGINE_VERSION = "v1.0.0"
+ENGINE_VERSION = "v1.1.0"
+
+# Historical imports used two names for the same complaint themes. Normalize them
+# before scoring so a real scan and an imported record receive the same treatment.
+THEME_ALIASES = {
+    "short_tenor_trap": "short_cycle_extortion",
+    "hidden_fees": "hidden_fees_deductions",
+}
 
 
 class RiskEngine:
@@ -32,8 +39,9 @@ class RiskEngine:
         total_reviews = len(reviews)
         for r in reviews:
             themes = r.get("complaint_themes", [])
-            for t in themes:
-                theme_counts[t] = theme_counts.get(t, 0) + 1
+            for theme in themes:
+                canonical_theme = THEME_ALIASES.get(theme, theme)
+                theme_counts[canonical_theme] = theme_counts.get(canonical_theme, 0) + 1
 
         raw_risk_score = 0.0
 
@@ -246,8 +254,14 @@ class RiskEngine:
         # 3. Store ratings volume (up to 0.20)
         ratings_vol = app_data.get("rating_count", 0)
         ratings_conf = min(0.20, (math.log10(ratings_vol + 1) / 5.0) * 0.20) if ratings_vol > 0 else 0.0
-        # 4. External evidence items (up to 0.20)
-        evidence_conf = min(0.20, len(evidence_items) * 0.10)
+        # 4. Only trusted regulatory records can improve evidence sufficiency.
+        # Raw search results remain visible as provenance but are not verification.
+        trusted_evidence_count = sum(
+            1
+            for item in evidence_items
+            if item.get("source_type") == "regulator" and (item.get("reliability_score") or 0.0) >= 0.90
+        )
+        evidence_conf = min(0.20, trusted_evidence_count * 0.10)
 
         total_confidence = round(min(1.0, max(0.0, review_conf + policy_conf + ratings_conf + evidence_conf)), 2)
 
@@ -274,7 +288,7 @@ class RiskEngine:
                 risk_category = "Lower concern"
                 rationale = (
                     f"Heuristic risk score is low ({final_risk_score}/100) with {confidence_level.lower()} confidence ({total_confidence:.2f}). "
-                    "Observable store signals and regulatory checks show minimal predatory complaint frequency."
+                    "Observable store metadata and the sampled reviews show few matching predatory complaint signals."
                 )
             elif final_risk_score < 65.0:
                 risk_category = "Caution"

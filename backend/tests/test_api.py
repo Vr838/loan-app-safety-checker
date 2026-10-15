@@ -2,6 +2,7 @@
 
 import pytest
 from httpx import AsyncClient
+from unittest.mock import patch
 from app.core.config import settings
 
 
@@ -48,7 +49,7 @@ async def test_filter_by_risk_category(client: AsyncClient):
 
 @pytest.mark.asyncio
 async def test_get_app_detail_success(client: AsyncClient):
-    pkg_id = "com.bajajfinserv.customerapp"
+    pkg_id = "org.altruist.BajajExperia"
     resp = await client.get(f"/api/v1/apps/{pkg_id}")
     assert resp.status_code == 200
     data = resp.json()
@@ -67,7 +68,7 @@ async def test_get_app_detail_not_found(client: AsyncClient):
 
 @pytest.mark.asyncio
 async def test_get_app_evidence(client: AsyncClient):
-    pkg_id = "com.bajajfinserv.customerapp"
+    pkg_id = "org.altruist.BajajExperia"
     resp = await client.get(f"/api/v1/apps/{pkg_id}/evidence")
     assert resp.status_code == 200
     data = resp.json()
@@ -76,7 +77,7 @@ async def test_get_app_evidence(client: AsyncClient):
 
 @pytest.mark.asyncio
 async def test_get_app_history(client: AsyncClient):
-    pkg_id = "com.bajajfinserv.customerapp"
+    pkg_id = "org.altruist.BajajExperia"
     resp = await client.get(f"/api/v1/apps/{pkg_id}/history")
     assert resp.status_code == 200
     data = resp.json()
@@ -109,12 +110,10 @@ async def test_admin_scan_trigger_unauthorized(client: AsyncClient):
     assert resp_invalid.status_code == 401
 
 
-from unittest.mock import patch
-
 @pytest.mark.asyncio
 async def test_admin_scan_trigger_authorized(client: AsyncClient):
     valid_token = settings.ADMIN_API_TOKEN
-    with patch("app.api.routes.scans._run_background_scan") as mock_scan:
+    with patch("app.api.routes.scans._run_background_scan"):
         resp = await client.post(
             "/api/v1/scans/admin/trigger",
             headers={"Authorization": f"Bearer {valid_token}"},

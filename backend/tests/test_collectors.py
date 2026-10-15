@@ -72,16 +72,45 @@ async def test_play_store_reviews_anonymization_mocked():
 
 
 @pytest.mark.asyncio
-async def test_external_evidence_regulatory_matching():
-    collector = ExternalEvidenceCollector(provider="local_registry")
+async def test_external_evidence_is_disabled_without_a_live_provider():
+    collector = ExternalEvidenceCollector(provider="disabled")
     evidence = await collector.gather_evidence(
         package_id="com.bajajfinserv.test",
         developer_name="Bajaj Finance Limited",
         app_title="Bajaj Finserv App",
     )
-    assert len(evidence) >= 1
-    assert any("Bajaj Finance Limited" in e["claim_supported"] for e in evidence)
-    assert any(e["source_type"] == "regulator" for e in evidence)
+    assert evidence == []
+
+
+def test_duckduckgo_results_are_public_provenance_only():
+    html = """
+    <div class='result'>
+      <a class='result__a' href='//duckduckgo.com/l/?uddg=https%3A%2F%2Fexample.com%2Freport'>Example report</a>
+      <a class='result__snippet'>Public complaint discussion</a>
+    </div>
+    """
+    evidence = ExternalEvidenceCollector._parse_duckduckgo_results("com.example.loan", "Example Loan", html)
+
+    assert len(evidence) == 1
+    assert evidence[0]["source_url"] == "https://example.com/report"
+    assert evidence[0]["source_type"] == "search_result"
+    assert evidence[0]["reliability_score"] == 0.0
+
+
+def test_google_news_results_are_public_provenance_only():
+    xml = """<?xml version='1.0' encoding='UTF-8'?>
+    <rss><channel><item>
+      <title>Example Loan complaint investigation</title>
+      <link>https://news.google.com/rss/articles/example</link>
+      <description>Reporting for human review.</description>
+      <source url='https://example.org'>Example News</source>
+    </item></channel></rss>"""
+    evidence = ExternalEvidenceCollector._parse_google_news_results("com.example.loan", "Example Loan", xml)
+
+    assert len(evidence) == 1
+    assert evidence[0]["source_type"] == "news_search_result"
+    assert evidence[0]["reliability_score"] == 0.0
+    assert evidence[0]["source_title"].endswith("Example News")
 
 
 def test_content_hash_deterministic():

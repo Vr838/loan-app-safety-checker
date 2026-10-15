@@ -2,12 +2,11 @@
 
 > An evidence-driven research and risk-analysis platform for publicly listed digital lending apps. It combines app-store metadata, user review theme classification, developer transparency signals, and external regulatory records into explainable, deterministic heuristic assessments.
 
-**Project Status:** Implemented & Verified  
+**Project Status:** Live-data only; the catalog starts empty and is populated by authorized scans.
 **Public Repository:** [https://github.com/Vr838/loan-app-safety-checker](https://github.com/Vr838/loan-app-safety-checker)  
-**Live Production Demo (Vercel):** [https://frontend-three-iota-v02ppkagaq.vercel.app](https://frontend-three-iota-v02ppkagaq.vercel.app)  
-**Scoring Engine Version:** `v1.0.0`  
-**Test Suite:** 23/23 Passing (100% mocked external HTTP calls)  
-**Frontend Build:** Next.js 16 (Turbopack) Production Build Verified  
+**Vercel deployment:** [https://frontend-three-iota-v02ppkagaq.vercel.app](https://frontend-three-iota-v02ppkagaq.vercel.app) - configure an HTTPS backend URL before presenting this as a live result.
+**Scoring Engine Version:** `v1.1.0`
+**Frontend Build:** Next.js 16 (Turbopack)
 
 ---
 
@@ -29,12 +28,12 @@ Digital personal loan applications on mobile marketplaces offer credit in minute
 
 - **Responsible Bounded Collector:** Rate-limited Google Play Store collector with jitter delays, exponential backoff, bounded app caps, and bounded review samples.
 - **Privacy Minimization:** Reviewer names, emails, and avatar URLs are stripped prior to persistence.
-- **External Evidence Registry:** Built-in verified registry of RBI-registered NBFC entities and public State Cyber Crime advisories, with configurable search adapter support (SerpApi).
-- **Deterministic Risk Engine (`v1.0.0`):** Transparent mathematical formula balancing 6 negative risk signals against positive regulatory mitigations, bounded between 0 and 100.
+- **Live Source Policy:** App and review records are collected from Google Play at scan time. A bounded Google News RSS search collects current public reporting as unverified provenance; no packaged lender registry or caution list is used.
+- **Deterministic Risk Engine (`v1.1.0`):** Transparent mathematical formula balancing observable risk signals, bounded between 0 and 100.
 - **Separation of Risk from Confidence:** A separate Evidence Sufficiency metric ($0.0 - 1.0$) ensures newly launched apps with zero reviews are marked as `Insufficient evidence` rather than falsely declared safe.
 - **FastAPI REST Service:** Typed Pydantic v2 endpoints for app listing, search, filtering, detailed profiles, evidence provenance, historical trend snapshots, and health checks.
 - **Protected Admin Trigger:** HTTP Bearer token authentication with constant-time comparison on scan trigger endpoints (`POST /api/v1/scans/admin/trigger`).
-- **Dark Analyst Dashboard:** Next.js 16 + TypeScript dashboard with Recharts complaint distribution, risk badges, evidence cards, and graceful demo fallback when offline.
+- **Simple Research Dashboard:** Next.js 16 + TypeScript dashboard with evidence cards and explicit service-unavailable states.
 - **Database Migrations:** SQLAlchemy 2.0 with Alembic supporting both PostgreSQL in production and zero-dependency SQLite locally.
 
 ---
@@ -85,9 +84,8 @@ loan-app-safety-checker/
 │   │   │   ├── review.py
 │   │   │   ├── risk.py
 │   │   │   └── scan.py
-│   │   ├── services/            # Scan orchestration & labeled demo seed service
+│   │   ├── services/            # Scan orchestration
 │   │   │   ├── scans.py
-│   │   │   └── seed.py
 │   │   └── main.py              # Application entrypoint, lifespan & CORS
 │   ├── migrations/              # Alembic migration scripts
 │   │   ├── versions/
@@ -107,16 +105,13 @@ loan-app-safety-checker/
 ├── frontend/
 │   ├── app/                     # Next.js App Router (page.tsx, layout.tsx, globals.css)
 │   ├── components/              # UI components (Navbar, OverviewMetrics, AppTable, ...)
-│   ├── lib/                     # Types, API client, and demo fallback dataset
+│   ├── lib/                     # Types and API client
 │   ├── package.json
 │   └── .env.example
 ├── scripts/
-│   ├── fetch_loan_apps.py       # Live Play Store loan discovery, NLP review analysis, and risk scoring
-│   ├── sync_demo_data.py        # Synchronizer between discovered Play Store data and Next.js UI cache
 │   ├── run_scan.py              # CLI utility to run a bounded database scan
-│   └── seed_demo_data.py        # CLI utility to seed labeled benchmark data
 ├── docs/                        # Complete project documentation suite
-│   ├── PLAY_STORE_DISCOVERY_REPORT.md # Full report on Play Store scraping, 404 delisting reasons & live apps
+│   ├── LIVE_DATA_POLICY.md      # Data provenance and live-collection policy
 │   ├── IMPLEMENTATION_PLAN.md   # Phased delivery milestones & acceptance criteria
 │   ├── EXPLANATIONS.md          # Architectural decisions & methodology rationale
 │   └── ...
@@ -130,7 +125,7 @@ loan-app-safety-checker/
 
 ### Prerequisites
 - **Python 3.11+**
-- **Node.js 18+** & **npm**
+- **Node.js 20.9+** & **npm**
 
 ### 5.1 Backend Setup
 
@@ -151,8 +146,8 @@ cp .env.example .env
 # 5. Run database migrations (creates SQLite tables automatically)
 alembic upgrade head
 
-# 6. Seed the labeled demo dataset
-python ../scripts/seed_demo_data.py
+# 6. Run a live scan to populate the empty catalog
+python ../scripts/run_scan.py
 
 # 7. Start the FastAPI development server
 uvicorn app.main:app --reload --port 8000
@@ -219,7 +214,7 @@ npm run build
 | `CORS_ORIGINS` | `http://localhost:3000,http://127.0.0.1:3000` | Whitelisted frontend origins |
 | `MAX_APPS_PER_QUERY` | `10` | Bounded cap on candidate apps per query |
 | `MAX_REVIEWS_PER_APP`| `30` | Bounded sample of user reviews per app |
-| `EXTERNAL_SEARCH_PROVIDER`| `local_registry` | `local_registry`, `serpapi`, or `duckduckgo` |
+| `EXTERNAL_SEARCH_PROVIDER`| `google_news` | `google_news`, `duckduckgo`, `serpapi`, or `disabled` |
 | `SEARCH_API_KEY` | `""` | Optional external search API key |
 
 ### Frontend (`frontend/.env.local`)
@@ -234,6 +229,7 @@ npm run build
 The repository maintains synchronized, in-depth documentation in `docs/`:
 
 - [IMPLEMENTATION_PLAN.md](docs/IMPLEMENTATION_PLAN.md): Engineering roadmap, milestones, and verified acceptance criteria.
+- [LIVE_DATA_POLICY.md](docs/LIVE_DATA_POLICY.md): Data provenance and live-collection policy.
 - [EXPLANATIONS.md](docs/EXPLANATIONS.md): Plain-language guide explaining data flow, scoring math, and technology rationales.
 - [ARCHITECTURE.md](docs/ARCHITECTURE.md): Component diagrams, system boundaries, and invariants.
 - [METHODOLOGY.md](docs/METHODOLOGY.md): Research framework, evidence hierarchy, and epistemic tiers.
@@ -245,21 +241,27 @@ The repository maintains synchronized, in-depth documentation in `docs/`:
 - [DEPLOYMENT.md](docs/DEPLOYMENT.md): Step-by-step production hosting guide for Vercel, Render, and PostgreSQL.
 - [LIMITATIONS.md](docs/LIMITATIONS.md): Known operational gaps, impact, workarounds, and roadmaps.
 - [DECISIONS.md](docs/DECISIONS.md): Architecture Decision Records (ADRs) and trade-offs.
-- [DEMO_WALKTHROUGH.md](docs/DEMO_WALKTHROUGH.md): Step-by-step verification guide for reviewers and evaluators.
 - [SECURITY.md](docs/SECURITY.md): Secrets management, admin token protection, data minimization, and responsible collection.
+- [CYBERSECURITY_ASPECTS.md](docs/CYBERSECURITY_ASPECTS.md): Current cybersecurity controls, threats, and deployment checklist.
+- [FUTURE_CYBERSECURITY.md](docs/FUTURE_CYBERSECURITY.md): Security roadmap, incident response, and implementation order.
+- [FUTURE_SCOPE.md](docs/FUTURE_SCOPE.md): Planned research, product, reliability, and scale features.
+- [INTERVIEW_GUIDE.md](docs/INTERVIEW_GUIDE.md): Complete project explanation, score model, and interview answers.
+- [INTERVIEW_BACKEND.md](docs/INTERVIEW_BACKEND.md): API, collection, persistence, and failure-handling notes.
+- [INTERVIEW_ARCHITECTURE.md](docs/INTERVIEW_ARCHITECTURE.md): System design, deployment, and scaling notes.
+- [INTERVIEW_DEMO.md](docs/INTERVIEW_DEMO.md): Short demo script and common interview questions.
 
 ---
 
 ## 9. Definition of Done Checklist
 
 - [x] Repository contains fully working frontend (`frontend/`) and backend (`backend/`) code.
-- [x] Setup instructions work cleanly from scratch.
+- [x] The catalog is populated exclusively by live scans.
 - [x] Collection uses bounded requests, rate throttling with jitter, timeouts, and backoff.
 - [x] Apps are deduplicated by package ID and evidence by content hash.
-- [x] Assessments are explainable, deterministic, versioned (`v1.0.0`), and cite verifiable evidence.
+- [x] Assessments are explainable, deterministic, and versioned (`v1.1.0`).
 - [x] Insufficient evidence is explicitly recognized and never conflated with safety.
-- [x] Automated test suite (23/23 tests) passes with 100% mocked network calls.
-- [x] No secrets or private tokens are committed (`.env.example` templates only).
+- [x] Automated tests mock all external network calls.
+- [x] No secrets, demo records, or hard-coded regulatory claims are committed.
 - [x] All 15 required Markdown documents match the real implementation.
 - [x] GitHub Actions CI workflow configured for linting, tests, and build.
-- [x] Step-by-step reviewer walkthrough provided in [docs/DEMO_WALKTHROUGH.md](docs/DEMO_WALKTHROUGH.md).
+- [x] The live-data policy documents the scan workflow and provenance limits.

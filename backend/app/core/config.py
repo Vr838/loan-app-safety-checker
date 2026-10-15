@@ -43,11 +43,13 @@ class Settings(BaseSettings):
     REQUEST_DELAY_SECONDS: float = 1.0
 
     # External Evidence Adapter
-    EXTERNAL_SEARCH_PROVIDER: str = "local_registry"  # local_registry, serpapi, duckduckgo
+    # Providers collect live public links only. Search results remain unverified
+    # provenance and never receive a regulatory status by default.
+    EXTERNAL_SEARCH_PROVIDER: str = "google_news"  # google_news, duckduckgo, serpapi, or disabled
     SEARCH_API_KEY: str = ""
 
     # Risk Scoring Ruleset Version
-    RISK_ENGINE_VERSION: str = "v1.0.0"
+    RISK_ENGINE_VERSION: str = "v1.1.0"
 
 
 settings = Settings()

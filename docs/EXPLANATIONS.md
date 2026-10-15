@@ -119,7 +119,7 @@ The platform is designed as a **modular monolith** with clean boundaries between
 
 ## 4. How the Risk Score is Calculated
 
-The scoring engine evaluates apps against a versioned ruleset (`v1.0.0`). The output is divided into two distinct dimensions:
+The scoring engine evaluates apps against a versioned ruleset (`v1.1.0`). The output is divided into two distinct dimensions:
 
 ### Dimension 1: The Risk Score ($0$ to $100$)
 

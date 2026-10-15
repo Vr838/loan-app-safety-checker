@@ -12,3 +12,5 @@ google-play-scraper>=1.2.4
 pandas>=2.2.0
 scikit-learn>=1.4.0
 greenlet>=3.0.0
+reportlab>=4.0.0
+lxml>=5.0.0

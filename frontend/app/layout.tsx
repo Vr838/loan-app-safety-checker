@@ -1,20 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "Loan App Safety Checker — Evidence-Driven Lending Risk Intelligence",
-  description: "Investigative research platform analyzing public Play Store loan apps, debt collection harassment complaints, privacy harvesting, and regulatory compliance.",
+  title: "LoanApp Guard: live loan app research",
+  description: "A live research workspace for public Google Play loan-app data and review signals.",
 };
 
 export default function RootLayout({
@@ -25,9 +14,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased dark`}
+      className="h-full antialiased"
     >
-      <body className="min-h-full flex flex-col bg-[#0B0F17] text-slate-100">{children}</body>
+      <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
 }

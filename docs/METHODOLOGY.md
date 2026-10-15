@@ -1,6 +1,6 @@
 # Research Methodology & Evidence Hierarchy
 
-**Document Version:** `v1.0.0`  
+**Document Version:** `v1.1.0`
 **Purpose:** Outlines the investigatory framework, evidence evaluation standards, and analytical boundaries implemented in the platform.
 
 ---

@@ -13,7 +13,7 @@ class ScanTriggerRequest(BaseModel):
     max_apps_per_query: Optional[int] = Field(
         default=5,
         ge=1,
-        le=20,
+        le=50,
         description="Bounded cap on apps fetched per query to prevent rate limits.",
     )
     max_reviews_per_app: Optional[int] = Field(
@@ -34,6 +34,8 @@ class ScanRunResponse(BaseModel):
     queries_attempted: List[str]
     apps_discovered_count: int
     apps_collected_count: int
+    apps_new_count: int = 0
+    apps_refreshed_count: int = 0
     apps_failed_count: int
     error_summary: Optional[List[Dict[str, Any]]] = None
     collector_version: str

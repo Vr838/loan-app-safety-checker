@@ -2,15 +2,15 @@
 
 import logging
 from contextlib import asynccontextmanager
+from datetime import datetime, timezone
 from fastapi import FastAPI, Request, status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
-from sqlalchemy import select, func
+from sqlalchemy import select
 
 from app.core.config import settings
-from app.db.session import AsyncSessionLocal, async_engine, Base
-from app.db.models import App
-from app.services.seed import seed_database
+from app.db.models import ScanRun
+from app.db.session import AsyncSessionLocal, Base, async_engine
 from app.api.routes import health
 from app.api.router import api_router
 
@@ -30,13 +30,23 @@ async def lifespan(app: FastAPI):
     async with async_engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
 
-    # Auto-seed demo dataset if database has zero apps
+    # BackgroundTasks run only in this process. A process restart therefore
+    # cannot resume a previous task, so make that state visible and allow a
+    # new scan to start.
     async with AsyncSessionLocal() as session:
-        count = await session.scalar(select(func.count(App.package_id)))
-        if count == 0:
-            logger.info("Database is empty. Seeding initial labeled demo dataset...")
-            await seed_database(session)
-            logger.info("Demo dataset seeded successfully.")
+        interrupted_scans = list(
+            await session.scalars(select(ScanRun).where(ScanRun.status == "running"))
+        )
+        for scan in interrupted_scans:
+            scan.status = "failed"
+            scan.completed_at = datetime.now(timezone.utc)
+            scan.error_summary = [
+                *(scan.error_summary or []),
+                {"error": "Scan stopped because the analysis service restarted."},
+            ]
+        if interrupted_scans:
+            await session.commit()
+            logger.warning("Marked %d interrupted scan(s) as failed.", len(interrupted_scans))
 
     yield
     logger.info("Shutting down Loan App Safety Checker Backend...")

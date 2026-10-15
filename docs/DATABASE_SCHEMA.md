@@ -74,7 +74,7 @@ erDiagram
         json complaint_theme_distribution "Counts per complaint theme"
         text evidence_sufficiency_rationale "Reasoning behind confidence level"
         timestamp assessment_timestamp "Time of heuristic computation"
-        string engine_version "Version of scoring ruleset e.g. v1.0.0"
+        string engine_version "Version of scoring ruleset e.g. v1.1.0"
     }
 
     SCAN_RUN {

@@ -27,7 +27,7 @@ class RiskAssessmentBase(BaseModel):
     positive_indicators: List[IndicatorItem] = Field(default_factory=list)
     complaint_theme_distribution: Dict[str, int] = Field(default_factory=dict)
     evidence_sufficiency_rationale: str
-    engine_version: str = "v1.0.0"
+    engine_version: str = "v1.1.0"
 
 
 class RiskAssessmentCreate(RiskAssessmentBase):

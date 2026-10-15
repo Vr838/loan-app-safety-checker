@@ -5,7 +5,7 @@ import uuid
 from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy import select
+from sqlalchemy import delete, select
 from app.db.models import App, Review, Evidence, RiskAssessment, ScanRun
 from app.collectors.play_store import PlayStoreCollector, DEFAULT_LOAN_QUERIES
 from app.collectors.external_evidence import ExternalEvidenceCollector
@@ -52,6 +52,7 @@ class ScanService:
         self.session.add(scan_run)
         await self.session.commit()
         await self.session.refresh(scan_run)
+        scan_run_id = scan_run.id
 
         # 1. Discovery Phase
         self.play_store.max_apps_per_query = max_apps_per_query
@@ -62,6 +63,8 @@ class ScanService:
         await self.session.commit()
 
         collected_count = 0
+        new_app_count = 0
+        refreshed_app_count = 0
         failed_count = 0
         errors: List[Dict[str, Any]] = []
 
@@ -105,12 +108,14 @@ class ScanService:
                 # 3. Persistence & Upsert Phase
                 existing_app = await self.session.scalar(select(App).where(App.package_id == pkg_id))
                 if existing_app:
+                    refreshed_app_count += 1
                     existing_app.title = details["title"]
                     existing_app.developer = details["developer"]
                     existing_app.developer_id = details["developer_id"]
                     existing_app.developer_email = details["developer_email"]
                     existing_app.developer_website = details["developer_website"]
                     existing_app.developer_address = details["developer_address"]
+                    existing_app.category = details["category"]
                     existing_app.rating = details["rating"]
                     existing_app.rating_count = details["rating_count"]
                     existing_app.installs_text = details["installs_text"]
@@ -122,6 +127,7 @@ class ScanService:
                     existing_app.last_scanned_at = datetime.now(timezone.utc)
                     app_record = existing_app
                 else:
+                    new_app_count += 1
                     app_record = App(
                         package_id=pkg_id,
                         title=details["title"],
@@ -146,7 +152,9 @@ class ScanService:
 
                 await self.session.flush()
 
-                # Add reviews (delete previous for freshness or append)
+                # Keep only the current public review sample. This prevents a
+                # repeated scan from silently inflating stored review data.
+                await self.session.execute(delete(Review).where(Review.package_id == pkg_id))
                 for rev in analyzed_reviews:
                     rev_obj = Review(
                         source_review_id=rev.get("source_review_id"),
@@ -203,25 +211,54 @@ class ScanService:
                 self.session.add(assessment_obj)
 
                 collected_count += 1
+                scan_run.apps_collected_count = collected_count
+                scan_run.apps_new_count = new_app_count
+                scan_run.apps_refreshed_count = refreshed_app_count
+                scan_run.apps_failed_count = failed_count
+                scan_run.error_summary = errors
                 await self.session.commit()
 
             except Exception as e:
+                # A database error invalidates the current transaction. Restore a
+                # usable session so remaining apps in the scan can still complete.
+                await self.session.rollback()
                 logger.error("Failed processing package %s: %s", pkg_id, str(e))
                 failed_count += 1
                 errors.append({"package_id": pkg_id, "error": str(e)})
+                scan_run = await self.session.get(ScanRun, scan_run_id)
+                if scan_run is not None:
+                    scan_run.apps_collected_count = collected_count
+                    scan_run.apps_new_count = new_app_count
+                    scan_run.apps_refreshed_count = refreshed_app_count
+                    scan_run.apps_failed_count = failed_count
+                    scan_run.error_summary = errors
+                    await self.session.commit()
 
         # 4. Finalize Scan Run Status
+        # The scan row may have been expired by a rollback in a failed item.
+        scan_run = await self.session.get(ScanRun, scan_run_id)
+        if scan_run is None:
+            raise RuntimeError("Scan run disappeared before completion.")
+
         scan_run.completed_at = datetime.now(timezone.utc)
         scan_run.apps_collected_count = collected_count
+        scan_run.apps_new_count = new_app_count
+        scan_run.apps_refreshed_count = refreshed_app_count
         scan_run.apps_failed_count = failed_count
         scan_run.error_summary = errors
 
-        if collected_count == 0 and failed_count > 0:
+        if collected_count == 0:
             scan_run.status = "failed"
+            if not errors:
+                errors.append({
+                    "error": "No Play Store listings were discovered. Check the network connection and try again."
+                })
         elif failed_count > 0:
             scan_run.status = "partial"
         else:
             scan_run.status = "completed"
+
+        scan_run.error_summary = errors
 
         await self.session.commit()
         await self.session.refresh(scan_run)

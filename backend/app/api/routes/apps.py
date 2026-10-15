@@ -1,8 +1,10 @@
 """Application endpoints for listing, details, evidence, and historical assessments."""
 
 import math
+from io import BytesIO
 from typing import List, Optional
 from fastapi import APIRouter, Depends, HTTPException, Query, status
+from fastapi.responses import Response, StreamingResponse
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import desc, func, select
 from sqlalchemy.orm import selectinload
@@ -12,8 +14,13 @@ from app.db.models import App, Evidence, RiskAssessment
 from app.schemas.app import AppDetail, AppListItem, AppListResponse
 from app.schemas.evidence import EvidenceResponse
 from app.schemas.risk import RiskAssessmentResponse
+from app.services.reports import build_csv_report, build_pdf_report
 
 router = APIRouter(prefix="/apps", tags=["Apps"])
+
+RBI_NBFC_LIST_URL = "https://www.rbi.org.in/Scripts/BS_NBFCList.aspx"
+RBI_DLA_REPOSITORY_NOTICE_URL = "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=58449"
+RBI_DIGITAL_LENDING_GUIDELINES_URL = "https://systemhealth.rbi.org.in/Scripts/NotificationUser.aspx_Id%3D12382%26Mode%3D0.html"
 
 
 @router.get("", response_model=AppListResponse)
@@ -44,10 +51,6 @@ async def list_apps(
     # 2. Rating filter
     if min_rating is not None:
         stmt = stmt.where(App.rating >= min_rating)
-
-    # Execute total count
-    count_stmt = select(func.count()).select_from(stmt.subquery())
-    await db.scalar(count_stmt) or 0
 
     # Fetch all matching apps for ordering
     result = await db.execute(stmt)
@@ -116,6 +119,116 @@ async def list_apps(
         page_size=page_size,
         total_pages=total_pages,
     )
+
+
+@router.get("/compare", response_model=List[AppDetail])
+async def compare_apps(
+    package_id: List[str] = Query(..., min_length=2, max_length=4),
+    db: AsyncSession = Depends(get_db),
+):
+    """Returns two to four complete app profiles for a side-by-side comparison."""
+    unique_ids = list(dict.fromkeys(package_id))
+    if len(unique_ids) < 2:
+        raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="Choose at least two distinct apps.")
+
+    stmt = select(App).where(App.package_id.in_(unique_ids)).options(
+        selectinload(App.assessments),
+        selectinload(App.evidence_items),
+    )
+    apps = (await db.execute(stmt)).scalars().all()
+    found = {app.package_id: app for app in apps}
+    missing = [package for package in unique_ids if package not in found]
+    if missing:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"App not found: {missing[0]}")
+
+    results = []
+    for package in unique_ids:
+        app = found[package]
+        assessment = app.assessments[0] if app.assessments else None
+        results.append(AppDetail(
+            package_id=app.package_id,
+            title=app.title,
+            developer=app.developer,
+            developer_id=app.developer_id,
+            developer_email=app.developer_email,
+            developer_website=app.developer_website,
+            developer_address=app.developer_address,
+            category=app.category,
+            rating=app.rating,
+            rating_count=app.rating_count,
+            installs_text=app.installs_text,
+            installs_approx=app.installs_approx,
+            privacy_policy_url=app.privacy_policy_url,
+            store_url=app.store_url,
+            icon_url=app.icon_url,
+            summary=app.summary,
+            is_active=app.is_active,
+            first_discovered_at=app.first_discovered_at,
+            last_scanned_at=app.last_scanned_at,
+            latest_assessment=RiskAssessmentResponse.model_validate(assessment) if assessment else None,
+            evidence_items=[EvidenceResponse.model_validate(item) for item in app.evidence_items],
+            recent_assessments=[RiskAssessmentResponse.model_validate(item) for item in app.assessments[:10]],
+        ))
+    return results
+
+
+@router.get("/{package_id}/report.csv")
+async def download_csv_report(package_id: str, db: AsyncSession = Depends(get_db)):
+    """Downloads the app research record as a source-backed CSV file."""
+    stmt = select(App).where(App.package_id == package_id).options(
+        selectinload(App.assessments),
+        selectinload(App.evidence_items),
+    )
+    app = (await db.execute(stmt)).scalar_one_or_none()
+    if not app:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Application not found.")
+    filename = f"loan-app-research-{app.package_id}.csv"
+    report = build_csv_report(app, app.assessments[0] if app.assessments else None, app.evidence_items)
+    return Response(
+        content=report,
+        media_type="text/csv",
+        headers={"Content-Disposition": f'attachment; filename="{filename}"'},
+    )
+
+
+@router.get("/{package_id}/report.pdf")
+async def download_pdf_report(package_id: str, db: AsyncSession = Depends(get_db)):
+    """Downloads the app research record as a printable PDF summary."""
+    stmt = select(App).where(App.package_id == package_id).options(
+        selectinload(App.assessments),
+        selectinload(App.evidence_items),
+    )
+    app = (await db.execute(stmt)).scalar_one_or_none()
+    if not app:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Application not found.")
+    filename = f"loan-app-research-{app.package_id}.pdf"
+    report = build_pdf_report(app, app.assessments[0] if app.assessments else None, app.evidence_items)
+    return StreamingResponse(
+        BytesIO(report),
+        media_type="application/pdf",
+        headers={"Content-Disposition": f'attachment; filename="{filename}"'},
+    )
+
+
+@router.get("/{package_id}/rbi-check")
+async def get_rbi_check(package_id: str, db: AsyncSession = Depends(get_db)):
+    """Returns official RBI verification links without asserting an unverified match."""
+    app = await db.get(App, package_id)
+    if not app:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Application not found.")
+    return {
+        "status": "manual_verification_required",
+        "developer_name": app.developer,
+        "message": (
+            "Verify the lender or lending partner on the regulated entity's own website and the RBI sources below. "
+            "A Play Store developer name alone does not establish RBI registration or a lending partnership."
+        ),
+        "sources": [
+            {"title": "RBI list of registered NBFCs and ARCs", "url": RBI_NBFC_LIST_URL},
+            {"title": "RBI digital lending app repository announcement", "url": RBI_DLA_REPOSITORY_NOTICE_URL},
+            {"title": "RBI digital lending guidelines", "url": RBI_DIGITAL_LENDING_GUIDELINES_URL},
+        ],
+    }
 
 
 @router.get("/{package_id}", response_model=AppDetail)

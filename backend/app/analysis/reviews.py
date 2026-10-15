@@ -16,6 +16,9 @@ COMPLAINT_PATTERNS = {
         r"\bdefam(?:e|ation|ing)\b",
         r"\bshame|shaming\b",
         r"\bvulgar\b",
+        r"\bgaali|gali|dhamki|dara(?:ya|te)|badnaam|badnam\b",
+        r"\bcall (?:kar|karke) (?:rahe|rha|rhi)\b",
+        r"धमकी|गाली|प्रताड़ना|ब्लैकमेल|बदनाम",
     ],
     "privacy_contact_abuse": [
         r"\bcontact (?:list|book|access)\b",
@@ -25,6 +28,10 @@ COMPLAINT_PATTERNS = {
         r"\bstol(?:e|en) contacts\b",
         r"\bunauthorized access\b",
         r"\bpermission abuse\b",
+        r"\bphoto|gallery|contact(?:s)? (?:leak|share|upload)\b",
+        r"\bphish(?:ing)?|fake (?:app|link|website)|otp (?:fraud|scam|steal)\b",
+        r"\bmalware|spyware|data (?:theft|steal)\b",
+        r"कॉन्टैक्ट|कॉन्टैक्ट्स|फोटो लीक|गैलरी|डेटा चोरी|फर्जी लिंक|ओटीपी फ्रॉड",
     ],
     "short_cycle_extortion": [
         r"\b7[\s-]?day(?:s)?\b",
@@ -34,6 +41,9 @@ COMPLAINT_PATTERNS = {
         r"\bshort tenure\b",
         r"\btenure is only 7\b",
         r"\bpromis(?:ed)? (?:90|60|30) days but (?:gave|give) 7\b",
+        r"\bsirf (?:7|seven|5|five) din\b",
+        r"\bjaldi (?:bhar|repay)|turant (?:bhar|payment)\b",
+        r"सात दिन|7 दिन|पांच दिन|5 दिन|जल्दी भर",
     ],
     "hidden_fees_deductions": [
         r"\bprocessing fee\b",
@@ -43,6 +53,9 @@ COMPLAINT_PATTERNS = {
         r"\bhidden charge(?:s)?\b",
         r"\bupfront fee\b",
         r"\bdisbursed only\b",
+        r"\bpaise (?:kaat|kat)|amount (?:kaat|kat)\b",
+        r"\bservice charge|convenience fee|gst charge\b",
+        r"कटौती|पैसे काट|प्रोसेसिंग फीस|छुपा शुल्क",
     ],
     "deceptive_rates": [
         r"\bhigh interest\b",
@@ -51,6 +64,9 @@ COMPLAINT_PATTERNS = {
         r"\bfraud interest\b",
         r"\bpenalt(?:y|ies)\b",
         r"\bloot|looting\b",
+        r"\bscam|fraud|fake loan|dhokha|thag(?:i|a)\b",
+        r"\binterest (?:bahut|zyada)|zyada (?:interest|byaj)\b",
+        r"धोखा|फ्रॉड|फर्जी लोन|ज्यादा ब्याज|सूद",
     ],
 }
 

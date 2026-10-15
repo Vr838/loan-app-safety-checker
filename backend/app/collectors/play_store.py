@@ -61,7 +61,10 @@ class PlayStoreCollector:
                     lang=self.language,
                     country=self.country,
                 )
-                for item in results:
+                # google-play-scraper may return its default page size even when
+                # n_hits is supplied. Enforce the requested limit locally before
+                # a candidate enters the scan budget.
+                for item in results[:self.max_apps_per_query]:
                     app_id = item.get("appId")
                     if app_id and app_id not in seen:
                         seen.add(app_id)

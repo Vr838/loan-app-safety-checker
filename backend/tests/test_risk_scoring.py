@@ -52,6 +52,26 @@ def test_insufficient_evidence_status():
     assert "cannot make a responsible safety assessment" in res["evidence_sufficiency_rationale"]
 
 
+def test_legacy_complaint_aliases_are_scored():
+    """Historical imports use aliases that must retain their scoring meaning."""
+    engine = RiskEngine()
+    result = engine.compute_assessment(
+        app_data={
+            "store_url": "https://play.google.com/store/apps/details?id=com.alias.test",
+            "rating_count": 100,
+            "installs_approx": 1_000,
+            "privacy_policy_url": "https://example.com/privacy",
+        },
+        reviews=[{"complaint_themes": ["hidden_fees", "short_tenor_trap"], "rating": 1} for _ in range(5)],
+        evidence_items=[],
+        anomalies={"has_anomaly": False},
+    )
+
+    assert "PRED_01" in result["score_breakdown"]
+    assert result["complaint_theme_distribution"]["hidden_fees_deductions"] == 5
+    assert result["complaint_theme_distribution"]["short_cycle_extortion"] == 5
+
+
 def test_high_concern_predatory_signals():
     """Verifies that severe complaint themes and regulatory notices produce High concern category."""
     engine = RiskEngine()

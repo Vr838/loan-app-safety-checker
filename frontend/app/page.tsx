@@ -5,17 +5,20 @@ import { Navbar } from '../components/Navbar';
 import { OverviewMetrics } from '../components/OverviewMetrics';
 import { AppTable } from '../components/AppTable';
 import { AppDetailModal } from '../components/AppDetailModal';
+import { AppComparisonModal } from '../components/AppComparisonModal';
 import { ScanModal } from '../components/ScanModal';
-import { fetchApps, fetchHealth, fetchLatestScan } from '../lib/api';
+import { ScanHistory } from '../components/ScanHistory';
+import { fetchAppComparison, fetchApps, fetchHealth, fetchLatestScan, fetchScanHistory } from '../lib/api';
 import { AppItem, HealthStatus, ScanRun } from '../lib/types';
-import { Shield, BookOpen, ExternalLink, RefreshCw } from 'lucide-react';
+import { ShieldCheck, RefreshCw } from 'lucide-react';
 
 export default function DashboardPage() {
   const [apps, setApps] = useState<AppItem[]>([]);
   const [latestScan, setLatestScan] = useState<ScanRun | null>(null);
+  const [scanHistory, setScanHistory] = useState<ScanRun[]>([]);
   const [health, setHealth] = useState<HealthStatus | null>(null);
-  const [isLive, setIsLive] = useState<boolean>(true);
-  const [isDemo, setIsDemo] = useState<boolean>(false);
+  const [isLive, setIsLive] = useState(false);
+  const [loadError, setLoadError] = useState<string | null>(null);
 
   // Filters & Pagination
   const [searchQuery, setSearchQuery] = useState('');
@@ -28,33 +31,38 @@ export default function DashboardPage() {
 
   // Modals & States
   const [selectedApp, setSelectedApp] = useState<AppItem | null>(null);
+  const [comparisonIds, setComparisonIds] = useState<string[]>([]);
+  const [comparisonApps, setComparisonApps] = useState<AppItem[]>([]);
   const [isScanModalOpen, setIsScanModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   const loadData = useCallback(async () => {
     setIsLoading(true);
     try {
-      const healthRes = await fetchHealth();
-      setHealth(healthRes.data);
-      setIsLive(healthRes.isLive);
-
-      const scanRes = await fetchLatestScan();
-      setLatestScan(scanRes.scan);
-
-      const appsRes = await fetchApps({
+      const [healthRes, scanRes, scansRes, appsRes] = await Promise.all([
+        fetchHealth(),
+        fetchLatestScan(),
+        fetchScanHistory(),
+        fetchApps({
         q: searchQuery,
         risk_category: selectedCategory,
         sort_by: sortBy,
         page,
         page_size: pageSize,
-      });
-
-      setApps(appsRes.response.items);
-      setTotalPages(appsRes.response.total_pages);
-      setTotalItems(appsRes.response.total);
-      setIsDemo(appsRes.isDemo);
-    } catch (e) {
-      console.error('Error loading dashboard data:', e);
+        }),
+      ]);
+      setHealth(healthRes);
+      setLatestScan(scanRes);
+      setScanHistory(scansRes);
+      setApps(appsRes.items);
+      setTotalPages(appsRes.total_pages);
+      setTotalItems(appsRes.total);
+      setIsLive(true);
+      setLoadError(null);
+    } catch (error) {
+      console.error('Error loading dashboard data:', error);
+      setIsLive(false);
+      setLoadError(error instanceof Error ? error.message : 'Unable to load live analysis data.');
     } finally {
       setIsLoading(false);
     }
@@ -64,33 +72,52 @@ export default function DashboardPage() {
     loadData();
   }, [loadData]);
 
+  const toggleComparison = (packageId: string) => {
+    setComparisonIds((current) => current.includes(packageId)
+      ? current.filter((id) => id !== packageId)
+      : current.length < 4 ? [...current, packageId] : current);
+  };
+
+  const openComparison = async () => {
+    try {
+      const appsToCompare = await fetchAppComparison(comparisonIds);
+      setSelectedApp(null);
+      setIsScanModalOpen(false);
+      setComparisonApps(appsToCompare);
+    } catch (error) {
+      setLoadError(error instanceof Error ? error.message : 'Unable to load the comparison.');
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-[#0B0F17] text-slate-100 flex flex-col">
+    <div className="min-h-screen app-shell flex flex-col">
       {/* Top Navigation */}
       <Navbar
         health={health}
         isLive={isLive}
-        onOpenScanModal={() => setIsScanModalOpen(true)}
+        onOpenScanModal={() => {
+          setSelectedApp(null);
+          setIsScanModalOpen(true);
+        }}
       />
 
       {/* Main Content Area */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
+      <main className="flex-1 max-w-6xl w-full mx-auto px-5 sm:px-8 py-10 space-y-8">
         {/* Page Title & Refresh */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <div>
-            <h1 className="text-2xl font-black tracking-tight text-white flex items-center space-x-2.5">
-              <span>Loan Application Safety & Risk Intelligence</span>
-            </h1>
-            <p className="text-xs text-slate-400 mt-1">
-              Evidence-based continuous monitoring of public Play Store digital lending applications, predatory terms, and regulatory disclosures.
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-5">
+          <div className="max-w-2xl">
+            <p className="eyebrow">Live Google Play research</p>
+            <h1 className="mt-2 text-3xl sm:text-4xl font-semibold tracking-[-0.04em] text-[#1d1d1f]">Loan app signals, clearly presented.</h1>
+            <p className="text-[15px] leading-6 text-[#6e6e73] mt-3">
+              Review public store information and sampled user feedback. Scores describe the signals found in the current data; they do not certify an app as safe.
             </p>
           </div>
           <button
             onClick={() => loadData()}
-            className="self-start sm:self-auto flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 hover:bg-slate-800 text-slate-300 text-xs font-medium transition-colors"
+            className="button-secondary self-start sm:self-auto"
           >
             <RefreshCw className={`w-3.5 h-3.5 ${isLoading ? 'animate-spin text-indigo-400' : ''}`} />
-            <span>Refresh Feed</span>
+            <span>Refresh data</span>
           </button>
         </div>
 
@@ -98,8 +125,15 @@ export default function DashboardPage() {
         <OverviewMetrics
           apps={apps}
           latestScan={latestScan}
-          isDemo={isDemo}
         />
+
+        <ScanHistory scans={scanHistory} loading={isLoading} />
+
+        {loadError && (
+          <div role="alert" className="rounded-2xl border border-[#f2c6cb] bg-[#fff2f3] px-4 py-3 text-sm text-[#a20b1b]">
+            {loadError}
+          </div>
+        )}
 
         {/* Search, Filter & App Table */}
         <AppTable
@@ -128,49 +162,30 @@ export default function DashboardPage() {
             setPage(1);
           }}
           onPageChange={(p) => setPage(p)}
-          onSelectApp={(app) => setSelectedApp(app)}
+          onSelectApp={(app) => {
+            setIsScanModalOpen(false);
+            setComparisonApps([]);
+            setSelectedApp(app);
+          }}
+          comparisonIds={comparisonIds}
+          onToggleComparison={toggleComparison}
+          onCompare={openComparison}
           isLoading={isLoading}
         />
 
-        {/* Research Methodology Accordion / Footer Card */}
-        <div className="p-5 rounded-xl bg-slate-900/60 border border-slate-800 grid grid-cols-1 md:grid-cols-3 gap-6 text-xs text-slate-400">
-          <div>
-            <h4 className="font-semibold text-slate-200 mb-1 flex items-center space-x-1.5">
-              <Shield className="w-3.5 h-3.5 text-indigo-400" />
-              <span>Transparent Risk Engine</span>
-            </h4>
-            <p className="text-[11px] leading-relaxed">
-              Calculates deterministic scores (0-100) using auditable rules for debt collection harassment, unauthorized contact list harvesting, predatory 7-day traps, and regulatory notices.
-            </p>
-          </div>
-          <div>
-            <h4 className="font-semibold text-slate-200 mb-1 flex items-center space-x-1.5">
-              <BookOpen className="w-3.5 h-3.5 text-indigo-400" />
-              <span>Evidence Sufficiency Metric</span>
-            </h4>
-            <p className="text-[11px] leading-relaxed">
-              Separates risk score from evidence sufficiency. If an app lacks sufficient reviews or external audit trails, it is flagged as <em>Insufficient evidence</em> rather than assuming safety.
-            </p>
-          </div>
-          <div>
-            <h4 className="font-semibold text-slate-200 mb-1 flex items-center space-x-1.5">
-              <ExternalLink className="w-3.5 h-3.5 text-indigo-400" />
-              <span>Verifiable Provenance</span>
-            </h4>
-            <p className="text-[11px] leading-relaxed">
-              Every material finding links directly to public regulator advisories, registered NBFC gazettes, or timestamped user reviews with personal identities stripped.
-            </p>
-          </div>
+        <div className="method-note">
+          <ShieldCheck className="w-5 h-5 text-[#0071e3] shrink-0" />
+          <p><strong>How to read this.</strong> The engine checks live listing metadata and a sampled set of public reviews for defined complaint themes. A low score means fewer matching signals were observed; it is not a safety guarantee.</p>
         </div>
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-slate-800/80 bg-slate-950 py-6 text-center text-xs text-slate-500">
-        <div className="max-w-7xl mx-auto px-4 space-y-2">
+      <footer className="border-t border-black/[.08] bg-white/60 py-6 text-center text-xs text-[#6e6e73]">
+        <div className="max-w-6xl mx-auto px-5 space-y-1">
           <p>
             Loan App Safety Checker is an open investigative research project. Not affiliated with Google Play or regulatory agencies.
           </p>
-          <p className="text-[11px] text-slate-600">
+          <p className="text-[11px] text-[#86868b]">
             Assessments are heuristic research aids, not legal determinations or credit ratings.
           </p>
         </div>
@@ -182,8 +197,11 @@ export default function DashboardPage() {
         onClose={() => setSelectedApp(null)}
       />
 
+      <AppComparisonModal apps={comparisonApps} onClose={() => setComparisonApps([])} />
+
       {/* Admin Scan Trigger Modal */}
       <ScanModal
+        key={isScanModalOpen ? 'scan-open' : 'scan-closed'}
         isOpen={isScanModalOpen}
         onClose={() => setIsScanModalOpen(false)}
         onScanSuccess={() => loadData()}

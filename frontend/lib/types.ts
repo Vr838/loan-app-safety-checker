@@ -95,9 +95,18 @@ export interface ScanRun {
   queries_attempted: string[];
   apps_discovered_count: number;
   apps_collected_count: number;
+  apps_new_count: number;
+  apps_refreshed_count: number;
   apps_failed_count: number;
   error_summary?: Array<{ package_id?: string; error?: string }>;
   collector_version: string;
+}
+
+export interface RbiCheck {
+  status: 'manual_verification_required';
+  developer_name: string;
+  message: string;
+  sources: Array<{ title: string; url: string }>;
 }
 
 export interface HealthStatus {

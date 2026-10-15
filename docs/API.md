@@ -54,8 +54,8 @@ The Loan App Safety Checker backend provides a typed REST API built with FastAPI
   "collector_ready": true,
   "components": {
     "database": "connected",
-    "risk_engine": "active (v1.0.0)",
-    "external_search": "local_registry"
+    "risk_engine": "active (v1.1.0)",
+    "external_search": "disabled"
   }
 }
 ```
@@ -112,7 +112,7 @@ The Loan App Safety Checker backend provides a typed REST API built with FastAPI
         },
         "evidence_sufficiency_rationale": "Severe composite risk signals present...",
         "assessment_timestamp": "2024-10-15T10:00:00Z",
-        "engine_version": "v1.0.0"
+        "engine_version": "v1.1.0"
       }
     }
   ],

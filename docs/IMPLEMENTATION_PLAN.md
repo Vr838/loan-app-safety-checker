@@ -1,4 +1,4 @@
-# Implementation Plan — Loan App Safety Checker
+# Implementation Plan - Loan App Safety Checker
 
 This document tracks the phased engineering execution of the Loan App Safety Checker platform. Each milestone details its dependencies, key deliverables, risks, mitigation strategies, and testable acceptance criteria. Checkboxes are updated as implementation milestones are completed and verified.
 
@@ -91,7 +91,7 @@ This document tracks the phased engineering execution of the Loan App Safety Che
 ## Milestone 4: Deterministic Risk Engine & Review Analysis
 **Dependencies:** Milestone 3.  
 **Risks:** Unexplainable "black box" decisions; false accusations of fraud; conflating absence of data with safety.  
-**Mitigation:** Versioned heuristic rule engine (`v1.0.0`) with transparent mathematical weights, counter-evidence weighting, and explicit `Insufficient evidence` status.
+**Mitigation:** Versioned heuristic rule engine (`v1.1.0`) with transparent mathematical weights and explicit `Insufficient evidence` status.
 
 - [x] Implement `backend/app/analysis/reviews.py`:
   - Lexicon and pattern-based complaint classifier targeting high-risk financial signals (`harassment_threats`, `hidden_fees_deductions`, `short_cycle_extortion`, `privacy_contact_abuse`, `deceptive_rates`).
@@ -123,7 +123,7 @@ This document tracks the phased engineering execution of the Loan App Safety Che
   - `GET /api/v1/apps/{package_id}/history`: Historical snapshots of risk assessments and ratings.
   - `GET /api/v1/scans/latest`: Summary of latest scan run, discovered count, failed queries, coverage stats.
   - `POST /api/v1/scans/admin/trigger`: Protected scan trigger requiring `ADMIN_API_TOKEN`.
-- [x] Implement seed service and CLI script `scripts/seed_demo_data.py` with labeled realistic sample apps covering all 4 tiers.
+- [x] Require authorized live scans to populate the catalog.
 
 **Acceptance Criteria Status:** Completed & Verified (API tests pass with 200/202/401/404 assertions).
 
@@ -190,7 +190,7 @@ This document tracks the phased engineering execution of the Loan App Safety Che
   - `docs/DEPLOYMENT.md`
   - `docs/LIMITATIONS.md`
   - `docs/DECISIONS.md`
-  - `docs/DEMO_WALKTHROUGH.md`
+  - `docs/LIVE_DATA_POLICY.md`
   - `docs/SECURITY.md`
 - [x] Configure GitHub Actions CI workflow in `.github/workflows/ci.yml`.
 - [x] Configure root `.gitignore` excluding secrets, caches, and local databases.

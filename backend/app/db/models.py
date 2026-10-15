@@ -136,6 +136,8 @@ class ScanRun(Base):
     queries_attempted = Column(JSON, nullable=False, default=list)
     apps_discovered_count = Column(Integer, nullable=False, default=0)
     apps_collected_count = Column(Integer, nullable=False, default=0)
+    apps_new_count = Column(Integer, nullable=False, default=0)
+    apps_refreshed_count = Column(Integer, nullable=False, default=0)
     apps_failed_count = Column(Integer, nullable=False, default=0)
 
     error_summary = Column(JSON, nullable=True, default=list)
@@ -168,7 +170,7 @@ class RiskAssessment(Base):
     evidence_sufficiency_rationale = Column(Text, nullable=False)
 
     assessment_timestamp = Column(DateTime(timezone=True), default=utc_now, nullable=False)
-    engine_version = Column(String(50), nullable=False, default="v1.0.0")
+    engine_version = Column(String(50), nullable=False, default="v1.1.0")
 
     app = relationship("App", back_populates="assessments")
 

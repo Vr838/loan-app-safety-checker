@@ -23,12 +23,11 @@ flowchart TD
         subgraph Analysis ["app.analysis"]
             NLP["ReviewAnalyzer<br/>(Themes: Harassment, Contact Abuse, 7-Day Trap)"]
             ANOM["AnomalyDetector<br/>(Bimodal star polarization, Duplicate review bursts)"]
-            RE["RiskEngine v1.0.0<br/>(Deterministic weights, Sufficiency metric)"]
+            RE["RiskEngine v1.1.0<br/>(Deterministic weights, Sufficiency metric)"]
         end
 
         subgraph Services ["app.services"]
             SS["ScanService<br/>(Audit accounting, deduplication, error handling)"]
-            SEED["SeedService<br/>(Labeled benchmark demo dataset)"]
         end
 
         subgraph Database ["Relational Database (SQLAlchemy 2.0 / Alembic)"]

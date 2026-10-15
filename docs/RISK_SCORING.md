@@ -1,6 +1,6 @@
 # Risk Scoring Methodology & Worked Examples
 
-**Engine Version:** `v1.0.0`  
+**Engine Version:** `v1.1.0`
 **Status:** Implemented & Deterministic
 
 This document specifies the exact mathematical rules, weights, thresholds, confidence metrics, and worked examples implemented in `backend/app/analysis/risk.py`.

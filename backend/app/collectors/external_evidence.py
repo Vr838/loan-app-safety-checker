@@ -4,90 +4,14 @@ import hashlib
 import logging
 from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional
+from urllib.parse import parse_qs, unquote, urlparse
+
 import httpx
+from bs4 import BeautifulSoup
+
 from app.core.config import settings
 
 logger = logging.getLogger(__name__)
-
-# Verified regulatory entities & known advisory alerts (RBI / Government of India NBFC Registries)
-VERIFIED_LENDERS_REGISTRY: Dict[str, Dict[str, Any]] = {
-    "bajaj finance": {
-        "entity_name": "Bajaj Finance Limited",
-        "regulator": "Reserve Bank of India (RBI)",
-        "registration_status": "Verified Registered NBFC-ICC",
-        "source_url": "https://www.rbi.org.in/scripts/BS_NBFCList.aspx",
-        "reliability": 0.95,
-        "is_approved": True,
-    },
-    "dmi finance": {
-        "entity_name": "DMI Finance Private Limited",
-        "regulator": "Reserve Bank of India (RBI)",
-        "registration_status": "Verified Registered NBFC-ND-SI",
-        "source_url": "https://www.rbi.org.in/scripts/BS_NBFCList.aspx",
-        "reliability": 0.95,
-        "is_approved": True,
-    },
-    "krazybee": {
-        "entity_name": "Krazybee Services Private Limited",
-        "regulator": "Reserve Bank of India (RBI)",
-        "registration_status": "Verified Registered NBFC",
-        "source_url": "https://www.rbi.org.in/scripts/BS_NBFCList.aspx",
-        "reliability": 0.95,
-        "is_approved": True,
-    },
-    "earlysalary": {
-        "entity_name": "Earlysalary Services Private Limited (Fibe)",
-        "regulator": "Reserve Bank of India (RBI)",
-        "registration_status": "Verified Registered NBFC",
-        "source_url": "https://www.rbi.org.in/scripts/BS_NBFCList.aspx",
-        "reliability": 0.95,
-        "is_approved": True,
-    },
-    "vivriti capital": {
-        "entity_name": "Vivriti Capital Private Limited",
-        "regulator": "Reserve Bank of India (RBI)",
-        "registration_status": "Verified Registered NBFC-ND-SI",
-        "source_url": "https://www.rbi.org.in/scripts/BS_NBFCList.aspx",
-        "reliability": 0.95,
-        "is_approved": True,
-    },
-    "bhanix": {
-        "entity_name": "Bhanix Finance and Investment Limited (CASHe)",
-        "regulator": "Reserve Bank of India (RBI)",
-        "registration_status": "Verified Registered NBFC",
-        "source_url": "https://www.rbi.org.in/scripts/BS_NBFCList.aspx",
-        "reliability": 0.95,
-        "is_approved": True,
-    },
-    "whizdm": {
-        "entity_name": "Whizdm Finance Private Limited (MoneyView)",
-        "regulator": "Reserve Bank of India (RBI)",
-        "registration_status": "Verified Registered NBFC",
-        "source_url": "https://www.rbi.org.in/scripts/BS_NBFCList.aspx",
-        "reliability": 0.95,
-        "is_approved": True,
-    },
-}
-
-REGULATORY_CAUTION_LIST: Dict[str, Dict[str, Any]] = {
-    "com.speedyloan.instantcredit": {
-        "title": "Advisory on Unregistered Lending Entities",
-        "publisher": "State Cyber Cell & Financial Intelligence Advisory",
-        "source_url": "https://cybercrime.gov.in/advisories/unauthorized_lending_apps",
-        "claim": "Named in public cautionary advisory regarding non-compliant short-term lending practices.",
-        "excerpt": "Borrowers advised against transacting with unregistered digital lending applications practicing 7-day repayment harassment.",
-        "reliability": 0.90,
-    },
-    "com.cashfast.loanonline": {
-        "title": "Enforcement Notice on Contact Harvesting Lending Apps",
-        "publisher": "Consumer Protection Bureau Special Bulletin",
-        "source_url": "https://consumeraffairs.nic.in/enforcement_updates",
-        "claim": "Cited for unauthorized access to personal contact books and deceptive fee deductions.",
-        "excerpt": "App identified as engaging in predatory upfront processing deductions exceeding 35% and contact intimidation.",
-        "reliability": 0.88,
-    },
-}
-
 
 def compute_content_hash(package_id: str, source_url: Optional[str], claim: str) -> str:
     """Computes a deterministic SHA256 hash for deduplicating evidence."""
@@ -110,64 +34,170 @@ class ExternalEvidenceCollector:
     ) -> List[Dict[str, Any]]:
         """Gathers verifiable evidence from regulatory databases and configured search providers."""
         evidence_list: List[Dict[str, Any]] = []
-        now = datetime.now(timezone.utc)
-
-        # 1. Check Regulatory Cautionary Lists
-        if package_id in REGULATORY_CAUTION_LIST:
-            advisory = REGULATORY_CAUTION_LIST[package_id]
-            h = compute_content_hash(package_id, advisory["source_url"], advisory["claim"])
-            evidence_list.append({
-                "package_id": package_id,
-                "source_url": advisory["source_url"],
-                "source_title": advisory["title"],
-                "source_type": "regulator",
-                "claim_supported": advisory["claim"],
-                "excerpt": advisory["excerpt"],
-                "reliability_score": advisory["reliability"],
-                "content_hash": h,
-                "publication_date": datetime(2024, 6, 1, tzinfo=timezone.utc),
-                "access_timestamp": now,
-            })
-
-        # 2. Check Regulatory Verified Lender Registry
-        dev_lower = developer_name.lower()
-        title_lower = app_title.lower()
-        matched_lender = None
-
-        for keyword, lender_info in VERIFIED_LENDERS_REGISTRY.items():
-            if keyword in dev_lower or keyword in title_lower:
-                matched_lender = lender_info
-                break
-
-        if matched_lender:
-            claim = f"Developer/Lender matches official regulated entity: {matched_lender['entity_name']}"
-            h = compute_content_hash(package_id, matched_lender["source_url"], claim)
-            evidence_list.append({
-                "package_id": package_id,
-                "source_url": matched_lender["source_url"],
-                "source_title": f"{matched_lender['regulator']} Official NBFC Register",
-                "source_type": "regulator",
-                "claim_supported": claim,
-                "excerpt": f"Entity '{matched_lender['entity_name']}' is documented as a {matched_lender['registration_status']} under the Reserve Bank of India.",
-                "reliability_score": matched_lender["reliability"],
-                "content_hash": h,
-                "publication_date": datetime(2024, 1, 1, tzinfo=timezone.utc),
-                "access_timestamp": now,
-            })
-
-        # 3. External Web Search Provider (if configured)
+        # There is no bundled lender registry or caution list because it cannot
+        # stay current. Search results are stored as unverified provenance only.
         if self.provider == "serpapi" and self.api_key:
-            # Query external search provider responsibly
             web_results = await self._query_serpapi(package_id, app_title)
             evidence_list.extend(web_results)
+        elif self.provider == "google_news":
+            web_results = await self._query_google_news(package_id, developer_name, app_title)
+            evidence_list.extend(web_results)
+        elif self.provider == "duckduckgo":
+            web_results = await self._query_duckduckgo(package_id, developer_name, app_title)
+            evidence_list.extend(web_results)
         else:
-            # Document graceful degradation
             logger.info(
-                "External web search provider is '%s' without external live API key. Operating on verified regulatory registries.",
+                "External evidence collection is disabled for provider '%s'; live Play Store data remains available.",
                 self.provider,
             )
 
         return evidence_list
+
+    async def _query_google_news(
+        self,
+        package_id: str,
+        developer_name: str,
+        app_title: str,
+    ) -> List[Dict[str, Any]]:
+        """Collect a short current-news sample from Google's public RSS feed."""
+        # Store titles often append a feature tagline (for example, "Home
+        # Credit: Personal Loan App"). Search the stable brand portion so the
+        # feed can return relevant reporting instead of an empty exact match.
+        search_name = app_title.split(":", maxsplit=1)[0].split(" - ", maxsplit=1)[0].strip()
+        query = f'"{search_name}" loan complaints'
+        try:
+            async with httpx.AsyncClient(
+                timeout=10.0,
+                follow_redirects=True,
+                headers={"User-Agent": "LoanAppSafetyChecker/1.1 research bot"},
+            ) as client:
+                response = await client.get(
+                    "https://news.google.com/rss/search",
+                    params={"q": query, "hl": "en-IN", "gl": "IN", "ceid": "IN:en"},
+                )
+                response.raise_for_status()
+        except (httpx.HTTPError, ValueError) as exc:
+            logger.warning("Error querying Google News RSS: %s", exc)
+            return []
+
+        return self._parse_google_news_results(package_id, app_title, response.text)
+
+    @staticmethod
+    def _parse_google_news_results(package_id: str, app_title: str, xml: str) -> List[Dict[str, Any]]:
+        """Turn a Google News RSS response into bounded, linkable provenance."""
+        try:
+            soup = BeautifulSoup(xml, "xml")
+        except Exception:
+            soup = BeautifulSoup(xml, "html.parser")
+        now = datetime.now(timezone.utc)
+        results: List[Dict[str, Any]] = []
+        brand = app_title.split(":", maxsplit=1)[0].split(" - ", maxsplit=1)[0].strip().lower()
+
+        for item in soup.find_all("item"):
+            title_node = item.find("title")
+            link_node = item.find("link")
+            if not title_node or not link_node:
+                continue
+
+            title = title_node.get_text(" ", strip=True)
+            source_url = link_node.get_text(strip=True)
+            description_node = item.find("description")
+            snippet = description_node.get_text(" ", strip=True) if description_node else ""
+            source_node = item.find("source")
+            source_name = source_node.get_text(" ", strip=True) if source_node else "Google News"
+            # Search engines occasionally return broad loan-industry coverage.
+            # Keep a result only if its visible text names the app brand.
+            if not title or not source_url or (brand and brand not in f"{title} {snippet}".lower()):
+                continue
+
+            claim = f"Public news result related to {app_title}; requires human corroboration."
+            results.append({
+                "package_id": package_id,
+                "source_url": source_url,
+                "source_title": f"{title} - {source_name}",
+                "source_type": "news_search_result",
+                "claim_supported": claim,
+                "excerpt": snippet,
+                "reliability_score": 0.0,
+                "content_hash": compute_content_hash(package_id, source_url, claim),
+                "publication_date": None,
+                "access_timestamp": now,
+            })
+            if len(results) == 3:
+                break
+
+        return results
+
+    async def _query_duckduckgo(
+        self,
+        package_id: str,
+        developer_name: str,
+        app_title: str,
+    ) -> List[Dict[str, Any]]:
+        """Collect a small, live public-web sample without a paid API key.
+
+        This is deliberately limited to three links per app and never changes a
+        risk score. It makes the investigation links visible for human review;
+        it is not evidence of regulatory status or wrongdoing.
+        """
+        query = f'"{app_title}" "{developer_name}" loan complaints reviews news'
+        try:
+            async with httpx.AsyncClient(
+                timeout=10.0,
+                follow_redirects=True,
+                headers={"User-Agent": "LoanAppSafetyChecker/1.1 research bot"},
+            ) as client:
+                response = await client.get("https://html.duckduckgo.com/html/", params={"q": query})
+                response.raise_for_status()
+        except (httpx.HTTPError, ValueError) as exc:
+            logger.warning("Error querying DuckDuckGo web search: %s", exc)
+            return []
+
+        return self._parse_duckduckgo_results(package_id, app_title, response.text)
+
+    @staticmethod
+    def _parse_duckduckgo_results(package_id: str, app_title: str, html: str) -> List[Dict[str, Any]]:
+        """Turn DuckDuckGo's result markup into bounded, linkable provenance."""
+        soup = BeautifulSoup(html, "html.parser")
+        now = datetime.now(timezone.utc)
+        results: List[Dict[str, Any]] = []
+
+        for result in soup.select(".result"):
+            link = result.select_one(".result__a")
+            if not link:
+                continue
+
+            source_url = ExternalEvidenceCollector._unwrap_duckduckgo_url(link.get("href", ""))
+            title = link.get_text(" ", strip=True)
+            snippet_node = result.select_one(".result__snippet")
+            snippet = snippet_node.get_text(" ", strip=True) if snippet_node else ""
+            if not source_url or not title:
+                continue
+
+            claim = f"Public web result related to {app_title}; requires human corroboration."
+            results.append({
+                "package_id": package_id,
+                "source_url": source_url,
+                "source_title": title,
+                "source_type": "search_result",
+                "claim_supported": claim,
+                "excerpt": snippet,
+                "reliability_score": 0.0,
+                "content_hash": compute_content_hash(package_id, source_url, claim),
+                "publication_date": None,
+                "access_timestamp": now,
+            })
+            if len(results) == 3:
+                break
+
+        return results
+
+    @staticmethod
+    def _unwrap_duckduckgo_url(url: str) -> str:
+        """Extract the result destination from DuckDuckGo's redirect URL."""
+        parsed = urlparse(url)
+        destination = parse_qs(parsed.query).get("uddg", [None])[0]
+        return unquote(destination) if destination else url
 
     async def _query_serpapi(self, package_id: str, app_title: str) -> List[Dict[str, Any]]:
         """Queries SerpApi for credible public journalism or official notices."""
@@ -197,10 +227,10 @@ class ExternalEvidenceCollector:
                             "package_id": package_id,
                             "source_url": url,
                             "source_title": title,
-                            "source_type": "journalism",
+                            "source_type": "search_result",
                             "claim_supported": claim,
                             "excerpt": snippet,
-                            "reliability_score": 0.70,
+                            "reliability_score": 0.0,
                             "content_hash": h,
                             "publication_date": None,
                             "access_timestamp": now,

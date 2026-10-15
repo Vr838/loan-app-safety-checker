@@ -2,18 +2,8 @@
 
 import React from 'react';
 import {
-  Search,
-  SlidersHorizontal,
-  ShieldAlert,
-  AlertTriangle,
-  CheckCircle2,
-  HelpCircle,
-  ExternalLink,
-  ChevronRight,
-  ChevronLeft,
-  Star,
-  Download,
-  ShieldCheck,
+  Search, SlidersHorizontal, ShieldAlert, AlertTriangle, CheckCircle2,
+  HelpCircle, ExternalLink, ChevronRight, ChevronLeft, Star, BarChart3,
 } from 'lucide-react';
 import { AppItem } from '../lib/types';
 
@@ -32,342 +22,113 @@ interface AppTableProps {
   onPageSizeChange: (newSize: number) => void;
   onPageChange: (newPage: number) => void;
   onSelectApp: (app: AppItem) => void;
+  comparisonIds: string[];
+  onToggleComparison: (packageId: string) => void;
+  onCompare: () => void;
   isLoading: boolean;
 }
 
+const categories = ['All', 'High Concern', 'Caution', 'Moderate', 'Lower Concern', 'Insufficient Evidence'];
+
+function riskBadge(assessment?: AppItem['latest_assessment']) {
+  if (!assessment) return <span className="risk-badge risk-pending"><HelpCircle />Awaiting scan</span>;
+  const category = assessment.risk_category.toLowerCase();
+  if (category.includes('high')) return <span className="risk-badge risk-high"><ShieldAlert />High concern · {assessment.overall_score}</span>;
+  if (category.includes('caution') || category.includes('moderate')) return <span className="risk-badge risk-caution"><AlertTriangle />{assessment.risk_category} · {assessment.overall_score}</span>;
+  if (category.includes('lower') || category.includes('safe')) return <span className="risk-badge risk-low"><CheckCircle2 />Lower concern · {assessment.overall_score}</span>;
+  return <span className="risk-badge risk-pending"><HelpCircle />Needs more data</span>;
+}
+
+function confidence(assessment?: AppItem['latest_assessment']) {
+  if (!assessment) return <span className="confidence-label">Not available</span>;
+  const tone = assessment.confidence_level === 'High' ? 'confidence-high' : assessment.confidence_level === 'Medium' ? 'confidence-medium' : 'confidence-low';
+  return <div className="space-y-0.5"><span className={`confidence-label ${tone}`}>{assessment.confidence_level}</span><span className="block text-[11px] text-[#86868b]">{Math.round(assessment.confidence_score * 100)}% coverage</span></div>;
+}
+
 export const AppTable: React.FC<AppTableProps> = ({
-  apps,
-  searchQuery,
-  onSearchChange,
-  selectedCategory,
-  onSelectCategory,
-  sortBy,
-  onSortChange,
-  page,
-  totalPages,
-  totalItems,
-  pageSize,
-  onPageSizeChange,
-  onPageChange,
-  onSelectApp,
-  isLoading,
-}) => {
-  const categories = ['All', 'High Concern', 'Caution', 'Moderate', 'Lower Concern', 'Insufficient Evidence'];
-
-  const getRiskBadge = (assessment?: AppItem['latest_assessment']) => {
-    if (!assessment) {
-      return (
-        <span className="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-medium">
-          <HelpCircle className="w-3.5 h-3.5 text-slate-400" />
-          <span>Pending Scan</span>
-        </span>
-      );
-    }
-
-    const { risk_category, overall_score } = assessment;
-    const cat = (risk_category || '').toLowerCase();
-
-    if (cat.includes('high')) {
-      return (
-        <span className="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-md bg-rose-950/80 border border-rose-800/80 text-rose-300 text-xs font-semibold shadow-sm shadow-rose-950/50">
-          <ShieldAlert className="w-3.5 h-3.5 text-rose-400" />
-          <span>High Concern ({overall_score})</span>
-        </span>
-      );
-    } else if (cat.includes('caution')) {
-      return (
-        <span className="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-md bg-amber-950/80 border border-amber-800/80 text-amber-300 text-xs font-semibold shadow-sm shadow-amber-950/50">
-          <AlertTriangle className="w-3.5 h-3.5 text-amber-400" />
-          <span>Caution ({overall_score})</span>
-        </span>
-      );
-    } else if (cat.includes('moderate')) {
-      return (
-        <span className="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-md bg-orange-950/80 border border-orange-800/80 text-orange-300 text-xs font-semibold shadow-sm shadow-orange-950/50">
-          <AlertTriangle className="w-3.5 h-3.5 text-orange-400" />
-          <span>Moderate ({overall_score})</span>
-        </span>
-      );
-    } else if (cat.includes('lower') || cat.includes('safe')) {
-      return (
-        <span className="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-md bg-emerald-950/80 border border-emerald-800/80 text-emerald-300 text-xs font-semibold shadow-sm shadow-emerald-950/50">
-          <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-          <span>Lower Concern ({overall_score})</span>
-        </span>
-      );
-    } else {
-      return (
-        <span className="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-md bg-sky-950/80 border border-sky-800/80 text-sky-300 text-xs font-semibold shadow-sm shadow-sky-950/50">
-          <HelpCircle className="w-3.5 h-3.5 text-sky-400" />
-          <span>Insufficient Evidence</span>
-        </span>
-      );
-    }
-  };
-
-  const getConfidenceBadge = (assessment?: AppItem['latest_assessment']) => {
-    if (!assessment) return null;
-    const { confidence_level, confidence_score } = assessment;
-    let colorClass = 'text-slate-400';
-    if (confidence_level === 'High') colorClass = 'text-emerald-400 font-medium';
-    else if (confidence_level === 'Medium') colorClass = 'text-amber-400 font-medium';
-    else if (confidence_level === 'Low') colorClass = 'text-orange-400 font-medium';
-    else if (confidence_level === 'Insufficient') colorClass = 'text-sky-400 font-medium';
-
-    return (
-      <div className="flex flex-col text-right">
-        <span className={`text-xs ${colorClass}`}>{confidence_level} Confidence</span>
-        <span className="text-[10px] text-slate-500 font-mono">Sufficiency: {(confidence_score * 100).toFixed(0)}%</span>
+  apps, searchQuery, onSearchChange, selectedCategory, onSelectCategory, sortBy,
+  onSortChange, page, totalPages, totalItems, pageSize, onPageSizeChange,
+  onPageChange, onSelectApp, comparisonIds, onToggleComparison, onCompare, isLoading,
+}) => (
+  <section className="data-panel" aria-label="Loan app research list">
+    <div className="data-toolbar">
+      <div>
+        <h2 className="text-[17px] font-semibold tracking-[-0.02em] text-[#1d1d1f]">Apps in the latest scan</h2>
+        <p className="mt-0.5 text-xs text-[#6e6e73]">Open any app to examine its public evidence.</p>
       </div>
-    );
-  };
+      <label className="search-field">
+        <Search className="w-4 h-4" />
+        <input type="search" placeholder="Search apps" value={searchQuery} onChange={(e) => onSearchChange(e.target.value)} />
+      </label>
+      <label className="sort-field">
+        <SlidersHorizontal className="w-3.5 h-3.5" />
+        <span className="sr-only">Sort apps</span>
+        <select value={sortBy} onChange={(e) => onSortChange(e.target.value)}>
+          <option value="risk_desc">Highest score</option>
+          <option value="risk_asc">Lowest score</option>
+          <option value="rating_desc">Highest rating</option>
+          <option value="rating_asc">Lowest rating</option>
+          <option value="name_asc">Name</option>
+          <option value="last_scanned">Recently scanned</option>
+        </select>
+      </label>
+      <button className="button-secondary compare-trigger" disabled={comparisonIds.length < 2} onClick={onCompare}><BarChart3 />Compare {comparisonIds.length || ''}</button>
+    </div>
 
-  return (
-    <div className="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden shadow-xl">
-      {/* Controls Bar */}
-      <div className="p-4 border-b border-slate-800 flex flex-col md:flex-row gap-3 items-stretch md:items-center justify-between bg-slate-900/60">
-        {/* Search */}
-        <div className="relative flex-1 max-w-md">
-          <Search className="w-4 h-4 absolute left-3 top-3 text-slate-400" />
-          <input
-            type="text"
-            placeholder="Search by title, developer, or package ID..."
-            value={searchQuery}
-            onChange={(e) => onSearchChange(e.target.value)}
-            className="w-full pl-9 pr-4 py-2 bg-slate-950 border border-slate-800 rounded-lg text-xs text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
-          />
-        </div>
+    <div className="filter-row" aria-label="Filter apps by assessment">
+      {categories.map((category) => <button key={category} onClick={() => onSelectCategory(category)} className={selectedCategory === category ? 'filter-chip is-active' : 'filter-chip'}>{category === 'Lower Concern' ? 'Lower concern' : category === 'Insufficient Evidence' ? 'Needs more data' : category}</button>)}
+    </div>
 
-        {/* Sort Dropdown */}
-        <div className="flex items-center space-x-2 shrink-0">
-          <SlidersHorizontal className="w-3.5 h-3.5 text-slate-400" />
-          <span className="text-xs text-slate-400">Sort by:</span>
-          <select
-            value={sortBy}
-            onChange={(e) => onSortChange(e.target.value)}
-            className="bg-slate-950 border border-slate-800 rounded-lg text-xs text-slate-200 px-3 py-1.5 focus:outline-none focus:border-indigo-500"
-          >
-            <option value="risk_desc">Highest Risk First</option>
-            <option value="risk_asc">Lowest Risk First</option>
-            <option value="rating_desc">Highest Rating</option>
-            <option value="rating_asc">Lowest Rating</option>
-            <option value="name_asc">Application Name (A-Z)</option>
-            <option value="last_scanned">Recently Scanned</option>
-          </select>
-        </div>
-      </div>
-
-      {/* Category Filter Pills */}
-      <div className="px-4 py-2.5 border-b border-slate-800/80 bg-slate-950/40 flex items-center space-x-1.5 overflow-x-auto">
-        <span className="text-xs text-slate-400 mr-2 shrink-0">Filter:</span>
-        {categories.map((cat) => (
-          <button
-            key={cat}
-            onClick={() => onSelectCategory(cat)}
-            className={`px-3 py-1 rounded-full text-xs font-medium transition-colors shrink-0 ${
-              selectedCategory === cat
-                ? 'bg-indigo-600 text-white shadow-sm shadow-indigo-600/30'
-                : 'bg-slate-800/60 text-slate-400 hover:bg-slate-800 hover:text-slate-200'
-            }`}
-          >
-            {cat}
-          </button>
-        ))}
-      </div>
-
-      {/* Table Container */}
-      <div className="overflow-x-auto">
-        <table className="w-full text-left border-collapse">
-          <thead>
-            <tr className="border-b border-slate-800 bg-slate-950/60 text-[11px] font-semibold uppercase tracking-wider text-slate-400">
-              <th className="py-3 px-4">Application & Developer</th>
-              <th className="py-3 px-4">Store Metrics</th>
-              <th className="py-3 px-4">Risk Classification</th>
-              <th className="py-3 px-4">Safety Summary</th>
-              <th className="py-3 px-4 text-right">Evidence Sufficiency</th>
-              <th className="py-3 px-4 text-center">Action</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-slate-800/60 text-xs">
-            {isLoading ? (
-              <tr>
-                <td colSpan={5} className="py-12 text-center text-slate-500">
-                  <div className="inline-block w-6 h-6 border-2 border-indigo-500 border-t-transparent rounded-full animate-spin mb-2" />
-                  <p>Loading application catalog...</p>
-                </td>
-              </tr>
-            ) : apps.length === 0 ? (
-              <tr>
-                <td colSpan={5} className="py-12 text-center text-slate-500">
-                  <p className="text-sm font-medium text-slate-400 mb-1">No matching applications found</p>
-                  <p className="text-xs text-slate-500">Try adjusting your search keywords or category filters.</p>
-                </td>
-              </tr>
-            ) : (
-              apps.map((app) => (
-                <tr
-                  key={app.package_id}
-                  onClick={() => onSelectApp(app)}
-                  className="hover:bg-slate-800/40 cursor-pointer transition-colors group"
-                >
-                  {/* Application Info */}
-                  <td className="py-3 px-4">
-                    <div className="flex items-center space-x-3">
-                      {app.icon_url ? (
-                        <img
-                          src={app.icon_url}
-                          alt={app.title}
-                          className="w-10 h-10 rounded-lg object-cover border border-slate-800 shrink-0"
-                          onError={(e) => {
-                            (e.target as HTMLElement).style.display = 'none';
-                          }}
-                        />
-                      ) : (
-                        <div className="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center text-slate-400 font-bold shrink-0">
-                          {app.title.charAt(0)}
-                        </div>
-                      )}
-                      <div className="min-w-0">
-                        <div className="font-semibold text-white group-hover:text-indigo-400 transition-colors truncate max-w-xs sm:max-w-md">
-                          {app.title}
-                        </div>
-                        <div className="text-[11px] text-slate-400 truncate">{app.developer}</div>
-                        <div className="flex flex-wrap items-center gap-1.5 mt-0.5">
-                          <span className="text-[10px] text-slate-400 font-mono">{app.package_id}</span>
-                          {app.store_status === 'delisted' ? (
-                            <span className="inline-flex items-center gap-0.5 text-[9px] px-1.5 py-0.5 rounded bg-rose-950/80 border border-rose-800 text-rose-300 font-semibold" title="Banned/Delisted from Google Play (Returns 404)">
-                              🚨 Delisted (404)
-                            </span>
-                          ) : app.store_url ? (
-                            <a
-                              href={app.store_url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              onClick={(e) => e.stopPropagation()}
-                              className="inline-flex items-center gap-0.5 text-[10px] text-emerald-400 hover:text-emerald-300 transition-colors font-medium hover:underline"
-                              title="Verified 200 OK on Google Play Store"
-                            >
-                              <ExternalLink className="w-2.5 h-2.5" />
-                              Play Store (200 OK)
-                            </a>
-                          ) : null}
-                        </div>
-                      </div>
-                    </div>
-                  </td>
-
-                  {/* Store Metrics */}
-                  <td className="py-3 px-4 text-slate-300">
-                    <div className="flex items-center space-x-1 text-amber-400 font-medium">
-                      <Star className="w-3.5 h-3.5 fill-current" />
-                      <span>{app.rating.toFixed(1)}</span>
-                      <span className="text-[10px] text-slate-400">({app.rating_count.toLocaleString()})</span>
-                    </div>
-                    <div className="text-[11px] text-slate-400 flex items-center space-x-1 mt-0.5">
-                      <Download className="w-3 h-3" />
-                      <span>{app.installs_text || '10k+'}</span>
-                    </div>
-                  </td>
-
-                  {/* Risk Assessment */}
-                  <td className="py-3 px-4">{getRiskBadge(app.latest_assessment)}</td>
-
-                  {/* Safety Reason */}
-                  <td className="py-3 px-4 max-w-[260px]">
-                    {(app as any).safety_reason ? (
-                      <p className="text-[11px] text-slate-300 leading-relaxed line-clamp-3">{(app as any).safety_reason}</p>
-                    ) : app.latest_assessment?.evidence_sufficiency_rationale ? (
-                      <p className="text-[11px] text-slate-400 leading-relaxed line-clamp-3">{app.latest_assessment.evidence_sufficiency_rationale}</p>
-                    ) : (
-                      <span className="text-[11px] text-slate-600">—</span>
-                    )}
-                  </td>
-
-                  {/* Confidence / Sufficiency */}
-                  <td className="py-3 px-4">{getConfidenceBadge(app.latest_assessment)}</td>
-
-                  {/* Actions */}
-                  <td className="py-3 px-4 text-center">
-                    <div className="flex flex-col gap-1.5 items-center">
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          onSelectApp(app);
-                        }}
-                        className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-indigo-600 text-slate-300 hover:text-white text-xs font-medium transition-colors inline-flex items-center space-x-1 shadow-sm w-full justify-center"
-                      >
-                        <span>Inspect</span>
-                        <ChevronRight className="w-3 h-3" />
-                      </button>
+    <div className="overflow-x-auto">
+      <table className="app-table">
+        <thead><tr><th aria-label="Select for comparison" /><th>App</th><th>Store</th><th>Observed signals</th><th>Data coverage</th><th aria-label="Open details" /></tr></thead>
+        <tbody>
+          {isLoading ? <tr><td colSpan={6} className="table-message"><span className="loading-dot" />Loading live data…</td></tr>
+            : apps.length === 0 ? <tr><td colSpan={6} className="table-message"><strong>No apps match these filters.</strong><br /><span>Try a different search or assessment filter.</span></td></tr>
+            : apps.map((app) => <tr key={app.package_id} onClick={() => onSelectApp(app)}>
+              <td><input className="compare-checkbox" type="checkbox" checked={comparisonIds.includes(app.package_id)} onClick={(event) => event.stopPropagation()} onChange={() => onToggleComparison(app.package_id)} aria-label={`Select ${app.title} for comparison`} /></td>
+              <td>
+                <div className="app-identity">
+                  {app.icon_url ? <img src={app.icon_url} alt="" className="app-icon" onError={(event) => { event.currentTarget.style.display = 'none'; }} /> : <span className="app-fallback">{app.title.slice(0, 1)}</span>}
+                  <div className="min-w-0">
+                    <div className="app-name">{app.title}</div>
+                    <div className="app-developer">{app.developer}</div>
+                    <div className="flex flex-wrap items-center gap-1.5 mt-0.5">
+                      <span className="app-package">{app.package_id}</span>
                       {app.store_status === 'delisted' ? (
-                        <div
-                          className="px-2 py-1 rounded-md bg-rose-950/60 border border-rose-800/60 text-rose-300 text-[10px] font-semibold text-center w-full"
-                          title="Banned by RBI/Google Play. Link returns 404."
-                        >
-                          Delisted (404)
-                        </div>
+                        <span className="text-[10px] px-1.5 py-0.5 rounded bg-rose-100 text-rose-700 font-medium">Delisted (404)</span>
                       ) : app.store_url ? (
-                        <a
-                          href={app.store_url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          onClick={(e) => e.stopPropagation()}
-                          className="px-3 py-1 rounded-lg bg-emerald-950/50 hover:bg-emerald-900/60 border border-emerald-700/60 hover:border-emerald-500 text-emerald-300 hover:text-emerald-100 text-[10px] font-medium transition-colors inline-flex items-center space-x-1 w-full justify-center shadow-sm"
-                          title="Click to open verified listing on Google Play"
-                        >
-                          <ExternalLink className="w-2.5 h-2.5 text-emerald-400" />
-                          <span>Google Play (200)</span>
+                        <a href={app.store_url} target="_blank" rel="noopener noreferrer" onClick={(event) => event.stopPropagation()} className="text-[11px] text-emerald-600 hover:text-emerald-700 font-medium inline-flex items-center gap-0.5" title="Verified 200 OK on Google Play">
+                          <ExternalLink className="w-2.5 h-2.5" /> Play Store (200 OK)
                         </a>
                       ) : null}
                     </div>
-                  </td>
-                </tr>
-              ))
-            )}
-          </tbody>
-        </table>
-      </div>
-
-      {/* Pagination Footer */}
-      <div className="p-3.5 border-t border-slate-800 bg-slate-950/40 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-400">
-        <div className="flex items-center space-x-3">
-          <span>
-            Showing <strong>{apps.length}</strong> of <strong>{totalItems}</strong> applications
-          </span>
-          <div className="flex items-center space-x-1.5">
-            <span className="text-[11px] text-slate-500">Per page:</span>
-            <select
-              value={pageSize}
-              onChange={(e) => onPageSizeChange(Number(e.target.value))}
-              className="bg-slate-900 border border-slate-800 rounded px-2 py-0.5 text-xs text-slate-200 focus:outline-none focus:border-indigo-500"
-            >
-              <option value={10}>10</option>
-              <option value={25}>25</option>
-              <option value={50}>50</option>
-              <option value={100}>100</option>
-            </select>
-          </div>
-        </div>
-        <div className="flex items-center space-x-2">
-          <button
-            disabled={page <= 1}
-            onClick={() => onPageChange(page - 1)}
-            className="p-1.5 rounded bg-slate-800 text-slate-300 hover:bg-slate-700 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
-          >
-            <ChevronLeft className="w-4 h-4" />
-          </button>
-          <span>
-            Page <strong>{page}</strong> of <strong>{totalPages || 1}</strong>
-          </span>
-          <button
-            disabled={page >= totalPages}
-            onClick={() => onPageChange(page + 1)}
-            className="p-1.5 rounded bg-slate-800 text-slate-300 hover:bg-slate-700 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
-          >
-            <ChevronRight className="w-4 h-4" />
-          </button>
-        </div>
-      </div>
+                  </div>
+                </div>
+              </td>
+              <td><div className="rating"><Star />{app.rating.toFixed(1)} <span>({app.rating_count.toLocaleString()})</span></div><div className="store-meta">{app.installs_text || 'Install count unavailable'}</div></td>
+              <td><div className="space-y-2">{riskBadge(app.latest_assessment)}<p className="signal-rationale">{app.safety_reason || app.latest_assessment?.evidence_sufficiency_rationale || 'No assessment has been recorded.'}</p></div></td>
+              <td>{confidence(app.latest_assessment)}</td>
+              <td>
+                <div className="row-actions">
+                  <button className="inspect-button" onClick={(event) => { event.stopPropagation(); onSelectApp(app); }}>View <ChevronRight /></button>
+                  {app.store_status === 'delisted' ? (
+                    <span className="text-[10px] text-rose-600 font-medium px-1.5 py-0.5 rounded bg-rose-50 border border-rose-200">Delisted (404)</span>
+                  ) : app.store_url ? (
+                    <a href={app.store_url} target="_blank" rel="noopener noreferrer" onClick={(event) => event.stopPropagation()} aria-label={`Open ${app.title} on Google Play`} className="store-link" title="Verified 200 OK on Google Play">
+                      <ExternalLink />
+                    </a>
+                  ) : null}
+                </div>
+              </td>
+            </tr>)}
+        </tbody>
+      </table>
     </div>
-  );
-};
+
+    <div className="data-footer">
+      <span>Showing {apps.length} of {totalItems} apps</span>
+      <div className="flex items-center gap-3"><label className="per-page">Per page <select value={pageSize} onChange={(e) => onPageSizeChange(Number(e.target.value))}><option value={10}>10</option><option value={25}>25</option><option value={50}>50</option></select></label><div className="pagination"><button disabled={page <= 1} onClick={() => onPageChange(page - 1)} aria-label="Previous page"><ChevronLeft /></button><span>{page} / {totalPages || 1}</span><button disabled={page >= totalPages} onClick={() => onPageChange(page + 1)} aria-label="Next page"><ChevronRight /></button></div></div>
+    </div>
+  </section>
+);
