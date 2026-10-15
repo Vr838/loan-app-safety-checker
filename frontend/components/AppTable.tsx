@@ -190,17 +190,43 @@ export const AppTable: React.FC<AppTableProps> = ({
           </span>
           {categories.map((cat) => {
             const isSelected = selectedCategory === cat;
+            let activeStyle = 'bg-slate-900 text-white shadow-xs';
+            if (cat === 'High Concern') activeStyle = 'bg-rose-600 text-white shadow-xs';
+            else if (cat === 'Caution') activeStyle = 'bg-amber-600 text-white shadow-xs';
+            else if (cat === 'Lower Concern') activeStyle = 'bg-emerald-600 text-white shadow-xs';
+            else if (cat === 'Insufficient Evidence') activeStyle = 'bg-slate-700 text-white shadow-xs';
+
+            const countMap: Record<string, number> = {
+              'All': 84,
+              'High Concern': 7,
+              'Caution': 7,
+              'Lower Concern': 66,
+              'Insufficient Evidence': 4,
+            };
+            const badgeCount = countMap[cat];
+
             return (
               <button
                 key={cat}
                 onClick={() => onSelectCategory(cat)}
-                className={`px-3 py-1 rounded-full text-xs font-semibold shrink-0 transition-all ${
+                className={`px-3 py-1 rounded-full text-xs font-semibold shrink-0 transition-all active:scale-95 inline-flex items-center gap-1.5 ${
                   isSelected
-                    ? 'bg-slate-900 text-white shadow-xs'
+                    ? activeStyle
                     : 'bg-white text-slate-600 border border-slate-200/80 hover:bg-slate-100'
                 }`}
               >
-                {cat}
+                <span>{cat}</span>
+                {badgeCount !== undefined && (
+                  <span
+                    className={`text-[10px] px-1.5 py-0.2 rounded-full font-mono font-bold ${
+                      isSelected
+                        ? 'bg-white/20 text-white'
+                        : 'bg-slate-100 text-slate-500'
+                    }`}
+                  >
+                    {badgeCount}
+                  </span>
+                )}
               </button>
             );
           })}

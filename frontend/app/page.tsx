@@ -74,7 +74,7 @@ export default function DashboardPage() {
       if (scansResult.status === 'fulfilled') {
         setScanHistory(scansResult.value);
       }
-      if (appsResult.status === 'fulfilled') {
+      if (appsResult.status === 'fulfilled' && (appsResult.value.total > 0 || (!selectedCategory && !searchQuery.trim()))) {
         setApps(appsResult.value.items);
         setTotalPages(appsResult.value.total_pages);
         setTotalItems(appsResult.value.total);
@@ -92,7 +92,7 @@ export default function DashboardPage() {
             if (target.includes('high')) return cat.includes('high');
             if (target.includes('caution') || target.includes('moderate')) return cat.includes('caution') || cat.includes('moderate');
             if (target.includes('lower') || target.includes('safe')) return cat.includes('lower') || cat.includes('safe');
-            if (target.includes('insufficient')) return cat.includes('insufficient') || cat.includes('sparse');
+            if (target.includes('insufficient') || target.includes('sparse')) return cat.includes('insufficient') || cat.includes('sparse');
             return cat.includes(target);
           }
           return true;

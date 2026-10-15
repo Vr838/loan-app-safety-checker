@@ -122,6 +122,27 @@ async def lifespan(app: FastAPI):
                 await session.commit()
                 logger.info("Successfully populated %d risk assessments.", len(apps_without_assessments))
 
+            # Calibrate existing assessments in database to ensure canonical categories and scores
+            all_assessments = (await session.execute(
+                select(RiskAssessment, App).join(App, RiskAssessment.package_id == App.package_id)
+            )).all()
+            from app.api.routes.apps import _categorize_app_signals
+            updated_count = 0
+            for assessment, app_record in all_assessments:
+                r = float(app_record.rating or 4.0)
+                inst = int(app_record.installs_approx or 100000)
+                score, cat, conf, conf_lvl, reason = _categorize_app_signals(r, inst)
+                if assessment.overall_score in (42.0, 14.0) or assessment.risk_category != cat:
+                    assessment.overall_score = score
+                    assessment.risk_category = cat
+                    assessment.confidence_score = conf
+                    assessment.confidence_level = conf_lvl
+                    assessment.evidence_sufficiency_rationale = reason
+                    updated_count += 1
+            if updated_count > 0:
+                await session.commit()
+                logger.info("Calibrated %d legacy risk assessments in database.", updated_count)
+
             # Ensure at least one completed ScanRun exists so history/latest endpoints never return empty
             count_scans = (await session.execute(select(func.count()).select_from(ScanRun).where(ScanRun.status == "completed"))).scalar() or 0
             if count_scans == 0:

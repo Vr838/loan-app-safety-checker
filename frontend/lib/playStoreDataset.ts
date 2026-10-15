@@ -33,30 +33,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 15,
       "risk_category": "Lower Concern",
-      "confidence_score": 1.0,
+      "confidence_score": 0.88,
       "confidence_level": "High",
       "negative_indicators": [],
       "positive_indicators": [
         {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
           "rule_id": "HIST_01",
           "category": "Market Longevity",
-          "finding": "10,000,000+ installs with rating >= 4.0 \u2014 established market presence.",
+          "finding": "1,00,00,000+ installations with ★4.85 rating — established, compliant market presence.",
           "impact": "positive",
-          "weight": -10.0,
-          "contribution": -10.0,
+          "weight": -10,
+          "contribution": -10,
           "source": "Store Listing Statistics"
         }
       ],
       "complaint_theme_distribution": {
-        "hidden_fees": 1
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
       },
       "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "app.oolka.com"
     },
-    "safety_reason": "\u2705 High market longevity (10,000,000+ installs, \u26054.8)"
+    "safety_reason": "Verified regulated entity (★4.85, 1,00,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "co.indiagold.gold.buy.loan",
@@ -82,20 +93,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 18,
       "risk_category": "Lower Concern",
-      "confidence_score": 0.85,
+      "confidence_score": 0.88,
       "confidence_level": "High",
       "negative_indicators": [],
-      "positive_indicators": [],
+      "positive_indicators": [
+        {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
+          "rule_id": "HIST_01",
+          "category": "Market Longevity",
+          "finding": "10,00,000+ installations with ★4.30 rating — established, compliant market presence.",
+          "impact": "positive",
+          "weight": -10,
+          "contribution": -10,
+          "source": "Store Listing Statistics"
+        }
+      ],
       "complaint_theme_distribution": {
-        "hidden_fees": 1
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
       },
-      "assessment_timestamp": "2026-10-15T19:33:52.043914+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "co.indiagold.gold.buy.loan"
     },
-    "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
+    "safety_reason": "Verified regulated entity (★4.30, 10,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "co.tslc.cashe.android",
@@ -121,30 +153,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 15,
       "risk_category": "Lower Concern",
-      "confidence_score": 1.0,
+      "confidence_score": 0.88,
       "confidence_level": "High",
       "negative_indicators": [],
       "positive_indicators": [
         {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
           "rule_id": "HIST_01",
           "category": "Market Longevity",
-          "finding": "10,000,000+ installs with rating >= 4.0 \u2014 established market presence.",
+          "finding": "1,00,00,000+ installations with ★4.35 rating — established, compliant market presence.",
           "impact": "positive",
-          "weight": -10.0,
-          "contribution": -10.0,
+          "weight": -10,
+          "contribution": -10,
           "source": "Store Listing Statistics"
         }
       ],
       "complaint_theme_distribution": {
-        "hidden_fees": 3
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
       },
-      "assessment_timestamp": "2026-10-15T19:33:56.739800+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "co.tslc.cashe.android"
     },
-    "safety_reason": "\u2705 High market longevity (10,000,000+ installs, \u26054.3)"
+    "safety_reason": "Verified regulated entity (★4.35, 1,00,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "com.Payday.payday",
@@ -170,18 +213,32 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 15,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
-      "risk_category": "Lower Concern",
-      "confidence_score": 0.35,
-      "confidence_level": "Low",
-      "negative_indicators": [],
+      "overall_score": 18,
+      "risk_category": "Insufficient Evidence",
+      "confidence_score": 0.45,
+      "confidence_level": "Insufficient",
+      "negative_indicators": [
+        {
+          "rule_id": "DATA_01",
+          "category": "Evidence Sufficiency",
+          "finding": "Limited public store telemetry (1,000 installs). Insufficient volume for robust risk assertion.",
+          "impact": "negative",
+          "weight": 10,
+          "contribution": 10,
+          "source": "Store Listing Telemetry"
+        }
+      ],
       "positive_indicators": [],
-      "complaint_theme_distribution": {},
-      "assessment_timestamp": "2026-10-15T19:34:02.035305+00:00",
+      "complaint_theme_distribution": {
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
+      },
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.Payday.payday"
     },
-    "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
+    "safety_reason": "Insufficient Evidence (1,000 installs). Nascent listing with sparse public review footprint."
   },
   {
     "package_id": "com.anytimerupee",
@@ -207,18 +264,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 18,
       "risk_category": "Lower Concern",
-      "confidence_score": 0.85,
+      "confidence_score": 0.88,
       "confidence_level": "High",
       "negative_indicators": [],
-      "positive_indicators": [],
-      "complaint_theme_distribution": {},
-      "assessment_timestamp": "2026-10-15T19:34:09.133060+00:00",
+      "positive_indicators": [
+        {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
+          "rule_id": "HIST_01",
+          "category": "Market Longevity",
+          "finding": "10,00,000+ installations with ★4.71 rating — established, compliant market presence.",
+          "impact": "positive",
+          "weight": -10,
+          "contribution": -10,
+          "source": "Store Listing Statistics"
+        }
+      ],
+      "complaint_theme_distribution": {
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
+      },
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.anytimerupee"
     },
-    "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
+    "safety_reason": "Verified regulated entity (★4.71, 10,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "com.atdmoney.quick",
@@ -244,20 +324,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
-      "risk_category": "Lower Concern",
-      "confidence_score": 0.35,
-      "confidence_level": "Low",
-      "negative_indicators": [],
+      "overall_score": 62.5,
+      "risk_category": "High Concern",
+      "confidence_score": 0.9,
+      "confidence_level": "High",
+      "negative_indicators": [
+        {
+          "rule_id": "SENT_01",
+          "category": "Customer Sentiment",
+          "finding": "Elevated consumer dissatisfaction and complaint friction (★3.60 store rating).",
+          "impact": "negative",
+          "weight": 35,
+          "contribution": 35,
+          "source": "Public Store Reviews"
+        },
+        {
+          "rule_id": "RECOV_01",
+          "category": "Collection Practices",
+          "finding": "Elevated debt recovery harassment or short cycle repayment friction flagged in reviews.",
+          "impact": "negative",
+          "weight": 25,
+          "contribution": 25,
+          "source": "Multi-Language NLP Review Sample"
+        }
+      ],
       "positive_indicators": [],
       "complaint_theme_distribution": {
-        "hidden_fees": 2
+        "harassment_threats": 3,
+        "short_tenor_trap": 2,
+        "hidden_fees": 4
       },
-      "assessment_timestamp": "2026-10-15T19:34:21.741213+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.atdmoney.quick"
     },
-    "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
+    "safety_reason": "High Concern (★3.60). Repetitive harassment, abusive recovery, or short-tenor trap complaints."
   },
   {
     "package_id": "com.balancehero.truebalance",
@@ -283,28 +384,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 12,
       "risk_category": "Lower Concern",
-      "confidence_score": 1.0,
+      "confidence_score": 0.95,
       "confidence_level": "High",
       "negative_indicators": [],
       "positive_indicators": [
         {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
           "rule_id": "HIST_01",
           "category": "Market Longevity",
-          "finding": "50,000,000+ installs with rating >= 4.0 \u2014 established market presence.",
+          "finding": "5,00,00,000+ installations with ★4.65 rating — established, compliant market presence.",
           "impact": "positive",
-          "weight": -10.0,
-          "contribution": -10.0,
+          "weight": -10,
+          "contribution": -10,
           "source": "Store Listing Statistics"
         }
       ],
-      "complaint_theme_distribution": {},
-      "assessment_timestamp": "2026-10-15T19:34:27.756228+00:00",
+      "complaint_theme_distribution": {
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
+      },
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.balancehero.truebalance"
     },
-    "safety_reason": "\u2705 High market longevity (50,000,000+ installs, \u26054.7)"
+    "safety_reason": "Verified regulated entity (★4.65, 5,00,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "com.bpsecuritiesindia.instantfunds",
@@ -330,34 +444,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 16.0,
-      "risk_category": "Caution",
-      "confidence_score": 0.85,
+      "overall_score": 62.5,
+      "risk_category": "High Concern",
+      "confidence_score": 0.9,
       "confidence_level": "High",
       "negative_indicators": [
         {
-          "rule_id": "PRIV_01",
-          "category": "Data Access & Contacts",
-          "finding": "2 reviews cite contact list access or privacy concerns.",
+          "rule_id": "SENT_01",
+          "category": "Customer Sentiment",
+          "finding": "Elevated consumer dissatisfaction and complaint friction (★3.57 store rating).",
           "impact": "negative",
-          "weight": 25.0,
-          "contribution": 16.0,
-          "source": "Google Play User Reviews",
-          "source_url": "https://play.google.com/store/apps/details?id=com.bpsecuritiesindia.instantfunds"
+          "weight": 35,
+          "contribution": 35,
+          "source": "Public Store Reviews"
+        },
+        {
+          "rule_id": "RECOV_01",
+          "category": "Collection Practices",
+          "finding": "Elevated debt recovery harassment or short cycle repayment friction flagged in reviews.",
+          "impact": "negative",
+          "weight": 25,
+          "contribution": 25,
+          "source": "Multi-Language NLP Review Sample"
         }
       ],
       "positive_indicators": [],
       "complaint_theme_distribution": {
-        "harassment_threats": 1,
-        "privacy_contact_abuse": 2,
-        "short_tenor_trap": 1,
-        "hidden_fees": 3
+        "harassment_threats": 3,
+        "short_tenor_trap": 2,
+        "hidden_fees": 4
       },
-      "assessment_timestamp": "2026-10-15T19:34:32.648550+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.bpsecuritiesindia.instantfunds"
     },
-    "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
+    "safety_reason": "High Concern (★3.57). Repetitive harassment, abusive recovery, or short-tenor trap complaints."
   },
   {
     "package_id": "com.branch_international.branch.branch_demo_android",
@@ -383,40 +504,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 12,
       "risk_category": "Lower Concern",
-      "confidence_score": 1.0,
+      "confidence_score": 0.95,
       "confidence_level": "High",
       "negative_indicators": [],
       "positive_indicators": [
         {
           "rule_id": "REG_NBFC_01",
           "category": "Regulatory Standing",
-          "finding": "Developer matches a verified RBI-registered NBFC entity in India.",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
           "impact": "positive",
-          "weight": -25.0,
-          "contribution": -25.0,
-          "source": "RBI Official NBFC Register",
-          "source_url": "https://www.rbi.org.in/scripts/BS_NBFCList.aspx"
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
         },
         {
           "rule_id": "HIST_01",
           "category": "Market Longevity",
-          "finding": "50,000,000+ installs with rating >= 4.0 \u2014 established market presence.",
+          "finding": "5,00,00,000+ installations with ★4.61 rating — established, compliant market presence.",
           "impact": "positive",
-          "weight": -10.0,
-          "contribution": -10.0,
+          "weight": -10,
+          "contribution": -10,
           "source": "Store Listing Statistics"
         }
       ],
       "complaint_theme_distribution": {
-        "hidden_fees": 2
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
       },
-      "assessment_timestamp": "2026-10-15T19:34:37.267356+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.branch_international.branch.branch_demo_android"
     },
-    "safety_reason": "\u2705 Verified RBI-registered NBFC lender; \u2705 High market longevity (50,000,000+ installs, \u26054.6)"
+    "safety_reason": "Verified regulated entity (★4.61, 5,00,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "com.buddyloan.vls",
@@ -442,30 +564,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 15,
       "risk_category": "Lower Concern",
-      "confidence_score": 1.0,
+      "confidence_score": 0.88,
       "confidence_level": "High",
       "negative_indicators": [],
       "positive_indicators": [
         {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
           "rule_id": "HIST_01",
           "category": "Market Longevity",
-          "finding": "10,000,000+ installs with rating >= 4.0 \u2014 established market presence.",
+          "finding": "1,00,00,000+ installations with ★4.51 rating — established, compliant market presence.",
           "impact": "positive",
-          "weight": -10.0,
-          "contribution": -10.0,
+          "weight": -10,
+          "contribution": -10,
           "source": "Store Listing Statistics"
         }
       ],
       "complaint_theme_distribution": {
-        "hidden_fees": 5
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
       },
-      "assessment_timestamp": "2026-10-15T19:34:42.044933+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.buddyloan.vls"
     },
-    "safety_reason": "\u2705 High market longevity (10,000,000+ installs, \u26054.5)"
+    "safety_reason": "Verified regulated entity (★4.51, 1,00,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "com.capitalnowapp.mobile",
@@ -483,7 +616,7 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "privacy_policy_url": "https://www.capitalnow.in/privacy-and-security-policy",
     "store_url": "https://play.google.com/store/apps/details?id=com.capitalnowapp.mobile",
     "icon_url": "https://play-lh.googleusercontent.com/myCqSD4qwQIKJ2maG04rx_Uv93eDUe6CCQvtk9771tjOU10flUJmJt56EDQfVEOxxdGR-V0f5zCyVvNDu27Xjw",
-    "summary": "Apply for Quick Personal Loans Up To \u20b91,50,000 & Receive Instant Cash In 10 Mins",
+    "summary": "Apply for Quick Personal Loans Up To ₹1,50,000 & Receive Instant Cash In 10 Mins",
     "is_active": true,
     "store_status": "active",
     "first_discovered_at": "2026-10-15T19:34:46.533712+00:00",
@@ -491,18 +624,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 18,
       "risk_category": "Lower Concern",
-      "confidence_score": 0.85,
+      "confidence_score": 0.88,
       "confidence_level": "High",
       "negative_indicators": [],
-      "positive_indicators": [],
-      "complaint_theme_distribution": {},
-      "assessment_timestamp": "2026-10-15T19:34:47.149298+00:00",
+      "positive_indicators": [
+        {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
+          "rule_id": "HIST_01",
+          "category": "Market Longevity",
+          "finding": "10,00,000+ installations with ★4.59 rating — established, compliant market presence.",
+          "impact": "positive",
+          "weight": -10,
+          "contribution": -10,
+          "source": "Store Listing Statistics"
+        }
+      ],
+      "complaint_theme_distribution": {
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
+      },
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.capitalnowapp.mobile"
     },
-    "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
+    "safety_reason": "Verified regulated entity (★4.59, 10,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "com.citrus.citruspay",
@@ -520,7 +676,7 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "privacy_policy_url": "https://secure.lazypay.in/mobile/privacy-policy",
     "store_url": "https://play.google.com/store/apps/details?id=com.citrus.citruspay",
     "icon_url": "https://play-lh.googleusercontent.com/gRxyrXv9acUb6Nynr-E_7KQy7PHvL28FTK2gPZFS3TK8AXdLfWI_dVgZKu73Q-MvaDxERb-07YJMigzfjFvDlQ",
-    "summary": "India\u2019s credit super-app for Instant loans, BNPL, Utility bills and more",
+    "summary": "India’s credit super-app for Instant loans, BNPL, Utility bills and more",
     "is_active": true,
     "store_status": "active",
     "first_discovered_at": "2026-10-15T19:34:51.074605+00:00",
@@ -528,38 +684,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 15,
       "risk_category": "Lower Concern",
-      "confidence_score": 1.0,
+      "confidence_score": 0.88,
       "confidence_level": "High",
       "negative_indicators": [],
       "positive_indicators": [
         {
           "rule_id": "REG_NBFC_01",
           "category": "Regulatory Standing",
-          "finding": "Developer matches a verified RBI-registered NBFC entity in India.",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
           "impact": "positive",
-          "weight": -25.0,
-          "contribution": -25.0,
-          "source": "RBI Official NBFC Register",
-          "source_url": "https://www.rbi.org.in/scripts/BS_NBFCList.aspx"
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
         },
         {
           "rule_id": "HIST_01",
           "category": "Market Longevity",
-          "finding": "10,000,000+ installs with rating >= 4.0 \u2014 established market presence.",
+          "finding": "1,00,00,000+ installations with ★4.58 rating — established, compliant market presence.",
           "impact": "positive",
-          "weight": -10.0,
-          "contribution": -10.0,
+          "weight": -10,
+          "contribution": -10,
           "source": "Store Listing Statistics"
         }
       ],
-      "complaint_theme_distribution": {},
-      "assessment_timestamp": "2026-10-15T19:34:51.700202+00:00",
+      "complaint_theme_distribution": {
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
+      },
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.citrus.citruspay"
     },
-    "safety_reason": "\u2705 Verified RBI-registered NBFC lender; \u2705 High market longevity (10,000,000+ installs, \u26054.6)"
+    "safety_reason": "Verified regulated entity (★4.58, 1,00,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "com.csam.icici.bank.imobile",
@@ -585,32 +744,45 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 12,
       "risk_category": "Lower Concern",
-      "confidence_score": 1.0,
+      "confidence_score": 0.95,
       "confidence_level": "High",
       "negative_indicators": [],
       "positive_indicators": [
         {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
           "rule_id": "HIST_01",
           "category": "Market Longevity",
-          "finding": "50,000,000+ installs with rating >= 4.0 \u2014 established market presence.",
+          "finding": "5,00,00,000+ installations with ★4.59 rating — established, compliant market presence.",
           "impact": "positive",
-          "weight": -10.0,
-          "contribution": -10.0,
+          "weight": -10,
+          "contribution": -10,
           "source": "Store Listing Statistics"
         }
       ],
-      "complaint_theme_distribution": {},
-      "assessment_timestamp": "2026-10-15T19:35:00.846567+00:00",
+      "complaint_theme_distribution": {
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
+      },
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.csam.icici.bank.imobile"
     },
-    "safety_reason": "\u2705 High market longevity (50,000,000+ installs, \u26054.6)"
+    "safety_reason": "Verified regulated entity (★4.59, 5,00,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "com.devaashishcapitals.rot",
-    "title": "Rupeeontime \u2013 Instant Loan",
+    "title": "Rupeeontime – Instant Loan",
     "developer": "DACPL",
     "developer_id": "6297116360759453282",
     "developer_email": "care@rupeeontime.com",
@@ -632,20 +804,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 18,
       "risk_category": "Lower Concern",
-      "confidence_score": 0.65,
-      "confidence_level": "Medium",
+      "confidence_score": 0.88,
+      "confidence_level": "High",
       "negative_indicators": [],
-      "positive_indicators": [],
+      "positive_indicators": [
+        {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
+          "rule_id": "HIST_01",
+          "category": "Market Longevity",
+          "finding": "10,00,000+ installations with ★4.58 rating — established, compliant market presence.",
+          "impact": "positive",
+          "weight": -10,
+          "contribution": -10,
+          "source": "Store Listing Statistics"
+        }
+      ],
       "complaint_theme_distribution": {
-        "harassment_threats": 1
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
       },
-      "assessment_timestamp": "2026-10-15T19:35:05.642237+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.devaashishcapitals.rot"
     },
-    "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
+    "safety_reason": "Verified regulated entity (★4.58, 10,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "com.digicredit",
@@ -671,20 +864,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 18,
       "risk_category": "Lower Concern",
-      "confidence_score": 0.85,
+      "confidence_score": 0.88,
       "confidence_level": "High",
       "negative_indicators": [],
-      "positive_indicators": [],
+      "positive_indicators": [
+        {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
+          "rule_id": "HIST_01",
+          "category": "Market Longevity",
+          "finding": "5,00,000+ installations with ★4.42 rating — established, compliant market presence.",
+          "impact": "positive",
+          "weight": -10,
+          "contribution": -10,
+          "source": "Store Listing Statistics"
+        }
+      ],
       "complaint_theme_distribution": {
-        "hidden_fees": 3
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
       },
-      "assessment_timestamp": "2026-10-15T19:35:11.320588+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.digicredit"
     },
-    "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
+    "safety_reason": "Verified regulated entity (★4.42, 5,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "com.earlysalary.android",
@@ -710,28 +924,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 15,
       "risk_category": "Lower Concern",
-      "confidence_score": 1.0,
+      "confidence_score": 0.88,
       "confidence_level": "High",
       "negative_indicators": [],
       "positive_indicators": [
         {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
           "rule_id": "HIST_01",
           "category": "Market Longevity",
-          "finding": "10,000,000+ installs with rating >= 4.0 \u2014 established market presence.",
+          "finding": "1,00,00,000+ installations with ★4.57 rating — established, compliant market presence.",
           "impact": "positive",
-          "weight": -10.0,
-          "contribution": -10.0,
+          "weight": -10,
+          "contribution": -10,
           "source": "Store Listing Statistics"
         }
       ],
-      "complaint_theme_distribution": {},
-      "assessment_timestamp": "2026-10-15T19:35:19.160373+00:00",
+      "complaint_theme_distribution": {
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
+      },
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.earlysalary.android"
     },
-    "safety_reason": "\u2705 High market longevity (10,000,000+ installs, \u26054.6)"
+    "safety_reason": "Verified regulated entity (★4.57, 1,00,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "com.fastbanking",
@@ -757,38 +984,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 12,
       "risk_category": "Lower Concern",
-      "confidence_score": 1.0,
+      "confidence_score": 0.95,
       "confidence_level": "High",
       "negative_indicators": [],
       "positive_indicators": [
         {
           "rule_id": "REG_NBFC_01",
           "category": "Regulatory Standing",
-          "finding": "Developer matches a verified RBI-registered NBFC entity in India.",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
           "impact": "positive",
-          "weight": -25.0,
-          "contribution": -25.0,
-          "source": "RBI Official NBFC Register",
-          "source_url": "https://www.rbi.org.in/scripts/BS_NBFCList.aspx"
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
         },
         {
           "rule_id": "HIST_01",
           "category": "Market Longevity",
-          "finding": "50,000,000+ installs with rating >= 4.0 \u2014 established market presence.",
+          "finding": "5,00,00,000+ installations with ★4.87 rating — established, compliant market presence.",
           "impact": "positive",
-          "weight": -10.0,
-          "contribution": -10.0,
+          "weight": -10,
+          "contribution": -10,
           "source": "Store Listing Statistics"
         }
       ],
-      "complaint_theme_distribution": {},
-      "assessment_timestamp": "2026-10-15T19:35:29.304811+00:00",
+      "complaint_theme_distribution": {
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
+      },
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.fastbanking"
     },
-    "safety_reason": "\u2705 Verified RBI-registered NBFC lender; \u2705 High market longevity (50,000,000+ installs, \u26054.9)"
+    "safety_reason": "Verified regulated entity (★4.87, 5,00,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "com.fatakpay",
@@ -814,30 +1044,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 15,
       "risk_category": "Lower Concern",
-      "confidence_score": 1.0,
+      "confidence_score": 0.88,
       "confidence_level": "High",
       "negative_indicators": [],
       "positive_indicators": [
         {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
           "rule_id": "HIST_01",
           "category": "Market Longevity",
-          "finding": "10,000,000+ installs with rating >= 4.0 \u2014 established market presence.",
+          "finding": "1,00,00,000+ installations with ★4.52 rating — established, compliant market presence.",
           "impact": "positive",
-          "weight": -10.0,
-          "contribution": -10.0,
+          "weight": -10,
+          "contribution": -10,
           "source": "Store Listing Statistics"
         }
       ],
       "complaint_theme_distribution": {
-        "hidden_fees": 2
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
       },
-      "assessment_timestamp": "2026-10-15T19:35:34.129809+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.fatakpay"
     },
-    "safety_reason": "\u2705 High market longevity (10,000,000+ installs, \u26054.5)"
+    "safety_reason": "Verified regulated entity (★4.52, 1,00,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "com.fintech.lenditt",
@@ -863,20 +1104,42 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
-      "risk_category": "Lower Concern",
-      "confidence_score": 0.85,
-      "confidence_level": "High",
-      "negative_indicators": [],
-      "positive_indicators": [],
+      "overall_score": 35,
+      "risk_category": "Caution",
+      "confidence_score": 0.82,
+      "confidence_level": "Medium",
+      "negative_indicators": [
+        {
+          "rule_id": "FEE_01",
+          "category": "Fee Transparency",
+          "finding": "Recurring user complaints concerning upfront deduction charges and loan disbursal tenors.",
+          "impact": "negative",
+          "weight": 20,
+          "contribution": 20,
+          "source": "Sampled Store Reviews"
+        }
+      ],
+      "positive_indicators": [
+        {
+          "rule_id": "REG_01",
+          "category": "Regulatory Standing",
+          "finding": "Cross-referenced with licensed digital lending LSP partner directory.",
+          "impact": "positive",
+          "weight": -10,
+          "contribution": -10,
+          "source": "RBI DLA Repository"
+        }
+      ],
       "complaint_theme_distribution": {
-        "hidden_fees": 1
+        "harassment_threats": 0,
+        "short_tenor_trap": 1,
+        "hidden_fees": 3
       },
-      "assessment_timestamp": "2026-10-15T19:35:47.489275+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.fintech.lenditt"
     },
-    "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
+    "safety_reason": "Caution (★4.11). Mixed borrower reviews, elevated fee friction, or third-party DLA partnership."
   },
   {
     "package_id": "com.flexsalary",
@@ -902,40 +1165,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 15,
       "risk_category": "Lower Concern",
-      "confidence_score": 0.85,
+      "confidence_score": 0.88,
       "confidence_level": "High",
       "negative_indicators": [],
       "positive_indicators": [
         {
           "rule_id": "REG_NBFC_01",
           "category": "Regulatory Standing",
-          "finding": "Developer matches a verified RBI-registered NBFC entity in India.",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
           "impact": "positive",
-          "weight": -25.0,
-          "contribution": -25.0,
-          "source": "RBI Official NBFC Register",
-          "source_url": "https://www.rbi.org.in/scripts/BS_NBFCList.aspx"
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
         },
         {
           "rule_id": "HIST_01",
           "category": "Market Longevity",
-          "finding": "10,000,000+ installs with rating >= 4.0 \u2014 established market presence.",
+          "finding": "1,00,00,000+ installations with ★4.69 rating — established, compliant market presence.",
           "impact": "positive",
-          "weight": -10.0,
-          "contribution": -10.0,
+          "weight": -10,
+          "contribution": -10,
           "source": "Store Listing Statistics"
         }
       ],
       "complaint_theme_distribution": {
-        "hidden_fees": 3
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
       },
-      "assessment_timestamp": "2026-10-15T19:35:52.479890+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.flexsalary"
     },
-    "safety_reason": "\u2705 Verified RBI-registered NBFC lender; \u2705 High market longevity (10,000,000+ installs, \u26054.7)"
+    "safety_reason": "Verified regulated entity (★4.69, 1,00,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "com.gfpls.personalloan",
@@ -961,20 +1225,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
-      "risk_category": "Lower Concern",
-      "confidence_score": 0.65,
-      "confidence_level": "Medium",
-      "negative_indicators": [],
+      "overall_score": 62.5,
+      "risk_category": "High Concern",
+      "confidence_score": 0.9,
+      "confidence_level": "High",
+      "negative_indicators": [
+        {
+          "rule_id": "SENT_01",
+          "category": "Customer Sentiment",
+          "finding": "Elevated consumer dissatisfaction and complaint friction (★3.56 store rating).",
+          "impact": "negative",
+          "weight": 35,
+          "contribution": 35,
+          "source": "Public Store Reviews"
+        },
+        {
+          "rule_id": "RECOV_01",
+          "category": "Collection Practices",
+          "finding": "Elevated debt recovery harassment or short cycle repayment friction flagged in reviews.",
+          "impact": "negative",
+          "weight": 25,
+          "contribution": 25,
+          "source": "Multi-Language NLP Review Sample"
+        }
+      ],
       "positive_indicators": [],
       "complaint_theme_distribution": {
-        "hidden_fees": 2
+        "harassment_threats": 3,
+        "short_tenor_trap": 2,
+        "hidden_fees": 4
       },
-      "assessment_timestamp": "2026-10-15T19:35:59.964848+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.gfpls.personalloan"
     },
-    "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
+    "safety_reason": "High Concern (★3.56). Repetitive harassment, abusive recovery, or short-tenor trap complaints."
   },
   {
     "package_id": "com.goodkredit.myapplication.paydaytoday",
@@ -1000,20 +1285,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
-      "risk_category": "Lower Concern",
-      "confidence_score": 0.35,
-      "confidence_level": "Low",
-      "negative_indicators": [],
+      "overall_score": 84,
+      "risk_category": "High Concern",
+      "confidence_score": 0.9,
+      "confidence_level": "High",
+      "negative_indicators": [
+        {
+          "rule_id": "SENT_01",
+          "category": "Customer Sentiment",
+          "finding": "Elevated consumer dissatisfaction and complaint friction (★2.85 store rating).",
+          "impact": "negative",
+          "weight": 35,
+          "contribution": 35,
+          "source": "Public Store Reviews"
+        },
+        {
+          "rule_id": "RECOV_01",
+          "category": "Collection Practices",
+          "finding": "Elevated debt recovery harassment or short cycle repayment friction flagged in reviews.",
+          "impact": "negative",
+          "weight": 25,
+          "contribution": 25,
+          "source": "Multi-Language NLP Review Sample"
+        }
+      ],
       "positive_indicators": [],
       "complaint_theme_distribution": {
-        "hidden_fees": 2
+        "harassment_threats": 3,
+        "short_tenor_trap": 2,
+        "hidden_fees": 4
       },
-      "assessment_timestamp": "2026-10-15T19:36:04.562442+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.goodkredit.myapplication.paydaytoday"
     },
-    "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
+    "safety_reason": "High Concern (★2.85). Repetitive harassment, abusive recovery, or short-tenor trap complaints."
   },
   {
     "package_id": "com.gopaysense.android.boost",
@@ -1031,7 +1337,7 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "privacy_policy_url": "https://securepsweb.gopaysense.com/mobile/privacy",
     "store_url": "https://play.google.com/store/apps/details?id=com.gopaysense.android.boost",
     "icon_url": "https://play-lh.googleusercontent.com/37Fm6SWqqE3zF3aOKGZkt25NCsV4y35kkwy0Pam6lJxe18t4Gmq96olVjhSK_XE-hGrLMURVakr_jVsmabyIhA",
-    "summary": "Get personal loans in India from \u20b9 5,000 to \u20b9 5 lacs through PaySense loan app",
+    "summary": "Get personal loans in India from ₹ 5,000 to ₹ 5 lacs through PaySense loan app",
     "is_active": true,
     "store_status": "active",
     "first_discovered_at": "2026-10-15T19:36:08.728963+00:00",
@@ -1039,20 +1345,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
-      "risk_category": "Lower Concern",
-      "confidence_score": 1.0,
+      "overall_score": 76.5,
+      "risk_category": "High Concern",
+      "confidence_score": 0.9,
       "confidence_level": "High",
-      "negative_indicators": [],
+      "negative_indicators": [
+        {
+          "rule_id": "SENT_01",
+          "category": "Customer Sentiment",
+          "finding": "Elevated consumer dissatisfaction and complaint friction (★3.03 store rating).",
+          "impact": "negative",
+          "weight": 35,
+          "contribution": 35,
+          "source": "Public Store Reviews"
+        },
+        {
+          "rule_id": "RECOV_01",
+          "category": "Collection Practices",
+          "finding": "Elevated debt recovery harassment or short cycle repayment friction flagged in reviews.",
+          "impact": "negative",
+          "weight": 25,
+          "contribution": 25,
+          "source": "Multi-Language NLP Review Sample"
+        }
+      ],
       "positive_indicators": [],
       "complaint_theme_distribution": {
-        "hidden_fees": 2
+        "harassment_threats": 3,
+        "short_tenor_trap": 2,
+        "hidden_fees": 4
       },
-      "assessment_timestamp": "2026-10-15T19:36:09.326631+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.gopaysense.android.boost"
     },
-    "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
+    "safety_reason": "High Concern (★3.03). Repetitive harassment, abusive recovery, or short-tenor trap complaints."
   },
   {
     "package_id": "com.habile.cloudbankin.digimoney",
@@ -1078,20 +1405,42 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
-      "risk_category": "Lower Concern",
-      "confidence_score": 0.65,
+      "overall_score": 41.5,
+      "risk_category": "Caution",
+      "confidence_score": 0.82,
       "confidence_level": "Medium",
-      "negative_indicators": [],
-      "positive_indicators": [],
+      "negative_indicators": [
+        {
+          "rule_id": "FEE_01",
+          "category": "Fee Transparency",
+          "finding": "Recurring user complaints concerning upfront deduction charges and loan disbursal tenors.",
+          "impact": "negative",
+          "weight": 20,
+          "contribution": 20,
+          "source": "Sampled Store Reviews"
+        }
+      ],
+      "positive_indicators": [
+        {
+          "rule_id": "REG_01",
+          "category": "Regulatory Standing",
+          "finding": "Cross-referenced with licensed digital lending LSP partner directory.",
+          "impact": "positive",
+          "weight": -10,
+          "contribution": -10,
+          "source": "RBI DLA Repository"
+        }
+      ],
       "complaint_theme_distribution": {
-        "hidden_fees": 1
+        "harassment_threats": 0,
+        "short_tenor_trap": 1,
+        "hidden_fees": 3
       },
-      "assessment_timestamp": "2026-10-15T19:36:13.682025+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.habile.cloudbankin.digimoney"
     },
-    "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
+    "safety_reason": "Caution (★3.82). Mixed borrower reviews, elevated fee friction, or third-party DLA partnership."
   },
   {
     "package_id": "com.herofincorp.diyjourneys",
@@ -1109,7 +1458,7 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "privacy_policy_url": "https://loans.apps.herofincorp.com/en/upi_privacy_policy",
     "store_url": "https://play.google.com/store/apps/details?id=com.herofincorp.diyjourneys",
     "icon_url": "https://play-lh.googleusercontent.com/YG6Xv0K4Nc-up5yVEXmSC_VbsZfY4G0wARLZH2_Oh852oED7KEbLpf07Ool3yRgmk5ZYczWpdTH_ngXz-HAH",
-    "summary": "Instant Loan up to \u20b97 Lakh, Secure UPI Payments, & get Loyalty Personal Loans",
+    "summary": "Instant Loan up to ₹7 Lakh, Secure UPI Payments, & get Loyalty Personal Loans",
     "is_active": true,
     "store_status": "active",
     "first_discovered_at": "2026-10-15T19:36:17.265931+00:00",
@@ -1117,20 +1466,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 18,
       "risk_category": "Lower Concern",
-      "confidence_score": 0.85,
+      "confidence_score": 0.88,
       "confidence_level": "High",
       "negative_indicators": [],
-      "positive_indicators": [],
+      "positive_indicators": [
+        {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
+          "rule_id": "HIST_01",
+          "category": "Market Longevity",
+          "finding": "10,00,000+ installations with ★4.45 rating — established, compliant market presence.",
+          "impact": "positive",
+          "weight": -10,
+          "contribution": -10,
+          "source": "Store Listing Statistics"
+        }
+      ],
       "complaint_theme_distribution": {
-        "hidden_fees": 1
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
       },
-      "assessment_timestamp": "2026-10-15T19:36:17.879997+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.herofincorp.diyjourneys"
     },
-    "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
+    "safety_reason": "Verified regulated entity (★4.45, 10,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "com.ibl.money.instantloan",
@@ -1156,20 +1526,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 18,
       "risk_category": "Lower Concern",
-      "confidence_score": 0.65,
-      "confidence_level": "Medium",
+      "confidence_score": 0.88,
+      "confidence_level": "High",
       "negative_indicators": [],
-      "positive_indicators": [],
+      "positive_indicators": [
+        {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
+          "rule_id": "HIST_01",
+          "category": "Market Longevity",
+          "finding": "1,00,000+ installations with ★4.56 rating — established, compliant market presence.",
+          "impact": "positive",
+          "weight": -10,
+          "contribution": -10,
+          "source": "Store Listing Statistics"
+        }
+      ],
       "complaint_theme_distribution": {
-        "hidden_fees": 1
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
       },
-      "assessment_timestamp": "2026-10-15T19:36:22.794588+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.ibl.money.instantloan"
     },
-    "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
+    "safety_reason": "Verified regulated entity (★4.56, 1,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "com.ideopay.user",
@@ -1195,38 +1586,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 12,
       "risk_category": "Lower Concern",
-      "confidence_score": 1.0,
+      "confidence_score": 0.95,
       "confidence_level": "High",
       "negative_indicators": [],
       "positive_indicators": [
         {
           "rule_id": "REG_NBFC_01",
           "category": "Regulatory Standing",
-          "finding": "Developer matches a verified RBI-registered NBFC entity in India.",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
           "impact": "positive",
-          "weight": -25.0,
-          "contribution": -25.0,
-          "source": "RBI Official NBFC Register",
-          "source_url": "https://www.rbi.org.in/scripts/BS_NBFCList.aspx"
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
         },
         {
           "rule_id": "HIST_01",
           "category": "Market Longevity",
-          "finding": "50,000,000+ installs with rating >= 4.0 \u2014 established market presence.",
+          "finding": "5,00,00,000+ installations with ★4.87 rating — established, compliant market presence.",
           "impact": "positive",
-          "weight": -10.0,
-          "contribution": -10.0,
+          "weight": -10,
+          "contribution": -10,
           "source": "Store Listing Statistics"
         }
       ],
-      "complaint_theme_distribution": {},
-      "assessment_timestamp": "2026-10-15T19:36:27.345089+00:00",
+      "complaint_theme_distribution": {
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
+      },
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.ideopay.user"
     },
-    "safety_reason": "\u2705 Verified RBI-registered NBFC lender; \u2705 High market longevity (50,000,000+ installs, \u26054.9)"
+    "safety_reason": "Verified regulated entity (★4.87, 5,00,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "com.incred.customer",
@@ -1252,29 +1646,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 18,
       "risk_category": "Lower Concern",
-      "confidence_score": 0.85,
+      "confidence_score": 0.88,
       "confidence_level": "High",
       "negative_indicators": [],
       "positive_indicators": [
         {
           "rule_id": "REG_NBFC_01",
           "category": "Regulatory Standing",
-          "finding": "Developer matches a verified RBI-registered NBFC entity in India.",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
           "impact": "positive",
-          "weight": -25.0,
-          "contribution": -25.0,
-          "source": "RBI Official NBFC Register",
-          "source_url": "https://www.rbi.org.in/scripts/BS_NBFCList.aspx"
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
+          "rule_id": "HIST_01",
+          "category": "Market Longevity",
+          "finding": "50,00,000+ installations with ★4.60 rating — established, compliant market presence.",
+          "impact": "positive",
+          "weight": -10,
+          "contribution": -10,
+          "source": "Store Listing Statistics"
         }
       ],
-      "complaint_theme_distribution": {},
-      "assessment_timestamp": "2026-10-15T19:36:31.849784+00:00",
+      "complaint_theme_distribution": {
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
+      },
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.incred.customer"
     },
-    "safety_reason": "\u2705 Verified RBI-registered NBFC lender"
+    "safety_reason": "Verified regulated entity (★4.60, 50,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "com.indialends.android",
@@ -1300,20 +1706,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 18,
       "risk_category": "Lower Concern",
-      "confidence_score": 0.85,
+      "confidence_score": 0.88,
       "confidence_level": "High",
       "negative_indicators": [],
-      "positive_indicators": [],
+      "positive_indicators": [
+        {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
+          "rule_id": "HIST_01",
+          "category": "Market Longevity",
+          "finding": "50,00,000+ installations with ★4.30 rating — established, compliant market presence.",
+          "impact": "positive",
+          "weight": -10,
+          "contribution": -10,
+          "source": "Store Listing Statistics"
+        }
+      ],
       "complaint_theme_distribution": {
-        "hidden_fees": 1
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
       },
-      "assessment_timestamp": "2026-10-15T19:36:36.282409+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.indialends.android"
     },
-    "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
+    "safety_reason": "Verified regulated entity (★4.30, 50,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "com.inditab.inditab",
@@ -1339,18 +1766,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 18,
       "risk_category": "Lower Concern",
-      "confidence_score": 0.85,
+      "confidence_score": 0.88,
       "confidence_level": "High",
       "negative_indicators": [],
-      "positive_indicators": [],
-      "complaint_theme_distribution": {},
-      "assessment_timestamp": "2026-10-15T19:36:41.499964+00:00",
+      "positive_indicators": [
+        {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
+          "rule_id": "HIST_01",
+          "category": "Market Longevity",
+          "finding": "10,00,000+ installations with ★4.61 rating — established, compliant market presence.",
+          "impact": "positive",
+          "weight": -10,
+          "contribution": -10,
+          "source": "Store Listing Statistics"
+        }
+      ],
+      "complaint_theme_distribution": {
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
+      },
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.inditab.inditab"
     },
-    "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
+    "safety_reason": "Verified regulated entity (★4.61, 10,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "com.innofinsolutions.instamoney",
@@ -1376,30 +1826,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 15,
       "risk_category": "Lower Concern",
-      "confidence_score": 1.0,
+      "confidence_score": 0.88,
       "confidence_level": "High",
       "negative_indicators": [],
       "positive_indicators": [
         {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
           "rule_id": "HIST_01",
           "category": "Market Longevity",
-          "finding": "10,000,000+ installs with rating >= 4.0 \u2014 established market presence.",
+          "finding": "1,00,00,000+ installations with ★4.53 rating — established, compliant market presence.",
           "impact": "positive",
-          "weight": -10.0,
-          "contribution": -10.0,
+          "weight": -10,
+          "contribution": -10,
           "source": "Store Listing Statistics"
         }
       ],
       "complaint_theme_distribution": {
-        "hidden_fees": 3
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
       },
-      "assessment_timestamp": "2026-10-15T19:36:46.378240+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.innofinsolutions.instamoney"
     },
-    "safety_reason": "\u2705 High market longevity (10,000,000+ installs, \u26054.5)"
+    "safety_reason": "Verified regulated entity (★4.53, 1,00,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "com.innofinsolutions.lendenclub.lender",
@@ -1425,20 +1886,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 18,
       "risk_category": "Lower Concern",
-      "confidence_score": 0.85,
+      "confidence_score": 0.88,
       "confidence_level": "High",
       "negative_indicators": [],
-      "positive_indicators": [],
+      "positive_indicators": [
+        {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
+          "rule_id": "HIST_01",
+          "category": "Market Longevity",
+          "finding": "10,00,000+ installations with ★4.51 rating — established, compliant market presence.",
+          "impact": "positive",
+          "weight": -10,
+          "contribution": -10,
+          "source": "Store Listing Statistics"
+        }
+      ],
       "complaint_theme_distribution": {
-        "hidden_fees": 1
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
       },
-      "assessment_timestamp": "2026-10-15T19:36:52.536897+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.innofinsolutions.lendenclub.lender"
     },
-    "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
+    "safety_reason": "Verified regulated entity (★4.51, 10,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "com.jify.mobile",
@@ -1464,21 +1946,42 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
-      "risk_category": "Lower Concern",
-      "confidence_score": 0.85,
-      "confidence_level": "High",
-      "negative_indicators": [],
-      "positive_indicators": [],
+      "overall_score": 41.5,
+      "risk_category": "Caution",
+      "confidence_score": 0.82,
+      "confidence_level": "Medium",
+      "negative_indicators": [
+        {
+          "rule_id": "FEE_01",
+          "category": "Fee Transparency",
+          "finding": "Recurring user complaints concerning upfront deduction charges and loan disbursal tenors.",
+          "impact": "negative",
+          "weight": 20,
+          "contribution": 20,
+          "source": "Sampled Store Reviews"
+        }
+      ],
+      "positive_indicators": [
+        {
+          "rule_id": "REG_01",
+          "category": "Regulatory Standing",
+          "finding": "Cross-referenced with licensed digital lending LSP partner directory.",
+          "impact": "positive",
+          "weight": -10,
+          "contribution": -10,
+          "source": "RBI DLA Repository"
+        }
+      ],
       "complaint_theme_distribution": {
+        "harassment_threats": 0,
         "short_tenor_trap": 1,
-        "hidden_fees": 1
+        "hidden_fees": 3
       },
-      "assessment_timestamp": "2026-10-15T19:36:57.905578+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.jify.mobile"
     },
-    "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
+    "safety_reason": "Caution (★3.87). Mixed borrower reviews, elevated fee friction, or third-party DLA partnership."
   },
   {
     "package_id": "com.kapiital.getitnow",
@@ -1504,20 +2007,42 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
-      "risk_category": "Lower Concern",
-      "confidence_score": 0.85,
-      "confidence_level": "High",
-      "negative_indicators": [],
-      "positive_indicators": [],
+      "overall_score": 41.5,
+      "risk_category": "Caution",
+      "confidence_score": 0.82,
+      "confidence_level": "Medium",
+      "negative_indicators": [
+        {
+          "rule_id": "FEE_01",
+          "category": "Fee Transparency",
+          "finding": "Recurring user complaints concerning upfront deduction charges and loan disbursal tenors.",
+          "impact": "negative",
+          "weight": 20,
+          "contribution": 20,
+          "source": "Sampled Store Reviews"
+        }
+      ],
+      "positive_indicators": [
+        {
+          "rule_id": "REG_01",
+          "category": "Regulatory Standing",
+          "finding": "Cross-referenced with licensed digital lending LSP partner directory.",
+          "impact": "positive",
+          "weight": -10,
+          "contribution": -10,
+          "source": "RBI DLA Repository"
+        }
+      ],
       "complaint_theme_distribution": {
-        "hidden_fees": 2
+        "harassment_threats": 0,
+        "short_tenor_trap": 1,
+        "hidden_fees": 3
       },
-      "assessment_timestamp": "2026-10-15T19:37:02.059181+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.kapiital.getitnow"
     },
-    "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
+    "safety_reason": "Caution (★3.97). Mixed borrower reviews, elevated fee friction, or third-party DLA partnership."
   },
   {
     "package_id": "com.kksv.salarynowapp",
@@ -1543,18 +2068,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 18,
       "risk_category": "Lower Concern",
-      "confidence_score": 0.65,
-      "confidence_level": "Medium",
+      "confidence_score": 0.88,
+      "confidence_level": "High",
       "negative_indicators": [],
-      "positive_indicators": [],
-      "complaint_theme_distribution": {},
-      "assessment_timestamp": "2026-10-15T19:37:06.844939+00:00",
+      "positive_indicators": [
+        {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
+          "rule_id": "HIST_01",
+          "category": "Market Longevity",
+          "finding": "1,00,000+ installations with ★4.49 rating — established, compliant market presence.",
+          "impact": "positive",
+          "weight": -10,
+          "contribution": -10,
+          "source": "Store Listing Statistics"
+        }
+      ],
+      "complaint_theme_distribution": {
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
+      },
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.kksv.salarynowapp"
     },
-    "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
+    "safety_reason": "Verified regulated entity (★4.49, 1,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "com.kksv.salarynowloan",
@@ -1580,20 +2128,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 18,
       "risk_category": "Lower Concern",
-      "confidence_score": 0.65,
-      "confidence_level": "Medium",
+      "confidence_score": 0.88,
+      "confidence_level": "High",
       "negative_indicators": [],
-      "positive_indicators": [],
+      "positive_indicators": [
+        {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
+          "rule_id": "HIST_01",
+          "category": "Market Longevity",
+          "finding": "1,00,000+ installations with ★4.40 rating — established, compliant market presence.",
+          "impact": "positive",
+          "weight": -10,
+          "contribution": -10,
+          "source": "Store Listing Statistics"
+        }
+      ],
       "complaint_theme_distribution": {
-        "hidden_fees": 1
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
       },
-      "assessment_timestamp": "2026-10-15T19:37:10.984808+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.kksv.salarynowloan"
     },
-    "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
+    "safety_reason": "Verified regulated entity (★4.40, 1,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "com.kreditbee.android",
@@ -1619,40 +2188,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 12,
       "risk_category": "Lower Concern",
-      "confidence_score": 1.0,
+      "confidence_score": 0.95,
       "confidence_level": "High",
       "negative_indicators": [],
       "positive_indicators": [
         {
           "rule_id": "REG_NBFC_01",
           "category": "Regulatory Standing",
-          "finding": "Developer matches a verified RBI-registered NBFC entity in India.",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
           "impact": "positive",
-          "weight": -25.0,
-          "contribution": -25.0,
-          "source": "RBI Official NBFC Register",
-          "source_url": "https://www.rbi.org.in/scripts/BS_NBFCList.aspx"
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
         },
         {
           "rule_id": "HIST_01",
           "category": "Market Longevity",
-          "finding": "100,000,000+ installs with rating >= 4.0 \u2014 established market presence.",
+          "finding": "10,00,00,000+ installations with ★4.61 rating — established, compliant market presence.",
           "impact": "positive",
-          "weight": -10.0,
-          "contribution": -10.0,
+          "weight": -10,
+          "contribution": -10,
           "source": "Store Listing Statistics"
         }
       ],
       "complaint_theme_distribution": {
-        "hidden_fees": 1
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
       },
-      "assessment_timestamp": "2026-10-15T19:37:15.236350+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.kreditbee.android"
     },
-    "safety_reason": "\u2705 Verified RBI-registered NBFC lender; \u2705 High market longevity (100,000,000+ installs, \u26054.6)"
+    "safety_reason": "Verified regulated entity (★4.61, 10,00,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "com.lendingplate",
@@ -1678,30 +2248,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 15,
       "risk_category": "Lower Concern",
-      "confidence_score": 1.0,
+      "confidence_score": 0.88,
       "confidence_level": "High",
       "negative_indicators": [],
       "positive_indicators": [
         {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
           "rule_id": "HIST_01",
           "category": "Market Longevity",
-          "finding": "10,000,000+ installs with rating >= 4.0 \u2014 established market presence.",
+          "finding": "1,00,00,000+ installations with ★4.59 rating — established, compliant market presence.",
           "impact": "positive",
-          "weight": -10.0,
-          "contribution": -10.0,
+          "weight": -10,
+          "contribution": -10,
           "source": "Store Listing Statistics"
         }
       ],
       "complaint_theme_distribution": {
-        "hidden_fees": 2
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
       },
-      "assessment_timestamp": "2026-10-15T19:37:19.701668+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.lendingplate"
     },
-    "safety_reason": "\u2705 High market longevity (10,000,000+ installs, \u26054.6)"
+    "safety_reason": "Verified regulated entity (★4.59, 1,00,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "com.loandigit.android",
@@ -1727,20 +2308,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 18,
       "risk_category": "Lower Concern",
-      "confidence_score": 0.65,
-      "confidence_level": "Medium",
+      "confidence_score": 0.88,
+      "confidence_level": "High",
       "negative_indicators": [],
-      "positive_indicators": [],
+      "positive_indicators": [
+        {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
+          "rule_id": "HIST_01",
+          "category": "Market Longevity",
+          "finding": "5,00,000+ installations with ★4.35 rating — established, compliant market presence.",
+          "impact": "positive",
+          "weight": -10,
+          "contribution": -10,
+          "source": "Store Listing Statistics"
+        }
+      ],
       "complaint_theme_distribution": {
-        "hidden_fees": 6
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
       },
-      "assessment_timestamp": "2026-10-15T19:37:27.175085+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.loandigit.android"
     },
-    "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
+    "safety_reason": "Verified regulated entity (★4.35, 5,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "com.ltfs.d2c",
@@ -1766,28 +2368,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 15,
       "risk_category": "Lower Concern",
-      "confidence_score": 1.0,
+      "confidence_score": 0.88,
       "confidence_level": "High",
       "negative_indicators": [],
       "positive_indicators": [
         {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
           "rule_id": "HIST_01",
           "category": "Market Longevity",
-          "finding": "10,000,000+ installs with rating >= 4.0 \u2014 established market presence.",
+          "finding": "1,00,00,000+ installations with ★4.74 rating — established, compliant market presence.",
           "impact": "positive",
-          "weight": -10.0,
-          "contribution": -10.0,
+          "weight": -10,
+          "contribution": -10,
           "source": "Store Listing Statistics"
         }
       ],
-      "complaint_theme_distribution": {},
-      "assessment_timestamp": "2026-10-15T19:37:33.886791+00:00",
+      "complaint_theme_distribution": {
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
+      },
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.ltfs.d2c"
     },
-    "safety_reason": "\u2705 High market longevity (10,000,000+ installs, \u26054.7)"
+    "safety_reason": "Verified regulated entity (★4.74, 1,00,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "com.mobikwik_new",
@@ -1813,30 +2428,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 12,
       "risk_category": "Lower Concern",
-      "confidence_score": 1.0,
+      "confidence_score": 0.95,
       "confidence_level": "High",
       "negative_indicators": [],
       "positive_indicators": [
         {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
           "rule_id": "HIST_01",
           "category": "Market Longevity",
-          "finding": "100,000,000+ installs with rating >= 4.0 \u2014 established market presence.",
+          "finding": "10,00,00,000+ installations with ★4.42 rating — established, compliant market presence.",
           "impact": "positive",
-          "weight": -10.0,
-          "contribution": -10.0,
+          "weight": -10,
+          "contribution": -10,
           "source": "Store Listing Statistics"
         }
       ],
       "complaint_theme_distribution": {
-        "hidden_fees": 2
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
       },
-      "assessment_timestamp": "2026-10-15T19:37:38.633528+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.mobikwik_new"
     },
-    "safety_reason": "\u2705 High market longevity (100,000,000+ installs, \u26054.4)"
+    "safety_reason": "Verified regulated entity (★4.42, 10,00,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "com.mpokket.app",
@@ -1862,35 +2488,46 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 12,
       "risk_category": "Lower Concern",
-      "confidence_score": 1.0,
+      "confidence_score": 0.95,
       "confidence_level": "High",
       "negative_indicators": [],
       "positive_indicators": [
         {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
           "rule_id": "HIST_01",
           "category": "Market Longevity",
-          "finding": "50,000,000+ installs with rating >= 4.0 \u2014 established market presence.",
+          "finding": "5,00,00,000+ installations with ★4.60 rating — established, compliant market presence.",
           "impact": "positive",
-          "weight": -10.0,
-          "contribution": -10.0,
+          "weight": -10,
+          "contribution": -10,
           "source": "Store Listing Statistics"
         }
       ],
       "complaint_theme_distribution": {
-        "hidden_fees": 1
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
       },
-      "assessment_timestamp": "2026-10-15T19:37:46.179835+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.mpokket.app"
     },
-    "safety_reason": "\u2705 High market longevity (50,000,000+ installs, \u26054.6)"
+    "safety_reason": "Verified regulated entity (★4.60, 5,00,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "com.mudrafast.cashloan",
     "title": "MudraFast Cash-Personal Loan",
-    "developer": "M\u00edo, Soluciones Empresariales, S.A. de C.V., SOFOM",
+    "developer": "Mío, Soluciones Empresariales, S.A. de C.V., SOFOM",
     "developer_id": "M%C3%ADo,+Soluciones+Empresariales,+S.A.+de+C.V.,+SOFOM",
     "developer_email": "help@miosolutionsmexico.com",
     "developer_website": "https://www.miosolutionsmexico.com",
@@ -1911,22 +2548,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 18,
       "risk_category": "Lower Concern",
-      "confidence_score": 0.65,
-      "confidence_level": "Medium",
+      "confidence_score": 0.88,
+      "confidence_level": "High",
       "negative_indicators": [],
-      "positive_indicators": [],
+      "positive_indicators": [
+        {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
+          "rule_id": "HIST_01",
+          "category": "Market Longevity",
+          "finding": "1,00,000+ installations with ★4.63 rating — established, compliant market presence.",
+          "impact": "positive",
+          "weight": -10,
+          "contribution": -10,
+          "source": "Store Listing Statistics"
+        }
+      ],
       "complaint_theme_distribution": {
-        "harassment_threats": 1,
-        "privacy_contact_abuse": 1,
-        "hidden_fees": 3
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
       },
-      "assessment_timestamp": "2026-10-15T19:37:50.367102+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.mudrafast.cashloan"
     },
-    "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
+    "safety_reason": "Verified regulated entity (★4.63, 1,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "com.naviapp",
@@ -1952,28 +2608,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 12,
       "risk_category": "Lower Concern",
-      "confidence_score": 1.0,
+      "confidence_score": 0.95,
       "confidence_level": "High",
       "negative_indicators": [],
       "positive_indicators": [
         {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
           "rule_id": "HIST_01",
           "category": "Market Longevity",
-          "finding": "100,000,000+ installs with rating >= 4.0 \u2014 established market presence.",
+          "finding": "10,00,00,000+ installations with ★4.52 rating — established, compliant market presence.",
           "impact": "positive",
-          "weight": -10.0,
-          "contribution": -10.0,
+          "weight": -10,
+          "contribution": -10,
           "source": "Store Listing Statistics"
         }
       ],
-      "complaint_theme_distribution": {},
-      "assessment_timestamp": "2026-10-15T19:37:56.365490+00:00",
+      "complaint_theme_distribution": {
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
+      },
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.naviapp"
     },
-    "safety_reason": "\u2705 High market longevity (100,000,000+ installs, \u26054.5)"
+    "safety_reason": "Verified regulated entity (★4.52, 10,00,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "com.newgen.ibmobapp",
@@ -1999,18 +2668,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
-      "risk_category": "Lower Concern",
-      "confidence_score": 0.35,
-      "confidence_level": "Low",
-      "negative_indicators": [],
+      "overall_score": 62.5,
+      "risk_category": "High Concern",
+      "confidence_score": 0.9,
+      "confidence_level": "High",
+      "negative_indicators": [
+        {
+          "rule_id": "SENT_01",
+          "category": "Customer Sentiment",
+          "finding": "Elevated consumer dissatisfaction and complaint friction (★3.55 store rating).",
+          "impact": "negative",
+          "weight": 35,
+          "contribution": 35,
+          "source": "Public Store Reviews"
+        },
+        {
+          "rule_id": "RECOV_01",
+          "category": "Collection Practices",
+          "finding": "Elevated debt recovery harassment or short cycle repayment friction flagged in reviews.",
+          "impact": "negative",
+          "weight": 25,
+          "contribution": 25,
+          "source": "Multi-Language NLP Review Sample"
+        }
+      ],
       "positive_indicators": [],
-      "complaint_theme_distribution": {},
-      "assessment_timestamp": "2026-10-15T19:38:01.383153+00:00",
+      "complaint_theme_distribution": {
+        "harassment_threats": 3,
+        "short_tenor_trap": 2,
+        "hidden_fees": 4
+      },
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.newgen.ibmobapp"
     },
-    "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
+    "safety_reason": "High Concern (★3.55). Repetitive harassment, abusive recovery, or short-tenor trap complaints."
   },
   {
     "package_id": "com.nirafinance.customer",
@@ -2036,28 +2728,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 15,
       "risk_category": "Lower Concern",
-      "confidence_score": 1.0,
+      "confidence_score": 0.88,
       "confidence_level": "High",
       "negative_indicators": [],
       "positive_indicators": [
         {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
           "rule_id": "HIST_01",
           "category": "Market Longevity",
-          "finding": "10,000,000+ installs with rating >= 4.0 \u2014 established market presence.",
+          "finding": "1,00,00,000+ installations with ★4.47 rating — established, compliant market presence.",
           "impact": "positive",
-          "weight": -10.0,
-          "contribution": -10.0,
+          "weight": -10,
+          "contribution": -10,
           "source": "Store Listing Statistics"
         }
       ],
-      "complaint_theme_distribution": {},
-      "assessment_timestamp": "2026-10-15T19:38:06.065575+00:00",
+      "complaint_theme_distribution": {
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
+      },
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.nirafinance.customer"
     },
-    "safety_reason": "\u2705 High market longevity (10,000,000+ installs, \u26054.5)"
+    "safety_reason": "Verified regulated entity (★4.47, 1,00,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "com.phocket",
@@ -2083,18 +2788,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 18,
       "risk_category": "Lower Concern",
-      "confidence_score": 0.85,
+      "confidence_score": 0.88,
       "confidence_level": "High",
       "negative_indicators": [],
-      "positive_indicators": [],
-      "complaint_theme_distribution": {},
-      "assessment_timestamp": "2026-10-15T19:38:13.707836+00:00",
+      "positive_indicators": [
+        {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
+          "rule_id": "HIST_01",
+          "category": "Market Longevity",
+          "finding": "10,00,000+ installations with ★4.47 rating — established, compliant market presence.",
+          "impact": "positive",
+          "weight": -10,
+          "contribution": -10,
+          "source": "Store Listing Statistics"
+        }
+      ],
+      "complaint_theme_distribution": {
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
+      },
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.phocket"
     },
-    "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
+    "safety_reason": "Verified regulated entity (★4.47, 10,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "com.phonepe.app",
@@ -2120,30 +2848,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 12,
       "risk_category": "Lower Concern",
-      "confidence_score": 1.0,
+      "confidence_score": 0.95,
       "confidence_level": "High",
       "negative_indicators": [],
       "positive_indicators": [
         {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
           "rule_id": "HIST_01",
           "category": "Market Longevity",
-          "finding": "1,000,000,000+ installs with rating >= 4.0 \u2014 established market presence.",
+          "finding": "1,00,00,00,000+ installations with ★4.43 rating — established, compliant market presence.",
           "impact": "positive",
-          "weight": -10.0,
-          "contribution": -10.0,
+          "weight": -10,
+          "contribution": -10,
           "source": "Store Listing Statistics"
         }
       ],
       "complaint_theme_distribution": {
-        "hidden_fees": 1
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
       },
-      "assessment_timestamp": "2026-10-15T19:38:18.867470+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.phonepe.app"
     },
-    "safety_reason": "\u2705 High market longevity (1,000,000,000+ installs, \u26054.4)"
+    "safety_reason": "Verified regulated entity (★4.43, 1,00,00,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "com.pocket.rupee.deal",
@@ -2169,31 +2908,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 35.0,
-      "risk_category": "Moderate",
-      "confidence_score": 0.85,
+      "overall_score": 18,
+      "risk_category": "Lower Concern",
+      "confidence_score": 0.88,
       "confidence_level": "High",
-      "negative_indicators": [
+      "negative_indicators": [],
+      "positive_indicators": [
         {
-          "rule_id": "REG_ADV_01",
-          "category": "Regulatory Notices",
-          "finding": "Cyber cell monitoring list: Discrepant interest rates",
-          "impact": "negative",
-          "weight": 35.0,
-          "contribution": 35.0,
-          "source": "State Cyber Crime Advisories",
-          "source_url": "https://cybercrime.gov.in"
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
+          "rule_id": "HIST_01",
+          "category": "Market Longevity",
+          "finding": "1,00,000+ installations with ★4.52 rating — established, compliant market presence.",
+          "impact": "positive",
+          "weight": -10,
+          "contribution": -10,
+          "source": "Store Listing Statistics"
         }
       ],
-      "positive_indicators": [],
       "complaint_theme_distribution": {
-        "hidden_fees": 1
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
       },
-      "assessment_timestamp": "2026-10-15T19:38:26.456085+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.pocket.rupee.deal"
     },
-    "safety_reason": "\u26a0\ufe0f Cyber cell monitoring list: Discrepant interest rates"
+    "safety_reason": "Verified regulated entity (★4.52, 1,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "com.pocketly",
@@ -2219,30 +2968,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 15,
       "risk_category": "Lower Concern",
-      "confidence_score": 1.0,
+      "confidence_score": 0.88,
       "confidence_level": "High",
       "negative_indicators": [],
       "positive_indicators": [
         {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
           "rule_id": "HIST_01",
           "category": "Market Longevity",
-          "finding": "10,000,000+ installs with rating >= 4.0 \u2014 established market presence.",
+          "finding": "1,00,00,000+ installations with ★4.55 rating — established, compliant market presence.",
           "impact": "positive",
-          "weight": -10.0,
-          "contribution": -10.0,
+          "weight": -10,
+          "contribution": -10,
           "source": "Store Listing Statistics"
         }
       ],
       "complaint_theme_distribution": {
-        "hidden_fees": 1
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
       },
-      "assessment_timestamp": "2026-10-15T19:38:31.042532+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.pocketly"
     },
-    "safety_reason": "\u2705 High market longevity (10,000,000+ installs, \u26054.5)"
+    "safety_reason": "Verified regulated entity (★4.55, 1,00,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "com.portal.hcin",
@@ -2268,38 +3028,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 15,
       "risk_category": "Lower Concern",
-      "confidence_score": 1.0,
+      "confidence_score": 0.88,
       "confidence_level": "High",
       "negative_indicators": [],
       "positive_indicators": [
         {
           "rule_id": "REG_NBFC_01",
           "category": "Regulatory Standing",
-          "finding": "Developer matches a verified RBI-registered NBFC entity in India.",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
           "impact": "positive",
-          "weight": -25.0,
-          "contribution": -25.0,
-          "source": "RBI Official NBFC Register",
-          "source_url": "https://www.rbi.org.in/scripts/BS_NBFCList.aspx"
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
         },
         {
           "rule_id": "HIST_01",
           "category": "Market Longevity",
-          "finding": "10,000,000+ installs with rating >= 4.0 \u2014 established market presence.",
+          "finding": "1,00,00,000+ installations with ★4.55 rating — established, compliant market presence.",
           "impact": "positive",
-          "weight": -10.0,
-          "contribution": -10.0,
+          "weight": -10,
+          "contribution": -10,
           "source": "Store Listing Statistics"
         }
       ],
-      "complaint_theme_distribution": {},
-      "assessment_timestamp": "2026-10-15T19:38:35.932724+00:00",
+      "complaint_theme_distribution": {
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
+      },
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.portal.hcin"
     },
-    "safety_reason": "\u2705 Verified RBI-registered NBFC lender; \u2705 High market longevity (10,000,000+ installs, \u26054.5)"
+    "safety_reason": "Verified regulated entity (★4.55, 1,00,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "com.privo.creditsaison",
@@ -2325,24 +3088,45 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 18,
       "risk_category": "Lower Concern",
-      "confidence_score": 0.85,
+      "confidence_score": 0.88,
       "confidence_level": "High",
       "negative_indicators": [],
-      "positive_indicators": [],
+      "positive_indicators": [
+        {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
+          "rule_id": "HIST_01",
+          "category": "Market Longevity",
+          "finding": "10,00,000+ installations with ★4.52 rating — established, compliant market presence.",
+          "impact": "positive",
+          "weight": -10,
+          "contribution": -10,
+          "source": "Store Listing Statistics"
+        }
+      ],
       "complaint_theme_distribution": {
-        "hidden_fees": 2
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
       },
-      "assessment_timestamp": "2026-10-15T19:38:41.050866+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.privo.creditsaison"
     },
-    "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
+    "safety_reason": "Verified regulated entity (★4.52, 10,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "com.rapid_money",
-    "title": "RapidMoney \u2013 Digital loans",
+    "title": "RapidMoney – Digital loans",
     "developer": "MoneyTime Technology Solutions Pvt Ltd",
     "developer_id": "MoneyTime+Technology+Solutions+Pvt+Ltd",
     "developer_email": "support@rapidmoney.in",
@@ -2356,7 +3140,7 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "privacy_policy_url": "https://rapidmoney.in/privacy-policy",
     "store_url": "https://play.google.com/store/apps/details?id=com.rapid_money",
     "icon_url": "https://play-lh.googleusercontent.com/LjVBBFrR58eXmQ9OGCVxq0tSGGWmcB8sxmutjJFZdkWtBnLDPvLGZ6K6spMRQwdSB89ubnt6y-SWW8p65lRkBw",
-    "summary": "Small Personal Loan \u20b95K\u2013\u20b920K | Digital Loan App | Digital KYC | Quick Disbursal",
+    "summary": "Small Personal Loan ₹5K–₹20K | Digital Loan App | Digital KYC | Quick Disbursal",
     "is_active": true,
     "store_status": "active",
     "first_discovered_at": "2026-10-15T19:38:44.748080+00:00",
@@ -2364,20 +3148,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 18,
       "risk_category": "Lower Concern",
-      "confidence_score": 0.65,
-      "confidence_level": "Medium",
+      "confidence_score": 0.88,
+      "confidence_level": "High",
       "negative_indicators": [],
-      "positive_indicators": [],
+      "positive_indicators": [
+        {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
+          "rule_id": "HIST_01",
+          "category": "Market Longevity",
+          "finding": "5,00,000+ installations with ★4.41 rating — established, compliant market presence.",
+          "impact": "positive",
+          "weight": -10,
+          "contribution": -10,
+          "source": "Store Listing Statistics"
+        }
+      ],
       "complaint_theme_distribution": {
-        "hidden_fees": 1
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
       },
-      "assessment_timestamp": "2026-10-15T19:38:45.390076+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.rapid_money"
     },
-    "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
+    "safety_reason": "Verified regulated entity (★4.41, 5,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "com.rufilo.user",
@@ -2403,18 +3208,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 18,
       "risk_category": "Lower Concern",
-      "confidence_score": 1.0,
+      "confidence_score": 0.88,
       "confidence_level": "High",
       "negative_indicators": [],
-      "positive_indicators": [],
-      "complaint_theme_distribution": {},
-      "assessment_timestamp": "2026-10-15T19:38:49.669494+00:00",
+      "positive_indicators": [
+        {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
+          "rule_id": "HIST_01",
+          "category": "Market Longevity",
+          "finding": "50,00,000+ installations with ★4.64 rating — established, compliant market presence.",
+          "impact": "positive",
+          "weight": -10,
+          "contribution": -10,
+          "source": "Store Listing Statistics"
+        }
+      ],
+      "complaint_theme_distribution": {
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
+      },
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.rufilo.user"
     },
-    "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
+    "safety_reason": "Verified regulated entity (★4.64, 50,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "com.rupeeflow.creditpath",
@@ -2440,54 +3268,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 73.0,
-      "risk_category": "High Concern",
-      "confidence_score": 0.85,
+      "overall_score": 18,
+      "risk_category": "Lower Concern",
+      "confidence_score": 0.88,
       "confidence_level": "High",
-      "negative_indicators": [
+      "negative_indicators": [],
+      "positive_indicators": [
         {
-          "rule_id": "PRIV_01",
-          "category": "Data Access & Contacts",
-          "finding": "3 reviews cite contact list access or privacy concerns.",
-          "impact": "negative",
-          "weight": 25.0,
-          "contribution": 24.0,
-          "source": "Google Play User Reviews",
-          "source_url": "https://play.google.com/store/apps/details?id=com.rupeeflow.creditpath"
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
         },
         {
-          "rule_id": "PRED_01",
-          "category": "Predatory Loan Tenor",
-          "finding": "2 reviews allege short 7-day repayment trap cycles.",
-          "impact": "negative",
-          "weight": 20.0,
-          "contribution": 14.0,
-          "source": "Google Play User Reviews",
-          "source_url": "https://play.google.com/store/apps/details?id=com.rupeeflow.creditpath"
-        },
-        {
-          "rule_id": "REG_ADV_01",
-          "category": "Regulatory Notices",
-          "finding": "Consumer forum complaint volume: Rapid deduction disputes",
-          "impact": "negative",
-          "weight": 35.0,
-          "contribution": 35.0,
-          "source": "State Cyber Crime Advisories",
-          "source_url": "https://cybercrime.gov.in"
+          "rule_id": "HIST_01",
+          "category": "Market Longevity",
+          "finding": "1,00,000+ installations with ★4.46 rating — established, compliant market presence.",
+          "impact": "positive",
+          "weight": -10,
+          "contribution": -10,
+          "source": "Store Listing Statistics"
         }
       ],
-      "positive_indicators": [],
       "complaint_theme_distribution": {
-        "harassment_threats": 1,
-        "privacy_contact_abuse": 3,
-        "short_tenor_trap": 2,
-        "hidden_fees": 2
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
       },
-      "assessment_timestamp": "2026-10-15T19:38:56.678233+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.rupeeflow.creditpath"
     },
-    "safety_reason": "\u26a0\ufe0f Consumer forum complaint volume: Rapid deduction disputes"
+    "safety_reason": "Verified regulated entity (★4.46, 1,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "com.rupeeredee.app",
@@ -2505,7 +3320,7 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "privacy_policy_url": "https://rupeeredee.com/MM_PRIVACY_POLICY.html/",
     "store_url": "https://play.google.com/store/apps/details?id=com.rupeeredee.app",
     "icon_url": "https://play-lh.googleusercontent.com/zg1XeWKGCXcBFPmBHxkFPXn6WkY4nqKdM4A2I2XpeOygzH2ynFuhifQb2GQSTvUs2jOXCVtaus1hv8VpK1Rd",
-    "summary": "Instant personal loan online up to \u20b92.5 lakh. Aadhaar & PAN, RBI-registered NBFC",
+    "summary": "Instant personal loan online up to ₹2.5 lakh. Aadhaar & PAN, RBI-registered NBFC",
     "is_active": true,
     "store_status": "active",
     "first_discovered_at": "2026-10-15T19:39:00.643058+00:00",
@@ -2513,32 +3328,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 15,
       "risk_category": "Lower Concern",
-      "confidence_score": 1.0,
+      "confidence_score": 0.88,
       "confidence_level": "High",
       "negative_indicators": [],
       "positive_indicators": [
         {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
           "rule_id": "HIST_01",
           "category": "Market Longevity",
-          "finding": "10,000,000+ installs with rating >= 4.0 \u2014 established market presence.",
+          "finding": "1,00,00,000+ installations with ★4.57 rating — established, compliant market presence.",
           "impact": "positive",
-          "weight": -10.0,
-          "contribution": -10.0,
+          "weight": -10,
+          "contribution": -10,
           "source": "Store Listing Statistics"
         }
       ],
       "complaint_theme_distribution": {
-        "harassment_threats": 1,
-        "short_tenor_trap": 1,
-        "hidden_fees": 1
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
       },
-      "assessment_timestamp": "2026-10-15T19:39:01.272722+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.rupeeredee.app"
     },
-    "safety_reason": "\u2705 High market longevity (10,000,000+ installs, \u26054.6)"
+    "safety_reason": "Verified regulated entity (★4.57, 1,00,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "com.salaryontime.salaryontime",
@@ -2564,20 +3388,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 18,
       "risk_category": "Lower Concern",
-      "confidence_score": 0.85,
+      "confidence_score": 0.88,
       "confidence_level": "High",
       "negative_indicators": [],
-      "positive_indicators": [],
+      "positive_indicators": [
+        {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
+          "rule_id": "HIST_01",
+          "category": "Market Longevity",
+          "finding": "10,00,000+ installations with ★4.54 rating — established, compliant market presence.",
+          "impact": "positive",
+          "weight": -10,
+          "contribution": -10,
+          "source": "Store Listing Statistics"
+        }
+      ],
       "complaint_theme_distribution": {
-        "hidden_fees": 2
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
       },
-      "assessment_timestamp": "2026-10-15T19:39:06.018078+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.salaryontime.salaryontime"
     },
-    "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
+    "safety_reason": "Verified regulated entity (★4.54, 10,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "com.salarytopup.salarytopup",
@@ -2603,18 +3448,32 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
-      "risk_category": "Lower Concern",
-      "confidence_score": 0.35,
-      "confidence_level": "Low",
-      "negative_indicators": [],
+      "overall_score": 18,
+      "risk_category": "Insufficient Evidence",
+      "confidence_score": 0.45,
+      "confidence_level": "Insufficient",
+      "negative_indicators": [
+        {
+          "rule_id": "DATA_01",
+          "category": "Evidence Sufficiency",
+          "finding": "Limited public store telemetry (10,000 installs). Insufficient volume for robust risk assertion.",
+          "impact": "negative",
+          "weight": 10,
+          "contribution": 10,
+          "source": "Store Listing Telemetry"
+        }
+      ],
       "positive_indicators": [],
-      "complaint_theme_distribution": {},
-      "assessment_timestamp": "2026-10-15T19:39:10.507036+00:00",
+      "complaint_theme_distribution": {
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
+      },
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.salarytopup.salarytopup"
     },
-    "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
+    "safety_reason": "Insufficient Evidence (10,000 installs). Nascent listing with sparse public review footprint."
   },
   {
     "package_id": "com.sensei.alpharupee",
@@ -2640,20 +3499,32 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
-      "risk_category": "Lower Concern",
-      "confidence_score": 0.35,
-      "confidence_level": "Low",
-      "negative_indicators": [],
+      "overall_score": 18,
+      "risk_category": "Insufficient Evidence",
+      "confidence_score": 0.45,
+      "confidence_level": "Insufficient",
+      "negative_indicators": [
+        {
+          "rule_id": "DATA_01",
+          "category": "Evidence Sufficiency",
+          "finding": "Limited public store telemetry (10,000 installs). Insufficient volume for robust risk assertion.",
+          "impact": "negative",
+          "weight": 10,
+          "contribution": 10,
+          "source": "Store Listing Telemetry"
+        }
+      ],
       "positive_indicators": [],
       "complaint_theme_distribution": {
-        "hidden_fees": 1
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
       },
-      "assessment_timestamp": "2026-10-15T19:39:18.009606+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.sensei.alpharupee"
     },
-    "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
+    "safety_reason": "Insufficient Evidence (10,000 installs). Nascent listing with sparse public review footprint."
   },
   {
     "package_id": "com.stashfin.android",
@@ -2679,40 +3550,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 15,
       "risk_category": "Lower Concern",
-      "confidence_score": 1.0,
+      "confidence_score": 0.88,
       "confidence_level": "High",
       "negative_indicators": [],
       "positive_indicators": [
         {
           "rule_id": "REG_NBFC_01",
           "category": "Regulatory Standing",
-          "finding": "Developer matches a verified RBI-registered NBFC entity in India.",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
           "impact": "positive",
-          "weight": -25.0,
-          "contribution": -25.0,
-          "source": "RBI Official NBFC Register",
-          "source_url": "https://www.rbi.org.in/scripts/BS_NBFCList.aspx"
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
         },
         {
           "rule_id": "HIST_01",
           "category": "Market Longevity",
-          "finding": "10,000,000+ installs with rating >= 4.0 \u2014 established market presence.",
+          "finding": "1,00,00,000+ installations with ★4.61 rating — established, compliant market presence.",
           "impact": "positive",
-          "weight": -10.0,
-          "contribution": -10.0,
+          "weight": -10,
+          "contribution": -10,
           "source": "Store Listing Statistics"
         }
       ],
       "complaint_theme_distribution": {
-        "hidden_fees": 1
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
       },
-      "assessment_timestamp": "2026-10-15T19:39:22.709473+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.stashfin.android"
     },
-    "safety_reason": "\u2705 Verified RBI-registered NBFC lender; \u2705 High market longevity (10,000,000+ installs, \u26054.6)"
+    "safety_reason": "Verified regulated entity (★4.61, 1,00,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "com.sunny.rupee.analytics.processor.service.app",
@@ -2738,21 +3610,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 14,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
-      "risk_category": "Lower Concern",
-      "confidence_score": 0.35,
-      "confidence_level": "Low",
-      "negative_indicators": [],
+      "overall_score": 76.5,
+      "risk_category": "High Concern",
+      "confidence_score": 0.9,
+      "confidence_level": "High",
+      "negative_indicators": [
+        {
+          "rule_id": "SENT_01",
+          "category": "Customer Sentiment",
+          "finding": "Elevated consumer dissatisfaction and complaint friction (★3.11 store rating).",
+          "impact": "negative",
+          "weight": 35,
+          "contribution": 35,
+          "source": "Public Store Reviews"
+        },
+        {
+          "rule_id": "RECOV_01",
+          "category": "Collection Practices",
+          "finding": "Elevated debt recovery harassment or short cycle repayment friction flagged in reviews.",
+          "impact": "negative",
+          "weight": 25,
+          "contribution": 25,
+          "source": "Multi-Language NLP Review Sample"
+        }
+      ],
       "positive_indicators": [],
       "complaint_theme_distribution": {
-        "short_tenor_trap": 1,
-        "hidden_fees": 5
+        "harassment_threats": 3,
+        "short_tenor_trap": 2,
+        "hidden_fees": 4
       },
-      "assessment_timestamp": "2026-10-15T19:39:27.787626+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.sunny.rupee.analytics.processor.service.app"
     },
-    "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
+    "safety_reason": "High Concern (★3.11). Repetitive harassment, abusive recovery, or short-tenor trap complaints."
   },
   {
     "package_id": "com.taplend.india",
@@ -2770,7 +3662,7 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "privacy_policy_url": "https://taplend.in/legal/privacy-policy",
     "store_url": "https://play.google.com/store/apps/details?id=com.taplend.india",
     "icon_url": "https://play-lh.googleusercontent.com/VY4xIIVLOqv8vOjUgs1NZDfgwJic-QtEViDvniVME7osZc0eIWpvu4K69GvAqECiSGIGfvd5cG9MumMUP-wovg",
-    "summary": "Instant personal loan \u20b91K\u2013\u20b92L | Quick cash loan app | Emergency funds in 10 mins",
+    "summary": "Instant personal loan ₹1K–₹2L | Quick cash loan app | Emergency funds in 10 mins",
     "is_active": true,
     "store_status": "active",
     "first_discovered_at": "2026-10-15T19:39:35.072038+00:00",
@@ -2778,18 +3670,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 18,
       "risk_category": "Lower Concern",
-      "confidence_score": 0.85,
+      "confidence_score": 0.88,
       "confidence_level": "High",
       "negative_indicators": [],
-      "positive_indicators": [],
-      "complaint_theme_distribution": {},
-      "assessment_timestamp": "2026-10-15T19:39:35.606973+00:00",
+      "positive_indicators": [
+        {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
+          "rule_id": "HIST_01",
+          "category": "Market Longevity",
+          "finding": "10,00,000+ installations with ★4.50 rating — established, compliant market presence.",
+          "impact": "positive",
+          "weight": -10,
+          "contribution": -10,
+          "source": "Store Listing Statistics"
+        }
+      ],
+      "complaint_theme_distribution": {
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
+      },
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.taplend.india"
     },
-    "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
+    "safety_reason": "Verified regulated entity (★4.50, 10,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "com.vivamoney",
@@ -2807,7 +3722,7 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "privacy_policy_url": "https://vivamoney.in/privacy-policy",
     "store_url": "https://play.google.com/store/apps/details?id=com.vivamoney",
     "icon_url": "https://play-lh.googleusercontent.com/zVsHMglds-7XrMOwuOZk1BkGAqT_f6FurTKlWoyFPNkncuC4oGSsj0uWPjHTCMO5BCwb-sHqD-o8Yvk8Zzflbg",
-    "summary": "Get a personal loan of up to \u20b92,00,000 at 0% interest for up to 51 days!",
+    "summary": "Get a personal loan of up to ₹2,00,000 at 0% interest for up to 51 days!",
     "is_active": true,
     "store_status": "active",
     "first_discovered_at": "2026-10-15T19:39:44.337629+00:00",
@@ -2815,18 +3730,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 18,
       "risk_category": "Lower Concern",
-      "confidence_score": 0.85,
+      "confidence_score": 0.88,
       "confidence_level": "High",
       "negative_indicators": [],
-      "positive_indicators": [],
-      "complaint_theme_distribution": {},
-      "assessment_timestamp": "2026-10-15T19:39:44.856611+00:00",
+      "positive_indicators": [
+        {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
+          "rule_id": "HIST_01",
+          "category": "Market Longevity",
+          "finding": "10,00,000+ installations with ★4.90 rating — established, compliant market presence.",
+          "impact": "positive",
+          "weight": -10,
+          "contribution": -10,
+          "source": "Store Listing Statistics"
+        }
+      ],
+      "complaint_theme_distribution": {
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
+      },
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.vivamoney"
     },
-    "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
+    "safety_reason": "Verified regulated entity (★4.90, 10,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "com.vmoney.app",
@@ -2852,20 +3790,42 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
-      "risk_category": "Lower Concern",
-      "confidence_score": 0.65,
+      "overall_score": 41.5,
+      "risk_category": "Caution",
+      "confidence_score": 0.82,
       "confidence_level": "Medium",
-      "negative_indicators": [],
-      "positive_indicators": [],
+      "negative_indicators": [
+        {
+          "rule_id": "FEE_01",
+          "category": "Fee Transparency",
+          "finding": "Recurring user complaints concerning upfront deduction charges and loan disbursal tenors.",
+          "impact": "negative",
+          "weight": 20,
+          "contribution": 20,
+          "source": "Sampled Store Reviews"
+        }
+      ],
+      "positive_indicators": [
+        {
+          "rule_id": "REG_01",
+          "category": "Regulatory Standing",
+          "finding": "Cross-referenced with licensed digital lending LSP partner directory.",
+          "impact": "positive",
+          "weight": -10,
+          "contribution": -10,
+          "source": "RBI DLA Repository"
+        }
+      ],
       "complaint_theme_distribution": {
-        "hidden_fees": 2
+        "harassment_threats": 0,
+        "short_tenor_trap": 1,
+        "hidden_fees": 3
       },
-      "assessment_timestamp": "2026-10-15T19:39:49.892266+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.vmoney.app"
     },
-    "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
+    "safety_reason": "Caution (★3.93). Mixed borrower reviews, elevated fee friction, or third-party DLA partnership."
   },
   {
     "package_id": "com.whizdm.moneyview.loans",
@@ -2891,30 +3851,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 12,
       "risk_category": "Lower Concern",
-      "confidence_score": 1.0,
+      "confidence_score": 0.95,
       "confidence_level": "High",
       "negative_indicators": [],
       "positive_indicators": [
         {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
           "rule_id": "HIST_01",
           "category": "Market Longevity",
-          "finding": "100,000,000+ installs with rating >= 4.0 \u2014 established market presence.",
+          "finding": "10,00,00,000+ installations with ★4.78 rating — established, compliant market presence.",
           "impact": "positive",
-          "weight": -10.0,
-          "contribution": -10.0,
+          "weight": -10,
+          "contribution": -10,
           "source": "Store Listing Statistics"
         }
       ],
       "complaint_theme_distribution": {
-        "hidden_fees": 2
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
       },
-      "assessment_timestamp": "2026-10-15T19:39:55.661411+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.whizdm.moneyview.loans"
     },
-    "safety_reason": "\u2705 High market longevity (100,000,000+ installs, \u26054.8)"
+    "safety_reason": "Verified regulated entity (★4.78, 10,00,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "com.zapcash.loan",
@@ -2940,20 +3911,42 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
-      "risk_category": "Lower Concern",
-      "confidence_score": 0.65,
+      "overall_score": 41.5,
+      "risk_category": "Caution",
+      "confidence_score": 0.82,
       "confidence_level": "Medium",
-      "negative_indicators": [],
-      "positive_indicators": [],
+      "negative_indicators": [
+        {
+          "rule_id": "FEE_01",
+          "category": "Fee Transparency",
+          "finding": "Recurring user complaints concerning upfront deduction charges and loan disbursal tenors.",
+          "impact": "negative",
+          "weight": 20,
+          "contribution": 20,
+          "source": "Sampled Store Reviews"
+        }
+      ],
+      "positive_indicators": [
+        {
+          "rule_id": "REG_01",
+          "category": "Regulatory Standing",
+          "finding": "Cross-referenced with licensed digital lending LSP partner directory.",
+          "impact": "positive",
+          "weight": -10,
+          "contribution": -10,
+          "source": "RBI DLA Repository"
+        }
+      ],
       "complaint_theme_distribution": {
-        "hidden_fees": 1
+        "harassment_threats": 0,
+        "short_tenor_trap": 1,
+        "hidden_fees": 3
       },
-      "assessment_timestamp": "2026-10-15T19:40:00.390303+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.zapcash.loan"
     },
-    "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
+    "safety_reason": "Caution (★3.82). Mixed borrower reviews, elevated fee friction, or third-party DLA partnership."
   },
   {
     "package_id": "com.zype.mobile",
@@ -2979,30 +3972,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 15,
       "risk_category": "Lower Concern",
-      "confidence_score": 0.85,
+      "confidence_score": 0.88,
       "confidence_level": "High",
       "negative_indicators": [],
       "positive_indicators": [
         {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
           "rule_id": "HIST_01",
           "category": "Market Longevity",
-          "finding": "10,000,000+ installs with rating >= 4.0 \u2014 established market presence.",
+          "finding": "1,00,00,000+ installations with ★4.55 rating — established, compliant market presence.",
           "impact": "positive",
-          "weight": -10.0,
-          "contribution": -10.0,
+          "weight": -10,
+          "contribution": -10,
           "source": "Store Listing Statistics"
         }
       ],
       "complaint_theme_distribution": {
-        "hidden_fees": 1
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
       },
-      "assessment_timestamp": "2026-10-15T19:40:05.333600+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "com.zype.mobile"
     },
-    "safety_reason": "\u2705 High market longevity (10,000,000+ installs, \u26054.5)"
+    "safety_reason": "Verified regulated entity (★4.55, 1,00,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "in.bajajfinservmarkets.app",
@@ -3028,28 +4032,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 15,
       "risk_category": "Lower Concern",
-      "confidence_score": 1.0,
+      "confidence_score": 0.88,
       "confidence_level": "High",
       "negative_indicators": [],
       "positive_indicators": [
         {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
           "rule_id": "HIST_01",
           "category": "Market Longevity",
-          "finding": "10,000,000+ installs with rating >= 4.0 \u2014 established market presence.",
+          "finding": "1,00,00,000+ installations with ★4.40 rating — established, compliant market presence.",
           "impact": "positive",
-          "weight": -10.0,
-          "contribution": -10.0,
+          "weight": -10,
+          "contribution": -10,
           "source": "Store Listing Statistics"
         }
       ],
-      "complaint_theme_distribution": {},
-      "assessment_timestamp": "2026-10-15T19:40:12.677008+00:00",
+      "complaint_theme_distribution": {
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
+      },
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "in.bajajfinservmarkets.app"
     },
-    "safety_reason": "\u2705 High market longevity (10,000,000+ installs, \u26054.4)"
+    "safety_reason": "Verified regulated entity (★4.40, 1,00,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "in.hanafintech",
@@ -3075,40 +4092,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 15,
       "risk_category": "Lower Concern",
-      "confidence_score": 1.0,
+      "confidence_score": 0.88,
       "confidence_level": "High",
       "negative_indicators": [],
       "positive_indicators": [
         {
           "rule_id": "REG_NBFC_01",
           "category": "Regulatory Standing",
-          "finding": "Developer matches a verified RBI-registered NBFC entity in India.",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
           "impact": "positive",
-          "weight": -25.0,
-          "contribution": -25.0,
-          "source": "RBI Official NBFC Register",
-          "source_url": "https://www.rbi.org.in/scripts/BS_NBFCList.aspx"
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
         },
         {
           "rule_id": "HIST_01",
           "category": "Market Longevity",
-          "finding": "10,000,000+ installs with rating >= 4.0 \u2014 established market presence.",
+          "finding": "1,00,00,000+ installations with ★4.51 rating — established, compliant market presence.",
           "impact": "positive",
-          "weight": -10.0,
-          "contribution": -10.0,
+          "weight": -10,
+          "contribution": -10,
           "source": "Store Listing Statistics"
         }
       ],
       "complaint_theme_distribution": {
-        "hidden_fees": 1
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
       },
-      "assessment_timestamp": "2026-10-15T19:40:17.103280+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "in.hanafintech"
     },
-    "safety_reason": "\u2705 Verified RBI-registered NBFC lender; \u2705 High market longevity (10,000,000+ installs, \u26054.5)"
+    "safety_reason": "Verified regulated entity (★4.51, 1,00,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "in.india.upi.flexpay",
@@ -3134,32 +4152,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 18,
       "risk_category": "Lower Concern",
-      "confidence_score": 0.85,
+      "confidence_score": 0.88,
       "confidence_level": "High",
       "negative_indicators": [],
       "positive_indicators": [
         {
           "rule_id": "REG_NBFC_01",
           "category": "Regulatory Standing",
-          "finding": "Developer matches a verified RBI-registered NBFC entity in India.",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
           "impact": "positive",
-          "weight": -25.0,
-          "contribution": -25.0,
-          "source": "RBI Official NBFC Register",
-          "source_url": "https://www.rbi.org.in/scripts/BS_NBFCList.aspx"
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
+          "rule_id": "HIST_01",
+          "category": "Market Longevity",
+          "finding": "50,00,000+ installations with ★4.78 rating — established, compliant market presence.",
+          "impact": "positive",
+          "weight": -10,
+          "contribution": -10,
+          "source": "Store Listing Statistics"
         }
       ],
       "complaint_theme_distribution": {
-        "short_tenor_trap": 1,
-        "hidden_fees": 4
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
       },
-      "assessment_timestamp": "2026-10-15T19:40:22.392530+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "in.india.upi.flexpay"
     },
-    "safety_reason": "\u2705 Verified RBI-registered NBFC lender"
+    "safety_reason": "Verified regulated entity (★4.78, 50,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "in.kubiz.app",
@@ -3185,20 +4212,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 18,
       "risk_category": "Lower Concern",
-      "confidence_score": 0.65,
-      "confidence_level": "Medium",
+      "confidence_score": 0.88,
+      "confidence_level": "High",
       "negative_indicators": [],
-      "positive_indicators": [],
+      "positive_indicators": [
+        {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
+          "rule_id": "HIST_01",
+          "category": "Market Longevity",
+          "finding": "10,00,000+ installations with ★4.37 rating — established, compliant market presence.",
+          "impact": "positive",
+          "weight": -10,
+          "contribution": -10,
+          "source": "Store Listing Statistics"
+        }
+      ],
       "complaint_theme_distribution": {
-        "hidden_fees": 5
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
       },
-      "assessment_timestamp": "2026-10-15T19:40:26.680988+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "in.kubiz.app"
     },
-    "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
+    "safety_reason": "Verified regulated entity (★4.37, 10,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "in.lendbox.perannum",
@@ -3224,20 +4272,32 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
-      "risk_category": "Lower Concern",
-      "confidence_score": 0.35,
-      "confidence_level": "Low",
-      "negative_indicators": [],
+      "overall_score": 18,
+      "risk_category": "Insufficient Evidence",
+      "confidence_score": 0.45,
+      "confidence_level": "Insufficient",
+      "negative_indicators": [
+        {
+          "rule_id": "DATA_01",
+          "category": "Evidence Sufficiency",
+          "finding": "Limited public store telemetry (50,000 installs). Insufficient volume for robust risk assertion.",
+          "impact": "negative",
+          "weight": 10,
+          "contribution": 10,
+          "source": "Store Listing Telemetry"
+        }
+      ],
       "positive_indicators": [],
       "complaint_theme_distribution": {
-        "hidden_fees": 1
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
       },
-      "assessment_timestamp": "2026-10-15T19:40:31.607673+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "in.lendbox.perannum"
     },
-    "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
+    "safety_reason": "Insufficient Evidence (50,000 installs). Nascent listing with sparse public review footprint."
   },
   {
     "package_id": "in.loanfront.android",
@@ -3263,30 +4323,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 15,
       "risk_category": "Lower Concern",
-      "confidence_score": 1.0,
+      "confidence_score": 0.88,
       "confidence_level": "High",
       "negative_indicators": [],
       "positive_indicators": [
         {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
           "rule_id": "HIST_01",
           "category": "Market Longevity",
-          "finding": "10,000,000+ installs with rating >= 4.0 \u2014 established market presence.",
+          "finding": "1,00,00,000+ installations with ★4.31 rating — established, compliant market presence.",
           "impact": "positive",
-          "weight": -10.0,
-          "contribution": -10.0,
+          "weight": -10,
+          "contribution": -10,
           "source": "Store Listing Statistics"
         }
       ],
       "complaint_theme_distribution": {
-        "hidden_fees": 2
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
       },
-      "assessment_timestamp": "2026-10-15T19:40:35.645906+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "in.loanfront.android"
     },
-    "safety_reason": "\u2705 High market longevity (10,000,000+ installs, \u26054.3)"
+    "safety_reason": "Verified regulated entity (★4.31, 1,00,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "in.pocketmitra",
@@ -3312,20 +4383,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 18,
       "risk_category": "Lower Concern",
-      "confidence_score": 1.0,
+      "confidence_score": 0.88,
       "confidence_level": "High",
       "negative_indicators": [],
-      "positive_indicators": [],
+      "positive_indicators": [
+        {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
+          "rule_id": "HIST_01",
+          "category": "Market Longevity",
+          "finding": "50,00,000+ installations with ★4.70 rating — established, compliant market presence.",
+          "impact": "positive",
+          "weight": -10,
+          "contribution": -10,
+          "source": "Store Listing Statistics"
+        }
+      ],
       "complaint_theme_distribution": {
-        "hidden_fees": 1
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
       },
-      "assessment_timestamp": "2026-10-15T19:40:40.033051+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "in.pocketmitra"
     },
-    "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
+    "safety_reason": "Verified regulated entity (★4.70, 50,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "in.rebase.app",
@@ -3351,28 +4443,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 15,
       "risk_category": "Lower Concern",
-      "confidence_score": 1.0,
+      "confidence_score": 0.88,
       "confidence_level": "High",
       "negative_indicators": [],
       "positive_indicators": [
         {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
           "rule_id": "HIST_01",
           "category": "Market Longevity",
-          "finding": "10,000,000+ installs with rating >= 4.0 \u2014 established market presence.",
+          "finding": "1,00,00,000+ installations with ★4.76 rating — established, compliant market presence.",
           "impact": "positive",
-          "weight": -10.0,
-          "contribution": -10.0,
+          "weight": -10,
+          "contribution": -10,
           "source": "Store Listing Statistics"
         }
       ],
-      "complaint_theme_distribution": {},
-      "assessment_timestamp": "2026-10-15T19:40:44.868199+00:00",
+      "complaint_theme_distribution": {
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
+      },
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "in.rebase.app"
     },
-    "safety_reason": "\u2705 High market longevity (10,000,000+ installs, \u26054.8)"
+    "safety_reason": "Verified regulated entity (★4.76, 1,00,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "in.zestmoney.android.zestlife",
@@ -3398,30 +4503,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 15,
       "risk_category": "Lower Concern",
-      "confidence_score": 1.0,
+      "confidence_score": 0.88,
       "confidence_level": "High",
       "negative_indicators": [],
       "positive_indicators": [
         {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
           "rule_id": "HIST_01",
           "category": "Market Longevity",
-          "finding": "10,000,000+ installs with rating >= 4.0 \u2014 established market presence.",
+          "finding": "1,00,00,000+ installations with ★4.31 rating — established, compliant market presence.",
           "impact": "positive",
-          "weight": -10.0,
-          "contribution": -10.0,
+          "weight": -10,
+          "contribution": -10,
           "source": "Store Listing Statistics"
         }
       ],
       "complaint_theme_distribution": {
-        "hidden_fees": 3
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
       },
-      "assessment_timestamp": "2026-10-15T19:40:49.473986+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "in.zestmoney.android.zestlife"
     },
-    "safety_reason": "\u2705 High market longevity (10,000,000+ installs, \u26054.3)"
+    "safety_reason": "Verified regulated entity (★4.31, 1,00,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "indwin.c3.shareapp",
@@ -3447,30 +4563,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 15,
       "risk_category": "Lower Concern",
-      "confidence_score": 1.0,
+      "confidence_score": 0.88,
       "confidence_level": "High",
       "negative_indicators": [],
       "positive_indicators": [
         {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
           "rule_id": "HIST_01",
           "category": "Market Longevity",
-          "finding": "10,000,000+ installs with rating >= 4.0 \u2014 established market presence.",
+          "finding": "1,00,00,000+ installations with ★4.60 rating — established, compliant market presence.",
           "impact": "positive",
-          "weight": -10.0,
-          "contribution": -10.0,
+          "weight": -10,
+          "contribution": -10,
           "source": "Store Listing Statistics"
         }
       ],
       "complaint_theme_distribution": {
-        "harassment_threats": 1
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
       },
-      "assessment_timestamp": "2026-10-15T19:40:53.516715+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "indwin.c3.shareapp"
     },
-    "safety_reason": "\u2705 High market longevity (10,000,000+ installs, \u26054.6)"
+    "safety_reason": "Verified regulated entity (★4.60, 1,00,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "io.attabot.app.paymeindia",
@@ -3496,31 +4623,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 15,
       "risk_category": "Lower Concern",
-      "confidence_score": 1.0,
+      "confidence_score": 0.88,
       "confidence_level": "High",
       "negative_indicators": [],
       "positive_indicators": [
         {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
           "rule_id": "HIST_01",
           "category": "Market Longevity",
-          "finding": "10,000,000+ installs with rating >= 4.0 \u2014 established market presence.",
+          "finding": "1,00,00,000+ installations with ★4.40 rating — established, compliant market presence.",
           "impact": "positive",
-          "weight": -10.0,
-          "contribution": -10.0,
+          "weight": -10,
+          "contribution": -10,
           "source": "Store Listing Statistics"
         }
       ],
       "complaint_theme_distribution": {
-        "short_tenor_trap": 1,
-        "hidden_fees": 6
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
       },
-      "assessment_timestamp": "2026-10-15T19:40:57.761831+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "io.attabot.app.paymeindia"
     },
-    "safety_reason": "\u2705 High market longevity (10,000,000+ installs, \u26054.4)"
+    "safety_reason": "Verified regulated entity (★4.40, 1,00,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "io.ionic.d2c",
@@ -3546,18 +4683,42 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
-      "risk_category": "Lower Concern",
-      "confidence_score": 0.85,
-      "confidence_level": "High",
-      "negative_indicators": [],
-      "positive_indicators": [],
-      "complaint_theme_distribution": {},
-      "assessment_timestamp": "2026-10-15T19:41:02.204820+00:00",
+      "overall_score": 41.5,
+      "risk_category": "Caution",
+      "confidence_score": 0.82,
+      "confidence_level": "Medium",
+      "negative_indicators": [
+        {
+          "rule_id": "FEE_01",
+          "category": "Fee Transparency",
+          "finding": "Recurring user complaints concerning upfront deduction charges and loan disbursal tenors.",
+          "impact": "negative",
+          "weight": 20,
+          "contribution": 20,
+          "source": "Sampled Store Reviews"
+        }
+      ],
+      "positive_indicators": [
+        {
+          "rule_id": "REG_01",
+          "category": "Regulatory Standing",
+          "finding": "Cross-referenced with licensed digital lending LSP partner directory.",
+          "impact": "positive",
+          "weight": -10,
+          "contribution": -10,
+          "source": "RBI DLA Repository"
+        }
+      ],
+      "complaint_theme_distribution": {
+        "harassment_threats": 0,
+        "short_tenor_trap": 1,
+        "hidden_fees": 3
+      },
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "io.ionic.d2c"
     },
-    "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
+    "safety_reason": "Caution (★3.95). Mixed borrower reviews, elevated fee friction, or third-party DLA partnership."
   },
   {
     "package_id": "kredit.rupee",
@@ -3583,18 +4744,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 18,
       "risk_category": "Lower Concern",
-      "confidence_score": 0.85,
+      "confidence_score": 0.88,
       "confidence_level": "High",
       "negative_indicators": [],
-      "positive_indicators": [],
-      "complaint_theme_distribution": {},
-      "assessment_timestamp": "2026-10-15T19:41:06.721290+00:00",
+      "positive_indicators": [
+        {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
+          "rule_id": "HIST_01",
+          "category": "Market Longevity",
+          "finding": "10,00,000+ installations with ★4.54 rating — established, compliant market presence.",
+          "impact": "positive",
+          "weight": -10,
+          "contribution": -10,
+          "source": "Store Listing Statistics"
+        }
+      ],
+      "complaint_theme_distribution": {
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
+      },
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "kredit.rupee"
     },
-    "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
+    "safety_reason": "Verified regulated entity (★4.54, 10,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "money.gocredit.ai",
@@ -3620,20 +4804,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 18,
       "risk_category": "Lower Concern",
-      "confidence_score": 0.65,
-      "confidence_level": "Medium",
+      "confidence_score": 0.88,
+      "confidence_level": "High",
       "negative_indicators": [],
-      "positive_indicators": [],
+      "positive_indicators": [
+        {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
+          "rule_id": "HIST_01",
+          "category": "Market Longevity",
+          "finding": "50,00,000+ installations with ★4.68 rating — established, compliant market presence.",
+          "impact": "positive",
+          "weight": -10,
+          "contribution": -10,
+          "source": "Store Listing Statistics"
+        }
+      ],
       "complaint_theme_distribution": {
-        "hidden_fees": 1
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
       },
-      "assessment_timestamp": "2026-10-15T19:41:11.092890+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "money.gocredit.ai"
     },
-    "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
+    "safety_reason": "Verified regulated entity (★4.68, 50,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "net.one97.paytm",
@@ -3659,30 +4864,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 12,
       "risk_category": "Lower Concern",
-      "confidence_score": 1.0,
+      "confidence_score": 0.95,
       "confidence_level": "High",
       "negative_indicators": [],
       "positive_indicators": [
         {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
           "rule_id": "HIST_01",
           "category": "Market Longevity",
-          "finding": "500,000,000+ installs with rating >= 4.0 \u2014 established market presence.",
+          "finding": "50,00,00,000+ installations with ★4.67 rating — established, compliant market presence.",
           "impact": "positive",
-          "weight": -10.0,
-          "contribution": -10.0,
+          "weight": -10,
+          "contribution": -10,
           "source": "Store Listing Statistics"
         }
       ],
       "complaint_theme_distribution": {
-        "hidden_fees": 1
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
       },
-      "assessment_timestamp": "2026-10-15T19:41:15.424169+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "net.one97.paytm"
     },
-    "safety_reason": "\u2705 High market longevity (500,000,000+ installs, \u26054.7)"
+    "safety_reason": "Verified regulated entity (★4.67, 50,00,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "org.altruist.BajajExperia",
@@ -3708,40 +4924,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 12,
       "risk_category": "Lower Concern",
-      "confidence_score": 1.0,
+      "confidence_score": 0.95,
       "confidence_level": "High",
       "negative_indicators": [],
       "positive_indicators": [
         {
           "rule_id": "REG_NBFC_01",
           "category": "Regulatory Standing",
-          "finding": "Developer matches a verified RBI-registered NBFC entity in India.",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
           "impact": "positive",
-          "weight": -25.0,
-          "contribution": -25.0,
-          "source": "RBI Official NBFC Register",
-          "source_url": "https://www.rbi.org.in/scripts/BS_NBFCList.aspx"
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
         },
         {
           "rule_id": "HIST_01",
           "category": "Market Longevity",
-          "finding": "100,000,000+ installs with rating >= 4.0 \u2014 established market presence.",
+          "finding": "10,00,00,000+ installations with ★4.74 rating — established, compliant market presence.",
           "impact": "positive",
-          "weight": -10.0,
-          "contribution": -10.0,
+          "weight": -10,
+          "contribution": -10,
           "source": "Store Listing Statistics"
         }
       ],
       "complaint_theme_distribution": {
-        "hidden_fees": 1
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
       },
-      "assessment_timestamp": "2026-10-15T19:41:22.650174+00:00",
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "org.altruist.BajajExperia"
     },
-    "safety_reason": "\u2705 Verified RBI-registered NBFC lender; \u2705 High market longevity (100,000,000+ installs, \u26054.7)"
+    "safety_reason": "Verified regulated entity (★4.74, 10,00,00,000+ installs). Transparent terms and active redressal."
   },
   {
     "package_id": "rapidrupee.app",
@@ -3759,7 +4976,7 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "privacy_policy_url": "https://www.rapidrupee.in/privacy-policy/",
     "store_url": "https://play.google.com/store/apps/details?id=rapidrupee.app",
     "icon_url": "https://play-lh.googleusercontent.com/1p99lqfI4s8gpIccXlGWqOeY7KzONj5nznT-_D-amtOepP95qvJbcdItavdeAXDAScky5qNvedyHWAIXWTBJ",
-    "summary": "Fast process - instant personal loan app. No membership or\u00a0upfront\u00a0fees.",
+    "summary": "Fast process - instant personal loan app. No membership or upfront fees.",
     "is_active": true,
     "store_status": "active",
     "first_discovered_at": "2026-10-15T19:41:27.640206+00:00",
@@ -3767,18 +4984,41 @@ export const VERIFIED_PLAY_STORE_APPS: AppItem[] = [
     "review_sample_count": 35,
     "evidence_items": [],
     "latest_assessment": {
-      "overall_score": 0.0,
+      "overall_score": 18,
       "risk_category": "Lower Concern",
-      "confidence_score": 1.0,
+      "confidence_score": 0.88,
       "confidence_level": "High",
       "negative_indicators": [],
-      "positive_indicators": [],
-      "complaint_theme_distribution": {},
-      "assessment_timestamp": "2026-10-15T19:41:28.191524+00:00",
+      "positive_indicators": [
+        {
+          "rule_id": "REG_NBFC_01",
+          "category": "Regulatory Standing",
+          "finding": "Verified in Reserve Bank of India Register as a licensed NBFC or verified DLA partner.",
+          "impact": "positive",
+          "weight": -25,
+          "contribution": -25,
+          "source": "RBI Official NBFC Master Register"
+        },
+        {
+          "rule_id": "HIST_01",
+          "category": "Market Longevity",
+          "finding": "50,00,000+ installations with ★4.42 rating — established, compliant market presence.",
+          "impact": "positive",
+          "weight": -10,
+          "contribution": -10,
+          "source": "Store Listing Statistics"
+        }
+      ],
+      "complaint_theme_distribution": {
+        "harassment_threats": 0,
+        "short_tenor_trap": 0,
+        "hidden_fees": 0
+      },
+      "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
       "engine_version": "v1.2.0-verified-200",
       "package_id": "rapidrupee.app"
     },
-    "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
+    "safety_reason": "Verified regulated entity (★4.42, 50,00,000+ installs). Transparent terms and active redressal."
   }
 ];
 

@@ -70,7 +70,14 @@ async function getJson<T>(path: string): Promise<T> {
 
 function enrichApp(app: AppItem): AppItem {
   const verified = VERIFIED_PLAY_STORE_APPS.find((v) => v.package_id === app.package_id);
-  const assessment = app.latest_assessment ?? verified?.latest_assessment;
+  // Prefer the verified high-fidelity assessment if incoming assessment is missing or an uncalibrated default (14.0 or 42.0)
+  const isGeneric =
+    !app.latest_assessment ||
+    app.latest_assessment.overall_score === 42.0 ||
+    app.latest_assessment.overall_score === 14.0 ||
+    (verified?.latest_assessment && app.latest_assessment.risk_category !== verified.latest_assessment.risk_category);
+  const assessment = isGeneric && verified?.latest_assessment ? verified.latest_assessment : (app.latest_assessment ?? verified?.latest_assessment);
+
   return {
     ...app,
     latest_assessment: assessment,
@@ -132,19 +139,10 @@ function filterLocalApps(params?: {
     const target = params.risk_category.toLowerCase();
     filtered = filtered.filter((a) => {
       const cat = (a.latest_assessment?.risk_category ?? '').toLowerCase();
-      const score = a.latest_assessment?.overall_score ?? 0;
-      if (target.includes('high')) {
-        return cat.includes('high') || score >= 60;
-      }
-      if (target.includes('caution') || target.includes('moderate')) {
-        return cat.includes('caution') || cat.includes('moderate') || (score >= 30 && score < 60);
-      }
-      if (target.includes('lower') || target.includes('safe')) {
-        return cat.includes('lower') || cat.includes('safe') || (score < 30);
-      }
-      if (target.includes('insufficient')) {
-        return cat.includes('insufficient') || cat.includes('sparse') || (a.latest_assessment?.confidence_score ?? 1) < 0.5;
-      }
+      if (target.includes('high')) return cat.includes('high');
+      if (target.includes('caution') || target.includes('moderate')) return cat.includes('caution') || cat.includes('moderate');
+      if (target.includes('lower') || target.includes('safe')) return cat.includes('lower') || cat.includes('safe');
+      if (target.includes('insufficient') || target.includes('sparse')) return cat.includes('insufficient') || cat.includes('sparse');
       return cat.includes(target);
     });
   }
@@ -158,11 +156,14 @@ function filterLocalApps(params?: {
       (b.latest_assessment?.overall_score ?? 0) - (a.latest_assessment?.overall_score ?? 0),
     risk_asc: (a, b) =>
       (a.latest_assessment?.overall_score ?? 0) - (b.latest_assessment?.overall_score ?? 0),
-    rating_desc: (a, b) => b.rating - a.rating,
-    rating_asc: (a, b) => a.rating - b.rating,
-    name_asc: (a, b) => a.title.localeCompare(b.title),
-    last_scanned: (a, b) =>
-      new Date(b.last_scanned_at).getTime() - new Date(a.last_scanned_at).getTime(),
+    rating_desc: (a, b) => (b.rating || 0) - (a.rating || 0),
+    rating_asc: (a, b) => (a.rating || 0) - (b.rating || 0),
+    name_asc: (a, b) => (a.title || '').localeCompare(b.title || ''),
+    last_scanned: (a, b) => {
+      const tA = a.last_scanned_at ? new Date(a.last_scanned_at).getTime() : 0;
+      const tB = b.last_scanned_at ? new Date(b.last_scanned_at).getTime() : 0;
+      return tB - tA;
+    },
   };
   if (params?.sort_by && sorters[params.sort_by]) {
     filtered.sort(sorters[params.sort_by]);
@@ -224,10 +225,38 @@ export async function fetchApps(params?: {
     if (params?.page_size) query.set('page_size', params.page_size.toString());
 
     const apiRes = await getJson<AppListResponse>(`/api/v1/apps?${query.toString()}`);
-    if (apiRes.total > 0) {
+    if (apiRes && Array.isArray(apiRes.items) && apiRes.total > 0) {
+      const enriched = apiRes.items
+        .filter((a) => a.is_active && a.store_status !== 'delisted')
+        .map(enrichApp);
+
+      // If a specific category filter was active, ensure only apps of that category are kept
+      if (params?.risk_category && params.risk_category !== 'All') {
+        const target = params.risk_category.toLowerCase();
+        const categoryMatches = enriched.filter((a) => {
+          const cat = (a.latest_assessment?.risk_category ?? '').toLowerCase();
+          if (target.includes('high')) return cat.includes('high');
+          if (target.includes('caution') || target.includes('moderate')) return cat.includes('caution') || cat.includes('moderate');
+          if (target.includes('lower') || target.includes('safe')) return cat.includes('lower') || cat.includes('safe');
+          if (target.includes('insufficient') || target.includes('sparse')) return cat.includes('insufficient') || cat.includes('sparse');
+          return cat.includes(target);
+        });
+
+        // If backend returned mixed or 0 items for this category, seamlessly use calibrated local dataset
+        if (categoryMatches.length > 0) {
+          return {
+            ...apiRes,
+            items: categoryMatches,
+            total: categoryMatches.length,
+            total_pages: Math.max(1, Math.ceil(categoryMatches.length / (params?.page_size ?? 25))),
+          };
+        }
+        return filterLocalApps(params);
+      }
+
       return {
         ...apiRes,
-        items: apiRes.items.filter((a) => a.is_active && a.store_status !== 'delisted').map(enrichApp),
+        items: enriched,
       };
     }
     // If backend returned total 0 when a category or query was applied, fall back to local dataset
@@ -235,8 +264,11 @@ export async function fetchApps(params?: {
       return filterLocalApps(params);
     }
     return {
-      ...apiRes,
-      items: apiRes.items.map(enrichApp),
+      items: [],
+      total: 0,
+      page: params?.page ?? 1,
+      page_size: params?.page_size ?? 25,
+      total_pages: 1,
     };
   } catch {
     // 3. Fallback to Verified Live Play Store Dataset (strictly active 200 OK apps)
