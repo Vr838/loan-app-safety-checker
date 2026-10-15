@@ -76,7 +76,7 @@ export const AppDetailModal: React.FC<AppDetailModalProps> = ({ app, onClose }) 
   return (
     <div className="modal-backdrop" role="presentation" onMouseDown={onClose}>
       <section
-        className="detail-modal w-full max-w-3xl max-h-[92vh] flex flex-col bg-white rounded-2xl shadow-2xl overflow-hidden border border-slate-200"
+        className="detail-modal w-full max-w-3xl max-h-[92vh] flex flex-col bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-200"
         role="dialog"
         aria-modal="true"
         aria-labelledby="app-detail-title"

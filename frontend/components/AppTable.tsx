@@ -229,9 +229,23 @@ export const AppTable: React.FC<AppTableProps> = ({
               </tr>
             ) : activeApps.length === 0 ? (
               <tr>
-                <td colSpan={7} className="py-16 text-center text-slate-500 space-y-1">
-                  <strong className="block text-sm font-semibold text-slate-800">No applications found</strong>
-                  <p className="text-xs">Try adjusting your search query or assessment filter.</p>
+                <td colSpan={7} className="py-16 text-center text-slate-500 space-y-3">
+                  <div className="w-10 h-10 rounded-full bg-slate-100 text-slate-400 mx-auto flex items-center justify-center">
+                    <Search className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <strong className="block text-sm font-semibold text-slate-800">No applications found</strong>
+                    <p className="text-xs text-slate-500 mt-0.5">No applications match "{searchQuery || selectedCategory}".</p>
+                  </div>
+                  <button
+                    onClick={() => {
+                      onSearchChange('');
+                      onSelectCategory('All');
+                    }}
+                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200 hover:bg-blue-100 transition-all active:scale-95 shadow-2xs"
+                  >
+                    <span>Reset All Filters</span>
+                  </button>
                 </td>
               </tr>
             ) : (
@@ -365,23 +379,25 @@ export const AppTable: React.FC<AppTableProps> = ({
         </table>
       </div>
 
-      {/* Floating Bottom Comparison Tray when items selected */}
+      {/* Floating Comparison Dock (Apple Dynamic Island style) */}
       {comparisonIds.length > 0 && (
-        <div className="sticky bottom-0 left-0 right-0 p-3 bg-slate-900/95 backdrop-blur-md text-white border-t border-slate-800 flex items-center justify-between shadow-2xl z-30 transition-transform">
+        <div className="sticky bottom-0 left-0 right-0 p-3.5 bg-slate-900/90 backdrop-blur-xl text-white border-t border-slate-700/60 flex items-center justify-between shadow-2xl z-30 transition-all">
           <div className="flex items-center gap-3">
-            <span className="w-6 h-6 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs font-bold">
+            <span className="w-6 h-6 rounded-full bg-blue-500 text-white flex items-center justify-center text-xs font-bold shadow-xs">
               {comparisonIds.length}
             </span>
-            <span className="text-xs font-medium">
-              {comparisonIds.length === 1 ? '1 app selected (select 1 more to compare)' : `${comparisonIds.length} apps selected for side-by-side comparison`}
+            <span className="text-xs font-medium text-slate-200">
+              {comparisonIds.length === 1
+                ? '1 application selected — select at least 1 more to compare side-by-side'
+                : `${comparisonIds.length} apps selected for side-by-side audit`}
             </span>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2.5">
             {onClearComparison && (
               <button
                 onClick={onClearComparison}
-                className="text-xs text-slate-400 hover:text-white px-2 py-1"
+                className="text-xs font-medium text-slate-400 hover:text-white px-2.5 py-1.5 rounded-lg hover:bg-slate-800 transition-colors"
               >
                 Clear
               </button>
@@ -389,10 +405,14 @@ export const AppTable: React.FC<AppTableProps> = ({
             <button
               onClick={onCompare}
               disabled={comparisonIds.length < 2}
-              className={`button-primary text-xs py-1.5 px-3.5 ${comparisonIds.length < 2 ? 'opacity-50 cursor-not-allowed' : ''}`}
+              className={`button-primary text-xs py-2 px-4 shadow-md transition-all active:scale-95 ${
+                comparisonIds.length < 2
+                  ? 'opacity-40 cursor-not-allowed'
+                  : 'bg-blue-600 hover:bg-blue-500 shadow-blue-500/25 ring-2 ring-blue-400/40'
+              }`}
             >
               <BarChart3 className="w-3.5 h-3.5" />
-              <span>Compare Side-by-Side</span>
+              <span>Compare ({comparisonIds.length}) Side-by-Side</span>
             </button>
           </div>
         </div>

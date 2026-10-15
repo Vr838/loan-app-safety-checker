@@ -987,30 +987,68 @@ td {
 .text-slate-400 { color: #94a3b8; }
 .text-blue-600  { color: #2563eb; }
 .text-blue-700  { color: #1d4ed8; }
+.text-blue-900  { color: #1e3a8a; }
+.text-blue-950  { color: #172554; }
 .text-emerald-600 { color: #059669; }
 .text-emerald-700 { color: #047857; }
+.text-emerald-800 { color: #065f46; }
+.text-emerald-950 { color: #022c22; }
 .text-amber-500 { color: #f59e0b; }
+.text-amber-600 { color: #d97706; }
 .text-amber-700 { color: #b45309; }
+.text-amber-800 { color: #92400e; }
+.text-amber-950 { color: #451a03; }
+.text-rose-600  { color: #e11d48; }
+.text-rose-700  { color: #be123c; }
+.text-rose-800  { color: #9f1239; }
+.text-rose-900  { color: #881337; }
+.text-rose-950  { color: #4c0519; }
 .text-red-600   { color: #dc2626; }
 .text-red-700   { color: #b91c1c; }
 .text-white     { color: #ffffff; }
 
 .bg-white       { background-color: #ffffff; }
 .bg-white\/80   { background-color: rgba(255, 255, 255, 0.8); }
+.bg-white\/90   { background-color: rgba(255, 255, 255, 0.9); }
 .bg-slate-50    { background-color: #f8fafc; }
 .bg-slate-50\/60{ background-color: rgba(248, 250, 252, 0.6); }
 .bg-slate-50\/70{ background-color: rgba(248, 250, 252, 0.7); }
 .bg-slate-50\/80{ background-color: rgba(248, 250, 252, 0.8); }
 .bg-slate-100   { background-color: #f1f5f9; }
+.bg-slate-200   { background-color: #e2e8f0; }
+.bg-slate-800   { background-color: #1e293b; }
 .bg-slate-900   { background-color: #0f172a; }
+.bg-slate-900\/60 { background-color: rgba(15, 23, 42, 0.6); }
+
 .bg-blue-50     { background-color: #eff6ff; }
+.bg-blue-50\/70 { background-color: rgba(239, 246, 255, 0.7); }
 .bg-blue-100    { background-color: #dbeafe; }
 .bg-blue-600    { background-color: #2563eb; }
+.bg-blue-700    { background-color: #1d4ed8; }
+
 .bg-emerald-50  { background-color: #ecfdf5; }
+.bg-emerald-50\/40 { background-color: rgba(236, 253, 245, 0.4); }
+.bg-emerald-50\/70 { background-color: rgba(236, 253, 245, 0.7); }
+.bg-emerald-50\/80 { background-color: rgba(236, 253, 245, 0.8); }
+.bg-emerald-100 { background-color: #d1fae5; }
 .bg-emerald-500 { background-color: #10b981; }
+.bg-emerald-600 { background-color: #059669; }
+
 .bg-amber-50    { background-color: #fffbeb; }
+.bg-amber-50\/50{ background-color: rgba(255, 251, 235, 0.5); }
+.bg-amber-50\/70{ background-color: rgba(255, 251, 235, 0.7); }
+.bg-amber-100   { background-color: #fef3c7; }
 .bg-amber-500   { background-color: #f59e0b; }
-.bg-red-50      { background-color: #fef2f2; }
+.bg-amber-600   { background-color: #d97706; }
+
+.bg-rose-50     { background-color: #fff1f2; }
+.bg-rose-50\/40 { background-color: rgba(255, 241, 242, 0.4); }
+.bg-rose-50\/50 { background-color: rgba(255, 241, 242, 0.5); }
+.bg-rose-50\/70 { background-color: rgba(255, 241, 242, 0.7); }
+.bg-rose-100    { background-color: #ffe4e6; }
+.bg-rose-500    { background-color: #f43f5e; }
+.bg-rose-600    { background-color: #e11d48; }
+
 .bg-transparent { background-color: transparent; }
 
 /* Borders & Radii */
@@ -1020,12 +1058,18 @@ td {
 .border-slate-100 { border-color: #f1f5f9; }
 .border-slate-200 { border-color: #e2e8f0; }
 .border-slate-200\/60 { border-color: rgba(226, 232, 240, 0.6); }
+.border-slate-200\/70 { border-color: rgba(226, 232, 240, 0.7); }
 .border-slate-200\/80 { border-color: rgba(226, 232, 240, 0.8); }
 .border-slate-300 { border-color: #cbd5e1; }
+.border-slate-800 { border-color: #1e293b; }
 .border-blue-200 { border-color: #bfdbfe; }
 .border-blue-200\/60 { border-color: rgba(191, 219, 254, 0.6); }
+.border-blue-200\/80 { border-color: rgba(191, 219, 254, 0.8); }
 .border-emerald-200 { border-color: #a7f3d0; }
+.border-emerald-200\/70 { border-color: rgba(167, 243, 208, 0.7); }
 .border-amber-200 { border-color: #fde68a; }
+.border-rose-200 { border-color: #fecdd3; }
+.border-rose-300 { border-color: #fda4af; }
 .border-red-200 { border-color: #fecaca; }
 .border-collapse{ border-collapse: collapse; }
 
@@ -1035,6 +1079,7 @@ td {
 .rounded-lg     { border-radius: 0.5rem; }
 .rounded-xl     { border-radius: 0.75rem; }
 .rounded-2xl    { border-radius: 1rem; }
+.rounded-3xl    { border-radius: 1.5rem; }
 .rounded-full   { border-radius: 9999px; }
 
 /* Shadows */
@@ -1043,6 +1088,7 @@ td {
 .shadow-sm      { box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.03); }
 .shadow-md      { box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06); }
 .shadow-lg      { box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08); }
+.shadow-2xl     { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); }
 
 /* Layout & Positional */
 .relative       { position: relative; }
@@ -1050,15 +1096,83 @@ td {
 .fixed          { position: fixed; }
 .inset-0        { top: 0; right: 0; bottom: 0; left: 0; }
 .top-0          { top: 0; }
+.top-2          { top: 0.5rem; }
 .right-0        { right: 0; }
+.right-2        { right: 0.5rem; }
 .bottom-0       { bottom: 0; }
 .left-0         { left: 0; }
+.z-50           { z-index: 50; }
 .pointer-events-none { pointer-events: none; }
 .overflow-hidden { overflow: hidden; }
 .overflow-x-auto { overflow-x: auto; }
 .overflow-y-auto { overflow-y: auto; }
+.overflow-auto   { overflow: auto; }
 .cursor-pointer { cursor: pointer; }
 .object-cover   { object-fit: cover; }
+.opacity-70     { opacity: 0.7; }
+.opacity-80     { opacity: 0.8; }
+.font-serif     { font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif; }
+
+/* ─── Apple Design Grid System ───────────────────────────────────── */
+.grid           { display: grid; }
+.inline-grid    { display: inline-grid; }
+.grid-cols-1    { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+.grid-cols-2    { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid-cols-3    { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.grid-cols-4    { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.grid-cols-5    { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+
+/* Max dimensions */
+.max-w-md       { max-width: 28rem; }
+.max-w-lg       { max-width: 32rem; }
+.max-w-3xl      { max-width: 48rem; }
+.max-w-4xl      { max-width: 56rem; }
+.max-h-\[75vh\] { max-height: 75vh; }
+.max-h-\[85vh\] { max-height: 85vh; }
+.max-h-\[90vh\] { max-height: 90vh; }
+.max-h-\[92vh\] { max-height: 92vh; }
+
+/* ─── Apple Design Frosted Modals ────────────────────────────────── */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.52);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  z-index: 50;
+  animation: appleBackdropFade 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.detail-modal {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(28px) saturate(190%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 24px;
+  box-shadow: 0 24px 64px -8px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(0, 0, 0, 0.04);
+  animation: appleModalSpring 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes appleBackdropFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes appleModalSpring {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
 .transition-all { transition-property: all; transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1); transition-duration: 150ms; }
 .transition-colors { transition-property: color, background-color, border-color; transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1); transition-duration: 150ms; }
 
@@ -1066,11 +1180,16 @@ td {
 @media (min-width: 640px) {
   .sm\:px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
   .sm\:py-8 { padding-top: 2rem; padding-bottom: 2rem; }
+  .sm\:p-6  { padding: 1.5rem; }
   .sm\:p-8  { padding: 2rem; }
   .sm\:w-64 { width: 16rem; }
   .sm\:flex-row { flex-direction: row; }
   .sm\:items-center { align-items: center; }
   .sm\:text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
+  .sm\:text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
+  .sm\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sm\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .sm\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
 
 @media (min-width: 1024px) {

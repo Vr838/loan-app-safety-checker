@@ -62,8 +62,24 @@ async def list_apps(
         latest_assessment = app.assessments[0] if app.assessments else None
 
         # Risk category filter
-        if risk_category:
-            if not latest_assessment or latest_assessment.risk_category.lower() != risk_category.strip().lower():
+        if risk_category and risk_category.strip().lower() != "all":
+            if not latest_assessment:
+                continue
+            cat = latest_assessment.risk_category.lower()
+            target = risk_category.strip().lower()
+            if "high" in target:
+                if "high" not in cat:
+                    continue
+            elif "caution" in target or "moderate" in target:
+                if "caution" not in cat and "moderate" not in cat:
+                    continue
+            elif "lower" in target or "safe" in target:
+                if "lower" not in cat and "safe" not in cat:
+                    continue
+            elif "insufficient" in target:
+                if "insufficient" not in cat and "sparse" not in cat:
+                    continue
+            elif target not in cat:
                 continue
 
         app_item = AppListItem(

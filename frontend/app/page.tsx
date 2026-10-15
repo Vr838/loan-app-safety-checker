@@ -74,7 +74,7 @@ export default function DashboardPage() {
       if (scansResult.status === 'fulfilled') {
         setScanHistory(scansResult.value);
       }
-      if (appsResult.status === 'fulfilled' && appsResult.value.items.length > 0) {
+      if (appsResult.status === 'fulfilled') {
         setApps(appsResult.value.items);
         setTotalPages(appsResult.value.total_pages);
         setTotalItems(appsResult.value.total);
@@ -87,13 +87,18 @@ export default function DashboardPage() {
             if (!matches) return false;
           }
           if (selectedCategory && selectedCategory !== 'All') {
+            const target = selectedCategory.toLowerCase();
             const cat = (a.latest_assessment?.risk_category ?? '').toLowerCase();
-            if (!cat.includes(selectedCategory.toLowerCase())) return false;
+            if (target.includes('high')) return cat.includes('high');
+            if (target.includes('caution') || target.includes('moderate')) return cat.includes('caution') || cat.includes('moderate');
+            if (target.includes('lower') || target.includes('safe')) return cat.includes('lower') || cat.includes('safe');
+            if (target.includes('insufficient')) return cat.includes('insufficient') || cat.includes('sparse');
+            return cat.includes(target);
           }
           return true;
         });
         setApps(filtered.slice((page - 1) * pageSize, page * pageSize));
-        setTotalPages(Math.ceil(filtered.length / pageSize) || 1);
+        setTotalPages(Math.max(1, Math.ceil(filtered.length / pageSize)));
         setTotalItems(filtered.length);
       }
       setLoadError(null);
