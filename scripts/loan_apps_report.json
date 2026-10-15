@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-15T12:29:26.776591+00:00",
+  "generated_at": "2026-10-15T19:41:29.408719+00:00",
   "play_store_country": "in",
   "queries_used": [
     "instant personal loan india",
@@ -15,9 +15,9 @@
     "digital lending platform india",
     "emergency cash loan app"
   ],
-  "total_active_verified_200": 85,
+  "total_active_verified_200": 84,
   "total_delisted_benchmarks": 3,
-  "total_applications": 88,
+  "total_applications": 87,
   "apps": [
     {
       "package_id": "app.oolka.com",
@@ -29,7 +29,7 @@
       "developer_address": null,
       "category": "Finance",
       "rating": 4.85,
-      "rating_count": 105302,
+      "rating_count": 105729,
       "installs_text": "10,000,000+",
       "installs_approx": 10000000,
       "privacy_policy_url": "https://www.oolka.in/privacy-policy",
@@ -38,8 +38,8 @@
       "summary": "Check credit score for Free | Get Good Credit Score | Pay EMI, Loan, Credit Card",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:24:28.125681+00:00",
-      "last_scanned_at": "2026-10-15T12:24:28.125692+00:00",
+      "first_discovered_at": "2026-10-15T19:33:47.110956+00:00",
+      "last_scanned_at": "2026-10-15T19:33:47.110970+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -59,8 +59,10 @@
             "source": "Store Listing Statistics"
           }
         ],
-        "complaint_theme_distribution": {},
-        "assessment_timestamp": "2026-10-15T12:24:28.931075+00:00",
+        "complaint_theme_distribution": {
+          "hidden_fees": 1
+        },
+        "assessment_timestamp": "2026-10-15T19:33:47.733932+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "app.oolka.com"
       },
@@ -85,8 +87,8 @@
       "summary": "Get Gold at just 10.20% interest. Get maximum cash",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:24:31.144875+00:00",
-      "last_scanned_at": "2026-10-15T12:24:31.144895+00:00",
+      "first_discovered_at": "2026-10-15T19:33:51.374986+00:00",
+      "last_scanned_at": "2026-10-15T19:33:51.375004+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -99,7 +101,7 @@
         "complaint_theme_distribution": {
           "hidden_fees": 1
         },
-        "assessment_timestamp": "2026-10-15T12:24:31.778289+00:00",
+        "assessment_timestamp": "2026-10-15T19:33:52.043914+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "co.indiagold.gold.buy.loan"
       },
@@ -115,7 +117,7 @@
       "developer_address": null,
       "category": "Finance",
       "rating": 4.35,
-      "rating_count": 398246,
+      "rating_count": 398263,
       "installs_text": "10,000,000+",
       "installs_approx": 10000000,
       "privacy_policy_url": "https://info.cashe.co.in/privacy-policy.html",
@@ -124,8 +126,8 @@
       "summary": "Fast & Easy Loans! Apply for a Quick Loan through a Trusted Instant Loan App",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:24:34.032953+00:00",
-      "last_scanned_at": "2026-10-15T12:24:34.032968+00:00",
+      "first_discovered_at": "2026-10-15T19:33:56.201163+00:00",
+      "last_scanned_at": "2026-10-15T19:33:56.201177+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -148,7 +150,7 @@
         "complaint_theme_distribution": {
           "hidden_fees": 3
         },
-        "assessment_timestamp": "2026-10-15T12:24:34.704650+00:00",
+        "assessment_timestamp": "2026-10-15T19:33:56.739800+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "co.tslc.cashe.android"
       },
@@ -173,8 +175,8 @@
       "summary": "Making life easier for our all employees Get access to your HR data anytime",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:24:37.098369+00:00",
-      "last_scanned_at": "2026-10-15T12:24:37.098390+00:00",
+      "first_discovered_at": "2026-10-15T19:34:01.456442+00:00",
+      "last_scanned_at": "2026-10-15T19:34:01.456459+00:00",
       "review_sample_count": 15,
       "evidence_items": [],
       "latest_assessment": {
@@ -185,7 +187,7 @@
         "negative_indicators": [],
         "positive_indicators": [],
         "complaint_theme_distribution": {},
-        "assessment_timestamp": "2026-10-15T12:24:37.667977+00:00",
+        "assessment_timestamp": "2026-10-15T19:34:02.035305+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.Payday.payday"
       },
@@ -200,8 +202,8 @@
       "developer_website": "https://anytimerupee.com/",
       "developer_address": null,
       "category": "Finance",
-      "rating": 4.7,
-      "rating_count": 13536,
+      "rating": 4.71,
+      "rating_count": 13552,
       "installs_text": "1,000,000+",
       "installs_approx": 1000000,
       "privacy_policy_url": "https://anytimerupee.com/privacy-policy/",
@@ -210,8 +212,8 @@
       "summary": "Anytime Anywhere",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:24:40.866586+00:00",
-      "last_scanned_at": "2026-10-15T12:24:40.866608+00:00",
+      "first_discovered_at": "2026-10-15T19:34:08.631570+00:00",
+      "last_scanned_at": "2026-10-15T19:34:08.631585+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -222,7 +224,7 @@
         "negative_indicators": [],
         "positive_indicators": [],
         "complaint_theme_distribution": {},
-        "assessment_timestamp": "2026-10-15T12:24:41.445495+00:00",
+        "assessment_timestamp": "2026-10-15T19:34:09.133060+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.anytimerupee"
       },
@@ -237,8 +239,8 @@
       "developer_website": "https://atdmoney.com",
       "developer_address": null,
       "category": "Finance",
-      "rating": 3.67,
-      "rating_count": 395,
+      "rating": 3.6,
+      "rating_count": 396,
       "installs_text": "100,000+",
       "installs_approx": 100000,
       "privacy_policy_url": "https://atdmoney.com/privacy-policy.php",
@@ -247,8 +249,8 @@
       "summary": "ATD Money is a personal loan app, provides Salary & Payday loans up to 50000.",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:24:46.029756+00:00",
-      "last_scanned_at": "2026-10-15T12:24:46.029777+00:00",
+      "first_discovered_at": "2026-10-15T19:34:21.189996+00:00",
+      "last_scanned_at": "2026-10-15T19:34:21.190020+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -259,9 +261,9 @@
         "negative_indicators": [],
         "positive_indicators": [],
         "complaint_theme_distribution": {
-          "hidden_fees": 3
+          "hidden_fees": 2
         },
-        "assessment_timestamp": "2026-10-15T12:24:46.632020+00:00",
+        "assessment_timestamp": "2026-10-15T19:34:21.741213+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.atdmoney.quick"
       },
@@ -277,7 +279,7 @@
       "developer_address": null,
       "category": "Finance",
       "rating": 4.65,
-      "rating_count": 2759369,
+      "rating_count": 2759904,
       "installs_text": "50,000,000+",
       "installs_approx": 50000000,
       "privacy_policy_url": "https://www.truebalance.io/terms-and-conditions/privacy-policy",
@@ -286,8 +288,8 @@
       "summary": "Instant Personal Loan App, Free Credit Score Checker, Credit Cards, Wallet & UPI",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:24:49.054658+00:00",
-      "last_scanned_at": "2026-10-15T12:24:49.054677+00:00",
+      "first_discovered_at": "2026-10-15T19:34:27.099632+00:00",
+      "last_scanned_at": "2026-10-15T19:34:27.099652+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -308,7 +310,7 @@
           }
         ],
         "complaint_theme_distribution": {},
-        "assessment_timestamp": "2026-10-15T12:24:49.838417+00:00",
+        "assessment_timestamp": "2026-10-15T19:34:27.756228+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.balancehero.truebalance"
       },
@@ -324,7 +326,7 @@
       "developer_address": null,
       "category": "Finance",
       "rating": 3.57,
-      "rating_count": 33359,
+      "rating_count": 33360,
       "installs_text": "1,000,000+",
       "installs_approx": 1000000,
       "privacy_policy_url": "https://instantfunds.in/privacy-policy",
@@ -333,8 +335,8 @@
       "summary": "InstantFunds is an Instant Personal Loan app offering quick online loans.",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:24:52.145139+00:00",
-      "last_scanned_at": "2026-10-15T12:24:52.145161+00:00",
+      "first_discovered_at": "2026-10-15T19:34:32.061381+00:00",
+      "last_scanned_at": "2026-10-15T19:34:32.061395+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -361,7 +363,7 @@
           "short_tenor_trap": 1,
           "hidden_fees": 3
         },
-        "assessment_timestamp": "2026-10-15T12:24:52.852767+00:00",
+        "assessment_timestamp": "2026-10-15T19:34:32.648550+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.bpsecuritiesindia.instantfunds"
       },
@@ -377,7 +379,7 @@
       "developer_address": null,
       "category": "Finance",
       "rating": 4.61,
-      "rating_count": 3646599,
+      "rating_count": 3647007,
       "installs_text": "50,000,000+",
       "installs_approx": 50000000,
       "privacy_policy_url": "https://branch.co/pp",
@@ -386,8 +388,8 @@
       "summary": "Instant Loan & Personal Finance App - Quick Approval in less than 2 minutes",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:24:55.261912+00:00",
-      "last_scanned_at": "2026-10-15T12:24:55.261935+00:00",
+      "first_discovered_at": "2026-10-15T19:34:36.576224+00:00",
+      "last_scanned_at": "2026-10-15T19:34:36.576245+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -417,8 +419,10 @@
             "source": "Store Listing Statistics"
           }
         ],
-        "complaint_theme_distribution": {},
-        "assessment_timestamp": "2026-10-15T12:24:55.996138+00:00",
+        "complaint_theme_distribution": {
+          "hidden_fees": 2
+        },
+        "assessment_timestamp": "2026-10-15T19:34:37.267356+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.branch_international.branch.branch_demo_android"
       },
@@ -434,7 +438,7 @@
       "developer_address": null,
       "category": "Finance",
       "rating": 4.51,
-      "rating_count": 6074644,
+      "rating_count": 6074611,
       "installs_text": "10,000,000+",
       "installs_approx": 10000000,
       "privacy_policy_url": "https://www.buddyloan.com/privacy-policy",
@@ -443,8 +447,8 @@
       "summary": "Check Credit Score, Apply for Loan or Credit Card. Get Personal & Business Loan",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:24:58.125537+00:00",
-      "last_scanned_at": "2026-10-15T12:24:58.125552+00:00",
+      "first_discovered_at": "2026-10-15T19:34:41.326431+00:00",
+      "last_scanned_at": "2026-10-15T19:34:41.326441+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -467,7 +471,7 @@
         "complaint_theme_distribution": {
           "hidden_fees": 5
         },
-        "assessment_timestamp": "2026-10-15T12:24:58.916779+00:00",
+        "assessment_timestamp": "2026-10-15T19:34:42.044933+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.buddyloan.vls"
       },
@@ -483,7 +487,7 @@
       "developer_address": null,
       "category": "Finance",
       "rating": 4.59,
-      "rating_count": 10238,
+      "rating_count": 10239,
       "installs_text": "1,000,000+",
       "installs_approx": 1000000,
       "privacy_policy_url": "https://www.capitalnow.in/privacy-and-security-policy",
@@ -492,8 +496,8 @@
       "summary": "Apply for Quick Personal Loans Up To \u20b91,50,000 & Receive Instant Cash In 10 Mins",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:25:01.009246+00:00",
-      "last_scanned_at": "2026-10-15T12:25:01.009254+00:00",
+      "first_discovered_at": "2026-10-15T19:34:46.533712+00:00",
+      "last_scanned_at": "2026-10-15T19:34:46.533734+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -504,7 +508,7 @@
         "negative_indicators": [],
         "positive_indicators": [],
         "complaint_theme_distribution": {},
-        "assessment_timestamp": "2026-10-15T12:25:01.834496+00:00",
+        "assessment_timestamp": "2026-10-15T19:34:47.149298+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.capitalnowapp.mobile"
       },
@@ -519,8 +523,8 @@
       "developer_website": "https://lazypay.in",
       "developer_address": null,
       "category": "Finance",
-      "rating": 4.57,
-      "rating_count": 592326,
+      "rating": 4.58,
+      "rating_count": 592353,
       "installs_text": "10,000,000+",
       "installs_approx": 10000000,
       "privacy_policy_url": "https://secure.lazypay.in/mobile/privacy-policy",
@@ -529,8 +533,8 @@
       "summary": "India\u2019s credit super-app for Instant loans, BNPL, Utility bills and more",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:25:03.612330+00:00",
-      "last_scanned_at": "2026-10-15T12:25:03.612353+00:00",
+      "first_discovered_at": "2026-10-15T19:34:51.074605+00:00",
+      "last_scanned_at": "2026-10-15T19:34:51.074631+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -561,7 +565,7 @@
           }
         ],
         "complaint_theme_distribution": {},
-        "assessment_timestamp": "2026-10-15T12:25:05.910807+00:00",
+        "assessment_timestamp": "2026-10-15T19:34:51.700202+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.citrus.citruspay"
       },
@@ -577,7 +581,7 @@
       "developer_address": null,
       "category": "Finance",
       "rating": 4.59,
-      "rating_count": 6686813,
+      "rating_count": 6687129,
       "installs_text": "50,000,000+",
       "installs_approx": 50000000,
       "privacy_policy_url": "https://www.icici.bank.in/privacy.page",
@@ -586,8 +590,8 @@
       "summary": "Open Savings Account, Get Loans, UPI, Credit Card, FASTag, Recharge & Pay Bills",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:25:08.957564+00:00",
-      "last_scanned_at": "2026-10-15T12:25:08.957590+00:00",
+      "first_discovered_at": "2026-10-15T19:35:00.211640+00:00",
+      "last_scanned_at": "2026-10-15T19:35:00.211663+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -608,7 +612,7 @@
           }
         ],
         "complaint_theme_distribution": {},
-        "assessment_timestamp": "2026-10-15T12:25:09.593954+00:00",
+        "assessment_timestamp": "2026-10-15T19:35:00.846567+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.csam.icici.bank.imobile"
       },
@@ -623,8 +627,8 @@
       "developer_website": "https://rupeeontime.com/",
       "developer_address": null,
       "category": "Finance",
-      "rating": 4.59,
-      "rating_count": 8604,
+      "rating": 4.58,
+      "rating_count": 8598,
       "installs_text": "1,000,000+",
       "installs_approx": 1000000,
       "privacy_policy_url": "https://rupeeontime.com/privacy-policy",
@@ -633,8 +637,8 @@
       "summary": "Trusted personal loan app for quick, transparent, and secure borrowing.",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:25:12.157627+00:00",
-      "last_scanned_at": "2026-10-15T12:25:12.157649+00:00",
+      "first_discovered_at": "2026-10-15T19:35:05.124553+00:00",
+      "last_scanned_at": "2026-10-15T19:35:05.124575+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -644,8 +648,10 @@
         "confidence_level": "Medium",
         "negative_indicators": [],
         "positive_indicators": [],
-        "complaint_theme_distribution": {},
-        "assessment_timestamp": "2026-10-15T12:25:12.765747+00:00",
+        "complaint_theme_distribution": {
+          "harassment_threats": 1
+        },
+        "assessment_timestamp": "2026-10-15T19:35:05.642237+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.devaashishcapitals.rot"
       },
@@ -660,8 +666,8 @@
       "developer_website": "https://digicredit.in/",
       "developer_address": null,
       "category": "Finance",
-      "rating": 4.41,
-      "rating_count": 12059,
+      "rating": 4.42,
+      "rating_count": 12090,
       "installs_text": "500,000+",
       "installs_approx": 500000,
       "privacy_policy_url": "https://digicredit.in/privacy-policy",
@@ -670,8 +676,8 @@
       "summary": "Instant Loan App, Quick Approval, Fast Disbursal & Easy Repayment",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:25:14.554493+00:00",
-      "last_scanned_at": "2026-10-15T12:25:14.554503+00:00",
+      "first_discovered_at": "2026-10-15T19:35:10.718433+00:00",
+      "last_scanned_at": "2026-10-15T19:35:10.718458+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -684,7 +690,7 @@
         "complaint_theme_distribution": {
           "hidden_fees": 3
         },
-        "assessment_timestamp": "2026-10-15T12:25:15.255497+00:00",
+        "assessment_timestamp": "2026-10-15T19:35:11.320588+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.digicredit"
       },
@@ -700,7 +706,7 @@
       "developer_address": null,
       "category": "Finance",
       "rating": 4.57,
-      "rating_count": 585594,
+      "rating_count": 586088,
       "installs_text": "10,000,000+",
       "installs_approx": 10000000,
       "privacy_policy_url": "https://fibe.in/privacy-policy",
@@ -709,8 +715,8 @@
       "summary": "Personal Loan, Loans, Instant Loan, Cash Loan App - Quick Cash & Low Interest",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:25:18.426456+00:00",
-      "last_scanned_at": "2026-10-15T12:25:18.426471+00:00",
+      "first_discovered_at": "2026-10-15T19:35:18.493255+00:00",
+      "last_scanned_at": "2026-10-15T19:35:18.493277+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -731,7 +737,7 @@
           }
         ],
         "complaint_theme_distribution": {},
-        "assessment_timestamp": "2026-10-15T12:25:19.228008+00:00",
+        "assessment_timestamp": "2026-10-15T19:35:19.160373+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.earlysalary.android"
       },
@@ -747,7 +753,7 @@
       "developer_address": null,
       "category": "Finance",
       "rating": 4.87,
-      "rating_count": 1538902,
+      "rating_count": 1539120,
       "installs_text": "50,000,000+",
       "installs_approx": 50000000,
       "privacy_policy_url": "https://kissht-payments.com/privacy-policy",
@@ -756,8 +762,8 @@
       "summary": "Kissht Quick Personal Loan App to Get Instant Loan Approval & at Lower Interest",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:25:23.653114+00:00",
-      "last_scanned_at": "2026-10-15T12:25:23.653125+00:00",
+      "first_discovered_at": "2026-10-15T19:35:28.704554+00:00",
+      "last_scanned_at": "2026-10-15T19:35:28.704576+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -788,7 +794,7 @@
           }
         ],
         "complaint_theme_distribution": {},
-        "assessment_timestamp": "2026-10-15T12:25:24.334108+00:00",
+        "assessment_timestamp": "2026-10-15T19:35:29.304811+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.fastbanking"
       },
@@ -804,7 +810,7 @@
       "developer_address": null,
       "category": "Finance",
       "rating": 4.52,
-      "rating_count": 296910,
+      "rating_count": 297100,
       "installs_text": "10,000,000+",
       "installs_approx": 10000000,
       "privacy_policy_url": "https://fatakpay.com/privacy-policy",
@@ -813,8 +819,8 @@
       "summary": "Apply For Instant Personal Loans, Build Credit Score & Invest in Gold Online",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:25:26.285073+00:00",
-      "last_scanned_at": "2026-10-15T12:25:26.285084+00:00",
+      "first_discovered_at": "2026-10-15T19:35:33.540966+00:00",
+      "last_scanned_at": "2026-10-15T19:35:33.540984+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -834,49 +840,14 @@
             "source": "Store Listing Statistics"
           }
         ],
-        "complaint_theme_distribution": {},
-        "assessment_timestamp": "2026-10-15T12:25:26.883278+00:00",
+        "complaint_theme_distribution": {
+          "hidden_fees": 2
+        },
+        "assessment_timestamp": "2026-10-15T19:35:34.129809+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.fatakpay"
       },
       "safety_reason": "\u2705 High market longevity (10,000,000+ installs, \u26054.5)"
-    },
-    {
-      "package_id": "com.finnable.customer",
-      "title": "Finnable: Loan & Credit Score",
-      "developer": "FINNABLE TECHNOLOGIES PRIVATE LIMITED",
-      "developer_id": "FINNABLE+TECHNOLOGIES+PRIVATE+LIMITED",
-      "developer_email": "info@finnable.com",
-      "developer_website": "http://www.finnable.com",
-      "developer_address": null,
-      "category": "Finance",
-      "rating": 4.53,
-      "rating_count": 83560,
-      "installs_text": "5,000,000+",
-      "installs_approx": 5000000,
-      "privacy_policy_url": "https://pages.finnable.com/privacy_policy.html",
-      "store_url": "https://play.google.com/store/apps/details?id=com.finnable.customer",
-      "icon_url": "https://play-lh.googleusercontent.com/0YB-oH2WJJPWGOHpG5GyOKktDYskPyOx457iNzyevkLJFKttk-r2SxkvisShUiD1tmewYmbIiOPb6goAarO6",
-      "summary": "Get Instant Loans, Free Credit Score. Quick cash & finance management.",
-      "is_active": true,
-      "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:25:33.222644+00:00",
-      "last_scanned_at": "2026-10-15T12:25:33.222649+00:00",
-      "review_sample_count": 35,
-      "evidence_items": [],
-      "latest_assessment": {
-        "overall_score": 0.0,
-        "risk_category": "Lower Concern",
-        "confidence_score": 0.85,
-        "confidence_level": "High",
-        "negative_indicators": [],
-        "positive_indicators": [],
-        "complaint_theme_distribution": {},
-        "assessment_timestamp": "2026-10-15T12:25:33.870533+00:00",
-        "engine_version": "v1.2.0-verified-200",
-        "package_id": "com.finnable.customer"
-      },
-      "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
     },
     {
       "package_id": "com.fintech.lenditt",
@@ -897,8 +868,8 @@
       "summary": "Get Instant Personal Loan, Home Loan or Invest in Gold & Silver Online",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:25:36.160490+00:00",
-      "last_scanned_at": "2026-10-15T12:25:36.160512+00:00",
+      "first_discovered_at": "2026-10-15T19:35:46.895653+00:00",
+      "last_scanned_at": "2026-10-15T19:35:46.895672+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -911,7 +882,7 @@
         "complaint_theme_distribution": {
           "hidden_fees": 1
         },
-        "assessment_timestamp": "2026-10-15T12:25:36.791910+00:00",
+        "assessment_timestamp": "2026-10-15T19:35:47.489275+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.fintech.lenditt"
       },
@@ -927,7 +898,7 @@
       "developer_address": null,
       "category": "Finance",
       "rating": 4.69,
-      "rating_count": 68985,
+      "rating_count": 68983,
       "installs_text": "10,000,000+",
       "installs_approx": 10000000,
       "privacy_policy_url": "https://www.flexsalary.com/terms-and-conditions.php",
@@ -936,8 +907,8 @@
       "summary": "Personal Loan App For Salaried Individuals | Get Up To 3 Lakhs Instantly",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:25:39.207485+00:00",
-      "last_scanned_at": "2026-10-15T12:25:39.207508+00:00",
+      "first_discovered_at": "2026-10-15T19:35:51.937031+00:00",
+      "last_scanned_at": "2026-10-15T19:35:51.937047+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -970,7 +941,7 @@
         "complaint_theme_distribution": {
           "hidden_fees": 3
         },
-        "assessment_timestamp": "2026-10-15T12:25:40.123233+00:00",
+        "assessment_timestamp": "2026-10-15T19:35:52.479890+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.flexsalary"
       },
@@ -985,8 +956,8 @@
       "developer_website": "https://www.30daysloan.com/",
       "developer_address": null,
       "category": "Finance",
-      "rating": 3.54,
-      "rating_count": 2143,
+      "rating": 3.56,
+      "rating_count": 2144,
       "installs_text": "1,000,000+",
       "installs_approx": 1000000,
       "privacy_policy_url": "https://30daysloan.com/privacyPolicy",
@@ -995,8 +966,8 @@
       "summary": "30daysloan is a Short Term Urgent Personal & Quick Loan Company",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:25:43.211989+00:00",
-      "last_scanned_at": "2026-10-15T12:25:43.212013+00:00",
+      "first_discovered_at": "2026-10-15T19:35:59.321282+00:00",
+      "last_scanned_at": "2026-10-15T19:35:59.321304+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -1009,7 +980,7 @@
         "complaint_theme_distribution": {
           "hidden_fees": 2
         },
-        "assessment_timestamp": "2026-10-15T12:25:43.936362+00:00",
+        "assessment_timestamp": "2026-10-15T19:35:59.964848+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.gfpls.personalloan"
       },
@@ -1034,8 +1005,8 @@
       "summary": "Everyday is a Payday!",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:25:46.082790+00:00",
-      "last_scanned_at": "2026-10-15T12:25:46.082814+00:00",
+      "first_discovered_at": "2026-10-15T19:36:03.976952+00:00",
+      "last_scanned_at": "2026-10-15T19:36:03.976971+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -1048,7 +1019,7 @@
         "complaint_theme_distribution": {
           "hidden_fees": 2
         },
-        "assessment_timestamp": "2026-10-15T12:25:46.906920+00:00",
+        "assessment_timestamp": "2026-10-15T19:36:04.562442+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.goodkredit.myapplication.paydaytoday"
       },
@@ -1064,7 +1035,7 @@
       "developer_address": null,
       "category": "Finance",
       "rating": 3.03,
-      "rating_count": 256397,
+      "rating_count": 256398,
       "installs_text": "10,000,000+",
       "installs_approx": 10000000,
       "privacy_policy_url": "https://securepsweb.gopaysense.com/mobile/privacy",
@@ -1073,8 +1044,8 @@
       "summary": "Get personal loans in India from \u20b9 5,000 to \u20b9 5 lacs through PaySense loan app",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:25:49.155371+00:00",
-      "last_scanned_at": "2026-10-15T12:25:49.155392+00:00",
+      "first_discovered_at": "2026-10-15T19:36:08.728963+00:00",
+      "last_scanned_at": "2026-10-15T19:36:08.728987+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -1087,7 +1058,7 @@
         "complaint_theme_distribution": {
           "hidden_fees": 2
         },
-        "assessment_timestamp": "2026-10-15T12:25:49.777459+00:00",
+        "assessment_timestamp": "2026-10-15T19:36:09.326631+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.gopaysense.android.boost"
       },
@@ -1112,8 +1083,8 @@
       "summary": "Instant Secured Loans at affordable Interest rates and flexible tenure",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:25:51.787088+00:00",
-      "last_scanned_at": "2026-10-15T12:25:51.787111+00:00",
+      "first_discovered_at": "2026-10-15T19:36:12.990542+00:00",
+      "last_scanned_at": "2026-10-15T19:36:12.990566+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -1126,7 +1097,7 @@
         "complaint_theme_distribution": {
           "hidden_fees": 1
         },
-        "assessment_timestamp": "2026-10-15T12:25:52.415224+00:00",
+        "assessment_timestamp": "2026-10-15T19:36:13.682025+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.habile.cloudbankin.digimoney"
       },
@@ -1142,7 +1113,7 @@
       "developer_address": null,
       "category": "Finance",
       "rating": 4.45,
-      "rating_count": 11253,
+      "rating_count": 11255,
       "installs_text": "1,000,000+",
       "installs_approx": 1000000,
       "privacy_policy_url": "https://loans.apps.herofincorp.com/en/upi_privacy_policy",
@@ -1151,8 +1122,8 @@
       "summary": "Instant Loan up to \u20b97 Lakh, Secure UPI Payments, & get Loyalty Personal Loans",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:25:54.276261+00:00",
-      "last_scanned_at": "2026-10-15T12:25:54.276271+00:00",
+      "first_discovered_at": "2026-10-15T19:36:17.265931+00:00",
+      "last_scanned_at": "2026-10-15T19:36:17.265952+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -1165,7 +1136,7 @@
         "complaint_theme_distribution": {
           "hidden_fees": 1
         },
-        "assessment_timestamp": "2026-10-15T12:25:54.877703+00:00",
+        "assessment_timestamp": "2026-10-15T19:36:17.879997+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.herofincorp.diyjourneys"
       },
@@ -1180,8 +1151,8 @@
       "developer_website": "https://iblfinance.in/",
       "developer_address": null,
       "category": "Finance",
-      "rating": 4.58,
-      "rating_count": 2671,
+      "rating": 4.56,
+      "rating_count": 2686,
       "installs_text": "100,000+",
       "installs_approx": 100000,
       "privacy_policy_url": "https://iblfinance.in/privacy-policy-app",
@@ -1190,8 +1161,8 @@
       "summary": "Fast personal loan with secure digital process and easy repayments",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:25:56.688920+00:00",
-      "last_scanned_at": "2026-10-15T12:25:56.688941+00:00",
+      "first_discovered_at": "2026-10-15T19:36:22.213486+00:00",
+      "last_scanned_at": "2026-10-15T19:36:22.213506+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -1201,8 +1172,10 @@
         "confidence_level": "Medium",
         "negative_indicators": [],
         "positive_indicators": [],
-        "complaint_theme_distribution": {},
-        "assessment_timestamp": "2026-10-15T12:25:57.266445+00:00",
+        "complaint_theme_distribution": {
+          "hidden_fees": 1
+        },
+        "assessment_timestamp": "2026-10-15T19:36:22.794588+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.ibl.money.instantloan"
       },
@@ -1218,7 +1191,7 @@
       "developer_address": null,
       "category": "Finance",
       "rating": 4.87,
-      "rating_count": 1212404,
+      "rating_count": 1212462,
       "installs_text": "50,000,000+",
       "installs_approx": 50000000,
       "privacy_policy_url": "https://paywithring.com/consumer/privacy-policy",
@@ -1227,8 +1200,8 @@
       "summary": "Apply for a personal loan from Rs 35,000 to 5 lakh with instant loan disbursal",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:25:59.485225+00:00",
-      "last_scanned_at": "2026-10-15T12:25:59.485243+00:00",
+      "first_discovered_at": "2026-10-15T19:36:26.677785+00:00",
+      "last_scanned_at": "2026-10-15T19:36:26.677810+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -1259,7 +1232,7 @@
           }
         ],
         "complaint_theme_distribution": {},
-        "assessment_timestamp": "2026-10-15T12:26:00.225069+00:00",
+        "assessment_timestamp": "2026-10-15T19:36:27.345089+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.ideopay.user"
       },
@@ -1275,7 +1248,7 @@
       "developer_address": null,
       "category": "Finance",
       "rating": 4.6,
-      "rating_count": 58874,
+      "rating_count": 58885,
       "installs_text": "5,000,000+",
       "installs_approx": 5000000,
       "privacy_policy_url": "https://www.incred.com/privacypolicy.html",
@@ -1284,8 +1257,8 @@
       "summary": "Get Quick Loans Online With Fast Approval For Personal Finance & Credit Needs",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:26:02.644008+00:00",
-      "last_scanned_at": "2026-10-15T12:26:02.644030+00:00",
+      "first_discovered_at": "2026-10-15T19:36:31.303192+00:00",
+      "last_scanned_at": "2026-10-15T19:36:31.303213+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -1307,7 +1280,7 @@
           }
         ],
         "complaint_theme_distribution": {},
-        "assessment_timestamp": "2026-10-15T12:26:03.262267+00:00",
+        "assessment_timestamp": "2026-10-15T19:36:31.849784+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.incred.customer"
       },
@@ -1323,7 +1296,7 @@
       "developer_address": null,
       "category": "Finance",
       "rating": 4.3,
-      "rating_count": 84655,
+      "rating_count": 84654,
       "installs_text": "5,000,000+",
       "installs_approx": 5000000,
       "privacy_policy_url": "https://ilpolicy.indialends.com/privacy-policy.html",
@@ -1332,8 +1305,8 @@
       "summary": "Personal Loans, Credit Score",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:26:05.565276+00:00",
-      "last_scanned_at": "2026-10-15T12:26:05.565286+00:00",
+      "first_discovered_at": "2026-10-15T19:36:35.754706+00:00",
+      "last_scanned_at": "2026-10-15T19:36:35.754736+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -1346,7 +1319,7 @@
         "complaint_theme_distribution": {
           "hidden_fees": 1
         },
-        "assessment_timestamp": "2026-10-15T12:26:06.130174+00:00",
+        "assessment_timestamp": "2026-10-15T19:36:36.282409+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.indialends.android"
       },
@@ -1371,8 +1344,8 @@
       "summary": "Pay fees & bills via Credit Card. Get FREE credit report, Loans & Digital Gold.",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:26:08.332237+00:00",
-      "last_scanned_at": "2026-10-15T12:26:08.332254+00:00",
+      "first_discovered_at": "2026-10-15T19:36:40.847974+00:00",
+      "last_scanned_at": "2026-10-15T19:36:40.847997+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -1383,7 +1356,7 @@
         "negative_indicators": [],
         "positive_indicators": [],
         "complaint_theme_distribution": {},
-        "assessment_timestamp": "2026-10-15T12:26:08.963802+00:00",
+        "assessment_timestamp": "2026-10-15T19:36:41.499964+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.inditab.inditab"
       },
@@ -1399,7 +1372,7 @@
       "developer_address": null,
       "category": "Finance",
       "rating": 4.53,
-      "rating_count": 2372113,
+      "rating_count": 2372879,
       "installs_text": "10,000,000+",
       "installs_approx": 10000000,
       "privacy_policy_url": "https://www.instamoney.app/privacy-policy/",
@@ -1408,8 +1381,8 @@
       "summary": "Get Instant Personal Loan App for Quick Cash, Fast Approval & Flexible EMI Plans",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:26:11.413871+00:00",
-      "last_scanned_at": "2026-10-15T12:26:11.413895+00:00",
+      "first_discovered_at": "2026-10-15T19:36:45.675368+00:00",
+      "last_scanned_at": "2026-10-15T19:36:45.675424+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -1430,9 +1403,9 @@
           }
         ],
         "complaint_theme_distribution": {
-          "hidden_fees": 1
+          "hidden_fees": 3
         },
-        "assessment_timestamp": "2026-10-15T12:26:12.280183+00:00",
+        "assessment_timestamp": "2026-10-15T19:36:46.378240+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.innofinsolutions.instamoney"
       },
@@ -1448,7 +1421,7 @@
       "developer_address": null,
       "category": "Finance",
       "rating": 4.51,
-      "rating_count": 21741,
+      "rating_count": 21757,
       "installs_text": "1,000,000+",
       "installs_approx": 1000000,
       "privacy_policy_url": "https://www.lendenclub.com/privacy-policy/",
@@ -1457,8 +1430,8 @@
       "summary": "Explore diversification beyond stocks, mutual funds & gold with P2P lending.",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:26:14.753804+00:00",
-      "last_scanned_at": "2026-10-15T12:26:14.753825+00:00",
+      "first_discovered_at": "2026-10-15T19:36:51.849724+00:00",
+      "last_scanned_at": "2026-10-15T19:36:51.849768+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -1468,8 +1441,10 @@
         "confidence_level": "High",
         "negative_indicators": [],
         "positive_indicators": [],
-        "complaint_theme_distribution": {},
-        "assessment_timestamp": "2026-10-15T12:26:15.296007+00:00",
+        "complaint_theme_distribution": {
+          "hidden_fees": 1
+        },
+        "assessment_timestamp": "2026-10-15T19:36:52.536897+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.innofinsolutions.lendenclub.lender"
       },
@@ -1485,7 +1460,7 @@
       "developer_address": null,
       "category": "Finance",
       "rating": 3.87,
-      "rating_count": 26669,
+      "rating_count": 26673,
       "installs_text": "1,000,000+",
       "installs_approx": 1000000,
       "privacy_policy_url": "https://www.jify.co/privacy-policy",
@@ -1494,8 +1469,8 @@
       "summary": "Your financial wellness app: Personal Loans, Salary Advance, and more.",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:26:16.967801+00:00",
-      "last_scanned_at": "2026-10-15T12:26:16.967820+00:00",
+      "first_discovered_at": "2026-10-15T19:36:57.333250+00:00",
+      "last_scanned_at": "2026-10-15T19:36:57.333271+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -1507,9 +1482,9 @@
         "positive_indicators": [],
         "complaint_theme_distribution": {
           "short_tenor_trap": 1,
-          "hidden_fees": 2
+          "hidden_fees": 1
         },
-        "assessment_timestamp": "2026-10-15T12:26:17.552763+00:00",
+        "assessment_timestamp": "2026-10-15T19:36:57.905578+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.jify.mobile"
       },
@@ -1525,7 +1500,7 @@
       "developer_address": null,
       "category": "Finance",
       "rating": 3.97,
-      "rating_count": 16275,
+      "rating_count": 16277,
       "installs_text": "500,000+",
       "installs_approx": 500000,
       "privacy_policy_url": "https://getitnow.digital/privacy-policy.html",
@@ -1534,8 +1509,8 @@
       "summary": "Finance your dreams with ease - explore personalised loan options with GIN app",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:26:20.345843+00:00",
-      "last_scanned_at": "2026-10-15T12:26:20.345858+00:00",
+      "first_discovered_at": "2026-10-15T19:37:01.510867+00:00",
+      "last_scanned_at": "2026-10-15T19:37:01.510877+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -1548,7 +1523,7 @@
         "complaint_theme_distribution": {
           "hidden_fees": 2
         },
-        "assessment_timestamp": "2026-10-15T12:26:21.057428+00:00",
+        "assessment_timestamp": "2026-10-15T19:37:02.059181+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.kapiital.getitnow"
       },
@@ -1563,8 +1538,8 @@
       "developer_website": "https://salarynow.in/",
       "developer_address": null,
       "category": "Finance",
-      "rating": 4.51,
-      "rating_count": 2863,
+      "rating": 4.49,
+      "rating_count": 2868,
       "installs_text": "100,000+",
       "installs_approx": 100000,
       "privacy_policy_url": "https://salarynow.in/PrivacyPolicy.php",
@@ -1573,8 +1548,8 @@
       "summary": "Loans for Salaried Employees",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:26:23.849960+00:00",
-      "last_scanned_at": "2026-10-15T12:26:23.849986+00:00",
+      "first_discovered_at": "2026-10-15T19:37:06.249885+00:00",
+      "last_scanned_at": "2026-10-15T19:37:06.249894+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -1585,7 +1560,7 @@
         "negative_indicators": [],
         "positive_indicators": [],
         "complaint_theme_distribution": {},
-        "assessment_timestamp": "2026-10-15T12:26:24.734590+00:00",
+        "assessment_timestamp": "2026-10-15T19:37:06.844939+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.kksv.salarynowapp"
       },
@@ -1610,8 +1585,8 @@
       "summary": "Personal Loans for Salaried Professional",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:26:27.179640+00:00",
-      "last_scanned_at": "2026-10-15T12:26:27.179663+00:00",
+      "first_discovered_at": "2026-10-15T19:37:10.404509+00:00",
+      "last_scanned_at": "2026-10-15T19:37:10.404528+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -1624,7 +1599,7 @@
         "complaint_theme_distribution": {
           "hidden_fees": 1
         },
-        "assessment_timestamp": "2026-10-15T12:26:27.826158+00:00",
+        "assessment_timestamp": "2026-10-15T19:37:10.984808+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.kksv.salarynowloan"
       },
@@ -1640,7 +1615,7 @@
       "developer_address": null,
       "category": "Finance",
       "rating": 4.61,
-      "rating_count": 1912455,
+      "rating_count": 1912542,
       "installs_text": "100,000,000+",
       "installs_approx": 100000000,
       "privacy_policy_url": "https://www.kreditbee.in/privacy-policy",
@@ -1649,8 +1624,8 @@
       "summary": "Easy personal loans, Two-wheeler loans, Loan Against Property, Instant UPI",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:26:30.170617+00:00",
-      "last_scanned_at": "2026-10-15T12:26:30.170634+00:00",
+      "first_discovered_at": "2026-10-15T19:37:14.530023+00:00",
+      "last_scanned_at": "2026-10-15T19:37:14.530035+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -1680,8 +1655,10 @@
             "source": "Store Listing Statistics"
           }
         ],
-        "complaint_theme_distribution": {},
-        "assessment_timestamp": "2026-10-15T12:26:30.869246+00:00",
+        "complaint_theme_distribution": {
+          "hidden_fees": 1
+        },
+        "assessment_timestamp": "2026-10-15T19:37:15.236350+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.kreditbee.android"
       },
@@ -1697,7 +1674,7 @@
       "developer_address": null,
       "category": "Finance",
       "rating": 4.59,
-      "rating_count": 349652,
+      "rating_count": 349779,
       "installs_text": "10,000,000+",
       "installs_approx": 10000000,
       "privacy_policy_url": "https://lendingplate.com/policies#policies",
@@ -1706,8 +1683,8 @@
       "summary": "Get instant personal loans in India upto Rs 2.5 lakhs from lendingplate",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:26:33.096517+00:00",
-      "last_scanned_at": "2026-10-15T12:26:33.096529+00:00",
+      "first_discovered_at": "2026-10-15T19:37:19.190164+00:00",
+      "last_scanned_at": "2026-10-15T19:37:19.190174+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -1728,9 +1705,9 @@
           }
         ],
         "complaint_theme_distribution": {
-          "hidden_fees": 1
+          "hidden_fees": 2
         },
-        "assessment_timestamp": "2026-10-15T12:26:33.780250+00:00",
+        "assessment_timestamp": "2026-10-15T19:37:19.701668+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.lendingplate"
       },
@@ -1745,8 +1722,8 @@
       "developer_website": "https://loandigit.com/",
       "developer_address": null,
       "category": "Finance",
-      "rating": 4.33,
-      "rating_count": 5441,
+      "rating": 4.35,
+      "rating_count": 5455,
       "installs_text": "500,000+",
       "installs_approx": 500000,
       "privacy_policy_url": "https://loandigit.com/privacy-policy",
@@ -1755,8 +1732,8 @@
       "summary": "Apply for personal loans through a secure and fully digital process",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:26:36.953147+00:00",
-      "last_scanned_at": "2026-10-15T12:26:36.953159+00:00",
+      "first_discovered_at": "2026-10-15T19:37:26.657352+00:00",
+      "last_scanned_at": "2026-10-15T19:37:26.657372+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -1769,7 +1746,7 @@
         "complaint_theme_distribution": {
           "hidden_fees": 6
         },
-        "assessment_timestamp": "2026-10-15T12:26:37.623223+00:00",
+        "assessment_timestamp": "2026-10-15T19:37:27.175085+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.loandigit.android"
       },
@@ -1785,7 +1762,7 @@
       "developer_address": null,
       "category": "Finance",
       "rating": 4.74,
-      "rating_count": 213584,
+      "rating_count": 213593,
       "installs_text": "10,000,000+",
       "installs_approx": 10000000,
       "privacy_policy_url": "https://www.ltfinance.com/privacy-policy",
@@ -1794,8 +1771,8 @@
       "summary": "Instant personal loan app with quick approval and 100% paperless online process.",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:26:40.541537+00:00",
-      "last_scanned_at": "2026-10-15T12:26:40.541559+00:00",
+      "first_discovered_at": "2026-10-15T19:37:33.288779+00:00",
+      "last_scanned_at": "2026-10-15T19:37:33.288803+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -1816,7 +1793,7 @@
           }
         ],
         "complaint_theme_distribution": {},
-        "assessment_timestamp": "2026-10-15T12:26:41.140407+00:00",
+        "assessment_timestamp": "2026-10-15T19:37:33.886791+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.ltfs.d2c"
       },
@@ -1832,7 +1809,7 @@
       "developer_address": null,
       "category": "Finance",
       "rating": 4.42,
-      "rating_count": 3564133,
+      "rating_count": 3564506,
       "installs_text": "100,000,000+",
       "installs_approx": 100000000,
       "privacy_policy_url": "https://www.mobikwik.com/privacypolicy",
@@ -1841,8 +1818,8 @@
       "summary": "Loans, UPI, Wallet, Recharge, Bills, Credit Card, Digital Gold, Bonds & FD",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:26:42.919135+00:00",
-      "last_scanned_at": "2026-10-15T12:26:42.919156+00:00",
+      "first_discovered_at": "2026-10-15T19:37:37.974973+00:00",
+      "last_scanned_at": "2026-10-15T19:37:37.974995+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -1862,8 +1839,10 @@
             "source": "Store Listing Statistics"
           }
         ],
-        "complaint_theme_distribution": {},
-        "assessment_timestamp": "2026-10-15T12:26:43.745584+00:00",
+        "complaint_theme_distribution": {
+          "hidden_fees": 2
+        },
+        "assessment_timestamp": "2026-10-15T19:37:38.633528+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.mobikwik_new"
       },
@@ -1879,7 +1858,7 @@
       "developer_address": null,
       "category": "Finance",
       "rating": 4.6,
-      "rating_count": 2925962,
+      "rating_count": 2926157,
       "installs_text": "50,000,000+",
       "installs_approx": 50000000,
       "privacy_policy_url": "https://www.mpokket.in/privacy-and-data-storage-policy",
@@ -1888,8 +1867,8 @@
       "summary": "Instant loans up to Rs.200,000 for Salaried,Businesses, Freshers",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:26:46.597517+00:00",
-      "last_scanned_at": "2026-10-15T12:26:46.597540+00:00",
+      "first_discovered_at": "2026-10-15T19:37:45.482775+00:00",
+      "last_scanned_at": "2026-10-15T19:37:45.482782+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -1909,8 +1888,10 @@
             "source": "Store Listing Statistics"
           }
         ],
-        "complaint_theme_distribution": {},
-        "assessment_timestamp": "2026-10-15T12:26:47.251841+00:00",
+        "complaint_theme_distribution": {
+          "hidden_fees": 1
+        },
+        "assessment_timestamp": "2026-10-15T19:37:46.179835+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.mpokket.app"
       },
@@ -1926,7 +1907,7 @@
       "developer_address": null,
       "category": "Finance",
       "rating": 4.63,
-      "rating_count": 3224,
+      "rating_count": 3237,
       "installs_text": "100,000+",
       "installs_approx": 100000,
       "privacy_policy_url": "https://fast.mudrafast.com/brave/surround",
@@ -1935,8 +1916,8 @@
       "summary": "Instant loan. Low interest rates, flexible tenure, and fast approval.",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:26:49.482865+00:00",
-      "last_scanned_at": "2026-10-15T12:26:49.482886+00:00",
+      "first_discovered_at": "2026-10-15T19:37:49.790121+00:00",
+      "last_scanned_at": "2026-10-15T19:37:49.790144+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -1951,7 +1932,7 @@
           "privacy_contact_abuse": 1,
           "hidden_fees": 3
         },
-        "assessment_timestamp": "2026-10-15T12:26:50.207587+00:00",
+        "assessment_timestamp": "2026-10-15T19:37:50.367102+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.mudrafast.cashloan"
       },
@@ -1967,7 +1948,7 @@
       "developer_address": null,
       "category": "Finance",
       "rating": 4.52,
-      "rating_count": 7068785,
+      "rating_count": 7072735,
       "installs_text": "100,000,000+",
       "installs_approx": 100000000,
       "privacy_policy_url": "https://navi.com/privacy-policy",
@@ -1976,8 +1957,8 @@
       "summary": "UPI, Payments, Recharges, Insurance, Mutual Fund & Digital Gold",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:26:52.542130+00:00",
-      "last_scanned_at": "2026-10-15T12:26:52.542152+00:00",
+      "first_discovered_at": "2026-10-15T19:37:55.807329+00:00",
+      "last_scanned_at": "2026-10-15T19:37:55.807338+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -1998,7 +1979,7 @@
           }
         ],
         "complaint_theme_distribution": {},
-        "assessment_timestamp": "2026-10-15T12:26:53.370098+00:00",
+        "assessment_timestamp": "2026-10-15T19:37:56.365490+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.naviapp"
       },
@@ -2023,8 +2004,8 @@
       "summary": "App is for Loan processing associates to support digital loans",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:26:56.098234+00:00",
-      "last_scanned_at": "2026-10-15T12:26:56.098258+00:00",
+      "first_discovered_at": "2026-10-15T19:38:00.816992+00:00",
+      "last_scanned_at": "2026-10-15T19:38:00.817004+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -2035,7 +2016,7 @@
         "negative_indicators": [],
         "positive_indicators": [],
         "complaint_theme_distribution": {},
-        "assessment_timestamp": "2026-10-15T12:26:56.714694+00:00",
+        "assessment_timestamp": "2026-10-15T19:38:01.383153+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.newgen.ibmobapp"
       },
@@ -2051,7 +2032,7 @@
       "developer_address": null,
       "category": "Finance",
       "rating": 4.47,
-      "rating_count": 362050,
+      "rating_count": 362058,
       "installs_text": "10,000,000+",
       "installs_approx": 10000000,
       "privacy_policy_url": "https://nirafinance.com/privacy-policy",
@@ -2060,8 +2041,191 @@
       "summary": "Safe Loan App for Instant Personal Loan upto 1Lakh for 61 days to 24m at 2-3% pm",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:26:58.496109+00:00",
-      "last_scanned_at": "2026-10-15T12:26:58.496131+00:00",
+      "first_discovered_at": "2026-10-15T19:38:05.478301+00:00",
+      "last_scanned_at": "2026-10-15T19:38:05.478326+00:00",
+      "review_sample_count": 35,
+      "evidence_items": [],
+      "latest_assessment": {
+        "overall_score": 0.0,
+        "risk_category": "Lower Concern",
+        "confidence_score": 1.0,
+        "confidence_level": "High",
+        "negative_indicators": [],
+        "positive_indicators": [
+          {
+            "rule_id": "HIST_01",
+            "category": "Market Longevity",
+            "finding": "10,000,000+ installs with rating >= 4.0 \u2014 established market presence.",
+            "impact": "positive",
+            "weight": -10.0,
+            "contribution": -10.0,
+            "source": "Store Listing Statistics"
+          }
+        ],
+        "complaint_theme_distribution": {},
+        "assessment_timestamp": "2026-10-15T19:38:06.065575+00:00",
+        "engine_version": "v1.2.0-verified-200",
+        "package_id": "com.nirafinance.customer"
+      },
+      "safety_reason": "\u2705 High market longevity (10,000,000+ installs, \u26054.5)"
+    },
+    {
+      "package_id": "com.phocket",
+      "title": "Instant Personal Salary Loan",
+      "developer": "Phocket Infotech",
+      "developer_id": "Phocket+Infotech",
+      "developer_email": "app@phocket.in",
+      "developer_website": "https://phocket.co.in",
+      "developer_address": null,
+      "category": "Finance",
+      "rating": 4.47,
+      "rating_count": 21111,
+      "installs_text": "1,000,000+",
+      "installs_approx": 1000000,
+      "privacy_policy_url": "https://www.phocket.co.in/phocket-privacy-policy.html",
+      "store_url": "https://play.google.com/store/apps/details?id=com.phocket",
+      "icon_url": "https://play-lh.googleusercontent.com/lxhMMcFJs0DbFWJUdNc9Hiac7dPOoZKFH33bJl3aNHK7A-TRAcRQVAX-w5UiPcX0gUfY-iRtXSmOCO7U-BX0",
+      "summary": "Instant Loan, Personal Loan, Advance Salary App, Lowest Interest & Flexible EMIs",
+      "is_active": true,
+      "store_status": "active",
+      "first_discovered_at": "2026-10-15T19:38:13.111903+00:00",
+      "last_scanned_at": "2026-10-15T19:38:13.111924+00:00",
+      "review_sample_count": 35,
+      "evidence_items": [],
+      "latest_assessment": {
+        "overall_score": 0.0,
+        "risk_category": "Lower Concern",
+        "confidence_score": 0.85,
+        "confidence_level": "High",
+        "negative_indicators": [],
+        "positive_indicators": [],
+        "complaint_theme_distribution": {},
+        "assessment_timestamp": "2026-10-15T19:38:13.707836+00:00",
+        "engine_version": "v1.2.0-verified-200",
+        "package_id": "com.phocket"
+      },
+      "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
+    },
+    {
+      "package_id": "com.phonepe.app",
+      "title": "PhonePe UPI Payments, Loan App",
+      "developer": "PhonePe",
+      "developer_id": "PhonePe",
+      "developer_email": "support@phonepe.com",
+      "developer_website": "http://www.phonepe.com",
+      "developer_address": null,
+      "category": "Finance",
+      "rating": 4.43,
+      "rating_count": 14302212,
+      "installs_text": "1,000,000,000+",
+      "installs_approx": 1000000000,
+      "privacy_policy_url": "http://www.phonepe.com/en/policy.html",
+      "store_url": "https://play.google.com/store/apps/details?id=com.phonepe.app",
+      "icon_url": "https://play-lh.googleusercontent.com/ARGoCZk-5QCKPpyTsGhn1WahhPbVMa95T1U7clwnI8gjtW-YNY96rAANqFkuENbU35IbYF2Gjg2UjZXA495x0A",
+      "summary": "Secure UPI Pay, Recharge, Personal Loan App, Mutual Fund, Credit Card, Insurance",
+      "is_active": true,
+      "store_status": "active",
+      "first_discovered_at": "2026-10-15T19:38:18.159525+00:00",
+      "last_scanned_at": "2026-10-15T19:38:18.159536+00:00",
+      "review_sample_count": 35,
+      "evidence_items": [],
+      "latest_assessment": {
+        "overall_score": 0.0,
+        "risk_category": "Lower Concern",
+        "confidence_score": 1.0,
+        "confidence_level": "High",
+        "negative_indicators": [],
+        "positive_indicators": [
+          {
+            "rule_id": "HIST_01",
+            "category": "Market Longevity",
+            "finding": "1,000,000,000+ installs with rating >= 4.0 \u2014 established market presence.",
+            "impact": "positive",
+            "weight": -10.0,
+            "contribution": -10.0,
+            "source": "Store Listing Statistics"
+          }
+        ],
+        "complaint_theme_distribution": {
+          "hidden_fees": 1
+        },
+        "assessment_timestamp": "2026-10-15T19:38:18.867470+00:00",
+        "engine_version": "v1.2.0-verified-200",
+        "package_id": "com.phonepe.app"
+      },
+      "safety_reason": "\u2705 High market longevity (1,000,000,000+ installs, \u26054.4)"
+    },
+    {
+      "package_id": "com.pocket.rupee.deal",
+      "title": "PocketRupee-Fast Loan",
+      "developer": "PHRENOLOGICAL INFO AUDIT AND APP SOLUTION PVT LTD",
+      "developer_id": "PHRENOLOGICAL+INFO+AUDIT+AND+APP+SOLUTION+PVT+LTD",
+      "developer_email": "support@phrenological.com",
+      "developer_website": "https://pocketrupee.in/",
+      "developer_address": null,
+      "category": "Finance",
+      "rating": 4.52,
+      "rating_count": 26470,
+      "installs_text": "100,000+",
+      "installs_approx": 100000,
+      "privacy_policy_url": "https://pocketrupee.in/privacy-policy",
+      "store_url": "https://play.google.com/store/apps/details?id=com.pocket.rupee.deal",
+      "icon_url": "https://play-lh.googleusercontent.com/s3crDfy8nCw6B58kbfAkvA-EM7YQmJu0u-pf93Rbjhxvjl-BD0e4ANTMrlJFow34Ovb6LPv74b8vuwkS1dn9wg",
+      "summary": "Safe online personal loans with simple process and fast disbursal.",
+      "is_active": true,
+      "store_status": "active",
+      "first_discovered_at": "2026-10-15T19:38:25.781873+00:00",
+      "last_scanned_at": "2026-10-15T19:38:25.781886+00:00",
+      "review_sample_count": 35,
+      "evidence_items": [],
+      "latest_assessment": {
+        "overall_score": 35.0,
+        "risk_category": "Moderate",
+        "confidence_score": 0.85,
+        "confidence_level": "High",
+        "negative_indicators": [
+          {
+            "rule_id": "REG_ADV_01",
+            "category": "Regulatory Notices",
+            "finding": "Cyber cell monitoring list: Discrepant interest rates",
+            "impact": "negative",
+            "weight": 35.0,
+            "contribution": 35.0,
+            "source": "State Cyber Crime Advisories",
+            "source_url": "https://cybercrime.gov.in"
+          }
+        ],
+        "positive_indicators": [],
+        "complaint_theme_distribution": {
+          "hidden_fees": 1
+        },
+        "assessment_timestamp": "2026-10-15T19:38:26.456085+00:00",
+        "engine_version": "v1.2.0-verified-200",
+        "package_id": "com.pocket.rupee.deal"
+      },
+      "safety_reason": "\u26a0\ufe0f Cyber cell monitoring list: Discrepant interest rates"
+    },
+    {
+      "package_id": "com.pocketly",
+      "title": "Pocketly Instant Personal Loan",
+      "developer": "Speel Finance Company Private Limited",
+      "developer_id": "6054845170712057477",
+      "developer_email": "support@pocketly.in",
+      "developer_website": "https://pocketly.in",
+      "developer_address": null,
+      "category": "Finance",
+      "rating": 4.55,
+      "rating_count": 268985,
+      "installs_text": "10,000,000+",
+      "installs_approx": 10000000,
+      "privacy_policy_url": "https://pocketly.in/privacy-policy",
+      "store_url": "https://play.google.com/store/apps/details?id=com.pocketly",
+      "icon_url": "https://play-lh.googleusercontent.com/r6IRF45uAwjc-Pn3aJ-qrLGjr0pOaHbjtxW5bbbMMqSDvFrmPqbwWWj5rL3Sn_eN28MN7twafAelUwf427snug",
+      "summary": "Quick & Easy Approval on Salaried & Student Loans Online & Instant Money Credit",
+      "is_active": true,
+      "store_status": "active",
+      "first_discovered_at": "2026-10-15T19:38:30.401135+00:00",
+      "last_scanned_at": "2026-10-15T19:38:30.401147+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -2084,186 +2248,7 @@
         "complaint_theme_distribution": {
           "hidden_fees": 1
         },
-        "assessment_timestamp": "2026-10-15T12:26:59.189054+00:00",
-        "engine_version": "v1.2.0-verified-200",
-        "package_id": "com.nirafinance.customer"
-      },
-      "safety_reason": "\u2705 High market longevity (10,000,000+ installs, \u26054.5)"
-    },
-    {
-      "package_id": "com.phocket",
-      "title": "Instant Personal Salary Loan",
-      "developer": "Phocket Infotech",
-      "developer_id": "Phocket+Infotech",
-      "developer_email": "app@phocket.in",
-      "developer_website": "https://phocket.co.in",
-      "developer_address": null,
-      "category": "Finance",
-      "rating": 4.47,
-      "rating_count": 21114,
-      "installs_text": "1,000,000+",
-      "installs_approx": 1000000,
-      "privacy_policy_url": "https://www.phocket.co.in/phocket-privacy-policy.html",
-      "store_url": "https://play.google.com/store/apps/details?id=com.phocket",
-      "icon_url": "https://play-lh.googleusercontent.com/lxhMMcFJs0DbFWJUdNc9Hiac7dPOoZKFH33bJl3aNHK7A-TRAcRQVAX-w5UiPcX0gUfY-iRtXSmOCO7U-BX0",
-      "summary": "Instant Loan, Personal Loan, Advance Salary App, Lowest Interest & Flexible EMIs",
-      "is_active": true,
-      "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:27:02.494568+00:00",
-      "last_scanned_at": "2026-10-15T12:27:02.494590+00:00",
-      "review_sample_count": 35,
-      "evidence_items": [],
-      "latest_assessment": {
-        "overall_score": 0.0,
-        "risk_category": "Lower Concern",
-        "confidence_score": 0.85,
-        "confidence_level": "High",
-        "negative_indicators": [],
-        "positive_indicators": [],
-        "complaint_theme_distribution": {},
-        "assessment_timestamp": "2026-10-15T12:27:04.089583+00:00",
-        "engine_version": "v1.2.0-verified-200",
-        "package_id": "com.phocket"
-      },
-      "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
-    },
-    {
-      "package_id": "com.phonepe.app",
-      "title": "PhonePe UPI Payments, Loan App",
-      "developer": "PhonePe",
-      "developer_id": "PhonePe",
-      "developer_email": "support@phonepe.com",
-      "developer_website": "http://www.phonepe.com",
-      "developer_address": null,
-      "category": "Finance",
-      "rating": 4.43,
-      "rating_count": 14301417,
-      "installs_text": "1,000,000,000+",
-      "installs_approx": 1000000000,
-      "privacy_policy_url": "http://www.phonepe.com/en/policy.html",
-      "store_url": "https://play.google.com/store/apps/details?id=com.phonepe.app",
-      "icon_url": "https://play-lh.googleusercontent.com/ARGoCZk-5QCKPpyTsGhn1WahhPbVMa95T1U7clwnI8gjtW-YNY96rAANqFkuENbU35IbYF2Gjg2UjZXA495x0A",
-      "summary": "Secure UPI Pay, Recharge, Personal Loan App, Mutual Fund, Credit Card, Insurance",
-      "is_active": true,
-      "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:27:06.331999+00:00",
-      "last_scanned_at": "2026-10-15T12:27:06.332021+00:00",
-      "review_sample_count": 35,
-      "evidence_items": [],
-      "latest_assessment": {
-        "overall_score": 0.0,
-        "risk_category": "Lower Concern",
-        "confidence_score": 1.0,
-        "confidence_level": "High",
-        "negative_indicators": [],
-        "positive_indicators": [
-          {
-            "rule_id": "HIST_01",
-            "category": "Market Longevity",
-            "finding": "1,000,000,000+ installs with rating >= 4.0 \u2014 established market presence.",
-            "impact": "positive",
-            "weight": -10.0,
-            "contribution": -10.0,
-            "source": "Store Listing Statistics"
-          }
-        ],
-        "complaint_theme_distribution": {},
-        "assessment_timestamp": "2026-10-15T12:27:07.003050+00:00",
-        "engine_version": "v1.2.0-verified-200",
-        "package_id": "com.phonepe.app"
-      },
-      "safety_reason": "\u2705 High market longevity (1,000,000,000+ installs, \u26054.4)"
-    },
-    {
-      "package_id": "com.pocket.rupee.deal",
-      "title": "PocketRupee-Fast Loan",
-      "developer": "PHRENOLOGICAL INFO AUDIT AND APP SOLUTION PVT LTD",
-      "developer_id": "PHRENOLOGICAL+INFO+AUDIT+AND+APP+SOLUTION+PVT+LTD",
-      "developer_email": "support@phrenological.com",
-      "developer_website": "https://pocketrupee.in/",
-      "developer_address": null,
-      "category": "Finance",
-      "rating": 4.52,
-      "rating_count": 26358,
-      "installs_text": "100,000+",
-      "installs_approx": 100000,
-      "privacy_policy_url": "https://pocketrupee.in/privacy-policy",
-      "store_url": "https://play.google.com/store/apps/details?id=com.pocket.rupee.deal",
-      "icon_url": "https://play-lh.googleusercontent.com/s3crDfy8nCw6B58kbfAkvA-EM7YQmJu0u-pf93Rbjhxvjl-BD0e4ANTMrlJFow34Ovb6LPv74b8vuwkS1dn9wg",
-      "summary": "Safe online personal loans with simple process and fast disbursal.",
-      "is_active": true,
-      "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:27:09.412521+00:00",
-      "last_scanned_at": "2026-10-15T12:27:09.412542+00:00",
-      "review_sample_count": 35,
-      "evidence_items": [],
-      "latest_assessment": {
-        "overall_score": 35.0,
-        "risk_category": "Moderate",
-        "confidence_score": 0.85,
-        "confidence_level": "High",
-        "negative_indicators": [
-          {
-            "rule_id": "REG_ADV_01",
-            "category": "Regulatory Notices",
-            "finding": "Cyber cell monitoring list: Discrepant interest rates",
-            "impact": "negative",
-            "weight": 35.0,
-            "contribution": 35.0,
-            "source": "State Cyber Crime Advisories",
-            "source_url": "https://cybercrime.gov.in"
-          }
-        ],
-        "positive_indicators": [],
-        "complaint_theme_distribution": {},
-        "assessment_timestamp": "2026-10-15T12:27:09.967157+00:00",
-        "engine_version": "v1.2.0-verified-200",
-        "package_id": "com.pocket.rupee.deal"
-      },
-      "safety_reason": "\u26a0\ufe0f Cyber cell monitoring list: Discrepant interest rates"
-    },
-    {
-      "package_id": "com.pocketly",
-      "title": "Pocketly Instant Personal Loan",
-      "developer": "Speel Finance Company Private Limited",
-      "developer_id": "6054845170712057477",
-      "developer_email": "support@pocketly.in",
-      "developer_website": "https://pocketly.in",
-      "developer_address": null,
-      "category": "Finance",
-      "rating": 4.55,
-      "rating_count": 268781,
-      "installs_text": "10,000,000+",
-      "installs_approx": 10000000,
-      "privacy_policy_url": "https://pocketly.in/privacy-policy",
-      "store_url": "https://play.google.com/store/apps/details?id=com.pocketly",
-      "icon_url": "https://play-lh.googleusercontent.com/r6IRF45uAwjc-Pn3aJ-qrLGjr0pOaHbjtxW5bbbMMqSDvFrmPqbwWWj5rL3Sn_eN28MN7twafAelUwf427snug",
-      "summary": "Quick & Easy Approval on Salaried & Student Loans Online & Instant Money Credit",
-      "is_active": true,
-      "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:27:12.390817+00:00",
-      "last_scanned_at": "2026-10-15T12:27:12.390841+00:00",
-      "review_sample_count": 35,
-      "evidence_items": [],
-      "latest_assessment": {
-        "overall_score": 0.0,
-        "risk_category": "Lower Concern",
-        "confidence_score": 1.0,
-        "confidence_level": "High",
-        "negative_indicators": [],
-        "positive_indicators": [
-          {
-            "rule_id": "HIST_01",
-            "category": "Market Longevity",
-            "finding": "10,000,000+ installs with rating >= 4.0 \u2014 established market presence.",
-            "impact": "positive",
-            "weight": -10.0,
-            "contribution": -10.0,
-            "source": "Store Listing Statistics"
-          }
-        ],
-        "complaint_theme_distribution": {},
-        "assessment_timestamp": "2026-10-15T12:27:13.022955+00:00",
+        "assessment_timestamp": "2026-10-15T19:38:31.042532+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.pocketly"
       },
@@ -2279,7 +2264,7 @@
       "developer_address": null,
       "category": "Finance",
       "rating": 4.55,
-      "rating_count": 756274,
+      "rating_count": 756351,
       "installs_text": "10,000,000+",
       "installs_approx": 10000000,
       "privacy_policy_url": "https://www.homecredit.co.in/privacy-policy",
@@ -2288,8 +2273,8 @@
       "summary": "Instant Personal Loan for Home Credit Customers | Easy Process | 100% Paperless",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:27:15.381396+00:00",
-      "last_scanned_at": "2026-10-15T12:27:15.381420+00:00",
+      "first_discovered_at": "2026-10-15T19:38:35.320581+00:00",
+      "last_scanned_at": "2026-10-15T19:38:35.320622+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -2320,7 +2305,7 @@
           }
         ],
         "complaint_theme_distribution": {},
-        "assessment_timestamp": "2026-10-15T12:27:16.103664+00:00",
+        "assessment_timestamp": "2026-10-15T19:38:35.932724+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.portal.hcin"
       },
@@ -2336,7 +2321,7 @@
       "developer_address": null,
       "category": "Finance",
       "rating": 4.52,
-      "rating_count": 26931,
+      "rating_count": 26939,
       "installs_text": "1,000,000+",
       "installs_approx": 1000000,
       "privacy_policy_url": "https://regulatory.creditsaison.in/csi-app-privacy-policy",
@@ -2345,8 +2330,8 @@
       "summary": "Your partner in financial success, from personal goals to business growth",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:27:18.336059+00:00",
-      "last_scanned_at": "2026-10-15T12:27:18.336076+00:00",
+      "first_discovered_at": "2026-10-15T19:38:40.429568+00:00",
+      "last_scanned_at": "2026-10-15T19:38:40.429588+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -2359,7 +2344,7 @@
         "complaint_theme_distribution": {
           "hidden_fees": 2
         },
-        "assessment_timestamp": "2026-10-15T12:27:18.997967+00:00",
+        "assessment_timestamp": "2026-10-15T19:38:41.050866+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.privo.creditsaison"
       },
@@ -2374,7 +2359,7 @@
       "developer_website": "https://www.rapidmoney.in/",
       "developer_address": null,
       "category": "Finance",
-      "rating": 4.42,
+      "rating": 4.41,
       "rating_count": 6140,
       "installs_text": "500,000+",
       "installs_approx": 500000,
@@ -2384,8 +2369,8 @@
       "summary": "Small Personal Loan \u20b95K\u2013\u20b920K | Digital Loan App | Digital KYC | Quick Disbursal",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:27:21.403329+00:00",
-      "last_scanned_at": "2026-10-15T12:27:21.403351+00:00",
+      "first_discovered_at": "2026-10-15T19:38:44.748080+00:00",
+      "last_scanned_at": "2026-10-15T19:38:44.748099+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -2395,10 +2380,49 @@
         "confidence_level": "Medium",
         "negative_indicators": [],
         "positive_indicators": [],
-        "complaint_theme_distribution": {},
-        "assessment_timestamp": "2026-10-15T12:27:25.736463+00:00",
+        "complaint_theme_distribution": {
+          "hidden_fees": 1
+        },
+        "assessment_timestamp": "2026-10-15T19:38:45.390076+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.rapid_money"
+      },
+      "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
+    },
+    {
+      "package_id": "com.rufilo.user",
+      "title": "Small Business Loan: Tradofina",
+      "developer": "Arnold Holdings Ltd",
+      "developer_id": "5337789875167812046",
+      "developer_email": "care@tradofina.com",
+      "developer_website": "https://tradofina.com",
+      "developer_address": null,
+      "category": "Finance",
+      "rating": 4.64,
+      "rating_count": 417442,
+      "installs_text": "5,000,000+",
+      "installs_approx": 5000000,
+      "privacy_policy_url": "https://tradofina.com/privacy-policy.html",
+      "store_url": "https://play.google.com/store/apps/details?id=com.rufilo.user",
+      "icon_url": "https://play-lh.googleusercontent.com/Ec6Bcv4tU45_BaGtC50wrjEdT73oJAnau4j-wH_v__5MiB4VTmU2mSUtz6IfmvNn_htxDH2WEkXvBFO1JGjw",
+      "summary": "Tradofina : Personal & Small Business Loan - Made in India",
+      "is_active": true,
+      "store_status": "active",
+      "first_discovered_at": "2026-10-15T19:38:48.984032+00:00",
+      "last_scanned_at": "2026-10-15T19:38:48.984055+00:00",
+      "review_sample_count": 35,
+      "evidence_items": [],
+      "latest_assessment": {
+        "overall_score": 0.0,
+        "risk_category": "Lower Concern",
+        "confidence_score": 1.0,
+        "confidence_level": "High",
+        "negative_indicators": [],
+        "positive_indicators": [],
+        "complaint_theme_distribution": {},
+        "assessment_timestamp": "2026-10-15T19:38:49.669494+00:00",
+        "engine_version": "v1.2.0-verified-200",
+        "package_id": "com.rufilo.user"
       },
       "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
     },
@@ -2411,8 +2435,8 @@
       "developer_website": "https://rupeeflowcard.com/",
       "developer_address": null,
       "category": "Finance",
-      "rating": 4.45,
-      "rating_count": 12686,
+      "rating": 4.46,
+      "rating_count": 12807,
       "installs_text": "100,000+",
       "installs_approx": 100000,
       "privacy_policy_url": "https://rupeeflowcard.com/privacy.html",
@@ -2421,23 +2445,33 @@
       "summary": "Based on credit assessment, withdraw cash flexibly anytime, anywhere!",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:27:28.266845+00:00",
-      "last_scanned_at": "2026-10-15T12:27:28.266866+00:00",
+      "first_discovered_at": "2026-10-15T19:38:56.065041+00:00",
+      "last_scanned_at": "2026-10-15T19:38:56.065052+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
-        "overall_score": 51.0,
-        "risk_category": "Moderate",
+        "overall_score": 73.0,
+        "risk_category": "High Concern",
         "confidence_score": 0.85,
         "confidence_level": "High",
         "negative_indicators": [
           {
             "rule_id": "PRIV_01",
             "category": "Data Access & Contacts",
-            "finding": "2 reviews cite contact list access or privacy concerns.",
+            "finding": "3 reviews cite contact list access or privacy concerns.",
             "impact": "negative",
             "weight": 25.0,
-            "contribution": 16.0,
+            "contribution": 24.0,
+            "source": "Google Play User Reviews",
+            "source_url": "https://play.google.com/store/apps/details?id=com.rupeeflow.creditpath"
+          },
+          {
+            "rule_id": "PRED_01",
+            "category": "Predatory Loan Tenor",
+            "finding": "2 reviews allege short 7-day repayment trap cycles.",
+            "impact": "negative",
+            "weight": 20.0,
+            "contribution": 14.0,
             "source": "Google Play User Reviews",
             "source_url": "https://play.google.com/store/apps/details?id=com.rupeeflow.creditpath"
           },
@@ -2454,11 +2488,12 @@
         ],
         "positive_indicators": [],
         "complaint_theme_distribution": {
-          "privacy_contact_abuse": 2,
-          "short_tenor_trap": 1,
+          "harassment_threats": 1,
+          "privacy_contact_abuse": 3,
+          "short_tenor_trap": 2,
           "hidden_fees": 2
         },
-        "assessment_timestamp": "2026-10-15T12:27:28.946978+00:00",
+        "assessment_timestamp": "2026-10-15T19:38:56.678233+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.rupeeflow.creditpath"
       },
@@ -2474,7 +2509,7 @@
       "developer_address": null,
       "category": "Finance",
       "rating": 4.57,
-      "rating_count": 403244,
+      "rating_count": 403308,
       "installs_text": "10,000,000+",
       "installs_approx": 10000000,
       "privacy_policy_url": "https://rupeeredee.com/MM_PRIVACY_POLICY.html/",
@@ -2483,8 +2518,8 @@
       "summary": "Instant personal loan online up to \u20b92.5 lakh. Aadhaar & PAN, RBI-registered NBFC",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:27:31.719479+00:00",
-      "last_scanned_at": "2026-10-15T12:27:31.719493+00:00",
+      "first_discovered_at": "2026-10-15T19:39:00.643058+00:00",
+      "last_scanned_at": "2026-10-15T19:39:00.643073+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -2506,9 +2541,10 @@
         ],
         "complaint_theme_distribution": {
           "harassment_threats": 1,
-          "short_tenor_trap": 1
+          "short_tenor_trap": 1,
+          "hidden_fees": 1
         },
-        "assessment_timestamp": "2026-10-15T12:27:32.472690+00:00",
+        "assessment_timestamp": "2026-10-15T19:39:01.272722+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.rupeeredee.app"
       },
@@ -2523,8 +2559,8 @@
       "developer_website": "https://salaryontime.com/",
       "developer_address": null,
       "category": "Finance",
-      "rating": 4.55,
-      "rating_count": 22631,
+      "rating": 4.54,
+      "rating_count": 22625,
       "installs_text": "1,000,000+",
       "installs_approx": 1000000,
       "privacy_policy_url": "https://salaryontime.com/privacy-policy",
@@ -2533,8 +2569,8 @@
       "summary": "Get instant personal loans with SalaryOnTime",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:27:35.174216+00:00",
-      "last_scanned_at": "2026-10-15T12:27:35.174237+00:00",
+      "first_discovered_at": "2026-10-15T19:39:05.375617+00:00",
+      "last_scanned_at": "2026-10-15T19:39:05.375640+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -2544,8 +2580,10 @@
         "confidence_level": "High",
         "negative_indicators": [],
         "positive_indicators": [],
-        "complaint_theme_distribution": {},
-        "assessment_timestamp": "2026-10-15T12:27:36.033080+00:00",
+        "complaint_theme_distribution": {
+          "hidden_fees": 2
+        },
+        "assessment_timestamp": "2026-10-15T19:39:06.018078+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.salaryontime.salaryontime"
       },
@@ -2560,8 +2598,8 @@
       "developer_website": "https://salarytopup.com/contact",
       "developer_address": null,
       "category": "Finance",
-      "rating": 4.09,
-      "rating_count": 630,
+      "rating": 4.1,
+      "rating_count": 631,
       "installs_text": "10,000+",
       "installs_approx": 10000,
       "privacy_policy_url": "https://salarytopup.com/privacy-policy",
@@ -2570,8 +2608,8 @@
       "summary": "SalaryTopUp Mobile Application by Baid Stock Broking Services Private Limited",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:27:39.246644+00:00",
-      "last_scanned_at": "2026-10-15T12:27:39.246671+00:00",
+      "first_discovered_at": "2026-10-15T19:39:09.914909+00:00",
+      "last_scanned_at": "2026-10-15T19:39:09.914932+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -2582,7 +2620,7 @@
         "negative_indicators": [],
         "positive_indicators": [],
         "complaint_theme_distribution": {},
-        "assessment_timestamp": "2026-10-15T12:27:40.035226+00:00",
+        "assessment_timestamp": "2026-10-15T19:39:10.507036+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.salarytopup.salarytopup"
       },
@@ -2597,8 +2635,8 @@
       "developer_website": "https://alpharupee.in/",
       "developer_address": null,
       "category": "Finance",
-      "rating": 3.98,
-      "rating_count": 142,
+      "rating": 4.04,
+      "rating_count": 155,
       "installs_text": "10,000+",
       "installs_approx": 10000,
       "privacy_policy_url": "https://alpharupee.in/privacy",
@@ -2607,8 +2645,8 @@
       "summary": "Personal Loan App for Quick Loans",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:27:48.258925+00:00",
-      "last_scanned_at": "2026-10-15T12:27:48.258947+00:00",
+      "first_discovered_at": "2026-10-15T19:39:17.401865+00:00",
+      "last_scanned_at": "2026-10-15T19:39:17.401886+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -2619,50 +2657,11 @@
         "negative_indicators": [],
         "positive_indicators": [],
         "complaint_theme_distribution": {
-          "hidden_fees": 2
+          "hidden_fees": 1
         },
-        "assessment_timestamp": "2026-10-15T12:27:48.897300+00:00",
+        "assessment_timestamp": "2026-10-15T19:39:18.009606+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.sensei.alpharupee"
-      },
-      "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
-    },
-    {
-      "package_id": "com.speedoloan.speedoloan",
-      "title": "Speedoloan",
-      "developer": "AGRIM FINCAP PRIVATE LIMITED",
-      "developer_id": "AGRIM+FINCAP+PRIVATE+LIMITED",
-      "developer_email": "agrimnbfc@gmail.com",
-      "developer_website": null,
-      "developer_address": null,
-      "category": "Finance",
-      "rating": 3.77,
-      "rating_count": 454,
-      "installs_text": "100,000+",
-      "installs_approx": 100000,
-      "privacy_policy_url": "https://agrimfincap.com/privacy-policy",
-      "store_url": "https://play.google.com/store/apps/details?id=com.speedoloan.speedoloan",
-      "icon_url": "https://play-lh.googleusercontent.com/lF2RMc_k9jLqQCnxqwAbjtF9UOwIPqG39dq0qa8DY-5NXbR1soZ-YHVR5df30VuJlN0b6lNhNYT-q6zsaPsj",
-      "summary": "The SpeedoLoan mobile application to get instant personal loans",
-      "is_active": true,
-      "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:27:54.081300+00:00",
-      "last_scanned_at": "2026-10-15T12:27:54.081323+00:00",
-      "review_sample_count": 35,
-      "evidence_items": [],
-      "latest_assessment": {
-        "overall_score": 0.0,
-        "risk_category": "Lower Concern",
-        "confidence_score": 0.35,
-        "confidence_level": "Low",
-        "negative_indicators": [],
-        "positive_indicators": [],
-        "complaint_theme_distribution": {
-          "hidden_fees": 2
-        },
-        "assessment_timestamp": "2026-10-15T12:27:54.687707+00:00",
-        "engine_version": "v1.2.0-verified-200",
-        "package_id": "com.speedoloan.speedoloan"
       },
       "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
     },
@@ -2676,7 +2675,7 @@
       "developer_address": null,
       "category": "Finance",
       "rating": 4.61,
-      "rating_count": 470658,
+      "rating_count": 470696,
       "installs_text": "10,000,000+",
       "installs_approx": 10000000,
       "privacy_policy_url": "https://www.stashfin.com/privacy-policies",
@@ -2685,8 +2684,8 @@
       "summary": "Credit card bill payments, Instant Personal Loans, Bonds, Credit Health Report",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:27:56.446112+00:00",
-      "last_scanned_at": "2026-10-15T12:27:56.446134+00:00",
+      "first_discovered_at": "2026-10-15T19:39:21.992079+00:00",
+      "last_scanned_at": "2026-10-15T19:39:21.992101+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -2716,8 +2715,10 @@
             "source": "Store Listing Statistics"
           }
         ],
-        "complaint_theme_distribution": {},
-        "assessment_timestamp": "2026-10-15T12:27:57.348648+00:00",
+        "complaint_theme_distribution": {
+          "hidden_fees": 1
+        },
+        "assessment_timestamp": "2026-10-15T19:39:22.709473+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.stashfin.android"
       },
@@ -2742,8 +2743,8 @@
       "summary": "A digital personal lending platform.",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:27:59.778156+00:00",
-      "last_scanned_at": "2026-10-15T12:27:59.778178+00:00",
+      "first_discovered_at": "2026-10-15T19:39:27.303110+00:00",
+      "last_scanned_at": "2026-10-15T19:39:27.303131+00:00",
       "review_sample_count": 14,
       "evidence_items": [],
       "latest_assessment": {
@@ -2757,7 +2758,7 @@
           "short_tenor_trap": 1,
           "hidden_fees": 5
         },
-        "assessment_timestamp": "2026-10-15T12:28:00.357777+00:00",
+        "assessment_timestamp": "2026-10-15T19:39:27.787626+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.sunny.rupee.analytics.processor.service.app"
       },
@@ -2773,7 +2774,7 @@
       "developer_address": null,
       "category": "Finance",
       "rating": 4.5,
-      "rating_count": 17883,
+      "rating_count": 17890,
       "installs_text": "1,000,000+",
       "installs_approx": 1000000,
       "privacy_policy_url": "https://taplend.in/legal/privacy-policy",
@@ -2782,8 +2783,8 @@
       "summary": "Instant personal loan \u20b91K\u2013\u20b92L | Quick cash loan app | Emergency funds in 10 mins",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:28:02.891492+00:00",
-      "last_scanned_at": "2026-10-15T12:28:02.891521+00:00",
+      "first_discovered_at": "2026-10-15T19:39:35.072038+00:00",
+      "last_scanned_at": "2026-10-15T19:39:35.072059+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -2794,7 +2795,7 @@
         "negative_indicators": [],
         "positive_indicators": [],
         "complaint_theme_distribution": {},
-        "assessment_timestamp": "2026-10-15T12:28:03.567497+00:00",
+        "assessment_timestamp": "2026-10-15T19:39:35.606973+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.taplend.india"
       },
@@ -2810,7 +2811,7 @@
       "developer_address": null,
       "category": "Finance",
       "rating": 4.9,
-      "rating_count": 24589,
+      "rating_count": 24574,
       "installs_text": "1,000,000+",
       "installs_approx": 1000000,
       "privacy_policy_url": "https://vivamoney.in/privacy-policy",
@@ -2819,8 +2820,8 @@
       "summary": "Get a personal loan of up to \u20b92,00,000 at 0% interest for up to 51 days!",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:28:07.355361+00:00",
-      "last_scanned_at": "2026-10-15T12:28:07.355382+00:00",
+      "first_discovered_at": "2026-10-15T19:39:44.337629+00:00",
+      "last_scanned_at": "2026-10-15T19:39:44.337653+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -2831,7 +2832,7 @@
         "negative_indicators": [],
         "positive_indicators": [],
         "complaint_theme_distribution": {},
-        "assessment_timestamp": "2026-10-15T12:28:08.336181+00:00",
+        "assessment_timestamp": "2026-10-15T19:39:44.856611+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.vivamoney"
       },
@@ -2856,8 +2857,8 @@
       "summary": "Instant personal loans with quick approval & secure online processing",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:28:10.692469+00:00",
-      "last_scanned_at": "2026-10-15T12:28:10.692494+00:00",
+      "first_discovered_at": "2026-10-15T19:39:49.135473+00:00",
+      "last_scanned_at": "2026-10-15T19:39:49.135495+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -2870,7 +2871,7 @@
         "complaint_theme_distribution": {
           "hidden_fees": 2
         },
-        "assessment_timestamp": "2026-10-15T12:28:11.395527+00:00",
+        "assessment_timestamp": "2026-10-15T19:39:49.892266+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.vmoney.app"
       },
@@ -2886,7 +2887,7 @@
       "developer_address": null,
       "category": "Finance",
       "rating": 4.78,
-      "rating_count": 4243901,
+      "rating_count": 4244740,
       "installs_text": "100,000,000+",
       "installs_approx": 100000000,
       "privacy_policy_url": "https://moneyview.in/privacy-policy-loans",
@@ -2895,8 +2896,8 @@
       "summary": "Get quick personal loans, easy home loans, rewarding UPI payments, digital gold",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:28:18.510371+00:00",
-      "last_scanned_at": "2026-10-15T12:28:18.510392+00:00",
+      "first_discovered_at": "2026-10-15T19:39:55.021998+00:00",
+      "last_scanned_at": "2026-10-15T19:39:55.022023+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -2916,8 +2917,10 @@
             "source": "Store Listing Statistics"
           }
         ],
-        "complaint_theme_distribution": {},
-        "assessment_timestamp": "2026-10-15T12:28:19.147147+00:00",
+        "complaint_theme_distribution": {
+          "hidden_fees": 2
+        },
+        "assessment_timestamp": "2026-10-15T19:39:55.661411+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.whizdm.moneyview.loans"
       },
@@ -2932,8 +2935,8 @@
       "developer_website": "https://zapcash.in/",
       "developer_address": null,
       "category": "Finance",
-      "rating": 3.7,
-      "rating_count": 3248,
+      "rating": 3.82,
+      "rating_count": 3284,
       "installs_text": "1,000,000+",
       "installs_approx": 1000000,
       "privacy_policy_url": "https://www.zapcash.in/privacy-policy",
@@ -2942,8 +2945,8 @@
       "summary": "Get Quick Personal Loan in Minutes | 100% Online",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:28:21.171146+00:00",
-      "last_scanned_at": "2026-10-15T12:28:21.171169+00:00",
+      "first_discovered_at": "2026-10-15T19:39:59.670431+00:00",
+      "last_scanned_at": "2026-10-15T19:39:59.670442+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -2954,12 +2957,9 @@
         "negative_indicators": [],
         "positive_indicators": [],
         "complaint_theme_distribution": {
-          "harassment_threats": 1,
-          "privacy_contact_abuse": 1,
-          "short_tenor_trap": 1,
-          "hidden_fees": 10
+          "hidden_fees": 1
         },
-        "assessment_timestamp": "2026-10-15T12:28:21.816444+00:00",
+        "assessment_timestamp": "2026-10-15T19:40:00.390303+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.zapcash.loan"
       },
@@ -2975,7 +2975,7 @@
       "developer_address": null,
       "category": "Finance",
       "rating": 4.55,
-      "rating_count": 90196,
+      "rating_count": 90199,
       "installs_text": "10,000,000+",
       "installs_approx": 10000000,
       "privacy_policy_url": "https://www.getzype.com/privacy-policy/",
@@ -2984,8 +2984,8 @@
       "summary": "Instant personal loan app - get cash instantly. Loans via RBI registered NBFCs",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:28:23.828485+00:00",
-      "last_scanned_at": "2026-10-15T12:28:23.828507+00:00",
+      "first_discovered_at": "2026-10-15T19:40:04.704683+00:00",
+      "last_scanned_at": "2026-10-15T19:40:04.704699+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -3008,50 +3008,58 @@
         "complaint_theme_distribution": {
           "hidden_fees": 1
         },
-        "assessment_timestamp": "2026-10-15T12:28:24.472684+00:00",
+        "assessment_timestamp": "2026-10-15T19:40:05.333600+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "com.zype.mobile"
       },
       "safety_reason": "\u2705 High market longevity (10,000,000+ installs, \u26054.5)"
     },
     {
-      "package_id": "in.groww.dash",
-      "title": "Groww Credit: Instant Loan App",
-      "developer": "Billionbrains Garage Ventures Limited",
-      "developer_id": "4902399402313106849",
-      "developer_email": "support@groww.in",
-      "developer_website": "https://groww.in",
+      "package_id": "in.bajajfinservmarkets.app",
+      "title": "Bajaj Markets: Loan & Finance",
+      "developer": "Bajaj Finserv Direct Limited",
+      "developer_id": "7783510149703811815",
+      "developer_email": "contact@bajajfinservmarkets.in",
+      "developer_website": "https://www.bajajfinservmarkets.in",
       "developer_address": null,
       "category": "Finance",
-      "rating": 4.67,
-      "rating_count": 11138,
-      "installs_text": "1,000,000+",
-      "installs_approx": 1000000,
-      "privacy_policy_url": "https://groww.in/privacy-policy",
-      "store_url": "https://play.google.com/store/apps/details?id=in.groww.dash",
-      "icon_url": "https://play-lh.googleusercontent.com/ym-RxEGlDKSMT2U8wBLWlvFQmxu9uyyX54yih03XaeaoVgdWhghMJ2yzeeVjHZG5xcF0jKmY70Vgqwf1An6HtQ",
-      "summary": "Quick Money Disbursal, Loan on Mutual Funds, Instant Cash Loan, Personal Loans",
+      "rating": 4.4,
+      "rating_count": 228740,
+      "installs_text": "10,000,000+",
+      "installs_approx": 10000000,
+      "privacy_policy_url": "https://www.bajajfinservmarkets.in/legal-and-compliance/privacy-policy",
+      "store_url": "https://play.google.com/store/apps/details?id=in.bajajfinservmarkets.app",
+      "icon_url": "https://play-lh.googleusercontent.com/qoKtfIL8j7V57eoKc0sH5em4uPnzLN1bsDOcBO-J5fbdxHVGyWewe_gUozPQyEwb5zS5tlopd06zflv9iMn6",
+      "summary": "Instant Personal Loan, Credit Score, Cards, Insurance & ONDC Shopping",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:28:27.961479+00:00",
-      "last_scanned_at": "2026-10-15T12:28:27.961504+00:00",
+      "first_discovered_at": "2026-10-15T19:40:12.107930+00:00",
+      "last_scanned_at": "2026-10-15T19:40:12.107939+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
         "overall_score": 0.0,
         "risk_category": "Lower Concern",
-        "confidence_score": 0.85,
+        "confidence_score": 1.0,
         "confidence_level": "High",
         "negative_indicators": [],
-        "positive_indicators": [],
-        "complaint_theme_distribution": {
-          "hidden_fees": 1
-        },
-        "assessment_timestamp": "2026-10-15T12:28:28.937053+00:00",
+        "positive_indicators": [
+          {
+            "rule_id": "HIST_01",
+            "category": "Market Longevity",
+            "finding": "10,000,000+ installs with rating >= 4.0 \u2014 established market presence.",
+            "impact": "positive",
+            "weight": -10.0,
+            "contribution": -10.0,
+            "source": "Store Listing Statistics"
+          }
+        ],
+        "complaint_theme_distribution": {},
+        "assessment_timestamp": "2026-10-15T19:40:12.677008+00:00",
         "engine_version": "v1.2.0-verified-200",
-        "package_id": "in.groww.dash"
+        "package_id": "in.bajajfinservmarkets.app"
       },
-      "safety_reason": "Standard digital lending platform. Transparent terms and active customer redressal."
+      "safety_reason": "\u2705 High market longevity (10,000,000+ installs, \u26054.4)"
     },
     {
       "package_id": "in.hanafintech",
@@ -3063,7 +3071,7 @@
       "developer_address": null,
       "category": "Finance",
       "rating": 4.51,
-      "rating_count": 2833447,
+      "rating_count": 2834318,
       "installs_text": "10,000,000+",
       "installs_approx": 10000000,
       "privacy_policy_url": "https://app-api.payrupikloan.in/wap/agreement?name=Privacy_Policy&system=Agreements",
@@ -3072,8 +3080,8 @@
       "summary": "PayRupik - Instant Personal Loan & Online Loan & Cash Loan App",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:28:30.681422+00:00",
-      "last_scanned_at": "2026-10-15T12:28:30.681446+00:00",
+      "first_discovered_at": "2026-10-15T19:40:16.527469+00:00",
+      "last_scanned_at": "2026-10-15T19:40:16.527479+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -3103,8 +3111,10 @@
             "source": "Store Listing Statistics"
           }
         ],
-        "complaint_theme_distribution": {},
-        "assessment_timestamp": "2026-10-15T12:28:31.411487+00:00",
+        "complaint_theme_distribution": {
+          "hidden_fees": 1
+        },
+        "assessment_timestamp": "2026-10-15T19:40:17.103280+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "in.hanafintech"
       },
@@ -3120,7 +3130,7 @@
       "developer_address": null,
       "category": "Finance",
       "rating": 4.78,
-      "rating_count": 63404,
+      "rating_count": 63401,
       "installs_text": "5,000,000+",
       "installs_approx": 5000000,
       "privacy_policy_url": "http://www.flexpay.in/privacy-policy.php",
@@ -3129,8 +3139,8 @@
       "summary": "Instant Online Personal Loans up to 3L. Quick Approval, No Prepayment Penalty.",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:28:33.762385+00:00",
-      "last_scanned_at": "2026-10-15T12:28:33.762407+00:00",
+      "first_discovered_at": "2026-10-15T19:40:21.809564+00:00",
+      "last_scanned_at": "2026-10-15T19:40:21.809590+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -3153,9 +3163,9 @@
         ],
         "complaint_theme_distribution": {
           "short_tenor_trap": 1,
-          "hidden_fees": 3
+          "hidden_fees": 4
         },
-        "assessment_timestamp": "2026-10-15T12:28:34.487277+00:00",
+        "assessment_timestamp": "2026-10-15T19:40:22.392530+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "in.india.upi.flexpay"
       },
@@ -3170,8 +3180,8 @@
       "developer_website": "https://kubiz.in/",
       "developer_address": null,
       "category": "Finance",
-      "rating": 4.39,
-      "rating_count": 6804,
+      "rating": 4.37,
+      "rating_count": 6824,
       "installs_text": "1,000,000+",
       "installs_approx": 1000000,
       "privacy_policy_url": "https://kubiz.in/documents/privacy-policy",
@@ -3180,8 +3190,8 @@
       "summary": "Get loan with instant personal loan app & pay later. Cash credit, money manager.",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:28:36.285795+00:00",
-      "last_scanned_at": "2026-10-15T12:28:36.285808+00:00",
+      "first_discovered_at": "2026-10-15T19:40:26.150598+00:00",
+      "last_scanned_at": "2026-10-15T19:40:26.150621+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -3192,9 +3202,9 @@
         "negative_indicators": [],
         "positive_indicators": [],
         "complaint_theme_distribution": {
-          "hidden_fees": 4
+          "hidden_fees": 5
         },
-        "assessment_timestamp": "2026-10-15T12:28:37.001556+00:00",
+        "assessment_timestamp": "2026-10-15T19:40:26.680988+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "in.kubiz.app"
       },
@@ -3219,8 +3229,8 @@
       "summary": "Earn up to 20% annual returns in P2P lending, fractional real estate & others.",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:28:39.723054+00:00",
-      "last_scanned_at": "2026-10-15T12:28:39.723068+00:00",
+      "first_discovered_at": "2026-10-15T19:40:31.037130+00:00",
+      "last_scanned_at": "2026-10-15T19:40:31.037141+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -3233,7 +3243,7 @@
         "complaint_theme_distribution": {
           "hidden_fees": 1
         },
-        "assessment_timestamp": "2026-10-15T12:28:40.305128+00:00",
+        "assessment_timestamp": "2026-10-15T19:40:31.607673+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "in.lendbox.perannum"
       },
@@ -3249,7 +3259,7 @@
       "developer_address": null,
       "category": "Finance",
       "rating": 4.31,
-      "rating_count": 151210,
+      "rating_count": 151217,
       "installs_text": "10,000,000+",
       "installs_approx": 10000000,
       "privacy_policy_url": "https://loanfront.in/privacy-policy.html",
@@ -3258,8 +3268,8 @@
       "summary": "Personal Loan App",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:28:42.453951+00:00",
-      "last_scanned_at": "2026-10-15T12:28:42.453964+00:00",
+      "first_discovered_at": "2026-10-15T19:40:34.925874+00:00",
+      "last_scanned_at": "2026-10-15T19:40:34.925894+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -3282,7 +3292,7 @@
         "complaint_theme_distribution": {
           "hidden_fees": 2
         },
-        "assessment_timestamp": "2026-10-15T12:28:43.055704+00:00",
+        "assessment_timestamp": "2026-10-15T19:40:35.645906+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "in.loanfront.android"
       },
@@ -3298,7 +3308,7 @@
       "developer_address": null,
       "category": "Finance",
       "rating": 4.7,
-      "rating_count": 183402,
+      "rating_count": 183634,
       "installs_text": "5,000,000+",
       "installs_approx": 5000000,
       "privacy_policy_url": "https://app-api.pocketmitra.in/WapPageViewV2/AgreementPageByName?system=agreements&name=privacy_policy",
@@ -3307,8 +3317,8 @@
       "summary": "A professional and secure personal loan service platform",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:28:44.969237+00:00",
-      "last_scanned_at": "2026-10-15T12:28:44.969257+00:00",
+      "first_discovered_at": "2026-10-15T19:40:39.497745+00:00",
+      "last_scanned_at": "2026-10-15T19:40:39.497775+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -3318,8 +3328,10 @@
         "confidence_level": "High",
         "negative_indicators": [],
         "positive_indicators": [],
-        "complaint_theme_distribution": {},
-        "assessment_timestamp": "2026-10-15T12:28:45.552265+00:00",
+        "complaint_theme_distribution": {
+          "hidden_fees": 1
+        },
+        "assessment_timestamp": "2026-10-15T19:40:40.033051+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "in.pocketmitra"
       },
@@ -3335,7 +3347,7 @@
       "developer_address": null,
       "category": "Finance",
       "rating": 4.76,
-      "rating_count": 645660,
+      "rating_count": 645907,
       "installs_text": "10,000,000+",
       "installs_approx": 10000000,
       "privacy_policy_url": "https://www.smartcoin.co.in/images/app/consent/document/english/privacy_policy_v5.html",
@@ -3344,8 +3356,8 @@
       "summary": "Apply For Instant Personal Loans Online At Low Interest & Check Credit Score",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:28:47.499009+00:00",
-      "last_scanned_at": "2026-10-15T12:28:47.499029+00:00",
+      "first_discovered_at": "2026-10-15T19:40:44.251516+00:00",
+      "last_scanned_at": "2026-10-15T19:40:44.251529+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -3366,7 +3378,7 @@
           }
         ],
         "complaint_theme_distribution": {},
-        "assessment_timestamp": "2026-10-15T12:28:48.237060+00:00",
+        "assessment_timestamp": "2026-10-15T19:40:44.868199+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "in.rebase.app"
       },
@@ -3382,7 +3394,7 @@
       "developer_address": null,
       "category": "Finance",
       "rating": 4.31,
-      "rating_count": 237788,
+      "rating_count": 237789,
       "installs_text": "10,000,000+",
       "installs_approx": 10000000,
       "privacy_policy_url": "https://www.zestmoney.in/privacy/",
@@ -3391,8 +3403,8 @@
       "summary": "Shop and pay in easy EMIs",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:28:49.980024+00:00",
-      "last_scanned_at": "2026-10-15T12:28:49.980040+00:00",
+      "first_discovered_at": "2026-10-15T19:40:48.862191+00:00",
+      "last_scanned_at": "2026-10-15T19:40:48.862205+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -3415,7 +3427,7 @@
         "complaint_theme_distribution": {
           "hidden_fees": 3
         },
-        "assessment_timestamp": "2026-10-15T12:28:50.723697+00:00",
+        "assessment_timestamp": "2026-10-15T19:40:49.473986+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "in.zestmoney.android.zestlife"
       },
@@ -3431,7 +3443,7 @@
       "developer_address": null,
       "category": "Finance",
       "rating": 4.6,
-      "rating_count": 894111,
+      "rating_count": 894466,
       "installs_text": "10,000,000+",
       "installs_approx": 10000000,
       "privacy_policy_url": "https://www.sliceit.com/privacy",
@@ -3440,8 +3452,8 @@
       "summary": "UPI credit card, daily interest on savings at 100% RBI repo rate, and more",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:28:52.424022+00:00",
-      "last_scanned_at": "2026-10-15T12:28:52.424046+00:00",
+      "first_discovered_at": "2026-10-15T19:40:52.932334+00:00",
+      "last_scanned_at": "2026-10-15T19:40:52.932358+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -3461,8 +3473,10 @@
             "source": "Store Listing Statistics"
           }
         ],
-        "complaint_theme_distribution": {},
-        "assessment_timestamp": "2026-10-15T12:28:53.374871+00:00",
+        "complaint_theme_distribution": {
+          "harassment_threats": 1
+        },
+        "assessment_timestamp": "2026-10-15T19:40:53.516715+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "indwin.c3.shareapp"
       },
@@ -3478,7 +3492,7 @@
       "developer_address": null,
       "category": "Finance",
       "rating": 4.4,
-      "rating_count": 199583,
+      "rating_count": 199592,
       "installs_text": "10,000,000+",
       "installs_approx": 10000000,
       "privacy_policy_url": "https://www.paymeindia.in/privacy-policy",
@@ -3487,8 +3501,8 @@
       "summary": "Instant cash loan, payday loan & fast cash upto Rs 5 Lakhs in 2 min. Apply now!",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:28:55.065053+00:00",
-      "last_scanned_at": "2026-10-15T12:28:55.065070+00:00",
+      "first_discovered_at": "2026-10-15T19:40:57.055408+00:00",
+      "last_scanned_at": "2026-10-15T19:40:57.055431+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -3510,9 +3524,9 @@
         ],
         "complaint_theme_distribution": {
           "short_tenor_trap": 1,
-          "hidden_fees": 4
+          "hidden_fees": 6
         },
-        "assessment_timestamp": "2026-10-15T12:28:55.648363+00:00",
+        "assessment_timestamp": "2026-10-15T19:40:57.761831+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "io.attabot.app.paymeindia"
       },
@@ -3528,7 +3542,7 @@
       "developer_address": null,
       "category": "Finance",
       "rating": 3.95,
-      "rating_count": 42131,
+      "rating_count": 42141,
       "installs_text": "1,000,000+",
       "installs_approx": 1000000,
       "privacy_policy_url": "https://www.cholamandalam.com/chola-one/privacy-policy",
@@ -3537,9 +3551,9 @@
       "summary": "Chola One App - Get instant digital loan, Quick Approval & Easy Application",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:28:57.847798+00:00",
-      "last_scanned_at": "2026-10-15T12:28:57.847821+00:00",
-      "review_sample_count": 0,
+      "first_discovered_at": "2026-10-15T19:41:01.495096+00:00",
+      "last_scanned_at": "2026-10-15T19:41:01.495117+00:00",
+      "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
         "overall_score": 0.0,
@@ -3549,7 +3563,7 @@
         "negative_indicators": [],
         "positive_indicators": [],
         "complaint_theme_distribution": {},
-        "assessment_timestamp": "2026-10-15T12:29:08.224334+00:00",
+        "assessment_timestamp": "2026-10-15T19:41:02.204820+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "io.ionic.d2c"
       },
@@ -3565,7 +3579,7 @@
       "developer_address": null,
       "category": "Finance",
       "rating": 4.54,
-      "rating_count": 78724,
+      "rating_count": 78775,
       "installs_text": "1,000,000+",
       "installs_approx": 1000000,
       "privacy_policy_url": "https://www.kreditrupee.com/privacy-policy",
@@ -3574,8 +3588,8 @@
       "summary": "Get a personal loan at low interest from verified lenders with quick approval",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:29:10.463130+00:00",
-      "last_scanned_at": "2026-10-15T12:29:10.463151+00:00",
+      "first_discovered_at": "2026-10-15T19:41:06.121857+00:00",
+      "last_scanned_at": "2026-10-15T19:41:06.121906+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -3586,7 +3600,7 @@
         "negative_indicators": [],
         "positive_indicators": [],
         "complaint_theme_distribution": {},
-        "assessment_timestamp": "2026-10-15T12:29:12.039112+00:00",
+        "assessment_timestamp": "2026-10-15T19:41:06.721290+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "kredit.rupee"
       },
@@ -3602,7 +3616,7 @@
       "developer_address": null,
       "category": "Finance",
       "rating": 4.68,
-      "rating_count": 4197,
+      "rating_count": 4195,
       "installs_text": "5,000,000+",
       "installs_approx": 5000000,
       "privacy_policy_url": "https://gocredit.money/privacy-policy",
@@ -3611,8 +3625,8 @@
       "summary": "Instant Personal loan app, low interest rates. Increase CIBIL Score with AI",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:29:14.486404+00:00",
-      "last_scanned_at": "2026-10-15T12:29:14.486426+00:00",
+      "first_discovered_at": "2026-10-15T19:41:10.431891+00:00",
+      "last_scanned_at": "2026-10-15T19:41:10.431906+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -3625,7 +3639,7 @@
         "complaint_theme_distribution": {
           "hidden_fees": 1
         },
-        "assessment_timestamp": "2026-10-15T12:29:15.154514+00:00",
+        "assessment_timestamp": "2026-10-15T19:41:11.092890+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "money.gocredit.ai"
       },
@@ -3641,7 +3655,7 @@
       "developer_address": null,
       "category": "Finance",
       "rating": 4.67,
-      "rating_count": 24402095,
+      "rating_count": 24404447,
       "installs_text": "500,000,000+",
       "installs_approx": 500000000,
       "privacy_policy_url": "https://paytm.com/company/terms-and-conditions?company=one97&tab=privacy",
@@ -3650,8 +3664,8 @@
       "summary": "UPI Money Transfer, Bill Payments, Recharge, Personal Loan, Flight, Bus, Train",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:29:16.965641+00:00",
-      "last_scanned_at": "2026-10-15T12:29:16.965662+00:00",
+      "first_discovered_at": "2026-10-15T19:41:14.765220+00:00",
+      "last_scanned_at": "2026-10-15T19:41:14.765244+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -3671,8 +3685,10 @@
             "source": "Store Listing Statistics"
           }
         ],
-        "complaint_theme_distribution": {},
-        "assessment_timestamp": "2026-10-15T12:29:17.622590+00:00",
+        "complaint_theme_distribution": {
+          "hidden_fees": 1
+        },
+        "assessment_timestamp": "2026-10-15T19:41:15.424169+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "net.one97.paytm"
       },
@@ -3688,7 +3704,7 @@
       "developer_address": null,
       "category": "Finance",
       "rating": 4.74,
-      "rating_count": 7712868,
+      "rating_count": 7713507,
       "installs_text": "100,000,000+",
       "installs_approx": 100000000,
       "privacy_policy_url": "https://www.bajajfinserv.in/privacy-policy",
@@ -3697,8 +3713,8 @@
       "summary": "Loans, UPI Payment, Personal Loan, Home Loan, Recharge, Easy EMI, Gold Loan App",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:29:20.617191+00:00",
-      "last_scanned_at": "2026-10-15T12:29:20.617207+00:00",
+      "first_discovered_at": "2026-10-15T19:41:22.075064+00:00",
+      "last_scanned_at": "2026-10-15T19:41:22.075075+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -3729,9 +3745,9 @@
           }
         ],
         "complaint_theme_distribution": {
-          "harassment_threats": 1
+          "hidden_fees": 1
         },
-        "assessment_timestamp": "2026-10-15T12:29:21.287866+00:00",
+        "assessment_timestamp": "2026-10-15T19:41:22.650174+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "org.altruist.BajajExperia"
       },
@@ -3747,7 +3763,7 @@
       "developer_address": null,
       "category": "Finance",
       "rating": 4.42,
-      "rating_count": 381026,
+      "rating_count": 381565,
       "installs_text": "5,000,000+",
       "installs_approx": 5000000,
       "privacy_policy_url": "https://www.rapidrupee.in/privacy-policy/",
@@ -3756,8 +3772,8 @@
       "summary": "Fast process - instant personal loan app. No membership or\u00a0upfront\u00a0fees.",
       "is_active": true,
       "store_status": "active",
-      "first_discovered_at": "2026-10-15T12:29:24.472724+00:00",
-      "last_scanned_at": "2026-10-15T12:29:24.472739+00:00",
+      "first_discovered_at": "2026-10-15T19:41:27.640206+00:00",
+      "last_scanned_at": "2026-10-15T19:41:27.640231+00:00",
       "review_sample_count": 35,
       "evidence_items": [],
       "latest_assessment": {
@@ -3768,7 +3784,7 @@
         "negative_indicators": [],
         "positive_indicators": [],
         "complaint_theme_distribution": {},
-        "assessment_timestamp": "2026-10-15T12:29:25.522412+00:00",
+        "assessment_timestamp": "2026-10-15T19:41:28.191524+00:00",
         "engine_version": "v1.2.0-verified-200",
         "package_id": "rapidrupee.app"
       },
