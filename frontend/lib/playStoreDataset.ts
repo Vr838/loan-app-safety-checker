@@ -3804,26 +3804,15 @@ export const SCAN_HISTORY_DATA: ScanRun[] = [
       "digital lending platform india",
       "emergency cash loan app"
     ],
-    "apps_discovered_count": 87,
+    "apps_discovered_count": 84,
     "apps_collected_count": 84,
     "apps_new_count": 16,
     "apps_refreshed_count": 68,
     "apps_failed_count": 0,
-    "delisted_count": 3,
+    "delisted_count": 0,
     "risk_shifts_count": 5,
     "collector_version": "v1.2.0-verified-200",
     "change_alerts": [
-      {
-        "id": "alert-delist-01",
-        "type": "delisted",
-        "severity": "critical",
-        "title": "3 Predatory Apps Purged from Google Play Store",
-        "description": "Speedy Rupee, CreditFlex, and QuickPeso confirmed 404 removed from Google Play per MeitY Section 69A blocking orders and RBI Sachet portal alerts. Purged from active loan app directory.",
-        "timestamp": "2026-10-15T19:40:00Z",
-        "app_name": "Speedy Rupee, CreditFlex, QuickPeso",
-        "old_value": "Active on Play Store",
-        "new_value": "Delisted (404 Purged)"
-      },
       {
         "id": "alert-new-01",
         "type": "new_app",
@@ -3868,7 +3857,7 @@ export const SCAN_HISTORY_DATA: ScanRun[] = [
       "quick cash loan rupee",
       "personal loan emi india"
     ],
-    "apps_discovered_count": 76,
+    "apps_discovered_count": 71,
     "apps_collected_count": 71,
     "apps_new_count": 8,
     "apps_refreshed_count": 63,
@@ -3899,21 +3888,21 @@ export const SCAN_HISTORY_DATA: ScanRun[] = [
       "instant personal loan india",
       "salary advance loan india"
     ],
-    "apps_discovered_count": 65,
+    "apps_discovered_count": 63,
     "apps_collected_count": 63,
     "apps_new_count": 10,
     "apps_refreshed_count": 53,
     "apps_failed_count": 0,
-    "delisted_count": 1,
+    "delisted_count": 0,
     "risk_shifts_count": 3,
     "collector_version": "v1.1.8",
     "change_alerts": [
       {
-        "id": "alert-delist-03",
-        "type": "delisted",
-        "severity": "warning",
-        "title": "1 Unregistered Loan App Flagged & Removed",
-        "description": "Early cash loan variant suspended by store moderation.",
+        "id": "alert-disc-03",
+        "type": "new_app",
+        "severity": "info",
+        "title": "10 Additional Active Lenders Indexed",
+        "description": "Discovered 10 personal loan apps matching digital lending criteria.",
         "timestamp": "2026-10-12T09:32:00Z"
       }
     ]
@@ -3951,3 +3940,4 @@ export const SCAN_HISTORY_DATA: ScanRun[] = [
 ];
 
 export const LATEST_SCAN_DATA: ScanRun = SCAN_HISTORY_DATA[0];
+

@@ -6,7 +6,15 @@ export const SUPABASE_URL =
 export const SUPABASE_KEY =
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'sb_publishable_9ZcCD_1qmI_WtCeUgr59Yg_YNUXsAl8';
 
+/**
+ * Flag to control whether the client should attempt querying Supabase tables.
+ * Set NEXT_PUBLIC_USE_SUPABASE=true in Vercel or .env.local after running supabase/schema.sql.
+ * By default, set to false so the browser never logs 404 errors when tables haven't been created yet.
+ */
+export const USE_SUPABASE = process.env.NEXT_PUBLIC_USE_SUPABASE === 'true';
+
 let supabaseClient: SupabaseClient | null = null;
+let tablesAvailable: boolean | null = null;
 
 export function getSupabase(): SupabaseClient {
   if (!supabaseClient) {
@@ -21,11 +29,12 @@ export function getSupabase(): SupabaseClient {
 }
 
 export function isSupabaseConnected(): boolean {
-  return Boolean(SUPABASE_URL && SUPABASE_KEY);
+  return Boolean(SUPABASE_URL && SUPABASE_KEY && tablesAvailable === true);
 }
 
 /**
- * Fetch apps from Supabase Postgres database if available
+ * Fetch apps from Supabase Postgres database only when tables exist and USE_SUPABASE is enabled.
+ * Returns null immediately if tables are not initialized, completely preventing 404 console errors.
  */
 export async function fetchAppsFromSupabase(params?: {
   q?: string;
@@ -35,6 +44,11 @@ export async function fetchAppsFromSupabase(params?: {
   page?: number;
   page_size?: number;
 }): Promise<AppListResponse | null> {
+  // If explicitly disabled or tables already determined to not exist, skip without network request
+  if (!USE_SUPABASE || tablesAvailable === false) {
+    return null;
+  }
+
   try {
     const supabase = getSupabase();
     let query = supabase.from('apps').select('*', { count: 'exact' });
@@ -47,7 +61,6 @@ export async function fetchAppsFromSupabase(params?: {
       query = query.gte('rating', params.min_rating);
     }
 
-    // Exclude delisted apps
     query = query.eq('is_active', true);
 
     const pageSize = params?.page_size ?? 25;
@@ -58,27 +71,34 @@ export async function fetchAppsFromSupabase(params?: {
     query = query.range(start, end);
 
     const { data, count, error } = await query;
-    if (error || !data || data.length === 0) {
+    if (error) {
+      // 404 or table missing -> cache as unavailable to avoid further failed requests
+      tablesAvailable = false;
       return null;
     }
 
+    tablesAvailable = true;
     return {
-      items: data as AppItem[],
-      total: count ?? data.length,
+      items: (data ?? []) as AppItem[],
+      total: count ?? data?.length ?? 0,
       page,
       page_size: pageSize,
-      total_pages: Math.max(1, Math.ceil((count ?? data.length) / pageSize)),
+      total_pages: Math.max(1, Math.ceil((count ?? data?.length ?? 0) / pageSize)),
     };
-  } catch (err) {
-    console.warn('Supabase fetchApps skipped, using verified store dataset:', err);
+  } catch {
+    tablesAvailable = false;
     return null;
   }
 }
 
 /**
- * Fetch latest scan run from Supabase
+ * Fetch latest scan run from Supabase if tables exist
  */
 export async function fetchLatestScanFromSupabase(): Promise<ScanRun | null> {
+  if (!USE_SUPABASE || tablesAvailable === false) {
+    return null;
+  }
+
   try {
     const supabase = getSupabase();
     const { data, error } = await supabase
@@ -88,9 +108,13 @@ export async function fetchLatestScanFromSupabase(): Promise<ScanRun | null> {
       .limit(1)
       .maybeSingle();
 
-    if (error || !data) return null;
+    if (error || !data) {
+      tablesAvailable = false;
+      return null;
+    }
     return data as ScanRun;
   } catch {
+    tablesAvailable = false;
     return null;
   }
 }

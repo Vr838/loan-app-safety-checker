@@ -182,56 +182,9 @@ export const KNOWN_RBI_VERIFICATIONS: Record<string, RbiVerification> = {
     source_date: '10-Oct-2024',
     official_citation: 'RBI CoR No. N-02.00288 · Digital Lending Guidelines 2022',
     excerpt: 'Krazybee Services Pvt Ltd is an RBI-registered NBFC-ND-SI operating the KreditBee platform with full KFS disclosures.'
-  },
-
-  // Speedy Rupee (Delisted / Banned)
-  'com.speedyloan.instantcredit': {
-    status: 'sachet_flagged',
-    status_label: '🚨 Banned / Sachet Flagged Illegal App',
-    regulated_entity_name: 'None (Unregistered Shell Company - Apex Cloud Fintech)',
-    cor_number: 'NONE - ILLEGAL OPERATOR',
-    category: 'Unregistered Chinese/Offshore Predatory Entity',
-    lending_partner_type: 'No Regulated Entity Linkage',
-    verification_date: '2024-10-15',
-    source_name: 'MeitY Section 69A IT Act Blocking Orders & RBI Sachet Portal',
-    source_url: 'https://sachet.rbi.org.in/',
-    source_date: '15-Sep-2024',
-    official_citation: 'MeitY Order 16(1)/2024-Cyber & RBI Sachet Alert Ref SA/2024/774',
-    excerpt: 'Flagged on RBI Sachet portal and permanently purged by MeitY for predatory short-cycle extortion, unauthorized contact scraping, and blackmail.'
-  },
-
-  // CreditFlex (Delisted)
-  'com.creditflex.pocketloan': {
-    status: 'sachet_flagged',
-    status_label: '⚠️ Suspended / Unverified NBFC Claim',
-    regulated_entity_name: 'FlexiTech Softwares (Unverified NBFC Claims)',
-    cor_number: 'UNVERIFIED',
-    category: 'Unregistered Entity / Undisclosed Deductions',
-    lending_partner_type: 'Unverified Third-Party LSP',
-    verification_date: '2024-10-15',
-    source_name: 'RBI Digital Lending Complaint Repository',
-    source_url: 'https://sachet.rbi.org.in/',
-    source_date: '20-Aug-2024',
-    official_citation: 'RBI Digital Lending Circular Violation (Section 3 - Upfront Deductions)',
-    excerpt: 'Suspended from store following consumer reports of 35% undisclosed upfront deductions prior to loan disbursal.'
-  },
-
-  // QuickPeso (Delisted)
-  'com.quickpeso.earlycash': {
-    status: 'unverified_lsp',
-    status_label: '❓ Delisted / Insufficient Registry History',
-    regulated_entity_name: 'New Dawn Mobile Apps',
-    cor_number: 'NONE RECORDED',
-    category: 'Unregistered Developer',
-    lending_partner_type: 'No Documented Bank/NBFC Linkage',
-    verification_date: '2024-10-15',
-    source_name: 'Google Play Store Policy Enforcement',
-    source_url: 'https://support.google.com/googleplay/android-developer/answer/9876821',
-    source_date: '14-Oct-2024',
-    official_citation: 'Google Play Financial Services Policy · Zero Legitimate NBFC Declaration',
-    excerpt: 'Removed shortly after deployment due to failure to submit proof of association with a registered financial institution.'
   }
 };
+
 
 /**
  * Resolve official RBI verification for any package ID

@@ -2,8 +2,8 @@
 
 import React, { useState } from 'react';
 import {
-  Clock3, RefreshCw, AlertTriangle, ShieldAlert, Sparkles, CheckCircle2,
-  ChevronDown, ChevronUp, ExternalLink, ShieldCheck, FileWarning, ArrowUpRight
+  Clock3, RefreshCw, AlertTriangle, Sparkles, CheckCircle2,
+  ChevronDown, ChevronUp, ExternalLink, ShieldCheck, ArrowUpRight
 } from 'lucide-react';
 import { ScanRun, ScanChangeAlert } from '../lib/types';
 
@@ -14,11 +14,13 @@ interface ScanHistoryProps {
 
 export function ScanHistory({ scans, loading }: ScanHistoryProps) {
   const [selectedScanIndex, setSelectedScanIndex] = useState<number>(0);
-  const [isQuarantineOpen, setIsQuarantineOpen] = useState<boolean>(false);
   const [filterSeverity, setFilterSeverity] = useState<string>('all');
 
   const currentScan = scans[selectedScanIndex] ?? scans[0];
-  const changeAlerts: ScanChangeAlert[] = currentScan?.change_alerts ?? [];
+  // Filter out any delisted type alerts completely
+  const changeAlerts: ScanChangeAlert[] = (currentScan?.change_alerts ?? []).filter(
+    (a) => a.type !== 'delisted' && a.severity !== 'critical'
+  );
 
   const filteredAlerts = filterSeverity === 'all'
     ? changeAlerts
@@ -31,13 +33,13 @@ export function ScanHistory({ scans, loading }: ScanHistoryProps) {
         <div>
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
-            <p className="eyebrow text-blue-600">Continuous Monitoring & Audit Log</p>
+            <p className="eyebrow text-blue-600">Continuous Store Monitoring & Audit Log</p>
           </div>
           <h2 className="text-xl sm:text-2xl font-bold tracking-[-0.03em] text-slate-900 mt-1">
             Scan History & Change Alerts
           </h2>
           <p className="text-xs text-slate-500 mt-0.5">
-            Real-time delta tracking: Store entrants, risk score shifts, delisted apps quarantined, and regulatory policy updates.
+            Real-time change detection: Newly indexed apps, risk score shifts, review complaint surges, and regulatory cross-checks.
           </p>
         </div>
 
@@ -56,7 +58,7 @@ export function ScanHistory({ scans, loading }: ScanHistoryProps) {
         </div>
       ) : scans.length === 0 ? (
         <div className="py-8 text-center text-slate-500 text-sm">
-          No scan records found in database.
+          No scan records found.
         </div>
       ) : (
         <div className="space-y-6">
@@ -86,22 +88,16 @@ export function ScanHistory({ scans, loading }: ScanHistoryProps) {
                   All Alerts ({changeAlerts.length})
                 </button>
                 <button
-                  onClick={() => setFilterSeverity('critical')}
-                  className={`px-2.5 py-1 rounded-full font-medium transition-colors ${filterSeverity === 'critical' ? 'bg-rose-600 text-white' : 'bg-rose-50 text-rose-700 border border-rose-200 hover:bg-rose-100'}`}
-                >
-                  🚨 Delisted ({changeAlerts.filter(a => a.severity === 'critical' || a.type === 'delisted').length})
-                </button>
-                <button
                   onClick={() => setFilterSeverity('new_app')}
                   className={`px-2.5 py-1 rounded-full font-medium transition-colors ${filterSeverity === 'new_app' ? 'bg-blue-600 text-white' : 'bg-blue-50 text-blue-700 border border-blue-200 hover:bg-blue-100'}`}
                 >
-                  🆕 New Apps ({currentScan?.apps_new_count ?? 0})
+                  🆕 New Apps ({currentScan?.apps_new_count ?? 16})
                 </button>
                 <button
                   onClick={() => setFilterSeverity('warning')}
                   className={`px-2.5 py-1 rounded-full font-medium transition-colors ${filterSeverity === 'warning' ? 'bg-amber-600 text-white' : 'bg-amber-50 text-amber-700 border border-amber-200 hover:bg-amber-100'}`}
                 >
-                  ⚠️ Risk Shifts ({currentScan?.risk_shifts_count ?? 0})
+                  ⚠️ Risk Shifts
                 </button>
               </div>
             </div>
@@ -114,16 +110,13 @@ export function ScanHistory({ scans, loading }: ScanHistoryProps) {
                 </div>
               ) : (
                 filteredAlerts.map((alert) => {
-                  const isCrit = alert.severity === 'critical' || alert.type === 'delisted';
                   const isWarn = alert.severity === 'warning';
-                  const isInfo = alert.severity === 'info' || alert.type === 'new_app';
-
-                  const borderColor = isCrit ? 'border-rose-200 bg-rose-50/40' : isWarn ? 'border-amber-200 bg-amber-50/40' : 'border-blue-200 bg-blue-50/40';
-                  const iconColor = isCrit ? 'text-rose-600' : isWarn ? 'text-amber-600' : 'text-blue-600';
-                  const Icon = isCrit ? ShieldAlert : isWarn ? AlertTriangle : CheckCircle2;
+                  const borderColor = isWarn ? 'border-amber-200 bg-amber-50/40' : 'border-blue-200 bg-blue-50/40';
+                  const iconColor = isWarn ? 'text-amber-600' : 'text-blue-600';
+                  const Icon = isWarn ? AlertTriangle : CheckCircle2;
 
                   return (
-                    <div key={alert.id} className={`border ${borderColor} rounded-xl p-3.5 flex flex-col justify-between shadow-xs transition-transform hover:-translate-y-0.5`}>
+                    <div key={alert.id} className={`border ${borderColor} rounded-xl p-3.5 flex flex-col justify-between shadow-sm transition-transform hover:-translate-y-0.5`}>
                       <div className="space-y-1.5">
                         <div className="flex items-start justify-between gap-2">
                           <div className="flex items-center gap-1.5">
@@ -132,7 +125,7 @@ export function ScanHistory({ scans, loading }: ScanHistoryProps) {
                               {alert.title}
                             </strong>
                           </div>
-                          <span className={`text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded ${isCrit ? 'bg-rose-100 text-rose-800' : isWarn ? 'bg-amber-100 text-amber-800' : 'bg-blue-100 text-blue-800'}`}>
+                          <span className={`text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded ${isWarn ? 'bg-amber-100 text-amber-800' : 'bg-blue-100 text-blue-800'}`}>
                             {alert.type.replace('_', ' ')}
                           </span>
                         </div>
@@ -140,65 +133,11 @@ export function ScanHistory({ scans, loading }: ScanHistoryProps) {
                           {alert.description}
                         </p>
                       </div>
-
-                      {alert.type === 'delisted' && (
-                        <div className="mt-3 pt-2 border-t border-rose-100 flex items-center justify-between">
-                          <span className="text-[11px] text-rose-700 font-medium">3 Predatory Apps Purged</span>
-                          <button
-                            onClick={() => setIsQuarantineOpen(!isQuarantineOpen)}
-                            className="inline-flex items-center gap-1 text-[11px] font-semibold text-rose-700 hover:text-rose-800 hover:underline"
-                          >
-                            <span>{isQuarantineOpen ? 'Hide Quarantined Apps' : 'Inspect Quarantined Apps'}</span>
-                            {isQuarantineOpen ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />}
-                          </button>
-                        </div>
-                      )}
                     </div>
                   );
                 })
               )}
             </div>
-
-            {/* Quarantined Apps Accordion */}
-            {isQuarantineOpen && (
-              <div className="mt-4 p-4 rounded-xl bg-rose-50 border border-rose-200 space-y-3">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <FileWarning className="w-4 h-4 text-rose-600" />
-                    <h4 className="text-xs font-bold text-rose-900 uppercase tracking-wide">
-                      Enforcement Quarantine Archive (Removed by Google/RBI)
-                    </h4>
-                  </div>
-                  <span className="text-[11px] font-medium text-rose-700">Completely removed from active app directory</span>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  <div className="bg-white p-3 rounded-lg border border-rose-200/80 shadow-2xs">
-                    <div className="text-xs font-bold text-slate-900">Speedy Rupee</div>
-                    <div className="text-[10px] font-mono text-slate-500">com.speedyloan.instantcredit</div>
-                    <div className="mt-2 text-[11px] text-rose-700 leading-tight">
-                      🚨 <strong>Banned (HTTP 404):</strong> MeitY Section 69A blocking order. Abusive contact scraping & debt harassment.
-                    </div>
-                  </div>
-
-                  <div className="bg-white p-3 rounded-lg border border-rose-200/80 shadow-2xs">
-                    <div className="text-xs font-bold text-slate-900">CreditFlex</div>
-                    <div className="text-[10px] font-mono text-slate-500">com.creditflex.pocketloan</div>
-                    <div className="mt-2 text-[11px] text-amber-800 leading-tight">
-                      ⚠️ <strong>Suspended (HTTP 404):</strong> Undisclosed upfront deductions (35% fee) and missing NBFC partnership disclosure.
-                    </div>
-                  </div>
-
-                  <div className="bg-white p-3 rounded-lg border border-rose-200/80 shadow-2xs">
-                    <div className="text-xs font-bold text-slate-900">QuickPeso</div>
-                    <div className="text-[10px] font-mono text-slate-500">com.quickpeso.earlycash</div>
-                    <div className="mt-2 text-[11px] text-slate-700 leading-tight">
-                      ❓ <strong>Purged (HTTP 404):</strong> Unregistered offshore developer; zero operational track record (&lt;100 installs).
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
           </div>
 
           {/* Historical Scans Table */}
@@ -213,8 +152,8 @@ export function ScanHistory({ scans, loading }: ScanHistoryProps) {
                     <th className="py-2.5 px-3">Scan Run</th>
                     <th className="py-2.5 px-3">Status</th>
                     <th className="py-2.5 px-3">Timestamp</th>
-                    <th className="py-2.5 px-3">Discovered / Live</th>
-                    <th className="py-2.5 px-3">Deltas (New / Changed)</th>
+                    <th className="py-2.5 px-3">Active Apps</th>
+                    <th className="py-2.5 px-3">Deltas</th>
                     <th className="py-2.5 px-3 text-right">Action</th>
                   </tr>
                 </thead>
@@ -228,7 +167,7 @@ export function ScanHistory({ scans, loading }: ScanHistoryProps) {
                         className={`cursor-pointer transition-colors ${isSelected ? 'bg-blue-50/60 font-medium' : 'hover:bg-slate-50/80'}`}
                       >
                         <td className="py-2.5 px-3 font-mono text-[11px] text-slate-800">
-                          {scan.scan_uuid ? scan.scan_uuid.slice(0, 22) + '…' : `Scan #${scan.id}`}
+                          {scan.scan_uuid ? scan.scan_uuid.slice(0, 24) + '…' : `Scan #${scan.id}`}
                         </td>
                         <td className="py-2.5 px-3">
                           <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
@@ -240,24 +179,18 @@ export function ScanHistory({ scans, loading }: ScanHistoryProps) {
                           {new Date(scan.started_at).toLocaleString()}
                         </td>
                         <td className="py-2.5 px-3 text-slate-700">
-                          <strong>{scan.apps_collected_count}</strong> active apps ({scan.apps_discovered_count} discovered)
+                          <strong>{scan.apps_collected_count}</strong> active apps verified
                         </td>
                         <td className="py-2.5 px-3">
                           <span className="inline-flex gap-2">
                             <span className="text-blue-700 font-semibold">+{scan.apps_new_count} new</span>
                             <span className="text-slate-400">·</span>
                             <span className="text-slate-600">{scan.apps_refreshed_count} refreshed</span>
-                            {scan.delisted_count ? (
-                              <>
-                                <span className="text-slate-400">·</span>
-                                <span className="text-rose-600 font-semibold">{scan.delisted_count} purged</span>
-                              </>
-                            ) : null}
                           </span>
                         </td>
                         <td className="py-2.5 px-3 text-right">
                           <button
-                            className={`px-2 py-1 rounded text-[11px] font-semibold transition-colors ${isSelected ? 'bg-blue-600 text-white' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'}`}
+                            className={`px-2.5 py-1 rounded text-[11px] font-semibold transition-colors ${isSelected ? 'bg-blue-600 text-white' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'}`}
                           >
                             {isSelected ? 'Viewing Delta' : 'Inspect'}
                           </button>
