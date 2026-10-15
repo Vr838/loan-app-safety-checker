@@ -109,14 +109,18 @@ async def test_admin_scan_trigger_unauthorized(client: AsyncClient):
     assert resp_invalid.status_code == 401
 
 
+from unittest.mock import patch
+
 @pytest.mark.asyncio
 async def test_admin_scan_trigger_authorized(client: AsyncClient):
     valid_token = settings.ADMIN_API_TOKEN
-    resp = await client.post(
-        "/api/v1/scans/admin/trigger",
-        headers={"Authorization": f"Bearer {valid_token}"},
-        json={"max_apps_per_query": 2, "max_reviews_per_app": 5},
-    )
-    assert resp.status_code == 202
-    data = resp.json()
-    assert data["status"] == "accepted"
+    with patch("app.api.routes.scans._run_background_scan") as mock_scan:
+        resp = await client.post(
+            "/api/v1/scans/admin/trigger",
+            headers={"Authorization": f"Bearer {valid_token}"},
+            json={"max_apps_per_query": 2, "max_reviews_per_app": 5},
+        )
+        assert resp.status_code == 202
+        data = resp.json()
+        assert data["status"] == "accepted"
+        assert "message" in data
