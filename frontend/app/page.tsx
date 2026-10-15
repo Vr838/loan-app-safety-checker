@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback, useMemo } from 'react';
 import { Navbar } from '../components/Navbar';
 import { OverviewMetrics } from '../components/OverviewMetrics';
 import { AppTable } from '../components/AppTable';
@@ -20,8 +20,8 @@ import { AppItem, HealthStatus, ScanRun } from '../lib/types';
 import { ShieldCheck, RefreshCw, Sparkles, ChevronDown, ChevronUp, History, Scale, X, Layers } from 'lucide-react';
 
 export default function DashboardPage() {
-  const [apps, setApps] = useState<AppItem[]>([]);
-  const [allApps, setAllApps] = useState<AppItem[]>([]);
+  // Pre-seed allApps immediately with verified apps so first render is instantaneous
+  const [allApps, setAllApps] = useState<AppItem[]>(() => fetchAllApps());
   const [latestScan, setLatestScan] = useState<ScanRun | null>(null);
   const [scanHistory, setScanHistory] = useState<ScanRun[]>([]);
   const [health, setHealth] = useState<HealthStatus | null>(null);
@@ -34,34 +34,80 @@ export default function DashboardPage() {
   const [sortBy, setSortBy] = useState('risk_desc');
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(25);
-  const [totalPages, setTotalPages] = useState(1);
-  const [totalItems, setTotalItems] = useState(0);
 
   // Modals & States
   const [selectedApp, setSelectedApp] = useState<AppItem | null>(null);
   const [comparisonIds, setComparisonIds] = useState<string[]>([]);
   const [comparisonApps, setComparisonApps] = useState<AppItem[]>([]);
   const [isScanModalOpen, setIsScanModalOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [showHistory, setShowHistory] = useState(false);
 
-  const loadData = useCallback(async () => {
-    setIsLoading(true);
-    try {
-      const fullDataset = fetchAllApps();
-      setAllApps(fullDataset);
+  // Instant, zero-latency synchronous filtering of allApps
+  const filteredApps = useMemo(() => {
+    let list = allApps.length > 0 ? allApps : fetchAllApps();
 
+    // 1. Search Query filter
+    if (searchQuery.trim()) {
+      const q = searchQuery.toLowerCase().trim();
+      list = list.filter(
+        (a) =>
+          a.title.toLowerCase().includes(q) ||
+          a.developer.toLowerCase().includes(q) ||
+          a.package_id.toLowerCase().includes(q)
+      );
+    }
+
+    // 2. Risk category filter
+    if (selectedCategory && selectedCategory !== 'All') {
+      const target = selectedCategory.toLowerCase().trim();
+      list = list.filter((a) => {
+        const cat = (a.latest_assessment?.risk_category ?? '').toLowerCase();
+        if (target.includes('high')) return cat.includes('high');
+        if (target.includes('caution') || target.includes('moderate')) return cat.includes('caution') || cat.includes('moderate');
+        if (target.includes('lower') || target.includes('safe')) return cat.includes('lower') || cat.includes('safe');
+        if (target.includes('insufficient') || target.includes('sparse')) return cat.includes('insufficient') || cat.includes('sparse');
+        return cat.includes(target);
+      });
+    }
+
+    // 3. Sorting
+    const sorted = [...list];
+    if (sortBy === 'risk_desc') {
+      sorted.sort((a, b) => (b.latest_assessment?.overall_score ?? 0) - (a.latest_assessment?.overall_score ?? 0));
+    } else if (sortBy === 'risk_asc') {
+      sorted.sort((a, b) => (a.latest_assessment?.overall_score ?? 0) - (b.latest_assessment?.overall_score ?? 0));
+    } else if (sortBy === 'rating_desc') {
+      sorted.sort((a, b) => (b.rating || 0) - (a.rating || 0));
+    } else if (sortBy === 'rating_asc') {
+      sorted.sort((a, b) => (a.rating || 0) - (b.rating || 0));
+    } else if (sortBy === 'name_asc') {
+      sorted.sort((a, b) => (a.title || '').localeCompare(b.title || ''));
+    } else if (sortBy === 'last_scanned') {
+      sorted.sort((a, b) => {
+        const tA = a.last_scanned_at ? new Date(a.last_scanned_at).getTime() : 0;
+        const tB = b.last_scanned_at ? new Date(b.last_scanned_at).getTime() : 0;
+        return tB - tA;
+      });
+    }
+
+    return sorted;
+  }, [allApps, searchQuery, selectedCategory, sortBy]);
+
+  const totalItems = filteredApps.length;
+  const totalPages = Math.max(1, Math.ceil(totalItems / pageSize));
+  const paginatedApps = useMemo(() => {
+    const start = (page - 1) * pageSize;
+    return filteredApps.slice(start, start + pageSize);
+  }, [filteredApps, page, pageSize]);
+
+  const loadData = useCallback(async () => {
+    try {
       const [healthResult, scanResult, scansResult, appsResult] = await Promise.allSettled([
         fetchHealth(),
         fetchLatestScan(),
         fetchScanHistory(),
-        fetchApps({
-          q: searchQuery,
-          risk_category: selectedCategory,
-          sort_by: sortBy,
-          page,
-          page_size: pageSize,
-        }),
+        fetchApps({ page_size: 100 }),
       ]);
 
       if (healthResult.status === 'fulfilled') {
@@ -74,42 +120,15 @@ export default function DashboardPage() {
       if (scansResult.status === 'fulfilled') {
         setScanHistory(scansResult.value);
       }
-      if (appsResult.status === 'fulfilled' && (appsResult.value.total > 0 || (!selectedCategory && !searchQuery.trim()))) {
-        setApps(appsResult.value.items);
-        setTotalPages(appsResult.value.total_pages);
-        setTotalItems(appsResult.value.total);
-      } else {
-        // Fallback to local full verified dataset
-        const filtered = fullDataset.filter((a) => {
-          if (searchQuery.trim()) {
-            const q = searchQuery.toLowerCase();
-            const matches = a.title.toLowerCase().includes(q) || a.developer.toLowerCase().includes(q) || a.package_id.toLowerCase().includes(q);
-            if (!matches) return false;
-          }
-          if (selectedCategory && selectedCategory !== 'All') {
-            const target = selectedCategory.toLowerCase();
-            const cat = (a.latest_assessment?.risk_category ?? '').toLowerCase();
-            if (target.includes('high')) return cat.includes('high');
-            if (target.includes('caution') || target.includes('moderate')) return cat.includes('caution') || cat.includes('moderate');
-            if (target.includes('lower') || target.includes('safe')) return cat.includes('lower') || cat.includes('safe');
-            if (target.includes('insufficient') || target.includes('sparse')) return cat.includes('insufficient') || cat.includes('sparse');
-            return cat.includes(target);
-          }
-          return true;
-        });
-        setApps(filtered.slice((page - 1) * pageSize, page * pageSize));
-        setTotalPages(Math.max(1, Math.ceil(filtered.length / pageSize)));
-        setTotalItems(filtered.length);
+      if (appsResult.status === 'fulfilled' && appsResult.value.items.length > 0) {
+        setAllApps(appsResult.value.items);
       }
       setLoadError(null);
     } catch (error) {
       console.error('Error loading dashboard data:', error);
       setIsLive(false);
-      setLoadError(error instanceof Error ? error.message : 'Unable to load live analysis data.');
-    } finally {
-      setIsLoading(false);
     }
-  }, [searchQuery, selectedCategory, sortBy, page, pageSize]);
+  }, []);
 
   useEffect(() => {
     loadData();
@@ -128,8 +147,8 @@ export default function DashboardPage() {
   const openComparison = async () => {
     try {
       // Immediate local render so there is ZERO delay or score flicker
-      const pool = allApps.length > 0 ? allApps : apps;
-      const localMatches = pool.filter((a) => comparisonIds.includes(a.package_id));
+      const pool = allApps.length > 0 ? allApps : paginatedApps;
+      const localMatches = pool.filter((a: AppItem) => comparisonIds.includes(a.package_id));
       if (localMatches.length >= 2) {
         setComparisonApps(localMatches);
       }
@@ -141,8 +160,8 @@ export default function DashboardPage() {
         setComparisonApps(appsToCompare);
       }
     } catch (error) {
-      const pool = allApps.length > 0 ? allApps : apps;
-      const localMatches = pool.filter((a) => comparisonIds.includes(a.package_id));
+      const pool = allApps.length > 0 ? allApps : paginatedApps;
+      const localMatches = pool.filter((a: AppItem) => comparisonIds.includes(a.package_id));
       if (localMatches.length >= 2) {
         setComparisonApps(localMatches);
       } else {
@@ -213,7 +232,7 @@ export default function DashboardPage() {
 
         {/* Metric Cards */}
         <OverviewMetrics
-          apps={allApps.length > 0 ? allApps : apps}
+          apps={allApps.length > 0 ? allApps : fetchAllApps()}
           latestScan={latestScan}
           onFilterCategory={(cat) => {
             setSelectedCategory(cat);
@@ -233,7 +252,7 @@ export default function DashboardPage() {
 
         {/* Primary App Explorer Table */}
         <AppTable
-          apps={apps}
+          apps={paginatedApps}
           searchQuery={searchQuery}
           onSearchChange={(q) => {
             setSearchQuery(q);
