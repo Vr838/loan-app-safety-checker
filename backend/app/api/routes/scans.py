@@ -32,7 +32,7 @@ async def _run_background_scan(
 
 import logging
 
-from datetime import timedelta, timezone
+from datetime import datetime, timedelta, timezone
 
 def _get_baseline_scans() -> list[ScanRunResponse]:
     now = datetime.now(timezone.utc)
