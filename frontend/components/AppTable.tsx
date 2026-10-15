@@ -28,6 +28,8 @@ interface AppTableProps {
   page: number;
   totalPages: number;
   totalItems: number;
+  pageSize: number;
+  onPageSizeChange: (newSize: number) => void;
   onPageChange: (newPage: number) => void;
   onSelectApp: (app: AppItem) => void;
   isLoading: boolean;
@@ -44,6 +46,8 @@ export const AppTable: React.FC<AppTableProps> = ({
   page,
   totalPages,
   totalItems,
+  pageSize,
+  onPageSizeChange,
   onPageChange,
   onSelectApp,
   isLoading,
@@ -228,21 +232,25 @@ export const AppTable: React.FC<AppTableProps> = ({
                           {app.title}
                         </div>
                         <div className="text-[11px] text-slate-400 truncate">{app.developer}</div>
-                        <div className="flex items-center gap-2 mt-0.5">
+                        <div className="flex flex-wrap items-center gap-1.5 mt-0.5">
                           <span className="text-[10px] text-slate-400 font-mono">{app.package_id}</span>
-                          {app.store_url && (
+                          {app.store_status === 'delisted' ? (
+                            <span className="inline-flex items-center gap-0.5 text-[9px] px-1.5 py-0.5 rounded bg-rose-950/80 border border-rose-800 text-rose-300 font-semibold" title="Banned/Delisted from Google Play (Returns 404)">
+                              🚨 Delisted (404)
+                            </span>
+                          ) : app.store_url ? (
                             <a
                               href={app.store_url}
                               target="_blank"
                               rel="noopener noreferrer"
                               onClick={(e) => e.stopPropagation()}
-                              className="inline-flex items-center gap-0.5 text-[10px] text-indigo-400 hover:text-indigo-300 transition-colors font-medium"
-                              title="Open on Google Play Store"
+                              className="inline-flex items-center gap-0.5 text-[10px] text-emerald-400 hover:text-emerald-300 transition-colors font-medium hover:underline"
+                              title="Verified 200 OK on Google Play Store"
                             >
                               <ExternalLink className="w-2.5 h-2.5" />
-                              Play Store
+                              Play Store (200 OK)
                             </a>
-                          )}
+                          ) : null}
                         </div>
                       </div>
                     </div>
@@ -291,18 +299,26 @@ export const AppTable: React.FC<AppTableProps> = ({
                         <span>Inspect</span>
                         <ChevronRight className="w-3 h-3" />
                       </button>
-                      {app.store_url && (
+                      {app.store_status === 'delisted' ? (
+                        <div
+                          className="px-2 py-1 rounded-md bg-rose-950/60 border border-rose-800/60 text-rose-300 text-[10px] font-semibold text-center w-full"
+                          title="Banned by RBI/Google Play. Link returns 404."
+                        >
+                          Delisted (404)
+                        </div>
+                      ) : app.store_url ? (
                         <a
                           href={app.store_url}
                           target="_blank"
                           rel="noopener noreferrer"
                           onClick={(e) => e.stopPropagation()}
-                          className="px-3 py-1 rounded-lg bg-slate-900 hover:bg-green-900/40 border border-slate-700 hover:border-green-700 text-slate-400 hover:text-green-400 text-[10px] font-medium transition-colors inline-flex items-center space-x-1 w-full justify-center"
+                          className="px-3 py-1 rounded-lg bg-emerald-950/50 hover:bg-emerald-900/60 border border-emerald-700/60 hover:border-emerald-500 text-emerald-300 hover:text-emerald-100 text-[10px] font-medium transition-colors inline-flex items-center space-x-1 w-full justify-center shadow-sm"
+                          title="Click to open verified listing on Google Play"
                         >
-                          <ExternalLink className="w-2.5 h-2.5" />
-                          <span>Google Play</span>
+                          <ExternalLink className="w-2.5 h-2.5 text-emerald-400" />
+                          <span>Google Play (200)</span>
                         </a>
-                      )}
+                      ) : null}
                     </div>
                   </td>
                 </tr>
@@ -313,9 +329,24 @@ export const AppTable: React.FC<AppTableProps> = ({
       </div>
 
       {/* Pagination Footer */}
-      <div className="p-3.5 border-t border-slate-800 bg-slate-950/40 flex items-center justify-between text-xs text-slate-400">
-        <div>
-          Showing <strong>{apps.length}</strong> of <strong>{totalItems}</strong> applications
+      <div className="p-3.5 border-t border-slate-800 bg-slate-950/40 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-400">
+        <div className="flex items-center space-x-3">
+          <span>
+            Showing <strong>{apps.length}</strong> of <strong>{totalItems}</strong> applications
+          </span>
+          <div className="flex items-center space-x-1.5">
+            <span className="text-[11px] text-slate-500">Per page:</span>
+            <select
+              value={pageSize}
+              onChange={(e) => onPageSizeChange(Number(e.target.value))}
+              className="bg-slate-900 border border-slate-800 rounded px-2 py-0.5 text-xs text-slate-200 focus:outline-none focus:border-indigo-500"
+            >
+              <option value={10}>10</option>
+              <option value={25}>25</option>
+              <option value={50}>50</option>
+              <option value={100}>100</option>
+            </select>
+          </div>
         </div>
         <div className="flex items-center space-x-2">
           <button

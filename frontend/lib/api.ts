@@ -61,7 +61,10 @@ export async function fetchApps(params?: {
       );
     }
     if (params?.risk_category && params.risk_category !== 'All') {
-      filtered = filtered.filter((a) => a.latest_assessment?.risk_category === params.risk_category);
+      const targetCat = params.risk_category.toLowerCase();
+      filtered = filtered.filter(
+        (a) => (a.latest_assessment?.risk_category || '').toLowerCase() === targetCat
+      );
     }
     if (params?.min_rating) {
       filtered = filtered.filter((a) => a.rating >= params.min_rating!);

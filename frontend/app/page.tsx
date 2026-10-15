@@ -22,6 +22,7 @@ export default function DashboardPage() {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [sortBy, setSortBy] = useState('risk_desc');
   const [page, setPage] = useState(1);
+  const [pageSize, setPageSize] = useState(25);
   const [totalPages, setTotalPages] = useState(1);
   const [totalItems, setTotalItems] = useState(0);
 
@@ -45,7 +46,7 @@ export default function DashboardPage() {
         risk_category: selectedCategory,
         sort_by: sortBy,
         page,
-        page_size: 10,
+        page_size: pageSize,
       });
 
       setApps(appsRes.response.items);
@@ -57,7 +58,7 @@ export default function DashboardPage() {
     } finally {
       setIsLoading(false);
     }
-  }, [searchQuery, selectedCategory, sortBy, page]);
+  }, [searchQuery, selectedCategory, sortBy, page, pageSize]);
 
   useEffect(() => {
     loadData();
@@ -121,6 +122,11 @@ export default function DashboardPage() {
           page={page}
           totalPages={totalPages}
           totalItems={totalItems}
+          pageSize={pageSize}
+          onPageSizeChange={(newSize) => {
+            setPageSize(newSize);
+            setPage(1);
+          }}
           onPageChange={(p) => setPage(p)}
           onSelectApp={(app) => setSelectedApp(app)}
           isLoading={isLoading}
