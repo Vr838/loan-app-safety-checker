@@ -17,7 +17,7 @@ import {
   fetchScanHistory,
 } from '../lib/api';
 import { AppItem, HealthStatus, ScanRun } from '../lib/types';
-import { ShieldCheck, RefreshCw, Sparkles, ChevronDown, ChevronUp, History } from 'lucide-react';
+import { ShieldCheck, RefreshCw, Sparkles, ChevronDown, ChevronUp, History, Scale, X, Layers } from 'lucide-react';
 
 export default function DashboardPage() {
   const [apps, setApps] = useState<AppItem[]>([]);
@@ -121,37 +121,47 @@ export default function DashboardPage() {
 
       {/* Main Content */}
       <main className="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
-        {/* Simplified Hero Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2">
-          <div>
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-blue-50 text-blue-700 border border-blue-200/60 mb-2">
-              <Sparkles className="w-3 h-3 text-blue-600" />
-              <span>RBI Regulated NBFC Audit &amp; Play Store Monitor</span>
+        {/* Sleek Hero Header */}
+        <div className="relative overflow-hidden rounded-2xl border border-slate-200/80 bg-white/80 backdrop-blur-md p-6 sm:p-8 shadow-xs">
+          <div className="absolute top-0 right-0 -mt-8 -mr-8 w-64 h-64 bg-gradient-to-br from-blue-100/50 to-indigo-100/30 rounded-full blur-3xl pointer-events-none" />
+          
+          <div className="relative flex flex-col sm:flex-row sm:items-center justify-between gap-5">
+            <div className="space-y-2 max-w-2xl">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200/60 shadow-2xs">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
+                </span>
+                <span>RBI-Regulated NBFC Verification &amp; Play Store Audit</span>
+              </div>
+              
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-900">
+                Loan App Safety Checker
+              </h1>
+              
+              <p className="text-sm sm:text-[15px] text-slate-600 leading-relaxed">
+                Continuous deterministic risk intelligence for digital lending applications. Cross-referenced against the official <strong>Reserve Bank of India (DNBS) Register</strong> and sampled customer complaints.
+              </p>
             </div>
-            <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900">
-              Loan App Safety Checker
-            </h1>
-            <p className="text-sm text-slate-600 mt-1 max-w-2xl">
-              Deterministic risk assessment for Indian digital lending apps. Cross-referenced with the
-              official <strong>Reserve Bank of India (DNBS) Register</strong> and review sentiment.
-            </p>
-          </div>
 
-          <div className="flex items-center gap-2 self-start sm:self-center">
-            <button
-              onClick={() => loadData()}
-              className="px-3.5 py-2 rounded-xl text-xs font-semibold bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 hover:border-slate-300 shadow-2xs flex items-center gap-1.5 transition-all"
-              title="Reload live dataset"
-            >
-              <RefreshCw className={`w-3.5 h-3.5 ${isLoading ? 'animate-spin text-blue-600' : 'text-slate-500'}`} />
-              <span>Refresh</span>
-            </button>
-            <button
-              onClick={() => setIsScanModalOpen(true)}
-              className="px-3.5 py-2 rounded-xl text-xs font-semibold bg-blue-600 text-white hover:bg-blue-700 shadow-xs flex items-center gap-1.5 transition-all"
-            >
-              <span>Run Live Scan</span>
-            </button>
+            <div className="flex items-center gap-2.5 self-start sm:self-center shrink-0">
+              <button
+                onClick={() => loadData()}
+                className="px-3.5 py-2.5 rounded-xl text-xs font-semibold bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 hover:border-slate-300 shadow-2xs flex items-center gap-1.5 transition-all active:scale-95"
+                title="Reload live dataset"
+              >
+                <RefreshCw className={`w-3.5 h-3.5 ${isLoading ? 'animate-spin text-blue-600' : 'text-slate-500'}`} />
+                <span>Refresh Data</span>
+              </button>
+              
+              <button
+                onClick={() => setIsScanModalOpen(true)}
+                className="px-4 py-2.5 rounded-xl text-xs font-semibold bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-xs hover:shadow-md transition-all active:scale-95 flex items-center gap-1.5"
+              >
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>Run Live Scan</span>
+              </button>
+            </div>
           </div>
         </div>
 
@@ -168,9 +178,10 @@ export default function DashboardPage() {
         {loadError && (
           <div
             role="alert"
-            className="rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-xs text-rose-800 shadow-xs"
+            className="rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-xs text-rose-800 shadow-xs flex items-center justify-between"
           >
-            <strong>Notice:</strong> {loadError}
+            <span><strong>Notice:</strong> {loadError}</span>
+            <button onClick={() => loadData()} className="font-semibold underline ml-2 text-rose-900">Retry</button>
           </div>
         )}
 
@@ -217,11 +228,11 @@ export default function DashboardPage() {
         <div id="scan-history-section" className="pt-2">
           <button
             onClick={() => setShowHistory((prev) => !prev)}
-            className="w-full py-3 px-4 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 flex items-center justify-between text-xs font-semibold text-slate-700 transition-colors shadow-2xs"
+            className="w-full py-3.5 px-4 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 flex items-center justify-between text-xs font-semibold text-slate-700 transition-colors shadow-2xs"
           >
             <div className="flex items-center gap-2">
               <History className="w-4 h-4 text-blue-600" />
-              <span>Scan Audit History &amp; What Changed ({scanHistory.length} recorded runs)</span>
+              <span>Audit Run History &amp; Monitored Apps ({scanHistory.length} recorded runs)</span>
             </div>
             {showHistory ? <ChevronUp className="w-4 h-4 text-slate-400" /> : <ChevronDown className="w-4 h-4 text-slate-400" />}
           </button>
@@ -234,14 +245,44 @@ export default function DashboardPage() {
         </div>
 
         {/* Methodology Disclosure Callout */}
-        <div className="bg-blue-50/50 border border-blue-200/60 rounded-xl p-4 flex items-start gap-3 text-xs text-slate-600 leading-relaxed shadow-2xs">
-          <ShieldCheck className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
-          <p>
-            <strong>Investigation Methodology:</strong> Analyzes public Google Play store metadata and sampled
-            reviews for predatory indicators (7-day traps, contact harvesting, harassment). Scores are heuristic research aids; they do not certify legal compliance or creditworthiness.
-          </p>
+        <div className="bg-blue-50/60 border border-blue-200/70 rounded-xl p-4 sm:p-5 flex items-start gap-3.5 text-xs text-slate-600 leading-relaxed shadow-2xs">
+          <ShieldCheck className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
+          <div>
+            <strong className="text-slate-800">Investigation Methodology &amp; Regulatory Context:</strong>
+            <p className="mt-1">
+              Scans analyze public Google Play store metadata, permission disclosures, and sampled customer reviews for high-risk flags (7-day traps, contact scraping, abusive recovery agents). Assessments are heuristic research aids; they do not certify creditworthiness or replace official Reserve Bank of India DNBS notices.
+            </p>
+          </div>
         </div>
       </main>
+
+      {/* Floating Comparison Dock (Appears when 1-4 apps are checked) */}
+      {comparisonIds.length > 0 && (
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 bg-slate-900/95 text-white px-5 py-3 rounded-2xl shadow-2xl backdrop-blur-xl border border-slate-700/80 animate-in fade-in slide-in-from-bottom-4 duration-200">
+          <div className="flex items-center gap-2 text-xs font-medium pr-2 border-r border-slate-700">
+            <Scale className="w-4 h-4 text-blue-400" />
+            <span><strong>{comparisonIds.length}</strong> / 4 apps selected</span>
+          </div>
+          <button
+            onClick={openComparison}
+            disabled={comparisonIds.length < 2}
+            className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all ${
+              comparisonIds.length >= 2
+                ? 'bg-blue-600 hover:bg-blue-500 text-white shadow-xs cursor-pointer'
+                : 'bg-slate-800 text-slate-400 cursor-not-allowed'
+            }`}
+          >
+            <span>Compare Now</span>
+          </button>
+          <button
+            onClick={() => setComparisonIds([])}
+            className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+            title="Clear comparison selection"
+          >
+            <X className="w-4 h-4" />
+          </button>
+        </div>
+      )}
 
       {/* Clean Footer */}
       <footer className="border-t border-slate-200/80 bg-white py-6 text-center text-xs text-slate-500 mt-8">

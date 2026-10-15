@@ -10,17 +10,37 @@ from sqlalchemy.orm import declarative_base
 from app.core.config import settings
 
 # Engine setup
-db_url = settings.DATABASE_URL
+import urllib.parse
+import logging
+
+logger = logging.getLogger("loan_safety_checker")
+
+raw_db_url = settings.DATABASE_URL
+db_url = raw_db_url
+connect_args = {}
+
 if db_url.startswith("postgresql://"):
     db_url = db_url.replace("postgresql://", "postgresql+asyncpg://", 1)
 elif db_url.startswith("postgres://"):
     db_url = db_url.replace("postgres://", "postgresql+asyncpg://", 1)
 
-connect_args = {}
 if "sqlite" in db_url:
     connect_args["check_same_thread"] = False
 elif "asyncpg" in db_url:
     connect_args["statement_cache_size"] = 0
+    try:
+        parsed = urllib.parse.urlsplit(db_url)
+        query_params = urllib.parse.parse_qs(parsed.query)
+        # asyncpg throws TypeError if sslmode is passed directly in query string
+        sslmode = query_params.pop("sslmode", None)
+        if sslmode and sslmode[0] in ("require", "prefer", "verify-ca", "verify-full"):
+            connect_args["ssl"] = True
+        
+        # Reconstruct URL without sslmode query parameter
+        new_query = urllib.parse.urlencode([(k, v[0]) for k, v in query_params.items()])
+        db_url = urllib.parse.urlunsplit((parsed.scheme, parsed.netloc, parsed.path, new_query, parsed.fragment))
+    except Exception as parse_err:
+        logger.warning(f"Failed to parse database URL query params: {parse_err}")
 
 try:
     async_engine = create_async_engine(
@@ -30,9 +50,8 @@ try:
         future=True,
     )
 except Exception as exc:
-    import logging
-    logging.getLogger("loan_safety_checker").error(
-        f"Database engine init failed for {db_url}: {exc}. Falling back to SQLite."
+    logger.error(
+        f"Database engine init failed for {raw_db_url}: {exc}. Falling back to SQLite."
     )
     async_engine = create_async_engine(
         "sqlite+aiosqlite:///./loan_safety.db",

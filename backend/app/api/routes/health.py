@@ -4,19 +4,20 @@ from fastapi import APIRouter, Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import text
 from app.core.config import settings
-from app.db.session import get_db
+from app.db.session import async_engine
 from app.schemas.health import HealthResponse
 
 router = APIRouter(tags=["Health"])
 
 
 @router.get("/health", response_model=HealthResponse)
-async def check_health(db: AsyncSession = Depends(get_db)):
+async def check_health():
     """Reports system health, database connection, and collector status."""
     db_ok = False
     try:
-        await db.execute(text("SELECT 1"))
-        db_ok = True
+        async with async_engine.connect() as conn:
+            await conn.execute(text("SELECT 1"))
+            db_ok = True
     except Exception:
         db_ok = False
 
