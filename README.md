@@ -34,6 +34,53 @@ Illegal, predatory, and unauthorized digital lending applications continue to po
 
 **Loan App Safety Checker** provides continuous, evidence-grounded risk intelligence. It cross-checks developer identity against the official **Reserve Bank of India (RBI) Register of NBFCs**, audits store listing metadata, scans multi-language user feedback across 6 regional Indian languages, and evaluates a transparent, explainable 4-tier risk assessment.
 
+## ⚠️ Current Limitations
+
+### 1. Mobile Responsiveness
+The current interface is primarily optimized for desktop screens. Some components, including data tables, application comparison views, charts, and detailed investigation panels, may not provide the best user experience on smaller mobile screens.
+
+**Planned improvement:** Implement a fully responsive layout with mobile-friendly navigation, adaptive tables, collapsible sections, and optimized application detail views.
+
+### 2. Backend Availability and Request Timeouts
+The backend is hosted on Railway's free-tier infrastructure. Depending on the platform's current resource limits and service behavior, the backend may experience temporary unavailability, cold starts, or request timeouts. Consequently, the first request after a period of inactivity may take longer or fail.
+
+**Current workaround:** Run the FastAPI backend locally for a more predictable development and testing experience, provided the required dependencies, environment variables, and database connection are configured correctly.
+
+**Planned improvement:** Introduce more resilient request handling, appropriate timeouts, retries with exponential backoff, health monitoring, and a more reliable backend hosting configuration.
+
+### 3. Data Freshness and Assessment Coverage
+The application's findings depend on the availability, freshness, and completeness of publicly accessible Google Play Store information, user reviews, developer disclosures, and regulatory records. Some information may be unavailable, outdated, or incomplete.
+
+**Planned improvement:** Introduce scheduled data refreshes, source timestamps, evidence-level indicators, improved source verification, and clearer distinctions between verified facts, user allegations, and heuristic risk signals.
+
+---
+
+## 🔭 Future Improvements: Cybersecurity Roadmap
+
+The following enhancements could evolve the project into a more comprehensive digital lending application security intelligence platform.
+
+1. **Mobile Application Security Analysis:** Integrate authorized static analysis of Android APKs using tools such as MobSF to identify potentially risky permissions, insecure configurations, embedded secrets, insecure network communication, and vulnerable components.
+
+2. **Privacy and Permission Auditing:** Compare declared permissions with an application's stated purpose and flag potentially excessive access to contacts, SMS, call logs, location, and media. Treat permission findings as indicators requiring context, not proof of malicious behavior.
+
+3. **Developer and Infrastructure OSINT:** Correlate developer identities, official domains, privacy policies, certificate transparency records, and publicly available infrastructure intelligence to identify suspicious inconsistencies and possible impersonation.
+
+4. **Regulatory Verification:** Strengthen RBI NBFC and digital lending partner verification using authoritative, up-to-date records. Record source URLs, retrieval timestamps, entity matches, and verification confidence.
+
+5. **Review Manipulation Detection:** Use statistical analysis and NLP to identify repetitive reviews, unusual rating distributions, coordinated review patterns, and suspicious bursts of activity.
+
+6. **Explainable Risk Intelligence:** Provide an evidence-backed risk score with individual contributing signals, source citations, confidence levels, and uncertainty explanations rather than relying on ratings alone.
+
+7. **Automated Monitoring and Alerts:** Schedule authorized data refreshes and notify users when an app's listing, developer information, privacy policy, regulatory status, or complaint patterns change significantly.
+
+8. **API Security and Reliability:** Add stricter input validation, rate limiting, structured logging, secure secrets management, monitoring, caching, and resilient background jobs. Keep administrative scan endpoints authenticated and restrict access to authorized operators.
+
+9. **Testing and Quality Assurance:** Expand automated unit, integration, API security, and responsive UI tests. Add failure simulations for unavailable data sources, database disconnections, and slow backend responses.
+
+10. **Responsible Disclosure and Evidence Preservation:** Maintain timestamped evidence, reproducible assessment logic, data provenance, and a responsible process for reporting suspected security issues to the relevant developers or authorities.
+
+**Long-term vision:** Build a continuously updated, explainable cybersecurity intelligence platform that helps users investigate digital lending apps using public evidence, regulatory verification, privacy indicators, and authorized technical security analysis.
+
 > [!IMPORTANT]
 > **Heuristic Research Aid:** Assessments are deterministic research signals based on publicly available listing metadata, developer disclosures, and sampled user reviews. They do not constitute formal legal determinations, credit ratings, or certifications of safety.
 
